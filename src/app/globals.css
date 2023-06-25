@@ -1,3 +1,8 @@
+:root{
+  --transition-time: 0.5s;
+}
+
+/*
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -105,3 +110,4 @@ a {
     color-scheme: dark;
   }
 }
+*/

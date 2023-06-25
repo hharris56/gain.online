@@ -1,0 +1,56 @@
+.logo-container{
+    --img-size: 8em;
+    height: var(--img-size);
+    width: var(--img-size);
+    /* background-color: red; */
+    left: 4em;
+    top: 3.5em;
+
+    position: absolute;
+    cursor: pointer;
+}
+
+.logo{
+    height: var(--img-size);
+    width: var(--img-size);
+}
+
+.shadow{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.rotate{
+    transform: rotate(0deg);
+    transition: all 2s;
+}
+
+.rotate1{
+    transform: rotate(0deg);
+    transition: all 2s;
+    transition-delay: 0.05s;
+}
+
+.rotate2{
+    transform: rotate(0deg);
+    transition: all 2s;
+    transition-delay: 0.1s;
+}
+
+.logo-container:hover .rotate{
+    transform: rotate(360deg);
+    transition: all 5s;
+}
+
+.logo-container:hover .rotate1{
+    transform: rotate(360deg);
+    transition: all 5s;
+    transition-delay: 0.1s;
+}
+
+.logo-container:hover .rotate2{
+    transform: rotate(360deg);
+    transition: all 5s;
+    transition-delay: 0.2s;
+}

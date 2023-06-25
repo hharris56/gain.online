@@ -1,0 +1,36 @@
+.timeline-container{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+
+    padding: 1em;
+    margin-top: 2em;
+
+    /* background-color: red; */
+}
+
+.timeline-line{
+    width: 0.1em;
+    min-height: 100%;
+    margin: 0em 2em 0em 1em;
+
+    background-color: black;
+}
+
+.timeline-content{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* background-color: orangered; */
+}
+
+.timeline-item{
+    /* background-color: orange; */
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-gallery{
+    
+}

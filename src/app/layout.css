@@ -1,0 +1,9 @@
+.page-container{
+    /* padding: 2em; */
+    /* not used btw */
+    background-color: plum;
+
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2em;
+}

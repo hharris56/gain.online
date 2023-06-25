@@ -1,7 +1,26 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+import styles from './page.module.css';
+import checkDevice from '../check-device';
 
-export default function Home() {
+export default function Landing() {
+
+  const deviceInfo = checkDevice();
+
+  return (
+    <div>
+      <h1>content</h1>
+      <div>hey hi hello</div>
+    </div>
+  )
+
+  /*
+  return (
+    <div>
+      <div>waddup mr {deviceInfo[0]}</div>
+      <div>you {deviceInfo[1]? 'are' : 'are not'} on a mobile device</div>
+    </div>
+  )
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -92,4 +111,5 @@ export default function Home() {
       </div>
     </main>
   )
+  */
 }
