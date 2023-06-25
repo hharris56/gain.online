@@ -5,7 +5,7 @@ export default function VisualPage(){
     return (
         <div className='page-contianer'>
             <h1>gain design</h1>
-            <a>Some visual art projects and explorations from over the years. Different eras use differet approaches, toolsets and ideologies.</a>
+            <a>some visual art projects and explorations from over the years. different eras use differet approaches, toolsets and ideologies.</a>
             <Timeline />
         </div>
     )
