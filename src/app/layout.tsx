@@ -18,11 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <div style={{padding: "2em"}}>
+      <body className={inter.className} style={{padding: "2em"}}>
         <Header />
-          <div className={inter.className} style={{marginBottom: "2em"}}>{children}</div>
+          <div style={{marginBottom: "2em"}}>{children}</div>
         <Footer />
-      </div>
+      </body>
     </html>
   )
 }
