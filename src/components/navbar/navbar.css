@@ -30,7 +30,7 @@
     color: black;
     font-size: 1em;
 
-    filter: blur(0.1rem);
+    /* filter: blur(0.1rem); */
 }
 
 .navbar-button:hover{
