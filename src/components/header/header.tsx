@@ -3,7 +3,7 @@ import Navbar from "../navbar/navbar"
 import Link from "next/link"
 import Logo from "../logo/logo"
 
-export default function Header(){
+export default function Header(props: any){
     return (
         <div className="header-container">
           {/* <Link className="logo-container" href="/landing">

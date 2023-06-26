@@ -8,8 +8,8 @@ export default function Landing() {
 
   return (
     <div>
-      <h1>content</h1>
-      <div>hey hi hello</div>
+      <h1>gain online</h1>
+      <a>welcome to my corner of the web</a>
     </div>
   )
 

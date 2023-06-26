@@ -2,7 +2,8 @@ import Link from "next/link";
 import "./navbar.css";
 // import { useRouter } from "next/router";
 
-export default function Navbar(){
+export default function Navbar(props: any){
+
     return (
         <span className="navbar-container">
             <NavbarButton title="audio" route="/audio"></NavbarButton>
@@ -14,14 +15,12 @@ export default function Navbar(){
 
 interface ButtonProps{
     title: string,
-    route: string
+    route: string,
+    selected?: boolean,
 }
 function NavbarButton(props: ButtonProps){
 
-    // const _router = useRouter();
-
     return (
-        // <div className="navbar-button" onClick={() => _router.push(props.route)}>{props.title}</div>
-        <Link className="navbar-button" href={props.route}>{props.title}</Link>
+        <Link className="navbar-button button-blur" href={props.route}>{props.title}</Link>
     )
 }

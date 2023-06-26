@@ -32,5 +32,15 @@
 }
 
 .item-gallery{
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    padding: 1em 0em 1em 0em;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.image{
+    max-height: 20em;
+    margin: 1em;
 }
