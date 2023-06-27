@@ -43,4 +43,13 @@
 .image{
     max-height: 20em;
     margin: 1em;
+
+    filter: blur(1rem);
+    transition: filter .5s;
+
+    cursor: pointer;
+}
+
+.image:hover{
+    filter: none;
 }

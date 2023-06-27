@@ -1,9 +1,11 @@
 .page-container{
     /* padding: 2em; */
     /* not used btw */
-    background-color: plum;
+    /* background-color: plum; */
+    margin: 2rem;
+}
 
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 2em;
+.page-content{
+    margin-bottom: 2rem;
+    flex-grow: 1;
 }

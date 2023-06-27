@@ -14,6 +14,8 @@
 .logo{
     height: var(--img-size);
     width: var(--img-size);
+    transform: scale(1);
+    transition: transform 1s;
 }
 
 .shadow{
@@ -22,6 +24,7 @@
     left: 0;
 }
 
+/* rotate each individual to add delay */
 .rotate{
     transform: rotate(0deg);
     transition: all 2s;
@@ -54,4 +57,25 @@
     transform: rotate(360deg);
     transition: all 5s;
     transition-delay: 0.2s;
+}
+
+/* on click */
+.logo-container:active{
+    transform: scale(0.75);
+    transition: all 0.1s;
+}
+
+.logo-container:focus .rotate{
+    transform: rotate(0deg);
+    /* transition: all 0.2s; */
+}
+
+.logo-container:focus .rotate1{
+    transform: rotate(360deg);
+    /* transition: all 0.2s; */
+}
+
+.logo-container:focus .rotate2{
+    transform: rotate(360deg);
+    /* transition: all 0.2s; */
 }
