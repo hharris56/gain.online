@@ -47,13 +47,16 @@ function StarCharts(){
                 <a style={{color: "grey", fontSize: "0.75em"}}>2021</a>
             </div>
             <a style={{maxWidth: "100rem"}}>near the end of the accreation department series i decided to take a step back from that study. one thing that did carry over was the idea of low time investment. this series was intended to reflect the wonder that astronomy held when i was a child and the rigidty that physics brought it during high school. it was rather short lived with the fourth and final piece not even making it to release, but i am proud of how cohesive the whole study feels.</a>
-            <div className="item-gallery">
+            <div className="expand-button">
+                <img src="/logos/logo black.png" style={{maxHeight: "100%"}}/>
+            </div>
+            {/* <div className="item-gallery">
                 {pictures.map(pic => {
                     return (
                         <img className="image" src={`/visual/${pic}`}/>
                     )
                 })}
-            </div>
+            </div> */}
         </div>
     )
 }

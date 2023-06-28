@@ -8,46 +8,50 @@
     flex-direction: row;
     flex-grow: 1;
 
-    padding: 1em;
-    margin-top: 2em;
+    padding: 1rem 1rem 1rem 0rem;
+    margin-top: 2rem;
+    max-width: 100%;
 
     /* background-color: red; */
 }
 
 .timeline-line{
-    width: 0.1em;
+    min-width: 0.25rem;
     min-height: 100%;
-    margin: 0em 2em 0em 1em;
+    margin: 0rem 2rem 0rem 1rem;
 
-    background-color: black;
+    /* background-color: lightblue; */
+    background-image: linear-gradient(lightblue, white);
 }
 
 .timeline-content{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    max-width: 100%;
     /* background-color: orangered; */
 }
 
 .timeline-item{
     /* background-color: orange; */
-    margin-bottom: 5em;
+    margin-bottom: 5rem;
     display: flex;
     flex-direction: column;
 }
 
 .item-gallery{
     /* background-color: lightblue; */
-    padding: 1em 0em 1em 0em;
+    padding: 1rem 0rem 1rem 0rem;
 
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    max-width: 100%;
 }
 
 .image{
-    max-height: 20em;
-    margin: 1em;
+    max-height: 20rem;
+    margin: 1rem;
 
     /* filter: blur(1rem); */
     transition: filter .5s;
@@ -57,4 +61,21 @@
 
 .image:hover{
     filter: none;
+}
+
+.expand-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    height: 4rem;
+    /* background-color: blue; */
+    /* transition: all 5s; */
+    background-image: radial-gradient(circle at 50%, lightblue, white 30%);
+}
+
+.expand-button:hover{
+    transform: rotate(90);
+    background-color: lightblue;
 }
