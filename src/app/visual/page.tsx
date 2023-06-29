@@ -61,7 +61,7 @@ function StarCharts(){
                 <h3 style={{marginBottom: "0em"}}>star charts</h3>
                 <a style={{color: "grey", fontSize: "0.75em"}}>2021</a>
             </div>
-            <a style={{maxWidth: "100rem"}}>near the end of the accreation department series i decided to take a step back from that study. one thing that did carry over was the idea of low time investment. this series was intended to reflect the wonder that astronomy held when i was a child and the rigidty that physics brought it during high school. it was rather short lived with the fourth and final piece not even making it to release, but i am proud of how cohesive the whole study feels.</a>
+            <a style={{paddingRight: "3rem"}}>near the end of the accreation department series i decided to take a step back from that study. one thing that did carry over was the idea of low time investment. this series was intended to reflect the wonder that astronomy held when i was a child and the rigidty that physics brought it during high school. it was rather short lived with the fourth and final piece not even making it to release, but i am proud of how cohesive the whole study feels.</a>
             {
                 expanded? itemGallery : <></>
             }
@@ -120,7 +120,7 @@ function AccreationDepartment(){
                 <h3 style={{marginBottom: "0em"}}>accreation department</h3>
                 <a style={{color: "grey", fontSize: "0.75em"}}>2021</a>
             </div>
-            <a style={{maxWidth: "100rem"}}>my longest lasting study, the accreation department was a direct rejection of everything learned from compound abyss. the idea was to heavily prioritize quantity over quality and care as little as possible about each piece. embracing imperfection allowed for a higher output and in turn more opportunities to catch that spark of inspiration. this was in an effort to combat over analyzing my work, as getting caught up on inconsequential details was hindering my ability to create both sonically and visually at the time. the accreation department is also where the name gain originated, and prompted the creation of my current twitter account.</a>
+            <a style={{paddingRight: "3rem"}}>my longest lasting study, the accreation department was a direct rejection of everything learned from compound abyss. the idea was to heavily prioritize quantity over quality and spend as little time as possible second guessing decisions or direction. embracing imperfection allowed for a higher output and in turn more opportunities to catch that spark of inspiration... it really was the epitome of thowing everything at the wall and seeing what worked. at the time i was feeling very stuck in a routine, both creatively and in general so i guess spending 15 minutes a day designing whatever was on my mind provided a much needed change of pace. the accreation department is where the name gain originated, and it also prompted the creation of my current twitter account.</a>
             {
                 expanded? itemGallery : <></>
             }

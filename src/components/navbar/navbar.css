@@ -13,9 +13,9 @@
     transition: all 0.2s;
 }
 
-.navbar-container:hover{
+/* .navbar-container:hover{
     height: 2.5rem;
-}
+} */
 
 .navbar-button{
     height: 100%;
@@ -38,6 +38,8 @@
 
 .navbar-button:hover{
     background-color: transparent;
+    /* height: 2.5rem; */
+    font-weight: 600;
 }
 
 
