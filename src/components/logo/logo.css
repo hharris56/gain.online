@@ -42,6 +42,7 @@
     transition-delay: 0.1s;
 }
 
+/* on hover */
 .logo-container:hover .rotate{
     transform: rotate(360deg);
     transition: all 5s;

@@ -68,14 +68,24 @@
     justify-content: center;
     align-items: center;
 
+    margin-top: 0.5rem;
     padding: 0.5rem 0rem 0.5rem 0rem;
-    height: 4rem;
-    /* background-color: blue; */
-    /* transition: all 5s; */
-    background-image: radial-gradient(circle at 50%, lightblue, white 30%);
+    height: 2rem;
+    background-color: white;
+    transition: all 1s;
 }
 
 .expand-button:hover{
     transform: rotate(90);
     background-color: lightblue;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.open{
+    transform: rotate(45deg);
+}
+
+.closed{
+    transform: rotate(0deg);
 }
