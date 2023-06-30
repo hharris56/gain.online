@@ -34,12 +34,14 @@
     color: black;
     border-color: white;
     font-size: 1em;
+    letter-spacing: normal;
 }
 
 .navbar-button:hover{
     background-color: transparent;
     /* height: 2.5rem; */
     font-weight: 600;
+    letter-spacing: 0.1rem;
 }
 
 
