@@ -49,7 +49,7 @@ function StarCharts(){
         <div className="item-gallery">
             {pictures.map(pic => {
                 return (
-                    <img className="image" src={`/visual/${pic}`}/>
+                    <img key={pic} className="image" src={`/visual/${pic}`}/>
                 )
             })}
         </div>
@@ -108,7 +108,7 @@ function AccreationDepartment(){
         <div className="item-gallery">
             {pictures.map(pic => {
                 return (
-                    <img className="image" src={`/visual/${pic}`}/>
+                    <img key={pic} className="image" src={`/visual/${pic}`}/>
                 )
             })}
         </div>
