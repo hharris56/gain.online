@@ -1,0 +1,26 @@
+.post-container{
+    margin: 1rem;
+    max-width: 100%;
+    filter: drop-shadow(-100px, 0px, 1rem, red);
+    padding: 0rem 0rem 0.5rem 0rem;
+    margin-bottom: 2rem;
+    /* background-color: blue; */
+
+    display: flex;
+    flex-direction: row;
+}
+
+.post-divider{
+    min-width: 100%;
+    min-height: 0.25rem;
+    /* background-image: linear-gradient(90deg, white, lightblue); */
+}
+
+.timeline-line{
+    min-width: 0.2em;
+    min-height: 100%;
+    margin: 0em 2em 0em 1em;
+
+    background-image: linear-gradient(lightblue, white);
+    /* background-color: black; */
+}

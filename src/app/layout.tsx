@@ -18,9 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{padding: "2em"}}>
+      <body className={inter.className} style={{padding: "2rem"}}>
         <Header />
-        <div style={{marginBottom: "2em"}}>{children}</div>
+          <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
         <Footer />
       </body>
     </html>
