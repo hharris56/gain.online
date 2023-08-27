@@ -1,9 +1,10 @@
 .post-container{
-    margin: 1rem;
+    /* margin: 1rem; */
     max-width: 100%;
     filter: drop-shadow(-100px, 0px, 1rem, red);
     padding: 0rem 0rem 0.5rem 0rem;
     margin-bottom: 2rem;
+    margin-left: 0rem;
     /* background-color: blue; */
 
     display: flex;
@@ -17,10 +18,8 @@
 }
 
 .timeline-line{
-    min-width: 0.2em;
+    min-width: 0.25rem;
     min-height: 100%;
-    margin: 0em 2em 0em 1em;
-
+    margin: 0rem 2rem 0rem 1rem;
     background-image: linear-gradient(lightblue, white);
-    /* background-color: black; */
 }

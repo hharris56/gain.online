@@ -5,20 +5,33 @@ import React from "react"
 export default function Posts(){
     return (
         <React.Fragment>
+            <ExpressiveWriting/>
             <UnrealNumbers/>
             <TeslasAndReligion/>
         </React.Fragment>
     )
 }
 
+function ExpressiveWriting(){
+    return (
+        <BlogPost title="expressive writing" date="24 august 2023 - 12:00pm">
+            i read an excerpt the other day posted by none other than gum himself (link to twitter here) that spoke in favor of using font to express emphasis. this is something that ive always felt innately drawn to, ie the use of <b>bold</b> and <i>italics</i> and maybe even some <u>underline</u>, but this post got me thinking of how far this could be taken, especially in the use of font size and family.
+            <Break/>
+            unfortunately, there are no easily accessible html tags for doing this like the previously used &lt;b&gt;, &lt;i&gt;, and &lt;u&gt; respectively... 
+            <Break/>
+            <a className="style-emphasis">but.</a> that simply means we are presented with an opportunity to create our own tags, with <a className="style-spread">layers upon layers</a> of personality, forever expanding our expressive ability in writing. this is exciting news, and im looking forward to employing this technique in future posts.
+        </BlogPost>
+    )
+}
+
 function UnrealNumbers(){
     return (
         <BlogPost title="unreal numbers" date="15 july 2023 - 2:40pm">
-            there is something to be said about how good the word <b>gazillion</b> sounds. like that word has no real numeric value, but you know that whoever is saying it (most likely someone under the age of 5) is referring to some number so large they don't know the actual name, but gazillion <i>sounds</i> like it could do the trick.
+            there is something to be said about how good the word <b>gazillion</b> sounds. like that word has no real numeric value so you know that whoever is saying it (most likely someone under the age of 5) is referring to some number so large they don't know the actual name, but gazillion <i>sounds</i> like it could do the trick.
             <Break/>
             as we grow older and become more educated these words are used less and less because we have more real words to fall back on - after a trillion comes a quadrillion, then a quintillion and so on and so forth - but i think we lose something more than just fun sounds when we stop using words like bajillion. some words transcend their definitions in ways that are hard to articulate. they begin to convey ideas that are intangible, and would be otherwise difficult to relay in normal conversation. im going to refer to this as 'implied' meaning, but basically any word that uses context more-so than definition could fall into this category.
             <Break/>
-            the thing about these words is they are, in some sense, more natural than normal words. at their core words are used to get an idea from my head into yours. and some ideas, like the idea of an unimaginably large yet still finite (and therefore quantifiable) number require a lot of effort and understanding to pass from me to you. this is where <i>unreal numbers</i> excel. the fact that they have no real definition, no numeric value tied to them, but instead have the implied meaning of an extremely large amount allows us to say "it'll cost you a gazillion dollars" and everyone of any age understands that they simply cannot afford it.
+            the thing about these words is they are, in some sense, more natural than normal words. at their most fundamental interpretation words are used to get an idea from my head into yours. and some ideas, like the idea of an unimaginably large yet still finite (and therefore quantifiable) number require a lot of effort and understanding to pass from me to you. this is where <i>unreal numbers</i> excel. the fact that they have no real definition, no numeric value tied to them, but instead have the implied meaning of an extremely large amount allows us to say "it'll cost you a gazillion dollars" and everyone of any age understands that they simply cannot afford it.
             <Break/>
             on a side note i think we should have a power ranking of these unreal numbers. like i would put money on a bajillion be larger than a germillion, but i do think that a gazillion outclasses the rest by a suitable margin.
         </BlogPost>
