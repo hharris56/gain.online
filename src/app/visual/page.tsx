@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import './visual.css'
-// import Timeline from '../../components/timeline/timeline'
 
 
 export default function VisualPage(){
@@ -18,36 +17,28 @@ export default function VisualPage(){
 function Timeline(){
     return(
         <div className="timeline-container">
-            <div className="timeline-line" />
             <div className="timeline-content">
-                <StarCharts />
-                <AccretionDepartment />
-                <TimelineItem>compound abyss</TimelineItem>
-                <TimelineItem>early work</TimelineItem>
+                <StarCharts/>
+                <AccretionDepartment/>
+                {/* <TimelineItem>compound abyss</TimelineItem>
+                <TimelineItem>early work</TimelineItem> */}
             </div>
         </div>
     )
 }
+interface TimelineProps {
+    title: string;
+    date: string;
+    children: any;
+    pictures: string[];
 
-function TimelineItem(props: any){
-    return (
-        <div className="timeline-item">{props.children}</div>
-    )
 }
-
-function StarCharts(){
-
-    const pictures = [
-        "elevation.png",
-        "momentum.png",
-        "optics.png",
-        "magnetism.png"
-    ]
+function TimelineItem(props: TimelineProps){
 
     var [expanded, setExpanded] = useState(false);
     var itemGallery = (
         <div className="item-gallery">
-            {pictures.map(pic => {
+            {props.pictures.map(pic => {
                 return (
                     <img key={pic} className="image" src={`/visual/${pic}`}/>
                 )
@@ -55,25 +46,42 @@ function StarCharts(){
         </div>
     )
 
-    return(
-        <div className="timeline-item">
-            <div style={{marginBottom: "1em"}}>
-                <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>star charts</h2>
-                <a style={{color: "grey", fontSize: "0.75em"}}>2021</a>
-            </div>
-            <a style={{paddingRight: "3rem"}}>near the end of the accretion department series i decided to take a step back from that study. one thing that did carry over was the idea of low time investment. this series was intended to reflect the wonder that astronomy held when i was a child and the rigidty that physics brought it during high school. it was rather short lived with the fourth and final piece not even making it to release, but i am proud of how cohesive the whole study feels.</a>
-            {
-                expanded? itemGallery : <></>
-            }
-            <div className="expand-button" onClick={() => setExpanded(!expanded)}>
-                <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className={(expanded ? "open" : "closed")}/>
+    return (
+        <div style={{display: "flex", flexDirection: "row"}}>
+            <div className="line-decoration" />
+            <div className="timeline-item">
+                <div style={{marginBottom: "1em"}}>
+                    <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>{props.title}</h2>
+                    <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
+                </div>
+                <a style={{paddingRight: "3rem"}}>{props.children}</a>
+                {
+                    expanded? itemGallery : <></>
+                }
+                <div className="expand-button" onClick={() => setExpanded(!expanded)}>
+                    <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className={(expanded ? "open" : "closed")}/>
+                </div>
             </div>
         </div>
     )
 }
 
-function AccretionDepartment(){
+function StarCharts(){
+    const pictures = [
+        "elevation.png",
+        "momentum.png",
+        "optics.png",
+        "magnetism.png"
+    ]
 
+    return (
+        <TimelineItem title="star charts" date="2021" pictures={pictures}>
+            near the end of the accretion department series i decided to take a step back from that study. one thing that did carry over was the idea of low time investment. this series was intended to reflect the wonder that astronomy held when i was a child and the rigidty that physics brought it during high school. it was rather short lived with the fourth and final piece not even making it to release, but i am proud of how cohesive the whole study feels.
+        </TimelineItem>
+    )
+}
+
+function AccretionDepartment(){
     const pictures = [
         "human condition.png",
         "lazarus awoke.png",
@@ -103,30 +111,9 @@ function AccretionDepartment(){
         "genesis.jpg"
     ];
 
-    var [expanded, setExpanded] = useState(false);
-    var itemGallery = (
-        <div className="item-gallery">
-            {pictures.map(pic => {
-                return (
-                    <img key={pic} className="image" src={`/visual/${pic}`}/>
-                )
-            })}
-        </div>
-    )
-
-    return(
-        <div className="timeline-item">
-            <div style={{marginBottom: "1em"}}>
-                <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>accretion department</h2>
-                <a style={{color: "grey", fontSize: "0.75em"}}>2021</a>
-            </div>
-            <a style={{paddingRight: "3rem"}}>my longest lasting study, the accretion department was a direct rejection of everything learned from compound abyss. the idea was to heavily prioritize quantity over quality and spend as little time as possible second guessing decisions or direction. embracing imperfection allowed for a higher output and in turn more opportunities to catch that spark of inspiration... it really was the epitome of thowing everything at the wall and seeing what worked. at the time i was feeling very stuck in a routine, both creatively and in general so i guess spending 15 minutes a day designing whatever was on my mind provided a much needed change of pace. the accretion department is where the name gain originated, and it also prompted the creation of my current twitter account.</a>
-            {
-                expanded? itemGallery : <></>
-            }
-            <div className="expand-button" onClick={() => setExpanded(!expanded)}>
-                <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className={(expanded ? "open" : "closed")}/>
-            </div>
-        </div>
+    return (
+        <TimelineItem title="accretion department" date="2021" pictures={pictures}>
+            my longest lasting study, the accretion department was a direct reaction to the drawn out ending of compound abyss. my idea going into the study was to heavily prioritize quantity over quality and spend as little time as possible second guessing decisions or direction. embracing imperfection allowed for a higher output and in turn more opportunities to catch that spark of inspiration... it really was the epitome of throwing everything at the wall and seeing what worked. at the time i was feeling very stuck in a routine, both creatively and in general so i guess spending 15 minutes a day designing whatever was on my mind provided a much needed change of pace. the accretion department is where the name gain originated, and it also prompted the creation of my current twitter account.
+        </TimelineItem>
     )
 }

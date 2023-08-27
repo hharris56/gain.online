@@ -10,13 +10,6 @@
     /* background-color: red; */
 }
 
-.timeline-line{
-    min-width: 0.25rem;
-    min-height: 100%;
-    margin: 0rem 2rem 0rem 1rem;
-    background-image: linear-gradient(lightblue, white);
-}
-
 .timeline-content{
     display: flex;
     flex-direction: column;

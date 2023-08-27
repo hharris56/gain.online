@@ -16,10 +16,3 @@
     min-height: 0.25rem;
     /* background-image: linear-gradient(90deg, white, lightblue); */
 }
-
-.timeline-line{
-    min-width: 0.25rem;
-    min-height: 100%;
-    margin: 0rem 2rem 0rem 1rem;
-    background-image: linear-gradient(lightblue, white);
-}
