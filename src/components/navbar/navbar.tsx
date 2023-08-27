@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link";
 import "./navbar.css";
+import { useState } from "react";
 // import { useRouter } from "next/router";
 
 export default function Navbar(props: any){
@@ -22,6 +25,11 @@ interface ButtonProps{
 function NavbarButton(props: ButtonProps){
 
     return (
-        <Link className="navbar-button button-blur" href={props.route}>{props.title}</Link>
+        <Link 
+        className="navbar-button"
+        href={props.route} 
+        key={props.title}>
+            {props.title}
+        </Link>
     )
 }

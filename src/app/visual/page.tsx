@@ -16,16 +16,15 @@ export default function VisualPage(){
 
 function Timeline(){
     return(
-        <div className="timeline-container">
-            <div className="timeline-content">
-                <StarCharts/>
-                <AccretionDepartment/>
-                {/* <TimelineItem>compound abyss</TimelineItem>
-                <TimelineItem>early work</TimelineItem> */}
-            </div>
+        <div className="content-container">
+            <StarCharts/>
+            <AccretionDepartment/>
+            {/* <TimelineItem>compound abyss</TimelineItem>
+            <TimelineItem>early work</TimelineItem> */}
         </div>
     )
 }
+
 interface TimelineProps {
     title: string;
     date: string;
@@ -47,7 +46,7 @@ function TimelineItem(props: TimelineProps){
     )
 
     return (
-        <div style={{display: "flex", flexDirection: "row"}}>
+        <div style={{display: "flex", flexDirection: "row"}} className="post-container">
             <div className="line-decoration" />
             <div className="timeline-item">
                 <div style={{marginBottom: "1em"}}>
@@ -61,6 +60,7 @@ function TimelineItem(props: TimelineProps){
                 <div className="expand-button" onClick={() => setExpanded(!expanded)}>
                     <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className={(expanded ? "open" : "closed")}/>
                 </div>
+                <div className="post-divider"/>
             </div>
         </div>
     )

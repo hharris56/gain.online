@@ -1,5 +1,5 @@
 import "./posts.css"
-import { Break, BlogPost } from "../../../components/blog/blog"
+import { Break, BlogPost } from "../../../components/blog/blogPost"
 import React from "react"
 
 export default function Posts(){
@@ -7,7 +7,7 @@ export default function Posts(){
         <React.Fragment>
             <ExpressiveWriting/>
             <UnrealNumbers/>
-            <TeslasAndReligion/>
+            {/* <TeslasAndReligion/> */}
         </React.Fragment>
     )
 }
@@ -19,7 +19,7 @@ function ExpressiveWriting(){
             <Break/>
             unfortunately, there are no easily accessible html tags for doing this like the previously used &lt;b&gt;, &lt;i&gt;, and &lt;u&gt; respectively... 
             <Break/>
-            <a className="style-emphasis">but.</a> that simply means we are presented with an opportunity to create our own tags, with <a className="style-spread">layers upon layers</a> of personality, forever expanding our expressive ability in writing. this is exciting news, and im looking forward to employing this technique in future posts.
+            <a className="style-emphasis">HOWEVER,</a> this means we are presented with an opportunity to create our own tags, with <a className="style-spread">layers upon layers</a> of personality, forever expanding our expressive ability in writing. that is exciting news, and im looking forward to employing this technique in future posts.
         </BlogPost>
     )
 }

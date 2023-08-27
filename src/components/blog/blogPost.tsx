@@ -1,5 +1,3 @@
-import './blog.css'
-
 function Break(){
     return (
         <div style={{margin: "1em"}} />
