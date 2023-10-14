@@ -60,7 +60,6 @@ function TimelineItem(props: TimelineProps){
                 <div className="expand-button" onClick={() => setExpanded(!expanded)}>
                     <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className={(expanded ? "open" : "closed")}/>
                 </div>
-                <div className="post-divider"/>
             </div>
         </div>
     )

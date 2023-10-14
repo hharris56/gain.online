@@ -36,6 +36,8 @@
     letter-spacing: 0.25rem;
     text-decoration: none;
 
+    z-index: 1;
+
     /* filter: blur(1rem) */
 }
 
