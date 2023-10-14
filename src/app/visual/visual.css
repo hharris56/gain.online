@@ -16,20 +16,25 @@
 .item-gallery{
     /* background-color: lightblue; */
     padding: 1rem 0rem 1rem 0rem;
+    max-width: calc(100vw - 10rem);
 
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 100%;
+    overflow: scroll;
+    /* position: relative; */
+}
+
+.item-gallery-content{
+    display: flex;
+    /* justify-content: space-around; */
+    min-width: 100%;
+    /* animation: scroll 5s linear infinite alternate; */
+    max-height: 20rem;
 }
 
 .image{
-    max-height: 20rem;
-    margin: 1rem;
-
-    transition: filter .5s;
-
     cursor: pointer;
+    margin: 1rem;
+    max-height: 100%;
 }
 
 .image:hover{

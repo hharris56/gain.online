@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import './visual.css'
+import { Rowdies } from 'next/font/google';
 
 
 export default function VisualPage(){
@@ -35,17 +36,21 @@ interface TimelineProps {
 function TimelineItem(props: TimelineProps){
 
     var [expanded, setExpanded] = useState(false);
+    var galleryContent = props.pictures.map(pic => {
+        return (
+            <img key={pic} className="image" src={`/visual/${pic}`}/>
+        )
+    });
     var itemGallery = (
         <div className="item-gallery">
-            {props.pictures.map(pic => {
-                return (
-                    <img key={pic} className="image" src={`/visual/${pic}`}/>
-                )
-            })}
+            <div className='item-gallery-content'>
+                {galleryContent}
+            </div>
         </div>
     )
 
     return (
+        
         <div style={{display: "flex", flexDirection: "row"}} className="post-container">
             <div className="line-decoration" />
             <div className="timeline-item">
@@ -75,7 +80,7 @@ function StarCharts(){
 
     return (
         <TimelineItem title="star charts" date="2021" pictures={pictures}>
-            near the end of the accretion department series i decided to take a step back from that study. one thing that did carry over was the idea of low time investment. this series was intended to reflect the wonder that astronomy held when i was a child and the rigidty that physics brought it during high school. it was rather short lived with the fourth and final piece not even making it to release, but i am proud of how cohesive the whole study feels.
+            near the end of the accretion department series i decided to take a step back from that study. one thing that did carry over was the idea of low time investment. this series was intended to reflect the wonder that astronomy held when i was a child and the rigidity that physics brought it during high school. it was rather short lived with the fourth and final piece not even making it to release, but i am proud of how cohesive the whole study feels.
         </TimelineItem>
     )
 }
