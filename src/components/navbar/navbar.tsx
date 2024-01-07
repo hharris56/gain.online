@@ -12,7 +12,7 @@ export default function Navbar(props: any){
             <NavbarButton title="audio" route="/audio"></NavbarButton>
             <NavbarButton title="visual" route="/visual"></NavbarButton>
             <NavbarButton title="code" route="/code"></NavbarButton>
-            <NavbarButton title="blog" route="/blog"></NavbarButton>
+            {/* <NavbarButton title="blog" route="/blog"></NavbarButton> */}
         </span>
     )
 }
