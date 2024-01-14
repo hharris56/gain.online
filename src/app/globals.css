@@ -1,6 +1,6 @@
 :root{
   --transition-time: 0.5s;
-  --accent-color: lightblue; /*#55a7ff*/
+  --accent-color: lightblue; /*#ADD8E6 <- this one #55a7ff*/
 }
 
 .line-decoration{

@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from "react"
 import { Break, BlogPost } from "../../../components/blog/blogPost"
+import MediaPlayer from "../../../components/mediaPlayer/mediaPlayer";
 import "./posts.css"
 import { getFromMasterDict } from "../../visual/artMasterList";
 import Gallery from "../../../components/gallery/gallery";
@@ -9,13 +10,14 @@ export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Jan14pt2 key="1/14-2"/>,
         <Jan14 key="1/14"/>,
         <Jan13 key="1/13"/>,
         <Jan7 key="1/7"/>
     ]
     return (
         <React.Fragment>
-            {expanded ? posts : posts.slice(0, 2)}
+            {expanded ? posts : posts.slice(0, 3)}
             <div className="expand-button" onClick={() => setExpanded(!expanded)}>
                 {!expanded ?
                 <div style={{display:"flex", flexDirection:"row", width:"fit-content"}}>
@@ -27,6 +29,25 @@ export default function Posts(){
                 }
             </div>
         </React.Fragment>
+    )
+}
+function Jan14pt2(){
+    var player = MediaPlayer(1709548257)
+
+    return (
+        <BlogPost title="musical addition" date="14 january 2024 - 1:03am">
+            did some refactoring and figured out the soundcloud embedding pretty quickly so heres
+            that new track. really really happy with how this one turned out... it actually
+            inspired a mini project ive dubbed 'commuter'. More info on that later.
+            {player}
+            fyi, this soundcloud embed is just an interm solution until i figure out a better way to display
+            my audio work. this is the year i will put my music on major distibuting platforms, fingers crossed
+            i get to that sooner rather than later.
+            <Break/>
+            chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
@@ -73,7 +94,7 @@ function Jan7(){
     return (
         <BlogPost title="wip" date="7 january 2024 - 1:05pm">
             moving things around a bit. going to have the landing page function as a feed
-            for new things. also gonna expand the types of posts to better suit songs / drawings
+            for new things. also gonna expand the types of posts to better suit songs / drawings.
             <Break/>
             + gain
         </BlogPost>
