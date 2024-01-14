@@ -7,9 +7,9 @@ interface GalleryProps{
     collectionName: string,
 }
 function Gallery(props: GalleryProps){
-    var galleryContent = props.images.map((pic: string) => {
+    var galleryContent = props.images.map((imageName: string) => {
         return (
-            <GalleryImage imageName={pic} collectionName={props.collectionName}></GalleryImage>
+            <GalleryImage key={imageName} imageName={imageName} collectionName={props.collectionName}/>
         )
     });
     var itemGallery = (
@@ -33,7 +33,7 @@ function GalleryImage(props: GalleryImageProps){
     return (
         <div className="gallery-item">
             <Link href={href}>
-                <img key={props.imageName} 
+                <img key={"img:" + props.imageName} 
                 className="image-base gallery-image" src={`/art/${props.imageName}`}/>
             </Link>
             <div className="image-info-card" style={{fontSize: ".15rem"}}>

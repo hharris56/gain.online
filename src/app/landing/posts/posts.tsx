@@ -35,7 +35,7 @@ function Jan14pt2(){
     var player = MediaPlayer(1709548257)
 
     return (
-        <BlogPost title="musical addition" date="14 january 2024 - 1:03am">
+        <BlogPost title="musical addition" date="14 january 2024 - 1:03pm">
             did some refactoring and figured out the soundcloud embedding pretty quickly so heres
             that new track. really really happy with how this one turned out... it actually
             inspired a mini project ive dubbed 'commuter'. More info on that later.
@@ -58,10 +58,7 @@ function Jan14(){
     ]
     return (
         <BlogPost title="it begins" date="14 january 2024 - 11:20am">
-            whelp, here we are. the first of many weekly updates for 2024. overachieved a bit and created 
-            more than expected but im going to keep the minimum requirement still at one per week. still havent
-            figured out how i should display both art and music in the same blog post so for now you just get 
-            the new drawings.
+            well, here we are. the first of many weekly updates for 2024. overachieved a bit this week and created more than expected but im going to keep the minimum requirement at one per week. still havent figured out how i should display both art and music in the same blog post so for now you just get the new drawings.
             <div>
                 <Gallery images={newImages} collectionName="cars!" />
             </div>
