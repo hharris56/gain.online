@@ -72,4 +72,8 @@ function certificateText(shortName: string){
     return `this card certifies that the artist, gain, declares the accompanying piece of artwork titled '${shortName}' to be an authentic, original, and unique piece of his own creative efforts.`
 }
 
-export {ArtMasterList, ArtMasterDict, certificateText};
+function getFromMasterDict(collectionName: string, imageName: string){
+    return (ArtMasterDict[collectionName] || "")[imageName] || ""
+}
+
+export {ArtMasterList, ArtMasterDict, certificateText, getFromMasterDict};

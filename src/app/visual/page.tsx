@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './visual.css'
 import { ArtMasterList, certificateText } from './artMasterList';
 import { Rowdies } from 'next/font/google';
-import Link from 'next/link';
+import Gallery from '../../components/gallery/gallery';
 
 
 export default function VisualPage(){
@@ -31,19 +31,7 @@ interface TimelineProps {
 function TimelineItem(props: TimelineProps){
 
     var [expanded, setExpanded] = useState(true);
-    var galleryContent = props.pictures.map((pic: string) => {
-        return (
-            // <img key={pic} className="image" src={`/visual/${pic}`}/>
-            <GalleryImage imageName={pic} collectionName={props.title}></GalleryImage>
-        )
-    });
-    var itemGallery = (
-        <div className="item-gallery">
-            <div className='item-gallery-content'>
-                {galleryContent}
-            </div>
-        </div>
-    )
+    var itemGallery = <Gallery collectionName={props.title} images={props.pictures}/>
 
     return (
         <div style={{display: "flex", flexDirection: "row"}} className="post-container">
@@ -60,25 +48,6 @@ function TimelineItem(props: TimelineProps){
                 {/* <div className="expand-button" onClick={() => setExpanded(!expanded)}>
                     <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className={(expanded ? "open" : "closed")}/>
                 </div> */}
-            </div>
-        </div>
-    )
-}
-interface GalleryImageProps{
-    imageName: string,
-    collectionName: string,
-}
-function GalleryImage(props: GalleryImageProps){
-    const shortName = (props.imageName.split("/").pop() || "").split(".")[0]
-    const href = `/visual/${props.collectionName}/${shortName}`
-
-    return (
-        <div className="gallery-item">
-            <Link href={href}>
-                <img key={props.imageName} className="image" src={`/art/${props.imageName}`}/>
-            </Link>
-            <div className="image-info-card" style={{fontSize: ".15rem"}}>
-                {certificateText(shortName)}
             </div>
         </div>
     )

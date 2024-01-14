@@ -1,0 +1,29 @@
+
+.item-gallery{
+    /* background-color: lightblue; */
+    padding: 1rem 0rem 1rem 0rem;
+    max-width: calc(100vw - 10rem);
+
+    display: flex;
+    overflow: scroll;
+    /* position: relative; */
+}
+
+.item-gallery-content{
+    display: flex;
+    /* justify-content: space-around; */
+    min-width: 100%;
+    /* animation: scroll 5s linear infinite alternate; */
+    max-height: 20rem;
+}
+
+.gallery-item{
+    margin: 1rem 1rem 1rem 1rem;
+    max-height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery-image{
+    max-height: 18rem;
+}

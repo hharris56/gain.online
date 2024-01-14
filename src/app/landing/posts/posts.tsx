@@ -2,19 +2,21 @@
 import React, { useState } from "react"
 import { Break, BlogPost } from "../../../components/blog/blogPost"
 import "./posts.css"
+import { getFromMasterDict } from "../../visual/artMasterList";
+import Gallery from "../../../components/gallery/gallery";
 
 export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
-        <Jan13/>,
-        <Jan7/>
+        <Jan14 key="1/14"/>,
+        <Jan13 key="1/13"/>,
+        <Jan7 key="1/7"/>
     ]
     return (
         <React.Fragment>
-            {expanded ? posts : posts.slice(0, 1)}
+            {expanded ? posts : posts.slice(0, 2)}
             <div className="expand-button" onClick={() => setExpanded(!expanded)}>
-                {/* <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className={(expanded ? "open" : "closed")}/> */}
                 {!expanded ?
                 <div style={{display:"flex", flexDirection:"row", width:"fit-content"}}>
                     <h1 className="dotdotdot">.</h1>
@@ -25,6 +27,27 @@ export default function Posts(){
                 }
             </div>
         </React.Fragment>
+    )
+}
+
+function Jan14(){
+    var newImages = [
+        getFromMasterDict("cars!", "saab"),
+        getFromMasterDict("cars!", "f150")
+    ]
+    return (
+        <BlogPost title="it begins" date="14 january 2024 - 11:20am">
+            whelp, here we are. the first of many weekly updates for 2024. overachieved a bit and created 
+            more than expected but im going to keep the minimum requirement still at one per week. still havent
+            figured out how i should display both art and music in the same blog post so for now you just get 
+            the new drawings.
+            <div>
+                <Gallery images={newImages} collectionName="cars!" />
+            </div>
+            think im going to flesh out the audio tab now, chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
