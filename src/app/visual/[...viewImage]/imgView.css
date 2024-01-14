@@ -1,0 +1,12 @@
+.view-image{
+    max-width: 60vw;
+    max-height: 100vh;
+    filter: drop-shadow(rgb(171, 170, 170) 0 0 0.05rem)
+}
+
+.view-image-container{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
