@@ -15,7 +15,7 @@ function BlogPost(props: BlogProps){
         <div className="post-container" key={props.title}>
             <div className="line-decoration" />
             <div style={{marginRight: "2rem"}}>
-                <h2 style={{marginBottom: "0rem", marginTop: "0rem"}}>{props.title}</h2>
+                <h3 style={{marginBottom: "0rem", marginTop: "0rem"}}>{props.title}</h3>
                 <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
                 <Break/>
                 {props.children}

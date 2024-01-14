@@ -31,12 +31,31 @@
     max-height: 20rem;
 }
 
-.image{
-    cursor: pointer;
-    margin: 1rem;
+.gallery-item{
+    margin: 1rem 5rem 1rem 1rem;
     max-height: 100%;
+    max-width: 40rem;
+    display: flex;
+    flex-direction: row;
 }
 
-.image:hover{
-    filter: none;
+.image{
+    cursor: pointer;
+    max-height: 18rem;
+    filter: drop-shadow(rgb(171, 170, 170) 0 0 0.05rem)
+}
+
+.image-info-card{
+    width: 3rem;
+    height: 1.5rem;
+    background-color: white;
+    filter: drop-shadow(rgb(171, 170, 170) 0 0 0.05rem);
+    margin: 15rem 0rem 0rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    font-size: 3px;
+    padding: 0.1rem;
 }

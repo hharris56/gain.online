@@ -57,15 +57,30 @@
   animation-fill-mode: forwards;
 }
 
-@keyframes gradient-move {
-  from {background-position: 0%;}
-  to {background-position: 100%;}
-}
-
 .open{
   transform: rotate(45deg);
 }
 
 .closed{
   transform: rotate(0deg);
+}
+
+@keyframes gradient-move {
+  from {background-position: 0%;}
+  to {background-position: 100%;}
+}
+
+@keyframes bobbing {
+  0% { transform: translate(0, 0rem);}
+  50% { transform: translate(0, var(--distance));}
+  100% { transform: translate(0, 0rem);}
+}
+
+.dotdotdot{
+  --distance: -0.5rem;
+  animation: none;
+}
+
+.expand-button:hover .dotdotdot{
+  animation: bobbing 1s infinite forwards;
 }
