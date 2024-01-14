@@ -19,7 +19,7 @@ export default function Landing() {
       <div className="content-container">
         <Posts/>
       </div>
-      <img src="/visual/mountain - copy.png" style={{width: "100%"}}/>
+      <img src="/art/mountain - copy.png" style={{width: "100%"}}/>
     </div>
   )
 }
