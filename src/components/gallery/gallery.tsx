@@ -36,7 +36,7 @@ function GalleryImage(props: GalleryImageProps){
                 <img key={"img:" + props.imageName} 
                 className="image-base gallery-image" src={`/art/${props.imageName}`}/>
             </Link>
-            <div className="image-info-card" style={{fontSize: ".15rem"}}>
+            <div className="image-info-card" style={{fontSize: ".2rem"}}>
                 {certificateText(shortName)}
             </div>
         </div>

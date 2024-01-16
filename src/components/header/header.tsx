@@ -8,7 +8,7 @@ export default function Header(props: any){
           <Logo />
           <div className="logo-buffer" />
           <Navbar />
-          <img src="/assets/cloud cropped.png" className="background-image"/>
+          {/* <img src="/assets/cloud cropped.png" className="background-image"/> */}
         </div>
     )
 }
