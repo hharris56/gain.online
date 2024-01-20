@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import './visual.css'
-import { ArtMasterList, certificateText } from './artMasterList';
+import { ArtMasterList, certificateText } from '../../models/artMasterList';
 import { Rowdies } from 'next/font/google';
 import Gallery from '../../components/gallery/gallery';
 

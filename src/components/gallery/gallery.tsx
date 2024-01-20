@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { certificateText, getFromMasterDict } from "../../app/visual/artMasterList";
+import { certificateText, getFromMasterDict } from "../../models/artMasterList";
 import "./gallery.css"
 
 interface GalleryProps{

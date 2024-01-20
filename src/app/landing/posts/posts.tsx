@@ -3,13 +3,14 @@ import React, { useState } from "react"
 import { Break, BlogPost } from "../../../components/blog/blogPost"
 import MediaPlayer from "../../../components/mediaPlayer/mediaPlayer";
 import "./posts.css"
-import { getFromMasterDict } from "../../visual/artMasterList";
+import { getFromMasterDict } from "../../../models/artMasterList";
 import Gallery from "../../../components/gallery/gallery";
 
 export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Jan20 key="1/20"/>,
         <Jan14pt2 key="1/14-2"/>,
         <Jan14 key="1/14"/>,
         <Jan13 key="1/13"/>,
@@ -31,6 +32,23 @@ export default function Posts(){
         </React.Fragment>
     )
 }
+
+function Jan20(){
+    const img = [getFromMasterDict("cars!", "ae86")]
+
+    return (
+        <BlogPost title="one of those weeks" date="20 january 2024 - 2:41pm">
+            struggled through this week with easily the most difficult drawing by far. the front looked so good but something about the perspective made getting everything else to look right almost impossible. anyways, this was a third attempt and i had to call it after that before i lost my mind.
+            <Gallery images={img} collectionName="cars!"/>
+            ill be back next week with a better drawing and more music. also, lets discuss this 'commuter' ep then too.
+            <Break />
+            thanks for tuning in, chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function Jan14pt2(){
     var player = MediaPlayer(1709548257)
 

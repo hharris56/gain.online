@@ -1,4 +1,4 @@
-import {getFromMasterDict, certificateText} from "../artMasterList"
+import {getFromMasterDict, certificateText} from "../../../models/artMasterList"
 import "./imgView.css"
 
 // viewImage is 'collectionName/shortName'
