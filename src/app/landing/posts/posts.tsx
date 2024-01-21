@@ -4,7 +4,7 @@ import { Break, BlogPost } from "../../../components/blog/blogPost"
 import MediaPlayer from "../../../components/mediaPlayer/mediaPlayer";
 import "./posts.css"
 import { getFromMasterDict } from "../../../models/artMasterList";
-import Gallery from "../../../components/gallery/gallery";
+import { Gallery } from "../../../components/gallery/gallery";
 
 export default function Posts(){
     var [expanded, setExpanded] = useState(false)
