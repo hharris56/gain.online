@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import './visual.css'
-import { ArtMasterList, certificateText } from '../../models/artMasterList';
-import { Rowdies } from 'next/font/google';
-import Gallery from '../../components/gallery/gallery';
+import { ArtMasterList } from '../../models/artMasterList';
+import { Gallery } from '../../components/gallery/gallery';
 
 
 export default function VisualPage(){
@@ -59,10 +58,7 @@ function Cars(){
 
     return (
         <TimelineItem title={collectionName} date="2024" pictures={pictures}>
-            hand drawn on procreate. my linework is still shaky but this study is helping a lot. i wanted
-            to capture the <i>essence</i> of the vehicles and worry less about exact proportions. love the
-            way these have been looking so far and they make for great weekly sketches as i can usually knock
-            one out in like 30min to an hour. if you want your car drawn send me a reference photo.
+            hand drawn on procreate. my linework is shaky but this study is helping a lot. i wanted to capture the <i>essence</i> of the vehicles and worry less about exact proportions. love the way these have been looking so far and they make for great weekly sketches as i can usually knock one out in like 30min to an hour. if you want your car drawn send me a reference photo.
         </TimelineItem>
     )
 }
@@ -73,11 +69,7 @@ function CloudStudy1(){
 
     return (
         <TimelineItem title={collectionName} date="2023" pictures={pictures}>
-            my first study once i got an ipad. part form study, part procreate exploration, this
-            mini project was mostly for fun but i learned a lot in the process. not only did the 
-            loose nature of clouds make it easy for the final product to "look good", it also 
-            let me focus more on practicing fundamentals of drawing and not get stressed out when
-            a shape or line was too difficult.
+            my first works after getting an ipad. part form study, part procreate exploration, this mini project was mostly for fun but i learned a lot in the process. not only did the loose nature of clouds make it easy for the final product to "look good", it also let me focus more on practicing fundamentals of drawing and not get stressed out when a shape or line was too difficult.
         </TimelineItem>
     )
 }

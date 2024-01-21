@@ -1,9 +1,3 @@
-interface ArtModel {
-    name: string
-    path: string
-    medium: string
-}
-
 const ArtMasterList: any = {
     "cars!": [
         "./cars/ae86.jpg",
