@@ -10,6 +10,8 @@ export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Jan28pt2 key="1/28-2"/>,
+        <Jan28 key="1/28"/>,
         <Jan20 key="1/20"/>,
         <Jan14pt2 key="1/14-2"/>,
         <Jan14 key="1/14"/>,
@@ -30,6 +32,40 @@ export default function Posts(){
                 }
             </div>
         </React.Fragment>
+    )
+}
+
+function Jan28pt2(){
+    return (
+        <BlogPost title="commuting time" date="28 january 2024 - 10:44am">
+            so theres this new ep i've been working on / hinting at for a couple weeks now. commuter - a mini jazz jungle / breakcore album came about from a one off song that was supposed to be part of the midnight club series.
+            <div style={{display: "flex", height: "20rem", margin: "2rem 1rem 2rem 1rem"}}>
+                <img src="/art/albums/Commuter Cover.jpg" style={{height: "100%"}} />
+            </div>
+            the since release single 'tuned in', needed something to fill in the emptiness when the drums were pulled. i decided to throw in an old recording of a houston traffic report and voila, an idea was born. a jungle / breakcore ep centered around the morning commute. it was incredibly fitting since i almost always use my own morning commute to study new music or analize my own tracks. sound design / scaping for the ep was decidely consistent, using almost exclusively a set of vital presets i've created over the past year, the fl studio stock electric piano, recorded bass guitar (it's been getting better) and of course, the amen + think + funky drummer breaks. this ep was incredibly fun to make and i genuinely feel the limitation of elements really pushed my creativity of how to use those pieces.
+            <Break/>
+            after commuter i think we'll be locking in for vol 2 of the midnight club series or something similar. i have so many ideas of where i want to take this music, now its just about executing it. steam commuter on soundcloud january 29 - other platforms in however long a release takes.
+            <Break/>
+            chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
+function Jan28(){
+    const img = [getFromMasterDict("cars!", "mr2")]
+    
+    return (
+        <BlogPost title="locked in?" date="28 january 2024 - 10:30am">
+            you know that feeling when things start to click? creating this week felt super rewarding. pushed out 2 new songs to round out commuter (both hits btw) and ended up with a really nice drawing (shoutout toyota's designers for making a car as gorgeous as the mr2). 
+            <Gallery images={img} collectionName="cars!" />
+            ill be back in a follow up post to discuss commuter in more depth - maybe ill also figure out what id like to do with that 'audio' tab in the navigation bar.
+            <Break/>
+            chat <i style={{fontWeight: "800"}}>real</i> soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
