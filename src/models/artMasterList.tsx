@@ -1,5 +1,6 @@
 const ArtMasterList: any = {
     "cars!": [
+        "./cars/tacoma.jpg",
         "./cars/mr2.jpg",
         "./cars/ae86.jpg",
         "./cars/f150.jpg",
@@ -78,4 +79,18 @@ function getFromMasterDict(collectionName: string, imageName: string){
     return (ArtMasterDict[collectionName] || "")[imageName] || ""
 }
 
-export {ArtMasterList, ArtMasterDict, certificateText, getFromMasterDict};
+interface InfoCardProps{
+    name: string
+    size: number
+}
+function InfoCard(props: InfoCardProps){
+    return (
+        <div className="image-info-card" style={{fontSize: `${props.size}rem`}}>
+            <p><b>gain++</b> (b.1998)</p>
+            <i><b>{props.name}</b></i>
+            <a style={{marginTop: "2em"}}>not an nft. authentic, original, and unique piece of art.</a>
+        </div>
+    )
+}
+
+export {ArtMasterList, ArtMasterDict, InfoCard, getFromMasterDict};

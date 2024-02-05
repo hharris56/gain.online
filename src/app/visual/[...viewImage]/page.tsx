@@ -1,4 +1,4 @@
-import {getFromMasterDict} from "../../../models/artMasterList"
+import {getFromMasterDict, InfoCard} from "../../../models/artMasterList"
 import "./imgView.css"
 
 // viewImage is 'collectionName/shortName'
@@ -13,13 +13,14 @@ export default function ViewPage({ params }: { params: { viewImage: string } }){
         :
         <div className="view-image-container">
             <img key="big image" src={`/art/${imgPath}`} className="view-image"/>
-            <div className="image-info-card" 
+            {/* <div className="image-info-card" 
             style={{fontSize: "0.75rem", marginRight: "0rem", backgroundImage: "/assets/certificate big.png"}}>
                 <div style={{backgroundColor: "white"}}>
                     <div><b>gain++</b> (b.1998)</div>
                     <i><b>{shortName}</b></i>
                 </div>
-            </div>
+            </div> */}
+            <InfoCard name={shortName} size={0.75}/>
         </div>
     )
 }

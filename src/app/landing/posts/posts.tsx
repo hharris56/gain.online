@@ -10,6 +10,7 @@ export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Feb4 key="2/4"/>,
         <Jan28pt2 key="1/28-2"/>,
         <Jan28 key="1/28"/>,
         <Jan20 key="1/20"/>,
@@ -35,14 +36,34 @@ export default function Posts(){
     )
 }
 
+function Feb4(){
+    const img = [getFromMasterDict("cars!", "tacoma")]
+
+    return (
+        <BlogPost title="" date="4 february - 9:18pm">
+            {/* there's a lot about my personal life i don't really want to dive into in this blog, but one thing i think i should be transparent about (in hopes that it may help someone else down the line) is my relationship with substance abuse. i have what some may call an 'addictive personality'. from my perspective this manifests as a desire to have fun <i>all</i> the time, even when i know that i shouldn't. in recent years i have outgrown a lot of these habits and learned when and how to say no, but what's been bothering me the most lately is just how often i find myself thinking about it - to be clear here im talking about weed. this incessant thought that lingers after smoking has me seriously doubting if i will ever be able to have a normal relationship with weed. */}
+            i wrote some long winded post about personal things going on in my life but commented it out because i don't think im comfortable sharing those thoughts yet. for now i leave you with this drawing of my friends tacoma, the <a href="https://soundcloud.com/gain_online/sets/commuter">offical release link</a> of my new ep, and a quote i really needed to reread.
+            <Break/>
+            <i>"it is a shame for a man to grow old without seeing the beauty and strength of which his body is capable."</i> - i think this also applies to the creation of great works. it is shame for a man to grow old without seeing the beauty of which he is capable of bringing into the world.
+            <Gallery images={img} collectionName="cars!" />
+            chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function Jan28pt2(){
     return (
         <BlogPost title="commuting time" date="28 january 2024 - 10:44am">
             so theres this new ep i've been working on / hinting at for a couple weeks now. commuter - a mini jazz jungle / breakcore album came about from a one off song that was supposed to be part of the midnight club series.
-            <div style={{display: "flex", height: "20rem", margin: "2rem 1rem 2rem 1rem"}}>
+            {/* <div style={{display: "flex", height: "20rem", margin: "2rem 1rem 2rem 1rem"}}>
                 <img src="/art/albums/Commuter Cover.jpg" style={{height: "100%"}} />
-            </div>
-            the since release single 'tuned in', needed something to fill in the emptiness when the drums were pulled. i decided to throw in an old recording of a houston traffic report and voila, an idea was born. a jungle / breakcore ep centered around the morning commute. it was incredibly fitting since i almost always use my own morning commute to study new music or analize my own tracks. sound design / scaping for the ep was decidely consistent, using almost exclusively a set of vital presets i've created over the past year, the fl studio stock electric piano, recorded bass guitar (it's been getting better) and of course, the amen + think + funky drummer breaks. this ep was incredibly fun to make and i genuinely feel the limitation of elements really pushed my creativity of how to use those pieces.
+            </div> */}
+            <Break/>
+            the since release single 'tuned in' needed something to fill in the emptiness when the drums were pulled. i decided to throw in an old recording of a houston traffic report and voila, an idea was born. a jungle / breakcore ep centered around the morning commute. it was incredibly fitting since i almost always use my own morning commute to study new music or analize my own tracks. 
+            <Break/>
+            sound design / scaping for the ep was decidely consistent, using almost exclusively a set of vital presets i've created over the past year, the fl studio stock electric piano, recorded bass guitar (it's been getting better) and of course, the amen + think + funky drummer breaks. this ep was incredibly fun to make and i genuinely feel the limitation of elements really pushed my creativity of how to use those pieces.
             <Break/>
             after commuter i think we'll be locking in for vol 2 of the midnight club series or something similar. i have so many ideas of where i want to take this music, now its just about executing it. steam commuter on soundcloud january 29 - other platforms in however long a release takes.
             <Break/>

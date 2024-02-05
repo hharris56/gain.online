@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getFromMasterDict } from "../../models/artMasterList";
+import { getFromMasterDict, InfoCard } from "../../models/artMasterList";
 import "./gallery.css"
 
 interface GalleryProps{
@@ -41,17 +41,4 @@ function GalleryImage(props: GalleryImageProps){
     )
 }
 
-interface InfoCardProps{
-    name: string
-    size: number
-}
-function InfoCard(props: InfoCardProps){
-    return (
-        <div className="image-info-card" style={{fontSize: `${props.size}rem`}}>
-            <p><b>gain++</b> (b.1998)</p>
-            <i><b>{props.name}</b></i>
-        </div>
-    )
-}
-
-export { Gallery, InfoCard }
+export { Gallery }
