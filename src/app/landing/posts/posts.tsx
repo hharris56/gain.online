@@ -10,6 +10,8 @@ export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Feb10 key="2/10"/>,
+        <Feb6 key="2/4"/>,
         <Feb4 key="2/4"/>,
         <Jan28pt2 key="1/28-2"/>,
         <Jan28 key="1/28"/>,
@@ -36,11 +38,46 @@ export default function Posts(){
     )
 }
 
+function Feb10(){
+    return (
+        <BlogPost title="living life, one month at a time" date="10 february - 2:30pm">
+            i've been thinking a lot about accountability recently. it feels like my entire life (up to fairly recently) i have been running from accountability, sometimes even unknowingly. i'm not a very forward thinking person - i revel in the now, trying to enjoy each moment as much as possible. this approach to life has been fine so far. it has allowed me to leave each phase of my life feeling like i truly did enjoy it to the best of my capability, but now that im in the longest, and dare i say most impactful, phase of life i have been unsatisfied with my ability to achieve goals in both the short and long term.
+            <Break/>
+            this is where accountability comes into the picture. trying to find ways to effectively hold myself accountable has been at the top of my mind and it seems like i respond well to time-boxed habits. for example, new years resolutions work well for me because i can engrain into my subconcious that for this current year i will do <i>*insert activity*</i> on a given cadence (very much like these weekly updates). this is a great starting point, but evalutating once a year is not often enough to make meaningful progress in the short term.
+            <Break/>
+            today is chinese new year and i had a revelation. i was thinking to myself "man, a second new years sure is useful. i wish there was a new years every month" and then it hit me: <b><i>why not treat each month like its own year.</i></b> the realization was so simple it felt surreal. i could take a single day each month to reflect upon everything i accomplished in the prior couple weeks then set goals and new resolutions for the coming couple weeks. each month becomes its own experiment where i could try out new routines / habits without the pressure of upholding them for an entire year. the flexibility of adjusting my routine to match artistic / life goals is pretty awesome too.
+            <Break/>
+            all this to say im excited to start planning life out a bit. im sure we'll chat soon :) and i plan to share each month's goals + resolutions in a post around the 1st from here on out.
+            <Break/>
+            + gain
+            <Break/>
+        </BlogPost>
+    )
+}
+
+function Feb6(){
+    const img = [getFromMasterDict("cars!", "mr2 mk1")]
+
+    return (
+        <BlogPost title="mid week" date="6 february - 10:43pm">
+            this drawing came out too good to wait for the weekend. check out this beautiful gen 1 mr2.
+            <Gallery images={img} collectionName="cars!"/>
+            i modified the colors a bit bc the original grey was too boring and the blue looks <b>fantastic.</b> maybe i'll have another drawing before the weekend... we'll see about that.
+            <Break/>
+            on a music related note my friend invited me to a discord server he created. the plan right now is to post a song per week (perfect with my current schedule) and then talk about the process used / any creative decisions along the way. pretty excited for that since it's been a long time since i've had friends invested in music - miss u noPress!
+            <Break/>
+            anyways, i'll be back this weekend with a usual update. promise that eventually i'll get to filling out the audio tab. chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function Feb4(){
     const img = [getFromMasterDict("cars!", "tacoma")]
 
     return (
-        <BlogPost title="" date="4 february - 9:18pm">
+        <BlogPost title="second thoughts" date="4 february - 9:18pm">
             {/* there's a lot about my personal life i don't really want to dive into in this blog, but one thing i think i should be transparent about (in hopes that it may help someone else down the line) is my relationship with substance abuse. i have what some may call an 'addictive personality'. from my perspective this manifests as a desire to have fun <i>all</i> the time, even when i know that i shouldn't. in recent years i have outgrown a lot of these habits and learned when and how to say no, but what's been bothering me the most lately is just how often i find myself thinking about it - to be clear here im talking about weed. this incessant thought that lingers after smoking has me seriously doubting if i will ever be able to have a normal relationship with weed. */}
             i wrote some long winded post about personal things going on in my life but commented it out because i don't think im comfortable sharing those thoughts yet. for now i leave you with this drawing of my friends tacoma, the <a href="https://soundcloud.com/gain_online/sets/commuter">offical release link</a> of my new ep, and a quote i really needed to reread.
             <Break/>

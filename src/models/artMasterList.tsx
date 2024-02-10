@@ -1,5 +1,6 @@
 const ArtMasterList: any = {
     "cars!": [
+        "./cars/mr2 mk1.jpg",
         "./cars/tacoma.jpg",
         "./cars/mr2.jpg",
         "./cars/ae86.jpg",
