@@ -10,6 +10,7 @@ export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Feb16 key="2/16"/>,
         <Feb10 key="2/10"/>,
         <Feb6 key="2/4"/>,
         <Feb4 key="2/4"/>,
@@ -35,6 +36,18 @@ export default function Posts(){
                 }
             </div>
         </React.Fragment>
+    )
+}
+
+function Feb16(){
+    return (
+        <BlogPost title="day before" date="16 feruary - 2:47pm">
+            early friday update, i got this new track ive been working on that im super happy with. going to put the finishing touches on tonight and post tomorrow. also wanted to mention that im entertaining the idea of releasing a electronic pop ep composed of a couple songs ive recorded over the past few years. if so i will need to touch up the tracks and maybe retake some vocals, stay tuned for more information on that.
+            <Break/>
+            chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
