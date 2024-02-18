@@ -45,7 +45,7 @@ function Feb18(){
     var player = MediaPlayer(1745786022)
     return (
         <BlogPost title="have fun with it" date="18 february - 10:50am">
-            good morning friends! the weather today is nice and sunny, the music has been grooving and i'm excited to share these new works with you all. first up is this porsche 911 in moonstone purple with the targa top. this photo was actually posted by my favorite car photograph syd (@deerfella) on twitter. eventually i'll write up a nice way to embed tweets in these posts but for now just use this ugly <a href="https://twitter.com/deerfella/status/1756375998868722027">hyperlink</a>.
+            good morning friends! the weather today is nice and sunny, the music has been grooving and i'm excited to share these new works with you all. first up is this porsche 911 in moonstone purple with the targa top. this photo was actually posted by my favorite car photograph syd (@deerfella) on twitter. eventually i'll write up a nice way to embed tweets in these posts but for now just use this ugly <a href="https://twitter.com/deerfella/status/1756375998868722027" target="_blank">hyperlink</a>.
             <Gallery images={img} collectionName="cars!"/>
             today is also an especially good day because i have new music to share as well. what started as a joke turned into one of my favorite tracks mainly due to an amazing lead synth. fell in love with the vibe on this track so i spent a solid amount of time making it sound as good as i could. hope you all enjoy.
             {player}

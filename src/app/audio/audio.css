@@ -1,0 +1,20 @@
+.albums-container{
+    /* background-color: lightblue; */
+    margin: 1rem;
+    min-height: 10rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.album-item{
+    width: 20%;
+    max-height: fit-content;
+    margin: 1rem;
+}
+
+.album-info{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1rem;
+}
