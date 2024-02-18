@@ -10,6 +10,7 @@ export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Feb18 key="2/18"/>,
         <Feb16 key="2/16"/>,
         <Feb10 key="2/10"/>,
         <Feb6 key="2/4"/>,
@@ -39,9 +40,26 @@ export default function Posts(){
     )
 }
 
+function Feb18(){
+    const img = [getFromMasterDict("cars!", "911 targa")]
+    var player = MediaPlayer(1745786022)
+    return (
+        <BlogPost title="have fun with it" date="18 february - 10:50am">
+            good morning friends! the weather today is nice and sunny, the music has been grooving and i'm excited to share these new works with you all. first up is this porsche 911 in moonstone purple with the targa top. this photo was actually posted by my favorite car photograph syd (@deerfella) on twitter. eventually i'll write up a nice way to embed tweets in these posts but for now just use this ugly <a href="https://twitter.com/deerfella/status/1756375998868722027">hyperlink</a>.
+            <Gallery images={img} collectionName="cars!"/>
+            today is also an especially good day because i have new music to share as well. what started as a joke turned into one of my favorite tracks mainly due to an amazing lead synth. fell in love with the vibe on this track so i spent a solid amount of time making it sound as good as i could. hope you all enjoy.
+            {player}
+            let's chat soon, yea? :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+    
+}
+
 function Feb16(){
     return (
-        <BlogPost title="day before" date="16 feruary - 2:47pm">
+        <BlogPost title="day before" date="16 february - 2:47pm">
             early friday update, i got this new track ive been working on that im super happy with. going to put the finishing touches on tonight and post tomorrow. also wanted to mention that im entertaining the idea of releasing a electronic pop ep composed of a couple songs ive recorded over the past few years. if so i will need to touch up the tracks and maybe retake some vocals, stay tuned for more information on that.
             <Break/>
             chat soon :)
