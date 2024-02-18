@@ -4,11 +4,11 @@ export default function Footer(){
 
     return(
         <div className="footer-container">
-            some text
+            <a href="https://twitter.com/gain__online" target="_blank" className="link">twitter</a>
             <div className="footer-divider" />
-            some more text
+            <a href="https://www.instagram.com/gain__online/?next=%2F" target="_blank" className="link">insta</a>
             <div className="footer-divider" />
-            more text
+            <a href="https://soundcloud.com/gain_online" target="_blank" className="link">soundcloud</a>
         </div>
     )
 }
