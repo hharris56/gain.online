@@ -10,6 +10,7 @@ export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Mar2 key="3/2"/>,
         <Feb18 key="2/18"/>,
         <Feb16 key="2/16"/>,
         <Feb10 key="2/10"/>,
@@ -37,6 +38,30 @@ export default function Posts(){
                 }
             </div>
         </React.Fragment>
+    )
+}
+
+function Mar2(){
+    return (
+        <BlogPost title="back from hell" date="2 march - 1:34pm">
+            so i spent the last 2 weeks feverishly playing helldivers 2, and while that game is really great it wasn't great how much of my time it ate up. couple that with my family visiting the bay last week and we have our first missed weekend update of 2024. no new art or (finished) music to show for the past 2 weeks feels bad but there is an upside to this...
+            <Break/>
+            <u>web enhancements</u>
+            <Break/>
+            time away from my various projects has allowed me to reflect on the direction i am headed. for as proud as i am of what i've accomplished i'm not much closer to publicly sharing any of this work for a few big reasons; the biggest one being that while my webpage looks great on a desktop, 99% of users will be viewing on their phone. therefor the next enhancement to the website will be a mobile version and once that is finished (slated for april 1) i will move to publishing on a real url and sharing on my socials.
+            <Break/>
+            <u>music direction</u>
+            <Break/>
+            the variety of music i have been exploring lately is really pulling me in opposing directions stylistically. while i think there is overarching themes to my sound regardless of genre, creating separation between them may help with 'brand imaging' or whatever. for that reason i'm going to move most of my jungle / electronic music under a <a href="https://soundcloud.com/deora-ii" target="_blank">new artist name + account</a>. my main account <a href="https://soundcloud.com/gain_online" target="_blank">(gain audio)</a> will then be used for reposting those tracks as well as any artist centric music.
+            <Break/>
+            <u>drawing</u>
+            <Break/>
+            weeklies were fun but for the next month i am going to be focused on prepping the website for release, music production and physical fitness. there has to be a trade off somewhere and unfortunately i'm suspecting this is where i will take the biggest hit.
+            <Break/>
+            thanks for sticking around, let's chat again soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
