@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import "./navbar.css";
-import { useState } from "react";
 // import { useRouter } from "next/router";
 
 export default function Navbar(props: any){

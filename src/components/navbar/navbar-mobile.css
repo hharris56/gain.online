@@ -1,0 +1,33 @@
+.mobile-navbar-container{
+    width: 40%;
+    height: 100%;
+    /* background-color: red; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0rem 1rem 0rem 2rem;
+}
+
+.mobile-navbar-button{
+    height: 2rem;
+    width: fit-content;
+    padding: 0rem 1rem 0rem 1rem;
+    background-color: white;
+    border-radius: 2rem;
+    transition: letter-spacing 2s, background-color var(--transition-time);
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 2rem;
+
+    color: black;
+    letter-spacing: 0.25rem;
+    text-decoration: none;
+}
+
+.mobile-navbar-button:hover{
+    background-color: transparent;
+    color: black;
+}
