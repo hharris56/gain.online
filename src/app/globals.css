@@ -100,3 +100,12 @@
   flex-direction: column;
   padding: 2em;
 }
+
+.default-button{
+  background-image: linear-gradient(90deg, white, lightblue);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

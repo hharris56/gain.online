@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import "./navbar.css";
-import "./navbar-mobile.css";
+import "./navbarMobile.css";
 // import { useRouter } from "next/router";
 
 export default function NavbarMobile(props: any){

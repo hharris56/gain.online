@@ -1,11 +1,10 @@
 .mobile-navbar-container{
-    width: 40%;
-    height: 100%;
+    width: 100%;
+    height: fit-content;
     /* background-color: red; */
 
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     padding: 0rem 1rem 0rem 2rem;
 }
 

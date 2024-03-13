@@ -80,3 +80,32 @@
     transform: rotate(360deg);
     /* transition: all 0.2s; */
 }
+
+/* MOBILE LOGO */
+@keyframes rotation {
+    from {rotate: 0deg;}
+    to {rotate: 360deg;}
+}
+@keyframes rotation2 {
+    from {rotate: 0deg;}
+    to {rotate: -720deg;}
+}
+@keyframes rotation3 {
+    from {rotate: 0deg;}
+    to {rotate: 1080deg;}
+}
+
+.mobile-cover-container{
+    --mobile-cover-size: 20em;
+    width: var(--mobile-cover-size);
+    height: var(--mobile-cover-size);
+    /* background-color: red; */
+
+    /* position: absolute; */
+}
+
+.mobile-cover-logo{
+    height: var(--mobile-cover-size);
+    width: var(--mobile-cover-size);
+    animation: rotation 20s ease-in-out 0s infinite forwards;
+}

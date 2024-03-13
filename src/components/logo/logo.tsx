@@ -1,10 +1,7 @@
 import "./logo.css"
 import Link from "next/link"
 
-export default function Logo(){
-
-    let hover: boolean = false;
-
+function DesktopLogo(){
     return (
         <Link 
         className="logo-container" 
@@ -16,3 +13,15 @@ export default function Logo(){
         </Link>
     )
 }
+
+function MobileCoverLogo(){
+    return (
+        <div className="mobile-cover-container">
+            <img src="/logos/logo black.png" className="mobile-cover-logo mobile-cover-rotate"/>
+            {/* <img src="/logos/logo blue.png" className="mobile-cover-logo mobile-cover-rotate shadow" style={{zIndex: "-1", animationName: "rotation2"}}/> */}
+            {/* <img src="/logos/logo purple.png" className="mobile-cover-logo rotate2 shadow" style={{zIndex: "-2"}}/> */}
+        </div>
+    )
+}
+
+export { DesktopLogo, MobileCoverLogo }
