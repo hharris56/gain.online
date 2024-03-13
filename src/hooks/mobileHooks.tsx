@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect } from 'react';
 
-const detectWidthBreakPoint = (width: number) => {
+const useWidthBreakPoint = (width: number) => {
 
     const [targetReached, setTargetReached] = useState(false);
 
@@ -29,4 +29,4 @@ const detectWidthBreakPoint = (width: number) => {
     return targetReached;
     };
 
-export default detectWidthBreakPoint;
+export default useWidthBreakPoint;
