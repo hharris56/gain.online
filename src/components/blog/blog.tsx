@@ -44,4 +44,12 @@ function Break(){
     )
 }
 
-export {BlogPost, Break}
+function Quote(props: {children: any}){
+    return (
+        <div className="quote">
+            "{props.children}"
+        </div>
+    )
+}
+
+export {BlogPost, Break, Quote}
