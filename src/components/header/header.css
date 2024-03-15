@@ -19,15 +19,25 @@
     margin-left: -19rem;
 }
 
+/* MOBILE VIEW */
+
 .mobile-header{
     width: 100%;
-    height: 4rem;
+    height: fit-content;
     background-image: linear-gradient(90deg, white, lightblue);
 
     display: flex;
+    flex-direction: column;
+    /* padding: 0rem 1rem 0rem 1rem; */
+}
+
+.mobile-header-content{
+    height: 4rem;
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    /* padding: 0rem 1rem 0rem 1rem; */
+    padding-left: 0.5rem;
+    /* background-color: red; */
 }
 
 .mobile-header-logo{
