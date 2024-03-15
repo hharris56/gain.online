@@ -2,8 +2,9 @@
 
 import { useState, useCallback, useEffect } from 'react';
 
-const useWidthBreakPoint = (width: number) => {
+const useIsMobile = () => {
 
+    const width = 650
     const [targetReached, setTargetReached] = useState(false);
 
     const updateTarget = useCallback((e: any) => {
@@ -29,4 +30,4 @@ const useWidthBreakPoint = (width: number) => {
     return targetReached;
     };
 
-export default useWidthBreakPoint;
+export default useIsMobile;

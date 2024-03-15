@@ -3,7 +3,7 @@
 import { Inter } from 'next/font/google'
 import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
-import useWidthBreakPoint from '../hooks/mobileHooks'
+import useIsMobile from '../hooks/mobileHooks'
 import MobileView from './mobileView/mobileView'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -14,7 +14,7 @@ export default function View({
     children: React.ReactNode
     }){
 
-    const isMobile: any = useWidthBreakPoint(650)
+    const isMobile: any = useIsMobile()
 
     const layout: any = isMobile? 
     // mobile view
