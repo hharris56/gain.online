@@ -1,8 +1,30 @@
-.text-block{
+.mobile-cover{
+    width: 100%;
+    min-height: 90vh;
+    /* background-color: blue; */
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
+    /* justify-content: center; */
+    align-items: center;
 }
 
-.content-container{
-    width: 90%;
+.enter-mantle{
+    /* background-color: red; */
+    min-height: 33vh;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enter-button{
+    height: 4rem;
+    width: 10rem;
+}
+
+.enter-button:active .mobile-cover{
+    transform: translate(100rem);
+    transition: transform 1s;
 }

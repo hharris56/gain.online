@@ -1,0 +1,8 @@
+.text-block{
+    display: flex;
+    flex-direction: row;
+}
+
+.content-container{
+    width: 90%;
+}
