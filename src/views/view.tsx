@@ -14,7 +14,24 @@ export default function View({
     children: React.ReactNode
     }){
 
-    const isMobile: any = useIsMobile()
+    var isMobile: any = null
+    isMobile = useIsMobile()
+    // var view: any = null
+    // view = isMobile?
+    // // mobile view
+    // (<body className={inter.className}>
+    //     <MobileView>
+    //         <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+    //     </MobileView>
+    // </body>) :
+    // // desktop view
+    // (<body className={inter.className} style={{padding:"2rem"}}>
+    //     <Header />
+    //         <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+    //     <Footer />
+    // </body>)
+
+    // return view? view : <></>
 
     const layout: any = isMobile? 
     // mobile view
@@ -29,6 +46,6 @@ export default function View({
             <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
         <Footer />
     </body>)
-
+    
     return layout
 }

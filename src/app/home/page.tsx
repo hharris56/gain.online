@@ -1,13 +1,7 @@
-import Image from 'next/image';
-import styles from './page.module.css';
-import checkDevice from '../check-device';
 import Posts from './posts/posts';
 import "./home.css";
-import { Break } from '../../components/blog/blogPost';
 
 export default function Home() {
-
-  const deviceInfo = checkDevice();
 
   return (
     <div>

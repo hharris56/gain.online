@@ -12,7 +12,7 @@ export default function MobileHeader(props: any){
             <div className="mobile-header-content">
                 <div style={{display: "flex"}}>
                     <a>gain.</a>
-                    <b>visual</b>
+                    <b>online</b>
                 </div>
                 <img src="/logos/logo black.png" className="mobile-header-logo"
                 style={{rotate: isExpanded? "45deg" : "0deg"}}
