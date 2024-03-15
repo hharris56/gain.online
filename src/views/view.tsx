@@ -14,6 +14,7 @@ export default function View({
     children: React.ReactNode
     }){
 
+    // TODO: render default (blank?) screen until hook returns
     var isMobile: any = null
     isMobile = useIsMobile()
     // var view: any = null

@@ -1,4 +1,5 @@
-'use client';
+"use client"
+
 import React, { useState } from "react"
 import { Break, BlogPost } from "../../../components/blog/blog"
 import MediaPlayer from "../../../components/mediaPlayer/mediaPlayer";
@@ -8,6 +9,8 @@ import { Gallery } from "../../../components/gallery/gallery";
 
 export default function Posts(){
     var [expanded, setExpanded] = useState(false)
+
+    // TODO: implement filtering based on tags
 
     var posts = [
         <Mar25 key="3/25"/>,

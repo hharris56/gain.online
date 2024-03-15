@@ -5,7 +5,6 @@ import './visual.css'
 import { ArtMasterList } from '../../models/artMasterList';
 import { Gallery } from '../../components/gallery/gallery';
 
-
 export default function VisualPage(){
     return (
         <div>

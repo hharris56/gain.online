@@ -2,6 +2,8 @@ import Link from "next/link";
 import { getFromMasterDict, InfoCard } from "../../models/artMasterList";
 import "./gallery.css"
 
+// TODO: implement mobile view
+
 interface GalleryProps{
     images: string[],
     collectionName: string,
