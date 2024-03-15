@@ -1,5 +1,5 @@
 import "./posts.css"
-import { Break, BlogPost } from "../../../components/blog/blogPost"
+import { Break, BlogPost } from "../../../components/blog/blog"
 import React from "react"
 
 export default function Posts(){

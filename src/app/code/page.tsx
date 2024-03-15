@@ -1,5 +1,5 @@
 import "./code.css"
-import { Break } from "../../components/blog/blogPost"
+import { Break } from "../../components/blog/blog"
 
 export default function CodePage(){
     return (

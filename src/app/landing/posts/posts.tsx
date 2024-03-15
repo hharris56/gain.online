@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from "react"
-import { Break, BlogPost } from "../../../components/blog/blogPost"
+import { Break, BlogPost } from "../../../components/blog/blog"
 import MediaPlayer from "../../../components/mediaPlayer/mediaPlayer";
 import "./posts.css"
 import { getFromMasterDict } from "../../../models/artMasterList";

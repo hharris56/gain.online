@@ -1,0 +1,24 @@
+.tags-container{
+    --height: 1.5rem;
+    /* background-color: red; */
+    width: 100%;
+    height: var(--height);
+    padding-top: 0.5rem;
+
+    display: flex;
+    flex-direction: row;
+
+    font-size: 1rem;
+}
+
+.tag-button{
+    background-color: lightblue;
+    height: var(--height);
+    line-height: var(--height);
+
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 10rem;
+
+    cursor: pointer;
+}
