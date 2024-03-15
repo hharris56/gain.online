@@ -10,6 +10,7 @@ export default function Posts(){
     var [expanded, setExpanded] = useState(false)
 
     var posts = [
+        <Mar25 key="3/25"/>,
         <Mar2 key="3/2"/>,
         <Feb18 key="2/18"/>,
         <Feb16 key="2/16"/>,
@@ -38,6 +39,20 @@ export default function Posts(){
                 }
             </div>
         </React.Fragment>
+    )
+}
+
+function Mar25(){
+    return (
+        <BlogPost title="mid flight update" date="15 march - 10:34am">
+            weekends are passing at an extrodinary pace this month. last week i was in los angeles for a family gathering, this weekend im headed to boston for a friends birthday. the mobile site is coming along really well actually. im happy with the design so far and its giving me a change to learn new things about nextjs while also refactoring some of the stuff i had previously written. i will say that formatting text for mobile is proving to be more difficult than i had imagined but oh well.
+            <Break/>
+            another thing i wanted to mention was that i've picked up reading again. right now im shooting for a book per month, and i'm thinking about keeping a pseudo book club discussion going with a series of posts - keep an eye out for one later today.
+            <Break/>
+            back to developing for now, chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
