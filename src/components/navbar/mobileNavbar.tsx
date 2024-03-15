@@ -4,10 +4,11 @@ import Link from "next/link";
 import "./navbar.css";
 // import { useRouter } from "next/router";
 
-export default function mobileNavbar(props: any){
+export default function mobileNavbar(props: {expanded: boolean}){
 
     return (
-        <div className="mobile-navbar-container">
+        <div className="mobile-navbar-container"
+        style={{height: props.expanded? "" : "0rem"}}>
             <MobileNavbarButton title="home" route="/home"></MobileNavbarButton>
             <MobileNavbarButton title="audio" route="/audio"></MobileNavbarButton>
             <MobileNavbarButton title="visual" route="/visual"></MobileNavbarButton>

@@ -46,4 +46,5 @@
     margin-right: .5rem;
 
     cursor: pointer;
+    transition: rotate 0.5s;
 }
