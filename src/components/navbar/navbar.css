@@ -101,7 +101,7 @@
 
 .mobile-navbar-button{
     height: 4rem;
-    width: fit-content;
+    width: 100%;
     padding: 0rem 1rem 0rem 1rem;
     transition: letter-spacing 2s, background-color var(--transition-time);
 
