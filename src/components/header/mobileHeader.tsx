@@ -7,8 +7,6 @@ import NavbarMobile from "../navbar/mobileNavbar"
 export default function MobileHeader(props: any){
     const [isExpanded, setExpanded] = useState(false)
 
-    // TODO: smooth reveal of navbar
-
     return (
         <div className="mobile-header">
             <div className="mobile-header-content">

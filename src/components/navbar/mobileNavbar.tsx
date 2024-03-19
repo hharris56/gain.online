@@ -8,7 +8,7 @@ export default function mobileNavbar(props: {expanded: boolean, callback: (expan
 
     return (
         <div className="mobile-navbar-container"
-        style={{height: props.expanded? "" : "0rem"}}>
+        style={{maxHeight: props.expanded? "" : "0rem"}}>
             <MobileNavbarButton title="home" route="/home" callback={props.callback}/>
             <MobileNavbarButton title="audio" route="/audio" callback={props.callback}/>
             <MobileNavbarButton title="visual" route="/visual" callback={props.callback}/>
