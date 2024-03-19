@@ -13,8 +13,9 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
-        <Mar25pt2 key="3/25-2"/>,
-        <Mar25 key="3/25"/>,
+        <Mar18 key="3/18"/>,
+        <Mar15pt2 key="3/15-2"/>,
+        <Mar15 key="3/15"/>,
         <Mar2 key="3/2"/>,
         <Feb18 key="2/18"/>,
         <Feb16 key="2/16"/>,
@@ -46,9 +47,29 @@ export default function Posts(){
     )
 }
 
-function Mar25pt2(){
+function Mar18(){
     return (
-        <BlogPost title="the stronghold: discussion pt 1" date="15 march - 12:44pm" tags={["the stronghold", "book review"]}>
+        <BlogPost title="website changes" date="18 march - 6:06pm" tags={["dev update"]}>
+            had a ton of time on the plane this past weekend, heres some stuff i managed to knock out for the website:
+            <Break/>
+            + reworked how the webapp determines mobile vs web view which removed an issue that caused the desktop version to render by default
+            <div/>
+            + enhanced blog posts with tags, filtering based on tags will be coming shortly
+            <div/>
+            + mobile UI/UX redesign - really love how the menu and navigation worked out
+            <div/>
+            + created new landing page, turned previous landing page into the home page
+            <Break />
+            more updates coming soon but i think we are right on schedule for the end of march release. looking forward to sharing more with you when it's ready. chat soon :)
+            <Break />
+            + gain
+        </BlogPost>
+    )
+}
+
+function Mar15pt2(){
+    return (
+        <BlogPost title="the stronghold: discussion pt 1" date="15 march - 12:44pm" tags={["the stronghold", "book club"]}>
             i was recommended dino buzzati's <i><u>the stronghold</u></i> by my sister who just finished reading it this past weekend. she's a much more avid reader than myself and as such her recommendations always seem to resonate with me. in fact she originally introduced me to paulo cuelo through <i><u>the alchemist</u></i> which had a lasting impact on my life and resulted in me reading a large part of cuelo's collection. Back to <i>the stronghold</i>, this post will cover chapters 1-9.
             <Break />
             my initial impression of buzzati's writing style (and lawrence ventui's translation by extension) is mixed positive. their use of imagery is awesome, and i especially love the description of nighttime both at the stronghold and in the city. some great excerpts include:
@@ -80,7 +101,7 @@ function Mar25pt2(){
     )
 }
 
-function Mar25(){
+function Mar15(){
     return (
         <BlogPost title="mid flight update" date="15 march - 10:34am" tags={["flight", "test"]}>
             weekends are passing at an extraordinary pace this month. last week i was in los angeles for a family gathering, this weekend im headed to boston for a friends birthday. the mobile site is coming along really well actually. im happy with the design so far and its giving me a change to learn new things about nextjs while also refactoring some of the stuff i had previously written. i will say that formatting text for mobile is proving to be more difficult than i had imagined but oh well.
