@@ -7,6 +7,7 @@ import { isMobileFn } from '../hooks/mobileHooks'
 import MobileView from './mobileView/mobileView'
 import { useEffect, useState } from 'react'
 import { debounce } from 'underscore'
+import { usePathname } from 'next/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +18,7 @@ export default function View({
     }){
 
     const [layout, setLayout] = useState(<></>)
+    const pathName = usePathname()
 
     function handleResize() {
         setLayout(isMobileFn() ? 
@@ -45,5 +47,5 @@ export default function View({
         };
       }, [])
     
-    return layout
+    return pathName == "/landing" ? <>{children}</> : layout
 }
