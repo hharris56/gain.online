@@ -20,8 +20,7 @@ export default function MobileHeader(props: any){
                 style={{rotate: isExpanded? "45deg" : "0deg"}}
                 onClick={() => setExpanded(!isExpanded)}/>
             </div>
-            {/* {isExpanded? <NavbarMobile expanded={isExpanded}/> : <></>} */}
-            <NavbarMobile expanded={isExpanded}/>
+            <NavbarMobile expanded={isExpanded} callback={setExpanded}/>
         </div>
     )
 
