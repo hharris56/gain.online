@@ -1,6 +1,6 @@
 "use client"
 
-import useIsMobile from "../../hooks/mobileHooks"
+import {useIsMobile} from "../../hooks/mobileHooks"
 import "./blog.css"
 
 interface BlogProps{
@@ -32,7 +32,7 @@ function BlogPost(props: BlogProps){
 
 function Tag(name: string){
     return (
-        <div className="tag-button">
+        <div className="tag-button" key={name}>
             # {name}
         </div>
     )

@@ -28,6 +28,12 @@ const useIsMobile = () => {
     }, []);
 
     return targetReached;
-    };
+};
 
-export default useIsMobile;
+const isMobileFn = () => {
+    const width = 650
+    const media = window.matchMedia(`(max-width: ${width}px)`)
+    return media.matches
+}
+
+export { useIsMobile, isMobileFn };

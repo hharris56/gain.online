@@ -1,10 +1,13 @@
 import './globals.css'
-import Page from '../views/view'
+import View from '../views/view'
+import { Inter } from 'next/font/google'
 
 export const metadata = {
   title: 'gain online',
   description: 'gain portfolio spread',
 }
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,
@@ -12,10 +15,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <Page>
+    <body className={inter.className}>
+      <html lang="en" />
+      <View>
         {children}
-      </Page>
-    </html>
+      </View>
+    </body>
   )
 }

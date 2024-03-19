@@ -3,8 +3,10 @@
 import { Inter } from 'next/font/google'
 import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
-import useIsMobile from '../hooks/mobileHooks'
+import { isMobileFn } from '../hooks/mobileHooks'
 import MobileView from './mobileView/mobileView'
+import { useEffect, useState } from 'react'
+import { debounce } from 'underscore'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,39 +16,34 @@ export default function View({
     children: React.ReactNode
     }){
 
-    // TODO: render default (blank?) screen until hook returns
-    var isMobile: any = null
-    isMobile = useIsMobile()
-    // var view: any = null
-    // view = isMobile?
-    // // mobile view
-    // (<body className={inter.className}>
-    //     <MobileView>
-    //         <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
-    //     </MobileView>
-    // </body>) :
-    // // desktop view
-    // (<body className={inter.className} style={{padding:"2rem"}}>
-    //     <Header />
-    //         <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
-    //     <Footer />
-    // </body>)
+    const [layout, setLayout] = useState(<></>)
 
-    // return view? view : <></>
-
-    const layout: any = isMobile? 
-    // mobile view
-    (<body className={inter.className}>
+    function handleResize() {
+        setLayout(isMobileFn() ? 
+        // mobile view
         <MobileView>
             <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
-        </MobileView>
-    </body>) :
-    // desktop view
-    (<body className={inter.className} style={{padding:"2rem"}}>
-        <Header />
-            <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
-        <Footer />
-    </body>)
+        </MobileView> : 
+        // desktop view
+        <div style={{padding:"2rem"}}>
+            <Header />
+                <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+            <Footer />
+        </div>
+        )
+    }
+
+    useEffect(() => {
+        handleResize() // call once on initial page load
+        var debounced = debounce(handleResize, 100)
+
+        // Attach the event listener to the window object
+        window.addEventListener('resize', debounced);
+        // Remove the event listener when the component unmounts
+        return () => {
+          window.removeEventListener('resize', debounced);
+        };
+      }, [])
     
     return layout
 }
