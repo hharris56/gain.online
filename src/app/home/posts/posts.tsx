@@ -52,18 +52,23 @@ function Mar25pt2(){
             i was recommended dino buzzati's <i><u>the stronghold</u></i> by my sister who just finished reading it this past weekend. she's a much more avid reader than myself and as such her recommendations always seem to resonate with me. in fact she originally introduced me to paulo cuelo through <i><u>the alchemist</u></i> which had a lasting impact on my life and resulted in me reading a large part of cuelo's collection. Back to <i>the stronghold</i>, this post will cover chapters 1-9.
             <Break />
             my initial impression of buzzati's writing style (and lawrence ventui's translation by extension) is mixed positive. their use of imagery is awesome, and i especially love the description of nighttime both at the stronghold and in the city. some great excerpts include:
+            <Break/>
             <Quote>
                 at that hour, they were thinking, a fine mist must have materialized and the lamps were casting a tenuous, yellowish light ... shadowy couples sauntered down solitary streets and you could hear coachmen shouting ... echos of violins and laughter, women's voices in the dark ... it was a city made fascinating by thier youthful dreams, by its still-unknown adventures.
             </Quote>
+            <Break/>
             <Quote>
                 outside, in the night, under the autumnal rain, the sentries paced. the water bucketing down on the terraces, gurgling in the gutters, streaming down the walls. outside the night was deep
             </Quote>
+            <Break/>
             on multiple occasions buzzati refers to the night as "deep" and i love it. i remember being a kid biking around the town i grew up in with my friends. the night held this heavy quietness that made it feel like we were the only people left awake in a sleeping world. 'deep' perfectly encapsulates this feeling, and also happens to be a word i have been interested in artistically as of late.
             <Break />
             buzzati's description of life is beautifully tragic as well. there is a passage at the end of chapter 6 that is heart-wrenching. i wont include it here (mainly due to length) but he creates this illustration of growing up through youth and into adulthood as a run that starts so freeing. suddenly there is this creeping feeling that time is closing in on you, friends go on ahead or get left behind, and it's followed by a crushing realization that 
+            <Break/>
             <Quote>
                 the good lies far behind, very far behind, and [you] passed it without realizing.
             </Quote>
+            <Break/>
             there are many points in this book so far that buzzati goes on a tear; a tangent that he hits with such perfect literary finesse that it resonates without feeling like he's droning on. i really admire that about his writing. thats something that i feel applies to all kinds of art, especially music. tapping into that resonate feeling and driving it home the perfect amount.
             <Break />
             last thing i want to touch on in this post is the 'twist' at the end of chapter 9. i knew it was coming, that it had to happen for the story to progress but the slow buildup during the scene was so so good. in the doctors office, mere moments away from getting his note approving his leave and yet drogo (the mc) is so caught up in the beauty of soldiers and the fortezza, the mountains and sky, his 'destiny' that was 'pressing him from the north' and it climaxes in him declining the medical exit. buzzati revealed what was going to happen without diminishing the impact of it actually occurring. wonderfully done.
