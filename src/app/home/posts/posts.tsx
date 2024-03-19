@@ -143,7 +143,7 @@ function Feb18(){
     const img = [getFromMasterDict("cars!", "911 targa")]
     var player = MediaPlayer(1745786022)
     return (
-        <BlogPost title="have fun with it" date="18 february - 10:50am">
+        <BlogPost title="have fun with it" date="18 february - 10:50am" tags={["weekly drawing", "weekly song"]}>
             good morning friends! the weather today is nice and sunny, the music has been grooving and i'm excited to share these new works with you all. first up is this porsche 911 in moonstone purple with the targa top. this photo was actually posted by my favorite car photograph syd (@deerfella) on twitter. eventually i'll write up a nice way to embed tweets in these posts but for now just use this ugly <a href="https://twitter.com/deerfella/status/1756375998868722027" target="_blank">hyperlink</a>.
             <Gallery images={img} collectionName="cars!"/>
             today is also an especially good day because i have new music to share as well. what started as a joke turned into one of my favorite tracks mainly due to an amazing lead synth. fell in love with the vibe on this track so i spent a solid amount of time making it sound as good as i could. hope you all enjoy.
@@ -189,7 +189,7 @@ function Feb6(){
     const img = [getFromMasterDict("cars!", "mr2 mk1")]
 
     return (
-        <BlogPost title="mid week" date="6 february - 10:43pm">
+        <BlogPost title="mid week" date="6 february - 10:43pm" tags={["weekly drawing"]}>
             this drawing came out too good to wait for the weekend. check out this beautiful gen 1 mr2.
             <Gallery images={img} collectionName="cars!"/>
             i modified the colors a bit bc the original grey was too boring and the blue looks <b>fantastic.</b> maybe i'll have another drawing before the weekend... we'll see about that.
@@ -207,9 +207,9 @@ function Feb4(){
     const img = [getFromMasterDict("cars!", "tacoma")]
 
     return (
-        <BlogPost title="second thoughts" date="4 february - 9:18pm">
+        <BlogPost title="second thoughts" date="4 february - 9:18pm" tags={["weekly drawing"]}>
             {/* there's a lot about my personal life i don't really want to dive into in this blog, but one thing i think i should be transparent about (in hopes that it may help someone else down the line) is my relationship with substance abuse. i have what some may call an 'addictive personality'. from my perspective this manifests as a desire to have fun <i>all</i> the time, even when i know that i shouldn't. in recent years i have outgrown a lot of these habits and learned when and how to say no, but what's been bothering me the most lately is just how often i find myself thinking about it - to be clear here im talking about weed. this incessant thought that lingers after smoking has me seriously doubting if i will ever be able to have a normal relationship with weed. */}
-            i wrote some long winded post about personal things going on in my life but commented it out because i don't think im comfortable sharing those thoughts yet. for now i leave you with this drawing of my friends tacoma, the <a href="https://soundcloud.com/gain_online/sets/commuter">offical release link</a> of my new ep, and a quote i really needed to reread.
+            i wrote some long winded post about personal things going on in my life but commented it out because i don't think im comfortable sharing those thoughts yet. for now i leave you with this drawing of my friends tacoma, the <a href="https://soundcloud.com/gain_online/sets/commuter">official release link</a> of my new ep, and a quote i really needed to reread.
             <Break/>
             <i>"it is a shame for a man to grow old without seeing the beauty and strength of which his body is capable."</i> - i think this also applies to the creation of great works. it is shame for a man to grow old without seeing the beauty of which he is capable of bringing into the world.
             <Gallery images={img} collectionName="cars!" />
@@ -245,7 +245,7 @@ function Jan28(){
     const img = [getFromMasterDict("cars!", "mr2")]
     
     return (
-        <BlogPost title="locked in?" date="28 january 2024 - 10:30am">
+        <BlogPost title="locked in?" date="28 january 2024 - 10:30am" tags={["weekly drawing"]}>
             you know that feeling when things start to click? creating this week felt super rewarding. pushed out 2 new songs to round out commuter (both hits btw) and ended up with a really nice drawing (shoutout toyota's designers for making a car as gorgeous as the mr2). 
             <Gallery images={img} collectionName="cars!" />
             ill be back in a follow up post to discuss commuter in more depth - maybe ill also figure out what id like to do with that 'audio' tab in the navigation bar.
@@ -261,7 +261,7 @@ function Jan20(){
     const img = [getFromMasterDict("cars!", "ae86")]
 
     return (
-        <BlogPost title="one of those weeks" date="20 january 2024 - 2:41pm">
+        <BlogPost title="one of those weeks" date="20 january 2024 - 2:41pm" tags={["weekly drawing"]}>
             struggled through this week with easily the most difficult drawing by far. the front looked so good but something about the perspective made getting everything else to look right almost impossible. anyways, this was a third attempt and i had to call it after that before i lost my mind.
             <Gallery images={img} collectionName="cars!"/>
             ill be back next week with a better drawing and more music. also, lets discuss this 'commuter' ep then too.
@@ -277,7 +277,7 @@ function Jan14pt2(){
     var player = MediaPlayer(1709548257)
 
     return (
-        <BlogPost title="musical addition" date="14 january 2024 - 1:03pm">
+        <BlogPost title="musical addition" date="14 january 2024 - 1:03pm" tags={["weekly song"]}>
             did some refactoring and figured out the soundcloud embedding pretty quickly so heres
             that new track. really really happy with how this one turned out... it actually
             inspired a mini project ive dubbed 'commuter'. More info on that later.
@@ -299,7 +299,7 @@ function Jan14(){
         getFromMasterDict("cars!", "f150")
     ]
     return (
-        <BlogPost title="it begins" date="14 january 2024 - 11:20am">
+        <BlogPost title="it begins" date="14 january 2024 - 11:20am" tags={["weekly drawing"]}>
             well, here we are. the first of many weekly updates for 2024. overachieved a bit this week and created more than expected but im going to keep the minimum requirement at one per week. still havent figured out how i should display both art and music in the same blog post so for now you just get the new drawings.
             <div>
                 <Gallery images={newImages} collectionName="cars!" />
