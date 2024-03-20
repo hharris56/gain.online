@@ -12,7 +12,7 @@ export default function Landing() {
           href="/home"
           prefetch={false}
           >
-          enter
+          <a>enter</a>
           </Link>
       </div>
       <MobileCoverLogo />
