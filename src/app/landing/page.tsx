@@ -10,7 +10,6 @@ export default function Landing() {
           <Link 
           className="default-button enter-button" 
           href="/home"
-          prefetch={false}
           >
           enter
           </Link>

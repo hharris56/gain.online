@@ -6,7 +6,6 @@ function DesktopLogo(){
         <Link 
         className="logo-container" 
         href="/home"
-        prefetch={false}
         >
             <img src="/logos/logo black.png" className="logo rotate"/>
             <img src="/logos/logo blue.png" className="logo rotate1 shadow" style={{zIndex: "-1"}}/>
