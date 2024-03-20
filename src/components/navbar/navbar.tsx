@@ -27,6 +27,7 @@ function NavbarButton(props: ButtonProps){
         <Link 
         className="navbar-button"
         href={props.route} 
+        prefetch={false}
         key={props.title}>
             {props.title}
         </Link>

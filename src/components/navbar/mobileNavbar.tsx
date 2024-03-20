@@ -30,6 +30,7 @@ function MobileNavbarButton(props: ButtonProps){
         className="mobile-navbar-button"
         href={props.route} 
         key={props.title}
+        prefetch={false}
         onClick={() => {props.callback(false)}}>
             {props.title}
         </Link>
