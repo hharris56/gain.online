@@ -48,3 +48,10 @@
     cursor: pointer;
     transition: rotate 0.5s;
 }
+
+.mobile-header-online{
+    display: flex;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
