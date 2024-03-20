@@ -14,8 +14,7 @@ export default function MobileHeader(props: any){
                 <Link 
                 href="/landing"
                 className="mobile-header-online">
-                    <a>gain.</a>
-                    <b>online</b>
+                    gain.<b>online</b>
                 </Link>
                 <img src="/logos/logo black.png" className="mobile-header-logo"
                 style={{rotate: isExpanded? "45deg" : "0deg"}}
