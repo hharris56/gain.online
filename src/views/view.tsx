@@ -1,6 +1,5 @@
 "use client"
 
-import { Inter } from 'next/font/google'
 import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
 import { isMobileFn } from '../hooks/mobileHooks'
@@ -8,8 +7,6 @@ import MobileView from './mobileView/mobileView'
 import { useEffect, useState } from 'react'
 import { debounce } from 'underscore'
 import { usePathname } from 'next/navigation'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function View({
     children,
