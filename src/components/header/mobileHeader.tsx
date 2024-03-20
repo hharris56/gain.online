@@ -13,7 +13,6 @@ export default function MobileHeader(props: any){
             <div className="mobile-header-content">
                 <Link 
                 href="/landing"
-                prefetch={false}
                 className="mobile-header-online">
                     <a>gain.</a>
                     <b>online</b>

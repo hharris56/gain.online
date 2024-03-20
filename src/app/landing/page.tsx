@@ -10,9 +10,8 @@ export default function Landing() {
           <Link 
           className="default-button enter-button" 
           href="/home"
-          prefetch={false}
           >
-          <a>enter</a>
+          enter
           </Link>
       </div>
       <MobileCoverLogo />
