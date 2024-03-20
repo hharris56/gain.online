@@ -34,7 +34,7 @@ function GalleryImage(props: GalleryImageProps){
 
     return (
         <div className="gallery-item">
-            <Link href={href}>
+            <Link href={href} prefetch={false}>
                 <img key={"img:" + props.imageName} 
                 className="image-base gallery-image" src={`/art/${props.imageName}`}/>
             </Link>
