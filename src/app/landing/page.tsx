@@ -10,6 +10,7 @@ export default function Landing() {
           <Link 
           className="default-button enter-button" 
           href="/home"
+          passHref={true}
           >
           enter
           </Link>
