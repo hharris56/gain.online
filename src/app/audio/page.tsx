@@ -29,9 +29,9 @@ function Album(props: {cover: string, title: string, year: number}){
     const href = `/audio/${props.title}`
     return (
         <div className={"album-item" + (isMobile? "-mobile" : "")}>
-            <Link href={href}>
+            <a href={href}>
                 <img src={props.cover} style={{maxWidth: "100%"}}/>
-            </Link>
+            </a>
             <div className="album-info">
                 <i style={{fontSize: "2rem"}}>{props.title}</i>
                 <a style={{fontSize: ".75rem"}}>{props.year}</a>

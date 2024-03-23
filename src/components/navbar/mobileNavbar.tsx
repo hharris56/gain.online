@@ -26,12 +26,12 @@ interface ButtonProps{
 function MobileNavbarButton(props: ButtonProps){
 
     return (
-        <Link 
+        <a 
         className="mobile-navbar-button"
         href={props.route} 
         key={props.title}
         onClick={() => {props.callback(false)}}>
             {props.title}
-        </Link>
+        </a>
     )
 }

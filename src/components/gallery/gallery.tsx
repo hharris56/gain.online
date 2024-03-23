@@ -34,10 +34,10 @@ function GalleryImage(props: GalleryImageProps){
 
     return (
         <div className="gallery-item">
-            <Link href={href}>
+            <a href={href}>
                 <img key={"img:" + props.imageName} 
                 className="image-base gallery-image" src={`/art/${props.imageName}`}/>
-            </Link>
+            </a>
             <InfoCard name={shortName} size={0.2}/>
         </div>
     )

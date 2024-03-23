@@ -11,11 +11,11 @@ export default function MobileHeader(props: any){
     return (
         <div className="mobile-header">
             <div className="mobile-header-content">
-                <Link 
+                <a 
                 href="/landing"
                 className="mobile-header-online">
                     gain.<b>online</b>
-                </Link>
+                </a>
                 <img src="/logos/logo black.png" className="mobile-header-logo"
                 style={{rotate: isExpanded? "45deg" : "0deg"}}
                 onClick={() => setExpanded(!isExpanded)}/>

@@ -3,14 +3,14 @@ import Link from "next/link"
 
 function DesktopLogo(){
     return (
-        <Link 
+        <a 
         className="logo-container" 
         href="/home"
         >
             <img src="/logos/logo black.png" className="logo rotate"/>
             <img src="/logos/logo blue.png" className="logo rotate1 shadow" style={{zIndex: "-1"}}/>
             <img src="/logos/logo purple.png" className="logo rotate2 shadow" style={{zIndex: "-2"}}/>
-        </Link>
+        </a>
     )
 }
 
