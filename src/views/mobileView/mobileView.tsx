@@ -1,5 +1,4 @@
 import "./mobileView.css"
-import { useState } from "react"
 import MobileHeader from "../../components/header/mobileHeader"
 import Footer from "../../components/footer/footer"
 

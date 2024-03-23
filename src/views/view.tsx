@@ -45,7 +45,7 @@ export default function View({ children, }:
     newLayout = useIsMobile() ? 
     // mobile view
     <MobileView>
-        <div style={{marginBottom: "2rem"}}>{children}</div>
+        <div>{children}</div>
     </MobileView> : 
     // desktop view
     <div style={{padding:"2rem"}}>
