@@ -57,7 +57,7 @@ function Mar23(){
             + reworked how the webapp determines mobile vs web view which removed an issue that caused the desktop version to render by default
             </Quote>
             <Break />
-            yea well that broke every single button the app, but only in product *facepalm*. the issue has to do with the previous page not unmounting due to me not setting any content until after a useEffect returns (which only returns after the component has mounted) resulting in the page not updating until you manually refreshed it. this couldn't stay for obvious reasons, so if you ever see the desktop site render on mobile pretend like you didn't.
+            yea well that broke every single button the app, but only in production *facepalm*. the issue has to do with the previous page not unmounting due to me not setting any content until after a useEffect returns (which only returns after the component has mounted) resulting in the page not updating until you manually refreshed it. this couldn't stay for obvious reasons, so if you ever see the desktop site render on mobile pretend like you didn't.
             <Break />
             ...
             <Break />

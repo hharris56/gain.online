@@ -15,7 +15,8 @@ function BlogPost(props: BlogProps){
 
     return (
         <div className="post-container" key={props.title}>
-            {!isMobile? <div className="line-decoration" /> : <></>}
+            {/* {!isMobile? <div className="line-decoration" /> : <></>} */}
+            <div className={"line-decoration" + (isMobile? "-mobile" : "")} />
             <div>
                 <h3 style={{marginBottom: "0rem", marginTop: "0rem"}}>{props.title}</h3>
                 <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
