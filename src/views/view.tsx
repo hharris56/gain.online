@@ -45,7 +45,7 @@ export default function View({ children, }:
     newLayout = useIsMobile() ? 
     // mobile view
     <MobileView>
-        <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+        <div style={{marginBottom: "2rem"}}>{children}</div>
     </MobileView> : 
     // desktop view
     <div style={{padding:"2rem"}}>
@@ -53,6 +53,17 @@ export default function View({ children, }:
             <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
         <Footer />
     </div>
+
+    // // desktop view
+    // <div style={{padding:"2rem"}}>
+    //     <Header />
+    //         <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+    //     <Footer />
+    // </div>:
+    // // mobile view
+    // <MobileView>
+    //     <div style={{marginBottom: "2rem"}}>{children}</div>
+    // </MobileView>
     
     return pathName == "/landing" ? <>{children}</> : newLayout
 }
