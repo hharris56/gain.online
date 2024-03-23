@@ -14,19 +14,7 @@ export default function View({
     children: React.ReactNode
     }){
 
-    const [layout, setLayout] = useState<any>(
-        isMobileFn() ? 
-        // mobile view
-        <MobileView>
-            <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
-        </MobileView> : 
-        // desktop view
-        <div style={{padding:"2rem"}}>
-            <Header />
-                <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
-            <Footer />
-        </div>
-    )
+    const [layout, setLayout] = useState<any>()
     const pathName = usePathname()
 
     function handleResize() {
@@ -45,7 +33,7 @@ export default function View({
     }
 
     useEffect(() => {
-        // handleResize() // call once on initial page load
+        handleResize() // call once on initial page load
         var debounced = debounce(handleResize, 100)
 
         // Attach the event listener to the window object
