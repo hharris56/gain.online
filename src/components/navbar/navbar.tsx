@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import "./navbar.css";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export default function Navbar(props: any){
 
@@ -22,13 +22,15 @@ interface ButtonProps{
     selected?: boolean,
 }
 function NavbarButton(props: ButtonProps){
+    const router = useRouter()
 
     return (
-        <Link 
+        <a 
         className="navbar-button"
-        href={props.route}
+        onClick={() => router.push(props.route)}
+        // href={props.route}
         key={props.title}>
             {props.title}
-        </Link>
+        </a>
     )
 }

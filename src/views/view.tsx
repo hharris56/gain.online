@@ -14,7 +14,7 @@ export default function View({
     children: React.ReactNode
     }){
 
-    const [layout, setLayout] = useState(<>RELOADING</>)
+    const [layout, setLayout] = useState(<></>)
     const pathName = usePathname()
 
     function handleResize() {
@@ -44,7 +44,5 @@ export default function View({
         };
       }, [])
     
-    // return pathName == "/landing" ? <>{children}</> : layout
-
-    return layout
+    return pathName == "/landing" ? <>{children}</> : layout
 }
