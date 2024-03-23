@@ -13,6 +13,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Mar23 key="3/23"/>,
         <Mar18 key="3/18"/>,
         <Mar15pt2 key="3/15-2"/>,
         <Mar15 key="3/15"/>,
@@ -44,6 +45,28 @@ export default function Posts(){
                 }
             </div>
         </React.Fragment>
+    )
+}
+
+function Mar23(){
+    return (
+        <BlogPost title="technical difficulties" date="23 march - 2:49pm">
+            so remember in the last post when i said this?
+            <Break />
+            <Quote>
+            + reworked how the webapp determines mobile vs web view which removed an issue that caused the desktop version to render by default
+            </Quote>
+            <Break />
+            yea well that broke every single button the app, but only in product *facepalm*. the issue has to do with the previous page not unmounting due to me not setting any content until after a useEffect returns (which only returns after the component has mounted) resulting in the page not updating until you manually refreshed it. this couldn't stay for obvious reasons, so if you ever see the desktop site render on mobile pretend like you didn't.
+            <Break />
+            ...
+            <Break />
+            as i wrote that i realized i could just make the mobile site the default since that will still look fine on desktop. gonna put that in now then go read a book or something idk. spent a week on this btw.
+            <Break />
+            chat (under better circumstances) soon :)
+            <Break />
+            + gain
+        </BlogPost>
     )
 }
 
