@@ -44,5 +44,13 @@ export default function View({
         };
       }, [])
     
-    return pathName == "/landing" ? <>{children}</> : layout
+    // return pathName == "/landing" ? <>{children}</> : layout
+
+    return (
+        <div style={{padding:"2rem"}}>
+            <Header />
+                <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+            <Footer />
+        </div>
+    )
 }
