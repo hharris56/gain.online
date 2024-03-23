@@ -5,7 +5,7 @@ import { useState, useCallback, useEffect } from 'react';
 const useIsMobile = () => {
 
     const width = 650
-    const [targetReached, setTargetReached] = useState(false);
+    const [targetReached, setTargetReached] = useState(true);
 
     const updateTarget = useCallback((e: any) => {
         if (e.matches) {
@@ -20,8 +20,8 @@ const useIsMobile = () => {
         media.addListener(updateTarget);
 
         // Check on mount (callback is not called until a change occurs)
-        if (media.matches) {
-            setTargetReached(true);
+        if (!media.matches) {
+            setTargetReached(false);
         }
 
         return () => media.removeListener(updateTarget);
