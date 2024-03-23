@@ -24,11 +24,11 @@ interface ButtonProps{
 function NavbarButton(props: ButtonProps){
 
     return (
-        <a 
+        <Link 
         className="navbar-button"
         href={props.route}
         key={props.title}>
             {props.title}
-        </a>
+        </Link>
     )
 }
