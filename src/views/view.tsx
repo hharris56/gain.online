@@ -44,5 +44,15 @@ export default function View({
         };
       }, [])
     
-    return pathName == "/landing" ? <>{children}</> : layout
+    return pathName == "/landing" ? <>{children}</> : (isMobileFn() ? 
+    // mobile view
+    <MobileView>
+        <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+    </MobileView> : 
+    // desktop view
+    <div style={{padding:"2rem"}}>
+        <Header />
+            <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+        <Footer />
+    </div>)
 }
