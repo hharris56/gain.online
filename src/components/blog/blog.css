@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: row;
 
-    font-size: 1rem;
+    font-size: 0.75em;
 }
 
 .tag-button{
@@ -25,7 +25,7 @@
 
 .quote{
     /* background-color: red; */
-    font-size: 1rem;
+    font-size: 0.75em;
     font-style: italic;
     color: gray;
     margin: 0rem 0rem 0rem 1rem;

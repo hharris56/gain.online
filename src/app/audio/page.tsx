@@ -33,8 +33,8 @@ function Album(props: {cover: string, title: string, year: number}){
                 <img src={props.cover} style={{maxWidth: "100%"}}/>
             </Link>
             <div className="album-info">
-                <i style={{fontSize: "2rem"}}>{props.title}</i>
-                <a style={{fontSize: ".75rem"}}>{props.year}</a>
+                <i style={{fontSize: "1.5em"}}>{props.title}</i>
+                <a style={{fontSize: ".75em"}}>{props.year}</a>
             </div>
         </div>
     )
