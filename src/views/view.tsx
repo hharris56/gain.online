@@ -14,7 +14,7 @@ export default function View({
     children: React.ReactNode
     }){
 
-    const [layout, setLayout] = useState(<></>)
+    const [layout, setLayout] = useState(<>RELOADING</>)
     const pathName = usePathname()
 
     function handleResize() {
