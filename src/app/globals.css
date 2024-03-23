@@ -87,6 +87,11 @@
   animation: none;
 }
 
+.dotdotdot-mobile{
+  --distance: -0.5rem;
+  animation: bobbing 1s infinite forwards;
+}
+
 .expand-button:hover .dotdotdot{
   animation: bobbing 1s infinite forwards;
 }

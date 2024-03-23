@@ -6,6 +6,7 @@ import MediaPlayer from "../../../components/mediaPlayer/mediaPlayer";
 import "./posts.css"
 import { getFromMasterDict } from "../../../models/artMasterList";
 import { Gallery } from "../../../components/gallery/gallery";
+import { useIsMobile } from "../../../hooks/mobileHooks";
 
 export default function Posts(){
     var [expanded, setExpanded] = useState(false)
@@ -13,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Mar23pt2 key="3/23-2" />,
         <Mar23 key="3/23"/>,
         <Mar18 key="3/18"/>,
         <Mar15pt2 key="3/15-2"/>,
@@ -31,20 +33,37 @@ export default function Posts(){
         <Jan13 key="1/13"/>,
         <Jan7 key="1/7"/>
     ]
+
+    const dotClass: string = useIsMobile() ? "dotdotdot-mobile" : "dotdotdot"
+
     return (
         <React.Fragment>
             {expanded ? posts : posts.slice(0, 3)}
             <div className="expand-button" onClick={() => setExpanded(!expanded)}>
                 {!expanded ?
                 <div style={{display:"flex", flexDirection:"row", width:"fit-content"}}>
-                    <h1 className="dotdotdot">.</h1>
-                    <h1 className="dotdotdot" style={{animationDelay:"0.2s"}}>.</h1>
-                    <h1 className="dotdotdot" style={{animationDelay:"0.4s"}}>.</h1>
+                    <h1 className={dotClass}>.</h1>
+                    <h1 className={dotClass} style={{animationDelay:"0.2s"}}>.</h1>
+                    <h1 className={dotClass} style={{animationDelay:"0.4s"}}>.</h1>
                 </div> :
                 <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className="open"/>
                 }
             </div>
         </React.Fragment>
+    )
+}
+
+function Mar23pt2(){
+    return (
+        <BlogPost title="back with another" date="23 march - 4:05 pm" tags={["web dev", "site updates"]}>
+            so im not rendering the mobile view by default. this was a great change (thanks for the suggestion) as it still looks pretty good on desktop *and* most of the time desktop traffic will go through the /landing page anyways, giving the site time to adjust before any content is shown.
+            <Break />
+            i also added the sticky navbar for mobile along with some visual improvements (the line decorations live!!)
+            <Break />
+            publishing soon :)
+            <Break />
+            + gain
+        </BlogPost>
     )
 }
 
@@ -63,7 +82,7 @@ function Mar23(){
             <Break />
             as i wrote that i realized i could just make the mobile site the default since that will still look fine on desktop. gonna put that in now then go read a book or something idk. spent a week on this btw.
             <Break />
-            chat (under better circumstances) soon :)
+            chat (under better circumstances) soon :/
             <Break />
             + gain
         </BlogPost>
