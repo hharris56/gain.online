@@ -50,14 +50,14 @@ export default function Posts(){
 
 function Mar23(){
     return (
-        <BlogPost title="technical difficulties" date="23 march - 2:49pm">
+        <BlogPost title="technical difficulties" date="23 march - 2:49pm" tags={["web dev"]}>
             so remember in the last post when i said this?
             <Break />
             <Quote>
             + reworked how the webapp determines mobile vs web view which removed an issue that caused the desktop version to render by default
             </Quote>
             <Break />
-            yea well that broke every single button the app, but only in production *facepalm*. the issue has to do with the previous page not unmounting due to me not setting any content until after a useEffect returns (which only returns after the component has mounted) resulting in the page not updating until you manually refreshed it. this couldn't stay for obvious reasons, so if you ever see the desktop site render on mobile pretend like you didn't.
+            yea well that broke every single button on the app, but only in production *facepalm*. i'm pretty sure the issue has to do with the previous page not unmounting since i was not setting any content until after running a useEffect hook that checks if it should render mobile (useEffects will only run after the component has finished mounted). the result was the page would not update until you manually refreshed it. this couldn't stay for obvious reasons, so if you ever see the desktop site render on mobile pretend like you didn't.
             <Break />
             ...
             <Break />
@@ -72,7 +72,7 @@ function Mar23(){
 
 function Mar18(){
     return (
-        <BlogPost title="website changes" date="18 march - 6:06pm" tags={["dev update"]}>
+        <BlogPost title="website changes" date="18 march - 6:06pm" tags={["web dev", "site updates"]}>
             had a ton of time on the plane this past weekend, heres some stuff i managed to knock out for the website:
             <Break/>
             + reworked how the webapp determines mobile vs web view which removed an issue that caused the desktop version to render by default
