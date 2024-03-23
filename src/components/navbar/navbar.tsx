@@ -25,12 +25,11 @@ function NavbarButton(props: ButtonProps){
     const router = useRouter()
 
     return (
-        <a 
+        <Link
         className="navbar-button"
-        onClick={() => router.push(props.route)}
-        // href={props.route}
+        href={props.route}
         key={props.title}>
             {props.title}
-        </a>
+        </Link>
     )
 }

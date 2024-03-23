@@ -7,13 +7,13 @@ export default function Landing() {
   return (
     <div className="mobile-cover">
       <div className="enter-mantle">
-          <a 
+          <Link 
           className="default-button enter-button" 
           href="/home"
           // passHref={true}
           >
           enter
-          </a>
+          </Link>
       </div>
       <MobileCoverLogo />
     </div>
