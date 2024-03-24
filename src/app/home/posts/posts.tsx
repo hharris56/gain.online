@@ -7,6 +7,7 @@ import "./posts.css"
 import { getFromMasterDict } from "../../../models/artMasterList";
 import { Gallery } from "../../../components/gallery/gallery";
 import { useIsMobile } from "../../../hooks/mobileHooks";
+import ExpandButton from "../../../components/buttons/expandButton";
 
 export default function Posts(){
     var [expanded, setExpanded] = useState(false)
@@ -37,9 +38,9 @@ export default function Posts(){
     const dotClass: string = useIsMobile() ? "dotdotdot-mobile" : "dotdotdot"
 
     return (
-        <React.Fragment>
+        <div>
             {expanded ? posts : posts.slice(0, 3)}
-            <div className="expand-button" onClick={() => setExpanded(!expanded)}>
+            {/* <div className="expand-button" onClick={() => setExpanded(!expanded)}>
                 {!expanded ?
                 <div style={{display:"flex", flexDirection:"row", width:"fit-content"}}>
                     <h1 className={dotClass}>.</h1>
@@ -48,8 +49,9 @@ export default function Posts(){
                 </div> :
                 <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className="open"/>
                 }
-            </div>
-        </React.Fragment>
+            </div> */}
+            <ExpandButton expanded={expanded} callback={() => setExpanded(!expanded)} />
+        </div>
     )
 }
 

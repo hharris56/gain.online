@@ -1,0 +1,63 @@
+@keyframes gradient-move {
+    from {background-position: 0%;}
+    to {background-position: 100%;}
+}
+
+@keyframes bobbing {
+    0% { transform: translate(0, 0rem);}
+    50% { transform: translate(0, var(--distance));}
+    100% { transform: translate(0, 0rem);}
+}
+
+/* EXPAND BUTTON */
+
+.expand-button{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 0.5rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    height: 2rem;
+    width: 100%;
+    /* transition: all 1s; */
+
+    background-size: 200%;
+    background-position: 0%;
+    background-image: linear-gradient(90deg, white 50%, lightblue)
+}
+
+.expand-button:hover{
+    transform: rotate(90);
+    background-color: lightblue;
+    transition: all 1s;
+    cursor: pointer;
+
+    animation: gradient-move 1s;
+    animation-fill-mode: forwards;
+}
+
+.dotdotdot{
+    --distance: -0.5rem;
+    animation: none;
+}
+
+.dotdotdot-mobile{
+    --distance: -0.5rem;
+    animation: bobbing 1s infinite forwards;
+}
+
+.expand-button:hover .dotdotdot{
+    animation: bobbing 1s infinite forwards;
+}
+
+/* DROPDOWN BUTTON */
+.dropdown-button{
+    width: 3rem;
+    height: 3rem;
+    margin-right: .5rem;
+
+    cursor: pointer;
+    transition: rotate 0.5s;
+}

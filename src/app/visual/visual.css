@@ -11,4 +11,13 @@
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.timeline-mobile-header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }

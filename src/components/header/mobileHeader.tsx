@@ -4,6 +4,7 @@ import "./header.css"
 import { useState } from "react"
 import NavbarMobile from "../navbar/mobileNavbar"
 import Link from "next/link"
+import DropDownButton from "../buttons/dropdownButton"
 
 export default function MobileHeader(props: any){
     const [isExpanded, setExpanded] = useState(false)
@@ -17,9 +18,7 @@ export default function MobileHeader(props: any){
                 className="mobile-header-online">
                     gain.<b>online</b>
                 </Link>
-                <img src="/logos/logo black.png" className="mobile-header-logo"
-                style={{rotate: isExpanded? "45deg" : "0deg"}}
-                onClick={() => setExpanded(!isExpanded)}/>
+                <DropDownButton expanded={isExpanded} callback={() => setExpanded(!isExpanded)} />
             </div>
             <NavbarMobile expanded={isExpanded} callback={setExpanded}/>
         </div>

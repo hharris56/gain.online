@@ -4,6 +4,9 @@ import { useState } from 'react';
 import './visual.css'
 import { ArtMasterList } from '../../models/artMasterList';
 import { Gallery } from '../../components/gallery/gallery';
+import { useIsMobile } from '../../hooks/mobileHooks';
+import ExpandButton from '../../components/buttons/expandButton';
+import DropDownButton from '../../components/buttons/dropdownButton';
 
 export default function VisualPage(){
     return (
@@ -28,27 +31,59 @@ interface TimelineProps {
 }
 function TimelineItem(props: TimelineProps){
 
-    var [expanded, setExpanded] = useState(true);
+    var [expanded, setExpanded] = useState(false);
     var itemGallery = <Gallery collectionName={props.title} images={props.pictures}/>
 
-    return (
+    const isMobile = useIsMobile()
+
+    var layout = isMobile?
+    (// mobile view
         <div style={{display: "flex", flexDirection: "row"}} className="post-container">
-            <div className="line-decoration" />
+            <div className={"line-decoration" + (isMobile ? "-mobile" : "")} />
+            <div className="timeline-item">
+                <div className="timeline-mobile-header">
+                    <div style={{marginBottom: "1em"}}>
+                        <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>{props.title}</h2>
+                        <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
+                    </div>
+                    <DropDownButton expanded={expanded} callback={() => setExpanded(!expanded)} />
+                </div>
+                {expanded?
+                <>
+                    <a style={{paddingRight: "3rem"}}>{props.children}</a>
+                    {itemGallery}
+                </> : <></>}
+            </div>
+        </div>
+    ) :
+    (// desktop view
+        <div style={{display: "flex", flexDirection: "row"}} className="post-container">
+            <div className="line-decoration"/>
             <div className="timeline-item">
                 <div style={{marginBottom: "1em"}}>
                     <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>{props.title}</h2>
                     <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
                 </div>
                 <a style={{paddingRight: "3rem"}}>{props.children}</a>
-                {
-                    expanded? itemGallery : <></>
-                }
-                {/* <div className="expand-button" onClick={() => setExpanded(!expanded)}>
-                    <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className={(expanded ? "open" : "closed")}/>
-                </div> */}
+                {itemGallery}
             </div>
         </div>
     )
+    return layout
+
+    // return (
+    //     <div style={{display: "flex", flexDirection: "row"}} className="post-container">
+    //         <div className={"line-decoration" + (isMobile ? "-mobile" : "")} />
+    //         <div className="timeline-item">
+    //             <div style={{marginBottom: "1em"}}>
+    //                 <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>{props.title}</h2>
+    //                 <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
+    //             </div>
+    //             <a style={{paddingRight: "3rem"}}>{props.children}</a>
+    //             {itemGallery}
+    //         </div>
+    //     </div>
+    // )
 }
 
 function Cars(){
