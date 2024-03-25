@@ -6,7 +6,7 @@ import { ArtMasterList } from '../../models/artMasterList';
 import { Gallery } from '../../components/gallery/gallery';
 import { useIsMobile } from '../../hooks/mobileHooks';
 import ExpandButton from '../../components/buttons/expandButton';
-import DropDownButton from '../../components/buttons/dropdownButton';
+import DropdownButton from '../../components/buttons/dropdownButton';
 
 export default function VisualPage(){
     return (
@@ -36,27 +36,40 @@ function TimelineItem(props: TimelineProps){
 
     const isMobile = useIsMobile()
 
+    // TODO: smooth open
+
     var layout = isMobile?
-    (// mobile view
-        <div style={{display: "flex", flexDirection: "row"}} className="post-container">
-            <div className={"line-decoration" + (isMobile ? "-mobile" : "")} />
+    ( // mobile view
+        <div style={{width: "100%"}} className="post-container">
+            <div className="line-decoration-mobile" />
             <div className="timeline-item">
                 <div className="timeline-mobile-header">
-                    <div style={{marginBottom: "1em"}}>
+                    <div>
                         <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>{props.title}</h2>
                         <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
                     </div>
-                    <DropDownButton expanded={expanded} callback={() => setExpanded(!expanded)} />
+                    <DropdownButton 
+                    expanded={expanded} 
+                    callback={() => setExpanded(!expanded)}
+                    size="1rem"
+                    color="blue"/>
                 </div>
-                {expanded?
+                {expanded ?
                 <>
-                    <a style={{paddingRight: "3rem"}}>{props.children}</a>
+                    <a style={{marginTop: "1rem", paddingRight: "2rem"}}>
+                        {props.children}
+                    </a>
                     {itemGallery}
+                    <div className='scroll-prompt'>
+                        <a>&lt;&lt;</a>
+                        <div className="scroll-prompt-spacer"></div>
+                        <a>&gt;&gt;</a>
+                    </div>
                 </> : <></>}
             </div>
         </div>
     ) :
-    (// desktop view
+    ( // desktop view
         <div style={{display: "flex", flexDirection: "row"}} className="post-container">
             <div className="line-decoration"/>
             <div className="timeline-item">
@@ -70,20 +83,6 @@ function TimelineItem(props: TimelineProps){
         </div>
     )
     return layout
-
-    // return (
-    //     <div style={{display: "flex", flexDirection: "row"}} className="post-container">
-    //         <div className={"line-decoration" + (isMobile ? "-mobile" : "")} />
-    //         <div className="timeline-item">
-    //             <div style={{marginBottom: "1em"}}>
-    //                 <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>{props.title}</h2>
-    //                 <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
-    //             </div>
-    //             <a style={{paddingRight: "3rem"}}>{props.children}</a>
-    //             {itemGallery}
-    //         </div>
-    //     </div>
-    // )
 }
 
 function Cars(){

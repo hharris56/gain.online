@@ -27,3 +27,16 @@
 .gallery-image{
     max-height: 18rem;
 }
+
+/* MOBILE VIEW */
+.item-gallery-mobile{
+    padding: 1rem 0rem 0rem 0rem;
+    width: 100%;
+
+    display: flex;
+    overflow: scroll;
+}
+
+.mobile-gallery-image{
+    max-width: 80vw;
+}
