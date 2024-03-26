@@ -13,7 +13,7 @@ export default function VisualPage(){
         <div>
             <h1>gain design</h1>
             <a>private gallery showing of visual art projects and explorations from over the years. different eras use different approaches, tools, and ideologies.</a>
-            <div className="content-container">
+            <div style={{width: "100%", marginTop: "2rem"}}>
                 <Cars/>
                 <CloudStudy1/>
                 <StarCharts/>
@@ -82,6 +82,7 @@ function TimelineItem(props: TimelineProps){
             </div>
         </div>
     )
+
     return layout
 }
 

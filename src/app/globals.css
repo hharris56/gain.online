@@ -34,10 +34,6 @@
   flex-direction: row;
 }
 
-.content-container{
-  padding-top: 2rem;
-}
-
 .open{
   transform: rotate(45deg);
 }
