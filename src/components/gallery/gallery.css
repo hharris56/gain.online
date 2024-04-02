@@ -34,7 +34,7 @@
     width: 100%;
 
     display: flex;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .mobile-gallery-image{

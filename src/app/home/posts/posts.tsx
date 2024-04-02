@@ -6,7 +6,6 @@ import MediaPlayer from "../../../components/mediaPlayer/mediaPlayer";
 import "./posts.css"
 import { getFromMasterDict } from "../../../models/artMasterList";
 import { Gallery } from "../../../components/gallery/gallery";
-import { useIsMobile } from "../../../hooks/mobileHooks";
 import ExpandButton from "../../../components/buttons/expandButton";
 
 export default function Posts(){
@@ -15,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Apr1 key="4/1" />,
         <Mar23pt2 key="3/23-2" />,
         <Mar23 key="3/23"/>,
         <Mar18 key="3/18"/>,
@@ -30,28 +30,40 @@ export default function Posts(){
         <Jan28 key="1/28"/>,
         <Jan20 key="1/20"/>,
         <Jan14pt2 key="1/14-2"/>,
-        <Jan14 key="1/14"/>,
+        // <Jan14 key="1/14"/>,
         <Jan13 key="1/13"/>,
         <Jan7 key="1/7"/>
     ]
 
-    const dotClass: string = useIsMobile() ? "dotdotdot-mobile" : "dotdotdot"
-
     return (
         <div>
             {expanded ? posts : posts.slice(0, 3)}
-            {/* <div className="expand-button" onClick={() => setExpanded(!expanded)}>
-                {!expanded ?
-                <div style={{display:"flex", flexDirection:"row", width:"fit-content"}}>
-                    <h1 className={dotClass}>.</h1>
-                    <h1 className={dotClass} style={{animationDelay:"0.2s"}}>.</h1>
-                    <h1 className={dotClass} style={{animationDelay:"0.4s"}}>.</h1>
-                </div> :
-                <img src="/logos/logo black.png" style={{maxHeight: "100%"}} className="open"/>
-                }
-            </div> */}
             <ExpandButton expanded={expanded} callback={() => setExpanded(!expanded)} />
         </div>
+    )
+}
+
+function Apr1(){
+    return (
+        <BlogPost title="april's fool" date="1 april - 10:30pm">
+            website ready for release, new album in the finishing stages, and a nice vacation planned for the end of the month. april is going to be a good one, i can feel it.
+            <Break/>
+            i wanted to hop on for a second just to update you all quick. the website is a go for launch, im just in the process of picking out what domain extension to purchase. i've narrowed it down to the following 3 options
+            <Break/>
+            - gain.ceo
+            <div/>
+            - gain.computer
+            <div/>
+            - gain.im
+            <Break/>
+            i have no idea how to pick from these remaining few, and i think part of the issue is that this website is supposed to be both a creative and professional portfolio - so the idea of appealing to that broad of an audience is making this decision extra difficult.
+            <Break/>
+            on a side note: gain.online is taken but i have not given up hope. i emailed the company currently using that domain to see if they're open to selling, fingers crossed on that.
+            <Break/>
+            i'll drop an update when the site goes live, chat then :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 

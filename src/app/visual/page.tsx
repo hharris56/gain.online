@@ -40,7 +40,7 @@ function TimelineItem(props: TimelineProps){
 
     var layout = isMobile?
     ( // mobile view
-        <div style={{width: "100%"}} className="post-container">
+        <div className="post-container">
             <div className="line-decoration-mobile" />
             <div className="timeline-item">
                 <div className="timeline-mobile-header">

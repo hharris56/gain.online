@@ -15,7 +15,6 @@ function BlogPost(props: BlogProps){
 
     return (
         <div className="post-container" key={props.title}>
-            {/* {!isMobile? <div className="line-decoration" /> : <></>} */}
             <div className={"line-decoration" + (isMobile? "-mobile" : "")} />
             <div>
                 <h3 style={{marginBottom: "0rem", marginTop: "0rem"}}>{props.title}</h3>
@@ -24,7 +23,9 @@ function BlogPost(props: BlogProps){
                     {props.tags.map(t => Tag(t))}
                 </div> : <></>}
                 <Break/>
-                {props.children}
+                <div className="post-content">
+                    {props.children}
+                </div>
                 <div className='post-divider' />
             </div>
         </div>
