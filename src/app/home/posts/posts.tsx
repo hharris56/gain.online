@@ -14,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Apr6 key="4/6" />,
         <Apr1 key="4/1" />,
         <Mar23pt2 key="3/23-2" />,
         <Mar23 key="3/23"/>,
@@ -40,6 +41,20 @@ export default function Posts(){
             {expanded ? posts : posts.slice(0, 3)}
             <ExpandButton expanded={expanded} callback={() => setExpanded(!expanded)} />
         </div>
+    )
+}
+
+function Apr6(){
+    return (
+        <BlogPost title="is this thing on?" date="6 april - 4:10pm">
+            and with that we are live! three (plus) months of development have gotten us this far, im excited to see what else is in store for this year. next up is putting music on streaming services. i have the first track from a new project being mastered right now, depending on how well that turns out i will get the rest of it mastered and release it on spotify along with some of my previous projects (thinking commuter and maybe even infrared). i still haven't decided how i am going to break up the styles, or if im even going to separate them in the first place, but that is a discussion for another day.
+            <Break/>
+            for now i want to sit back and appreciate that i have an actual website that i developed and published by myself :) it feels good seeing my creative vision come to fruition. this whole thing has been a long time coming and to know that i'm finally at the point where i can support / promote all of my creative endeavors in a single location... weeee aaarreee lliiiivveeeeeeee!
+            <Break/>
+            chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
