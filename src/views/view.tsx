@@ -65,5 +65,5 @@ export default function View({ children, }:
     //     <div style={{marginBottom: "2rem"}}>{children}</div>
     // </MobileView>
     
-    return pathName == "/landing" ? <>{children}</> : newLayout
+    return pathName == "/" ? <>{children}</> : newLayout
 }

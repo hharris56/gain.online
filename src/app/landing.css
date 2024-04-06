@@ -21,15 +21,15 @@
 }
 
 .enter-button{
-    height: 4rem;
-    width: 10rem;
+    /* height: 4rem;
+    width: 40%; */
 
     color: black;
     letter-spacing: 0.25rem;
     text-decoration: none;
 }
 
-.enter-button:active .mobile-cover{
+/* .enter-button:active .mobile-cover{
     transform: translate(100rem);
     transition: transform 1s;
-}
+} */

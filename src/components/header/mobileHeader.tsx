@@ -14,7 +14,7 @@ export default function MobileHeader(props: any){
             <div className="mobile-header-buffer"></div>
             <div className="mobile-header-content">
                 <Link 
-                href="/landing"
+                href="/"
                 className="mobile-header-online">
                     gain.<b>online</b>
                 </Link>
