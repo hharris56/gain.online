@@ -23,12 +23,13 @@
 }
 
 .post-container{
-  min-width: 100%;
-  /* background-color: red; */
+  /* min-width: 100%; */
+  /* background-color: lightblue; */
   
   padding: 0rem 0rem 0.5rem 0rem;
   margin-bottom: 2rem;
   margin-left: 0rem;
+  /* margin-right: 2rem; */
 
   display: flex;
   flex-direction: row;
