@@ -38,6 +38,11 @@
     animation-fill-mode: forwards;
 }
 
+.expand-button:active{
+    animation: gradient-move .2s;
+    animation-fill-mode: forwards;
+}
+
 .dotdotdot{
     --distance: -0.5rem;
     animation: none;

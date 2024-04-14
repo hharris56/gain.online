@@ -50,7 +50,7 @@ export default function View({ children, }:
     // desktop view
     <div style={{padding:"2rem"}}>
         <Header />
-            <div style={{marginBottom: "2rem", fontSize: "1.25em"}}>{children}</div>
+            <div style={{marginBottom: "2rem", fontSize: "1em"}}>{children}</div>
         <Footer />
     </div>
 
