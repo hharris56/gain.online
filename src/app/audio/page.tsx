@@ -18,31 +18,41 @@ export default function AudioPage(){
                     cover="/art/albums/deeper still/deeper still album cover.png"
                     title="deeper still"
                     year={2024}
+                    route="deeperStill"
                 />
                 <Album
                     cover="/art/albums/Commuter cover final.png"
                     title="commuter"
                     year={2024}
+                    route="commuter"
                 />
                 <Album
                     cover="/art/albums/jungle jungle/timeslip.jpg"
                     title="midnight jungle"
                     year={2023}
+                    route="midnightJungle"
                 />
                 <Album
                     cover="/art/albums/second life/Second Life Cover.png"
                     title="second life"
                     year={2023}
+                    route="secondLife"
                 />
             </div>
         </div>
     )
 }
 
-function Album(props: {cover: string, title: string, year: number}){
+interface AlbumProps {
+    cover: string,
+    title: string,
+    year: number,
+    route: string
+}
+function Album(props: AlbumProps){
     const isMobile = useIsMobile()
 
-    const href = `/audio/${props.title}`
+    const href = `/audio/${props.route}`
     return (
         <div className={"album-item" + (isMobile? "-mobile" : "")}>
             <Link href={href}>
