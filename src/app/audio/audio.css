@@ -1,13 +1,14 @@
 .albums-container{
-    /* background-color: lightblue; */
+    background-color: lightblue;
     margin: 1rem;
     min-height: 10rem;
+    /* width: 100%; */
     display: flex;
     flex-direction: row;
 }
 
 .album-item{
-    width: 20%;
+    width: 33%;
     max-height: fit-content;
     margin: 1rem;
 }
@@ -16,7 +17,11 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+.album-image{
+    max-width: 100%;
 }
 
 /* MOBILE VIEW */
@@ -36,4 +41,5 @@
 .album-item-mobile{
     width: 80%;
     margin: 1rem;
+    margin-bottom: 2rem;
 }
