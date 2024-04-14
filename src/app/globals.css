@@ -48,18 +48,6 @@
   cursor: pointer;
 }
 
-.image-info-card{
-  width: 20em;
-  max-width: 20em;
-  height: 10em;
-  background-color: white;
-  filter: drop-shadow(rgb(171, 170, 170) 0 0 0.05rem);
-  margin: 12rem 5rem 0rem 2rem;
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-}
-
 .default-button{
   background-image: linear-gradient(90deg, white, lightblue);
 

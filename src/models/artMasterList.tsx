@@ -81,18 +81,4 @@ function getFromMasterDict(collectionName: string, imageName: string){
     return (ArtMasterDict[collectionName] || "")[imageName] || ""
 }
 
-interface InfoCardProps{
-    name: string
-    size: number
-}
-function InfoCard(props: InfoCardProps){
-    return (
-        <div className="image-info-card" style={{fontSize: `${props.size}rem`}}>
-            <p><b>gain++</b> (b.1998)</p>
-            <i><b>{props.name}</b></i>
-            <a style={{marginTop: "2em"}}>not an nft. authentic, original, and unique piece of art.</a>
-        </div>
-    )
-}
-
-export {ArtMasterList, ArtMasterDict, InfoCard, getFromMasterDict};
+export {ArtMasterList, ArtMasterDict, getFromMasterDict};

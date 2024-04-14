@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { getFromMasterDict, InfoCard } from "../../models/artMasterList";
+import { getFromMasterDict } from "../../models/artMasterList";
 import "./gallery.css"
 import { useIsMobile } from "../../hooks/mobileHooks";
 
@@ -57,10 +57,24 @@ function GalleryImage(props: GalleryImageProps){
                 <img key={"img:" + props.imageName} 
                 className="image-base gallery-image" src={`/art/${props.imageName}`}/>
             </Link>
-            <InfoCard name={shortName} size={0.2}/>
+            <InfoCard name={shortName} size={0.75}/>
         </div>
     )
     return layout
 }
 
-export { Gallery }
+interface InfoCardProps{
+    name: string
+    size: number
+}
+function InfoCard(props: InfoCardProps){
+    return (
+        <div className="image-info-card" style={{fontSize: `${props.size}rem`}}>
+            <a>gain (b.1998)</a>
+            <i><b>{props.name}</b></i>
+            {/* <a style={{marginTop: "2em"}}>not an nft. authentic, original, and unique piece of art.</a> */}
+        </div>
+    )
+}
+
+export { Gallery, InfoCard }

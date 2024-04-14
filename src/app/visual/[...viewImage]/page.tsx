@@ -1,4 +1,5 @@
-import {getFromMasterDict, InfoCard} from "../../../models/artMasterList"
+import {getFromMasterDict} from "../../../models/artMasterList"
+import { InfoCard } from "../../../components/gallery/gallery"
 import "./imgView.css"
 
 // viewImage is 'collectionName/shortName'
