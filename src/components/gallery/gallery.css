@@ -2,7 +2,7 @@
 .item-gallery{
     /* background-color: lightblue; */
     padding: 1rem 0rem 1rem 0rem;
-    max-width: calc(100vw - 10rem);
+    max-width: calc(100vw - 20rem);
 
     display: flex;
     overflow: scroll;

@@ -4,7 +4,7 @@ import Link from "next/link";
 import "./navbar.css";
 import { useRouter } from "next/navigation";
 
-export default function Navbar(props: any){
+function Navbar(props: any){
 
     return (
         <span className="navbar-container">
@@ -13,6 +13,17 @@ export default function Navbar(props: any){
             <NavbarButton title="code" route="/code"></NavbarButton>
             {/* <NavbarButton title="blog" route="/blog"></NavbarButton> */}
         </span>
+    )
+}
+
+function VerticalNavbar(props: {expanded: boolean}){
+    return (
+        <div className="vnavbar-container" style={{maxHeight: props.expanded? "" : "0rem"}}>
+            <NavbarButton title="home" route="/home"></NavbarButton>
+            <NavbarButton title="audio" route="/audio"></NavbarButton>
+            <NavbarButton title="visual" route="/visual"></NavbarButton>
+            <NavbarButton title="code" route="/code"></NavbarButton>
+        </div>
     )
 }
 
@@ -33,3 +44,5 @@ function NavbarButton(props: ButtonProps){
         </Link>
     )
 }
+
+export { Navbar, VerticalNavbar }
