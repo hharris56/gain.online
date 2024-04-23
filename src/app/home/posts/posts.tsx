@@ -14,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Apr22 key="4/22" />,
         <Apr6 key="4/6" />,
         <Apr1 key="4/1" />,
         <Mar23pt2 key="3/23-2" />,
@@ -41,6 +42,22 @@ export default function Posts(){
             {expanded ? posts : posts.slice(0, 3)}
             <ExpandButton expanded={expanded} callback={() => setExpanded(!expanded)} />
         </div>
+    )
+}
+
+function Apr22(){
+    return (
+        <BlogPost title="from the shadows" date="22 april - 8:51pm">
+            been spending a lot of time irl these past two weekends catching up with some good friends and doing things away from the computer. i did make some major site changes last weekend but haven't pushed them yet since they completely overhaul the desktop interface and are still a few stages away from finished. 
+            <Break/>
+            music has been the highlight though - about a week and a half ago i finally tapped into this sound i have been chasing for like a year so. if you know me at all i've probably tried to show you my favorite artist 'cult member' and after months of taking bits and pieces from his music i finally sat down and tried to make a full on song. the final product turned out so good it immediately became a 3 track ep and i gotta say this is probably some of my best work yet (although i may be a bit biased). super excited to share what with you all but first... we must go <b>deeper</b>.
+            <Break/>
+            <i>deeper still</i> is a 4 song ambient breaks / jungle ep i put together during the february-march timeframe of this year. it started as a composition study, trying to better understand how songs are layed out and progress, but ended up as a concept ep about a group of explorers a hundred years from now venturing deep into the earths crust on a globally funded expedition. the full story can be found on the album page (whenever i get around to making it) or in the album + song descriptions found on soundcloud. the big news regarding <i>deeper still</i> is that i just finished uploading it on distrokid, and it should be available on major streaming services april 30th. this is my first ever release on a major platform and im half ecstatic half petrified as to how it will turn out. i'm kinda hoping it flops so i can learn the process of editing / revising / reuploading tracks through distrokid while the stakes are low.
+            <Break/>
+            anyways, that's all for now. i have a flight to catch this week so keep an eye out for incoming changes. as always, chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
