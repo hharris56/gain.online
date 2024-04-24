@@ -59,3 +59,20 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+/* VERTICAL HEADER */
+.vheader-container{
+    position: sticky;
+    top: 2.5rem;
+    min-width: 11rem;
+    max-width: 11rem;
+    height: 90vh;
+    background-image: linear-gradient(lightblue, white);
+}
+
+.vlogo-buffer{
+    height: 11rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

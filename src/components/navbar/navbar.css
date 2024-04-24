@@ -18,8 +18,11 @@
 } */
 
 .navbar-button{
-    height: 100%;
-    max-width: 25%;
+    /* height: 100%;
+    max-width: 25%; */
+    height: 2rem;
+    min-height: 2rem;
+    width: 100%;
     background-color: white;
     /* transition: background-color var(--transition-time); */
     transition: letter-spacing 2s, background-color var(--transition-time);
@@ -116,4 +119,16 @@
 .mobile-navbar-button:hover{
     background-color: transparent;
     color: black;
+}
+
+/* VERTICAL NAVBAR */
+.vnavbar-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    overflow-y: hidden;
+    max-height: 8rem;
+    transition: max-height 0.5s;
 }
