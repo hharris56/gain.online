@@ -47,6 +47,8 @@
     margin-bottom: 2rem;
 }
 
+/* ALBUM PAGE */
+
 .album-page-cover{
     width: 33vw;
 }
@@ -54,7 +56,7 @@
 .album-page-container{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    min-width: 100%;
     /* background-color: lightblue; */
 }
 

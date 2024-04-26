@@ -14,6 +14,8 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Apr26pt2 key="4/26-2" />,
+        <Apr26 key="4/26" />,
         <Apr22 key="4/22" />,
         <Apr6 key="4/6" />,
         <Apr1 key="4/1" />,
@@ -45,9 +47,55 @@ export default function Posts(){
     )
 }
 
+function Apr26pt2(){
+    return (
+        <BlogPost title="perspective shift" date="26 april - 9:22am" tags={["site updates", "web dev"]}>
+            i've been hesitant to release these site changes because they shift away from my initial design for the desktop view. however, as i was working to flesh out the individual album pages i realized that having the website be a static width (visually speaking) with the top bar always spanning the entire screen caused some serious design headaches for laying out content. for one, screen size would drastically impact the viewing experience of the website. secondly, a wider screen meant content felt stretched thin; this was especially apparent on the home page where certain blog posts would have paragraphs barely spanning one line.
+            <Break/>
+            so the solution is to shift the orientation of the website. i accomplished this by reworking the top navigation bar into a side bar that sits on the left side of the screen. the large plus logo now opens a drawer menu that allows for site navigation and i really like this changes as it parallels the mobile ui's similar design choice. i do think that while this new design looks (very) good, it does lose a little of the sauce that the original design had, which is why it took me a week or two to decide whether or not to go through with the changes. after reflecting though i think the benefits of the new orientation out weigh the loss of sauce, and therefor with this post i will be deploying the new ui.
+            <Break/>
+            chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
+function Apr26(){
+    return (
+        <BlogPost title="the stronghold (ch 10 - 15)" date="26 april - 8:25am" tags={["the stronghold", "book club"]}>
+            it has been a little since the last discussion post and, to be completely honest, i was planning to recap chapters 10-20 all together, but after rereading the material i think these first 6 deserve their own entry. the previous chapter ended with drogo deciding to stay at the fortezza, and we open to him returning to his room more or less justifying to himself that he had made the right decision to say. he speaks about this things that had originally bothered him,
+            <Break/>
+            <Quote>the crack in the ceiling over his bed ... the dripping cistern ... the sag his body hollowed out in the mattress ... the blankets that felt so inhospitable in the early days.</Quote>
+            <Break/>
+            and how over time he had not only grown accustom but had become actually quite fond of them.
+            <Break/>
+            <Quote>all these things had now become drogo's and to leave them would have caused him pain</Quote>
+            <Break/>
+            i find this excerpt interesting because that seems to always be the case. for me it was the subpar conditions of the college dorms i lived in, or the poor weather of the town i grew up in; these things become precious in a strange way.
+            <Break/>
+            moving to the next chapter we pick up with drogo <u>two years</u> later. he has a strange dream about augustina (another officer at the fortezza) that heavily foreshadows some events to come. the next day while out at the furthest redoubt they spot a horse crossing the desert to the north. this spirals into a big climax at the end of the chapter where a soldier gets caught between doing his duty or helping his friend. he's bound by rules to take aim against his comrade who is approaching the fortezza at night after retrieving the horse. i love how buzzati describes this scene
+            <Break/>
+            <Quote>the sentry, however, was no longer moretto. he was simply a sentry with a hard face who had raised his rifle and was now taking aim against a friend. without turning lazzari retreated several steps, stumbling on the stones. "it's me, lazzari!" he shouted. "don't you see it's me? don't shoot, moretto!". but the sentry was no longer the moretto who would frankly joke with his colleagues. he was just a sentry at the fortezza, wearing a uniform made from dark blue cloth with a leather bandolier, absolutely identical to every other sentry in the night</Quote>
+            <Break/>
+            buzzati's interjection of small details during these tense scenes, like the description of the soldier's uniform during the heat of this moment, adds to both the imagery and suspense. it's like he is toying with the reader, always keeping the resolution just a few words away.
+            <Break/>
+            the last thing i want to discuss takes place near the end of chapter 15 and brings drogo's dream from chapter 12 to fruition. the tldr is that augustina is too stubborn to stay alive, and dies playing a game of cards <b>by himself</b> on an exposed mountaintop during a snowstorm just to prove a point to opposing forces that their spirits are not broken despite not reaching the summit. reading that aloud this scenario seems hilarious but the way buzzati paints the scene is both moving and heartbreaking all at once. the imagery he invokes is incredible, likening augstinas situation to that of a painting in the fortezza.
+            <Break/>
+            <Quote>an old painting that hung in the hall at the fortezza represented the end of the prince sebastiano. the prince lay in the heart of the forest mortally wounded, leaning his back against a tree, his head slumped slightly to one side, his cloak falling in harmonious folds. nothing in the image evoked the brutal physical cruelty of death... the painter had completely preserved the prince's nobility and extreme elegance. agustina had now begun to resemble prince sebastiano.</Quote>
+            <Break/>
+            the fact it takes about 2 and half pages for him to die is the hardest part. captain monty is watching augstina in awe the entire time, pleading him to come back under the shelter, but in the end he does nothing to help him. augustina dies there on the mountain top, encased in snow and ice, leaned against a boulder with a "thin smile on his lips".
+            <Break/>
+            these are some of the more difficult posts to write up as they usually end up being much longer than generic site / life updates. i'll try to get the remaining chapters recapped soon (as well as a final review once im finished with the book), but until then keep an eye out for a site update coming today or tomorrow. chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function Apr22(){
     return (
-        <BlogPost title="from the shadows" date="22 april - 8:51pm">
+        <BlogPost title="from the shadows" date="22 april - 8:51pm" tags={["site updates", "music", "deeper still"]}>
             been spending a lot of time irl these past two weekends catching up with some good friends and doing things away from the computer. i did make some major site changes last weekend but haven't pushed them yet since they completely overhaul the desktop interface and are still a few stages away from finished. 
             <Break/>
             music has been the highlight though - about a week and a half ago i finally tapped into this sound i have been chasing for like a year so. if you know me at all i've probably tried to show you my favorite artist 'cult member' and after months of taking bits and pieces from his music i finally sat down and tried to make a full on song. the final product turned out so good it immediately became a 3 track ep and i gotta say this is probably some of my best work yet (although i may be a bit biased). super excited to share what with you all but first... we must go <b>deeper</b>.
@@ -63,7 +111,7 @@ function Apr22(){
 
 function Apr6(){
     return (
-        <BlogPost title="is this thing on?" date="6 april - 4:10pm">
+        <BlogPost title="is this thing on?" date="6 april - 4:10pm" tags={["site updates"]}>
             and with that we are live! three (plus) months of development have gotten us this far, im excited to see what else is in store for this year. next up is putting music on streaming services. i have the first track from a new project being mastered right now, depending on how well that turns out i will get the rest of it mastered and release it on spotify along with some of my previous projects (thinking commuter and maybe even infrared). i still haven't decided how i am going to break up the styles, or if im even going to separate them in the first place, but that is a discussion for another day.
             <Break/>
             for now i want to sit back and appreciate that i have an actual website that i developed and published by myself :) it feels good seeing my creative vision come to fruition. this whole thing has been a long time coming and to know that i'm finally at the point where i can support / promote all of my creative endeavors in a single location... weeee aaarreee lliiiivveeeeeeee!
@@ -77,7 +125,7 @@ function Apr6(){
 
 function Apr1(){
     return (
-        <BlogPost title="april's fool" date="1 april - 10:30pm">
+        <BlogPost title="april's fool" date="1 april - 10:30pm" tags={["site updates"]}>
             website ready for release, new album in the finishing stages, and a nice vacation planned for the end of the month. april is going to be a good one, i can feel it.
             <Break/>
             i wanted to hop on for a second just to update you all quick. the website is a go for launch, im just in the process of picking out what domain extension to purchase. i've narrowed it down to the following 3 options
