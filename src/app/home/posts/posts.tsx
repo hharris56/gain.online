@@ -14,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <May13 key="5/13" />,
         <Apr26pt2 key="4/26-2" />,
         <Apr26 key="4/26" />,
         <Apr22 key="4/22" />,
@@ -44,6 +45,20 @@ export default function Posts(){
             {expanded ? posts : posts.slice(0, 3)}
             <ExpandButton expanded={expanded} callback={() => setExpanded(!expanded)} />
         </div>
+    )
+}
+
+function May13(){
+    return (
+        <BlogPost title="a simple, simple man" date="13 may - 2:18pm">
+            today is one of the best days i've had in years. its beautiful weather, the sun is shining and the sky is a deep deep blue. i picked up <i>the power of now</i> by eckhart tolle and it seems we may have another book for the club. theres still a post or two to be written about <i>the stronghold</i>, that will come in due time, but for now i wanted to highlight just how lucky i feel to be alive today.
+            <Break/>
+            theres this song from my childhood, 'great day to be alive' by travis tritt. i remember my dad playing it out the radio on warm summer weekends while he washed the cars or landscaped. looking back i feel so indescribably lucky to grow up the way i did. my parents did such a good job of teaching me how to manuever through the ups and downs of life. even aside from that i feel lucky to be who i am, someone who's able to shake things off easily and see the best in most scenes.
+            <Break/>
+            i admit this post is a bit out of place but i needed to tell someone, write it down somewhere, because i am feeling the best i have in ages. love you guys, book club soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
