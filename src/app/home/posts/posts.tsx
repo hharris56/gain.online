@@ -14,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <May17 key="5/17" />,
         <May13 key="5/13" />,
         <Apr26pt2 key="4/26-2" />,
         <Apr26 key="4/26" />,
@@ -45,6 +46,19 @@ export default function Posts(){
             {expanded ? posts : posts.slice(0, 3)}
             <ExpandButton expanded={expanded} callback={() => setExpanded(!expanded)} />
         </div>
+    )
+}
+function May17(){
+    return (
+        <BlogPost title="in the works" date="17 may 12:21am">
+            im looking forward to returning to the library this weekend. its been a few months since the last appearance and i have a few coding projects id like to get a start on. treating the library trip like a mini hackathon could be a lot of fun, ill return to this in a later post.
+            <Break/>
+            also, i recorded over an hour of armored core fights with press this evening. that game has so much steez, i had a ton of fun and the footage looks great - maybe i can use it to practice editing on capcut.
+            <Break/>
+            vacation has been fun but its time to lock back in. chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
     )
 }
 
