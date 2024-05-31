@@ -8,13 +8,13 @@
     height: 2em;
 
     /* margin-top: 2em; */
-    color: gray;
+    color: var(--secondary-text-color);
 }
 
 .footer-divider{
     width: 0.2em;
     min-height: 100%;
-    background-image: linear-gradient(lightblue, white 80%);
+    background-image: linear-gradient(var(--accent-color), var(--primary-color) 80%);
 
     margin: 0rem 2rem 0rem 2rem;
 }

@@ -24,7 +24,7 @@
     /* height: 4rem;
     width: 40%; */
 
-    color: black;
+    color: var(--primary-text-color);
     letter-spacing: 0.25rem;
     text-decoration: none;
 }

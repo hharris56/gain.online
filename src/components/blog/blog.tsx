@@ -18,7 +18,7 @@ function BlogPost(props: BlogProps){
             <div className={"line-decoration" + (isMobile? "-mobile" : "")} />
             <div>
                 <h3 style={{marginBottom: "0rem", marginTop: "0rem"}}>{props.title}</h3>
-                <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
+                <a style={{color: "var(--secondary-text-color)", fontSize: "0.75em"}}>{props.date}</a>
                 {props.tags? <div className="tags-container">
                     {props.tags.map(t => Tag(t))}
                 </div> : <></>}

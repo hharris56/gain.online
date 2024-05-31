@@ -46,7 +46,7 @@ function TimelineItem(props: TimelineProps){
                 <div className="timeline-mobile-header">
                     <div>
                         <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>{props.title}</h2>
-                        <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
+                        <a style={{color: "var(--secondary-text-color)", fontSize: "0.75em"}}>{props.date}</a>
                     </div>
                     <DropdownButton 
                     expanded={expanded} 
@@ -75,7 +75,7 @@ function TimelineItem(props: TimelineProps){
             <div className="timeline-item">
                 <div style={{marginBottom: "1em"}}>
                     <h2 style={{marginBottom: "0em", marginTop: "0rem"}}>{props.title}</h2>
-                    <a style={{color: "grey", fontSize: "0.75em"}}>{props.date}</a>
+                    <a style={{color: "var(--secondary-text-color)", fontSize: "0.75em"}}>{props.date}</a>
                 </div>
                 <a style={{paddingRight: "3rem"}}>{props.children}</a>
                 {itemGallery}

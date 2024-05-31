@@ -34,7 +34,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    color: lightblue;
+    color: var(--accent-color);
 }
 
 .scroll-prompt-spacer{

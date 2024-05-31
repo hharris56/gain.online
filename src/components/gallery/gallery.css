@@ -46,7 +46,7 @@
     width: 10em;
     max-width: 10em;
     height: 5em;
-    background-color: white;
+    background-color: var(--primary-color);
     filter: drop-shadow(rgb(171, 170, 170) 0 0 0.05rem);
     margin: 0rem 5rem 0rem 2rem;
     display: flex;

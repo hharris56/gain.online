@@ -29,5 +29,11 @@ export default function View({ children, }:
         </div>
     </div>
     
-    return pathName == "/" ? <>{children}</> : newLayout
+    // on landing page, don't show layout
+    return pathName == "/" ? 
+        <>{children}</> 
+        : 
+        <div className="webpage-container">
+            {newLayout}
+        </div>
 }

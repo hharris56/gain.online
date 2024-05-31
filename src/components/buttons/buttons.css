@@ -25,12 +25,12 @@
 
     background-size: 200%;
     background-position: 0%;
-    background-image: linear-gradient(90deg, white 50%, lightblue)
+    background-image: linear-gradient(90deg, var(--primary-color) 50%, var(--accent-color))
 }
 
 .expand-button:hover{
     transform: rotate(90);
-    background-color: lightblue;
+    background-color: var(--accent-color);
     transition: all 1s;
     cursor: pointer;
 

@@ -1,20 +1,24 @@
 :root{
   --transition-time: 0.5s;
+
+  --primary-color: white;
   --accent-color: lightblue; /*#ADD8E6 <- this one #55a7ff*/
+  --primary-text-color: black;
+  --secondary-text-color: grey;
 }
 
 .line-decoration{
   min-width: 0.25rem;
   min-height: 100%;
   margin: 0rem 2rem 0rem 1rem;
-  background-image: linear-gradient(lightblue, white);
+  background-image: linear-gradient(var(--accent-color), var(--primary-color));
 }
 
 .line-decoration-mobile{
   min-width: 0.25rem;
   min-height: 100%;
   margin: 0rem 1rem 0rem 0rem;
-  background-image: linear-gradient(lightblue, white);
+  background-image: linear-gradient(var(--accent-color), var(--primary-color));
 }
 
 .post-divider{
@@ -50,10 +54,25 @@
 }
 
 .default-button{
-  background-image: linear-gradient(90deg, white, lightblue);
+  background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+
+.webpage-container{
+  width: 100%;
+  max-width: 100rem;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.webpage-background{
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color)
 }

@@ -7,7 +7,7 @@ export default function Home() {
     <div>
       <h1>gain online</h1>
       <div style={{marginBottom: "2rem"}}>
-        hey, welcome to my corner of the web. my name is <mark style={{backgroundColor: "black"}}>u thought</mark> but online i go by gain. im a 25yo artist, programmer, and avid enjoyer of all things related to music and design. check out some of my work above, u can reach me via the contact page or find me on my socials.
+        hey, welcome to my corner of the web. my name is <mark style={{backgroundColor: "var(--primary-text-color)", color: "var(--primary-text-color)"}}>u thought</mark> but online i go by gain. im a 25yo artist, programmer, and avid enjoyer of all things related to music and design. check out some of my work, u can reach me via the contact page or find me on my socials.
       </div>
       <h2 style={{marginBottom: "0rem", textAlign: "center"}}><i>++</i> whats new? <i>++</i></h2>
       <div className="home-content-container">

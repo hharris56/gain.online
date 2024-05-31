@@ -20,9 +20,9 @@ export default function Header(props: any){
         // VERTICAL HEADER
         <div className="vheader-container">
           <div className="vlogo-buffer">
-            <DropdownButton size="8rem" expanded={isExpanded} callback={() => setExpanded(!isExpanded)}/>
+            <DropdownButton size="8rem" expanded={false} callback={() => setExpanded(!isExpanded)}/>
           </div>
-          <VerticalNavbar expanded={isExpanded}/>
+          <VerticalNavbar expanded={true}/>
         </div>
     )
 }
