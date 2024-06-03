@@ -14,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <June2 key="6/2" />,
         <May17 key="5/17" />,
         <May13 key="5/13" />,
         <Apr26pt2 key="4/26-2" />,
@@ -48,6 +49,20 @@ export default function Posts(){
         </div>
     )
 }
+function June2(){
+    return (
+        <BlogPost title="take me there" date="2 june - 5:06pm">
+            i had my first official release on spotify yesterday. 'copenhagen' is the first single off a new ep (maybe album) that i've been working on called 'overseas'. its an ambient house / tech house project that focuses heavily on creating an atmosphere for the listener to exist in. with droning synths and stripped down drums overseas sounds like an empty parking lot at midnight, barren and desolate yet somewhat peaceful and meditative. its some of my favorite music to date and i'm currently trying to flesh out the project with some extra tracks while keeping the vision very coherent.
+            <Break/>
+            aside from that i've been working to re-imagine album covers for some of my previous work. still trying to figure out how to fit in coding projects. for the first time in a while i have a bunch of small things i want to create, its just that finding the time can be difficult.
+            <Break/>
+            let me get back to it and we'll chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function May17(){
     return (
         <BlogPost title="in the works" date="17 may 12:21am">
