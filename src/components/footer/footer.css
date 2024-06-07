@@ -5,7 +5,8 @@
     align-items: top;
 
     /* background-color: red; */
-    height: 2em;
+    height: 2rem;
+    max-height: 2rem;
 
     /* margin-top: 2em; */
     color: var(--secondary-text-color);

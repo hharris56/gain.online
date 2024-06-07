@@ -65,14 +65,14 @@
 .webpage-container{
   width: 100%;
   max-width: 100rem;
-  display: flex;
-  justify-content: center;
-  align-self: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-self: center; */
 }
 
 .webpage-background{
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   background-color: var(--primary-color);
   color: var(--primary-text-color)
 }

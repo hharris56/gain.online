@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <>
       <html lang="en"></html>
-      <body className={"webpage-background " + inter.className} style={{display: "flex", justifyContent: "center"}}>
+      <body className={"webpage-background " + inter.className}>
         <View>
           {children}
         </View>
