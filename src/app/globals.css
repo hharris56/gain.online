@@ -76,3 +76,8 @@
   background-color: var(--primary-color);
   color: var(--primary-text-color)
 }
+
+a:link, a:visited{
+  color: var(--primary-text-color);
+  text-decoration: none!important;
+}
