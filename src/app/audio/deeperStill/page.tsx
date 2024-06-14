@@ -1,5 +1,6 @@
 "use client"
 import { useIsMobile } from "../../../hooks/mobileHooks"
+import { MusicLinkBar } from "../../../components/linkBar/linkBar"
 import "../audio.css"
 
 export default function DeeperStill(){
@@ -12,32 +13,13 @@ export default function DeeperStill(){
                 className="album-image"
                 style={{width: "75vw"}}
             />}
-            {/* <span className="link-bar">
-                <div style={{display: "flex", alignItems: "center"}}>
-                    <img src={"/icons/spotify icon.png"} className="link-icon"></img>
-                    <a style={{marginLeft: "0.5rem"}}>spotify</a>
-                </div>
-                <div style={{display: "flex", alignItems: "center"}}>
-                    <img src={"/icons/apple music icon.png"} className="link-icon"></img>
-                    <a style={{marginLeft: "0.5rem"}}>apple music</a>
-                </div>
-            </span> */}
             <div className="album-page-row">
                 {!isMobile && <img 
                     src={"/art/albums/deeper still/deeper still album cover.png"} 
-                    className="album-image"
+                    className="album-page-image"
                 />}
                 <div className="album-page-text">
-                    <span className="link-bar">
-                        <a className="link-button" href="https://open.spotify.com/album/6ZCRMvZuJDAwfEvn8KXqta?si=uJmt1xSGTCa6mOUY7JrmYA" target="_blank">
-                            <img src={"/icons/spotify icon.png"} className="link-icon"></img>
-                            <a style={{marginLeft: "0.5rem"}}>spotify</a>
-                        </a>
-                        <a className="link-button" href="https://music.apple.com/us/album/deeper-still-ep/1744920440" target="_blank">
-                            <img src={"/icons/apple music icon.png"} className="link-icon"></img>
-                            <a style={{marginLeft: "0.5rem"}}>apple music</a>
-                        </a>
-                    </span>
+                    <MusicLinkBar spotify="https://open.spotify.com/album/6ZCRMvZuJDAwfEvn8KXqta?si=uJmt1xSGTCa6mOUY7JrmYA" apple="https://music.apple.com/us/album/deeper-still-ep/1744920440" />
                     <a>In the year 2103 a massive network of subterranean passageways were discovered in the Chilean mountains. Decades of exploration have left humanity with more questions than answers and much of the network remains uncharted. The year is now 2189 and the United Global Front's 22nd subterranean expedition stretches further into the unknown than ever before.</a>
                 </div>
             </div>
@@ -48,13 +30,13 @@ export default function DeeperStill(){
                 </div>
                 {!isMobile && <img 
                     src={"/art/albums/deeper still/deeper still cover.jpg"} 
-                    className="album-image"
+                    className="album-page-image"
                 />}
             </div>
             <div className="album-page-row">
                 {!isMobile && <img 
                     src={"/art/albums/deeper still/deeper still album cover.png"} 
-                    className="album-image"
+                    className="album-page-image"
                 />}
                 <div className="album-page-text">
                     <h2 style={{marginTop: "0rem"}}><i>metric ton</i></h2>
@@ -68,13 +50,13 @@ export default function DeeperStill(){
                 </div>
                 {!isMobile && <img 
                     src={"/art/albums/deeper still/fleeting shadows cover.jpg"} 
-                    className="album-image"
+                    className="album-page-image"
                 />}
             </div>
             <div className="album-page-row">
                 {!isMobile && <img 
                     src={"/art/albums/deeper still/deeper still album cover.png"} 
-                    className="album-image"
+                    className="album-page-image"
                 />}
                 <div className="album-page-text">
                     <h2 style={{marginTop: "0rem"}}><i>one in a million</i></h2>

@@ -1,18 +1,33 @@
 "use client"
 
+import { useState } from "react"
 import { Break } from "../../components/blog/blog"
 import { useIsMobile } from "../../hooks/mobileHooks"
+import SelectorButton from "../../components/buttons/selectorButton"
 import "./audio.css"
 import Link from "next/link"
 
 export default function AudioPage(){
 
     const isMobile = useIsMobile()
+    const [selected, setSelected] = useState("albums + eps")
+
+    const albums = "albums + eps"
+    const playlists = "playlists"
+    const listen = "listen"
 
     return (
         <div>
             <h1>gain audio</h1>
             <a>it all starts here</a>
+            <div className="audio-selector-container">
+                <SelectorButton text={albums} onClick={() => {
+                    setSelected(albums)
+                    // document.documentElement.style.setProperty("--primary-color", "black");
+                    }} selected={selected == albums} />
+                <SelectorButton text={playlists} onClick={() => setSelected(playlists)} selected={selected == playlists} />
+                <SelectorButton text={listen} onClick={() => setSelected(listen)} selected={selected == listen} />
+            </div>
             <div className={"albums-container" + (isMobile? "-mobile" : "")}>
                 <Album
                     cover="/art/albums/deeper still/deeper still album cover.png"
