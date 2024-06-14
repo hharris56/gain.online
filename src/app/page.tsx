@@ -6,7 +6,7 @@ export default function Landing() {
 
   return (
     <div className="mobile-cover">
-      <div className="enter-mantle">
+      {/* <div className="enter-mantle"> */}
           <Link 
           className="expand-button enter-button" 
           href="/home"
@@ -15,7 +15,7 @@ export default function Landing() {
           >
           enter
           </Link>
-      </div>
+      {/* </div> */}
       <MobileCoverLogo />
     </div>
 )
