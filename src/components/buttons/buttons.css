@@ -66,3 +66,28 @@
     cursor: pointer;
     transition: rotate 0.5s;
 }
+
+/* SELECTOR BUTTON */
+.selector-button{
+    background-color: var(--accent-color);
+    width: 10rem;
+    margin: 0rem 0.5rem;
+    border-radius: 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color var(--transition-time);
+}
+
+.selector-button:hover{
+    background-color: lightgrey;
+}
+
+.sb-selected{
+    background-color: transparent;
+    box-sizing: border-box;
+    border: 0.2rem solid var(--accent-color);
+    pointer-events: none;
+}
