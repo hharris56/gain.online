@@ -31,7 +31,7 @@ export default function RemCycle(){
         d.setMinutes(d.getMinutes() + ((n + 1) * 1.5 * 60))
 
         return (
-            <div className="rem-option">
+            <div className="rem-option" key={"option " + n.toString()}>
                 <a className={"rem-option-time" + (isMobile ? " rem-option-time-mobile" : "")}>
                     {formatTime(d)}
                 </a>
