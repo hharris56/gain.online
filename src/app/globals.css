@@ -5,6 +5,8 @@
   --accent-color: lightblue; /*#ADD8E6 <- this one #55a7ff*/
   --primary-text-color: black;
   --secondary-text-color: grey;
+
+  --content-width: min(calc(100vw - 18rem), 100rem); /* whole view minus width of navbar + padding */
 }
 
 .line-decoration{
