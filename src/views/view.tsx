@@ -4,8 +4,6 @@ import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
 import { isMobileFn, useIsMobile } from '../hooks/mobileHooks'
 import MobileView from './mobileView/mobileView'
-import { useEffect, useState } from 'react'
-import { debounce } from 'underscore'
 import { usePathname } from 'next/navigation'
 import ColorManager from '../hooks/colorManager'
 
