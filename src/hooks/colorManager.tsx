@@ -1,3 +1,5 @@
+"use client"
+
 export default class ColorManager{
     resetColors() {
         if (document){
