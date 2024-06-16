@@ -7,11 +7,14 @@ import MobileView from './mobileView/mobileView'
 import { useEffect, useState } from 'react'
 import { debounce } from 'underscore'
 import { usePathname } from 'next/navigation'
+import ColorManager from '../hooks/colorManager'
 
 export default function View({ children, }: 
     { children: React.ReactNode }){
 
     const pathName = usePathname()
+    const cm = new ColorManager
+    cm.resetColors()
 
     var newLayout: any = <></>
     newLayout = useIsMobile() ? 
