@@ -81,9 +81,9 @@
     transition: background-color var(--transition-time);
 }
 
-.selector-button:hover{
+/* .selector-button:hover{
     background-color: lightgrey;
-}
+} */
 
 .sb-selected{
     background-color: transparent;

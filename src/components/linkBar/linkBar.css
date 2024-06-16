@@ -26,5 +26,5 @@
 }
 
 .link-button:hover{
-    background-color: lightblue;
+    background-color: var(--accent-color);
 }
