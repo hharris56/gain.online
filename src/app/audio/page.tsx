@@ -33,14 +33,14 @@ export default function AudioPage(){
                     route="deeperStill"
                 />
                 <Album
-                    cover="/art/albums/Commuter cover final.png"
+                    cover="/art/albums/commuter/commuter cover final.jpg"
                     title="commuter"
                     year={2024}
-                    // route="commuter"
+                    route="commuter"
                 />
                 <Album
-                    cover="/art/albums/jungle jungle/timeslip.jpg"
-                    title="midnight jungle"
+                    cover="/art/albums/jungle jungle/jungle jungle cover.jpg"
+                    title="jungle jungle"
                     year={2023}
                     // route="midnightJungle"
                 />

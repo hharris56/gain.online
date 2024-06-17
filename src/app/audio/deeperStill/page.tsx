@@ -5,6 +5,7 @@ import "../audio.css"
 
 export default function DeeperStill(){
     const isMobile = useIsMobile()
+
     document.documentElement.style.setProperty("--primary-color", "black");
     document.documentElement.style.setProperty("--accent-color", "#65b53a");
     document.documentElement.style.setProperty("--primary-text-color", "white");

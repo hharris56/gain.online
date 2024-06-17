@@ -2,7 +2,7 @@
 
 import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
-import { isMobileFn, useIsMobile } from '../hooks/mobileHooks'
+import { useIsMobile } from '../hooks/mobileHooks'
 import MobileView from './mobileView/mobileView'
 import { usePathname } from 'next/navigation'
 import ColorManager from '../hooks/colorManager'
@@ -23,9 +23,8 @@ export default function View({ children, }:
     // desktop view
     <div style={{padding:"2rem", display: "flex", flexDirection: "row"}}>
         <Header />
-        {/* <div style={{backgroundColor: "red", minWidth: "11rem", height: "10rem"}}></div> */}
-        <div style={{display: "flex", flexDirection: "column", paddingLeft: "2rem"}}>
-            <div style={{marginBottom: "2rem", fontSize: "1em"}}>{children}</div>
+        <div style={{display: "flex", flexDirection: "column", padding: "0rem 2rem"}}>
+            <div style={{marginBottom: "2rem", fontSize: "1rem"}}>{children}</div>
             <Footer />
         </div>
     </div>
