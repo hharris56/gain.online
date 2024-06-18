@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Break } from "../../components/blog/blog"
 import { useIsMobile } from "../../hooks/mobileHooks"
 import SelectorButton from "../../components/buttons/selectorButton"
+import { MusicLinkBar } from "../../components/linkBar/linkBar"
 import "./audio.css"
 import Link from "next/link"
 
@@ -25,6 +26,13 @@ export default function AudioPage(){
                 <SelectorButton text={playlists} onClick={() => setSelected(playlists)} selected={selected == playlists} />
                 <SelectorButton text={listen} onClick={() => setSelected(listen)} selected={selected == listen} />
             </div> */}
+            {/* <div style={{width: "100%"}}>
+                <MusicLinkBar 
+                    spotify="https://open.spotify.com/artist/4mkEgOb3c1imuAXwyeSHug?si=59_RlNzZQ4GmodwHSGPdaQ"
+                    apple="https://music.apple.com/us/artist/gain-online/1744697316"
+                    soundcloud="https://soundcloud.com/gain_online"
+                />
+            </div> */}
             <div className={"albums-container" + (isMobile? "-mobile" : "")}>
                 <Album
                     cover="/art/albums/deeper still/deeper still album cover.png"
@@ -42,7 +50,7 @@ export default function AudioPage(){
                     cover="/art/albums/jungle jungle/jungle jungle cover.jpg"
                     title="jungle jungle"
                     year={2023}
-                    // route="midnightJungle"
+                    route="jungleJungle"
                 />
                 <Album
                     cover="/art/albums/second life/Second Life Cover.png"

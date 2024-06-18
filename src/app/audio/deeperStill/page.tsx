@@ -10,6 +10,8 @@ export default function DeeperStill(){
     document.documentElement.style.setProperty("--accent-color", "#65b53a");
     document.documentElement.style.setProperty("--primary-text-color", "white");
 
+    // #65b53a
+
     return (
         <div className={"album-page-container" + (isMobile ? " album-page-mobile" : "")}>
             {isMobile && <img 
@@ -24,7 +26,7 @@ export default function DeeperStill(){
                 />}
                 <div className="album-page-text">
                     <MusicLinkBar spotify="https://open.spotify.com/album/6ZCRMvZuJDAwfEvn8KXqta?si=uJmt1xSGTCa6mOUY7JrmYA" apple="https://music.apple.com/us/album/deeper-still-ep/1744920440" />
-                    <a>In the year 2103 a massive network of subterranean passageways were discovered in the Chilean mountains. Decades of exploration have left humanity with more questions than answers and much of the network remains uncharted. The year is now 2189 and the United Global Front's 22nd subterranean expedition stretches further into the unknown than ever before.</a>
+                    <a>In the year 2103 a massive network of subterranean passageways were discovered in the Chilean mountains. Decades of exploration have left humanity with more questions than answers and much of the network remains uncharted. The year is now 2189 and the United Global Front's 22nd subterranean expedition ventures deeper still.</a>
                 </div>
             </div>
             <div className="album-page-row">
