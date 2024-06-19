@@ -5,11 +5,12 @@ interface MusicLinkProps{
     apple?: string;
     youtube?: string;
     soundcloud?: string;
+    sx?: any;
 }
 
 function MusicLinkBar(props: MusicLinkProps){
     return (
-        <span className="link-bar">
+        <span className="link-bar" style={props.sx}>
             {props.spotify &&
             <a className="link-button" href={props.spotify} target="_blank">
                 <img src={"/icons/spotify icon.png"} className="link-icon"></img>

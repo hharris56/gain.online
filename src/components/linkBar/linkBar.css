@@ -22,9 +22,11 @@
     border-radius: 10rem;
     padding: 0rem 1rem 0rem 1rem;
 
+    color: var(--accent-color);
     cursor: pointer;
 }
 
 .link-button:hover{
     background-color: var(--accent-color);
+    color: var(--primary-text-color)
 }
