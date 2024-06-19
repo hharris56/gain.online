@@ -36,4 +36,19 @@ const isMobileFn = () => {
     return media.matches
 }
 
-export { useIsMobile, isMobileFn };
+const mobileClass = (styling: string) => {
+    let isMobile = useIsMobile()
+    return isMobile ? (" " + styling) : ""
+}
+
+const desktopClass = (styling: string) => {
+    let isMobile = useIsMobile()
+    return (!isMobile) ? (" " + styling) : ""
+}
+
+const mobileStyles = (styles: any) => {
+    let isMobile = useIsMobile()
+    return isMobile ? styles : null
+}
+
+export { useIsMobile, isMobileFn, mobileClass, desktopClass, mobileStyles };
