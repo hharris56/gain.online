@@ -83,3 +83,10 @@ a:link, a:visited{
   color: var(--primary-text-color);
   text-decoration: none!important;
 }
+
+.page-content-container{
+  display: flex;
+  flex-direction: column;
+  min-width: var(--content-width);
+  min-height: 83vh;
+}
