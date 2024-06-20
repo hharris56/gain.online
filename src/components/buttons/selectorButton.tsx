@@ -16,7 +16,7 @@ export default function SelectorButton(props: SelectorButtonProps){
 
     return (
         <div 
-            className={"selector-button" + (props.selected ? " sb-selected" : "") + (!isMobile ? "selector-button-hover" : "")}
+            className={"selector-button" + (props.selected ? " sb-selected" : "") + (!isMobile ? " selector-button-hover" : "")}
             style={props.sx}
             onClick={props.onClick}>
             {props.text}
