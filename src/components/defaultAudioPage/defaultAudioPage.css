@@ -3,8 +3,6 @@
     flex-direction: column;
     justify-content: center;
     /* background-color: lightblue; */
-
-    max-width: var(--content-width);
 }
 
 .dap-image{
