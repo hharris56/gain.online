@@ -1,4 +1,14 @@
-.album-image{
+.dap-container{
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    justify-content: center;
+    /* background-color: lightblue; */
+
+    max-width: var(--content-width);
+}
+
+.dap-image{
     width: 100%;
 }
 

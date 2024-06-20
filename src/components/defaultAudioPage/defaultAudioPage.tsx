@@ -18,7 +18,7 @@ export default function DefaultAudioPage(props: AudioPageProps){
         <div className={"dap-container" + (isMobile ? " dap-mobile" : "")}>
             {isMobile && <img 
                 src={props.cover} 
-                className="album-image"
+                className="dap-image"
                 style={{width: "75vw"}}
             />}
             <div className="dap-row">
