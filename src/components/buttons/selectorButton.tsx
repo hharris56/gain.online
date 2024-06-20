@@ -1,7 +1,7 @@
 "use client"
 
 import "./buttons.css"
-import { desktopClass } from "../../hooks/mobileHooks";
+import { useIsMobile } from "../../hooks/mobileHooks";
 
 interface SelectorButtonProps{
     selected: boolean;
@@ -12,9 +12,11 @@ interface SelectorButtonProps{
 
 export default function SelectorButton(props: SelectorButtonProps){
 
+    const isMobile = useIsMobile()
+
     return (
         <div 
-            className={"selector-button" + (props.selected ? " sb-selected" : "") + desktopClass("selector-button-hover")}
+            className={"selector-button" + (props.selected ? " sb-selected" : "") + (!isMobile ? "selector-button-hover" : "")}
             style={props.sx}
             onClick={props.onClick}>
             {props.text}
