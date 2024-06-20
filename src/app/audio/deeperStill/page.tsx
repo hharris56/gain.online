@@ -25,7 +25,10 @@ export default function DeeperStill(){
                     className="album-page-image"
                 />}
                 <div className="album-page-text">
-                    <MusicLinkBar spotify="https://open.spotify.com/album/6ZCRMvZuJDAwfEvn8KXqta?si=uJmt1xSGTCa6mOUY7JrmYA" apple="https://music.apple.com/us/album/deeper-still-ep/1744920440" />
+                    <MusicLinkBar links={{
+                        spotify: "https://open.spotify.com/album/6ZCRMvZuJDAwfEvn8KXqta?si=uJmt1xSGTCa6mOUY7JrmYA",
+                        apple: "https://music.apple.com/us/album/deeper-still-ep/1744920440"
+                    }}/>
                     <a>In the year 2103 a massive network of subterranean passageways were discovered in the Chilean mountains. Decades of exploration have left humanity with more questions than answers and much of the network remains uncharted. The year is now 2189 and the United Global Front's 22nd subterranean expedition ventures deeper still.</a>
                 </div>
             </div>

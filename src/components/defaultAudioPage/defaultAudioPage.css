@@ -1,0 +1,26 @@
+.album-image{
+    width: 100%;
+}
+
+.album-page-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 0.5rem;
+    /* width: 100%; */
+    /* padding: 0rem 2rem 0rem 2rem; */
+    /* background-color: orange; */
+}
+
+.album-page-image{
+    width: 30rem;
+}
+
+.album-page-text{
+    padding: 0rem 4rem;
+    margin: 1rem 0rem 1rem 0rem;
+    text-align: center;
+    width: 20rem;
+    /* background-color: red; */
+}

@@ -38,26 +38,17 @@ export default function AudioPage(){
             {selected == releases &&
                 // <div style={mobileStyles({display: "flex", flexDirection: "column", justifyContent: "center", backgroundColor: "blue"})}>
                 <div className={isMobile ? "releases-container-mobile" : ""}>
-                    <div className={"release-container" + (isMobile ? " release-container-mobile" : "")}>
-                        <Link href="/audio/copenhagen" className={"release-image" + (isMobile ? "-mobile" : "")}>
-                            <img 
-                                src={"/art/albums/copenhagen/copenhagen cover.jpg"} 
-                                style={{maxWidth: "100%"}}
-                            />
-                        </Link>
-                        <div className={isMobile ? "release-info-mobile" : "release-info"}>
-                            <div style={{fontSize: "2rem", fontWeight: "bold"}}>copenhagen</div>
-                            <a style={{color: "var(--secondary-text-color)"}}>1 june 2024</a>
-                            <div className="release-text">
-                                <MusicLinkBar 
-                                    spotify="https://open.spotify.com/track/1kX29xlXs2Aqi02tLduRmP?si=3e8bbb44b7a24b81" 
-                                    apple="https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214" 
-                                    sx={{marginBottom: "2rem"}}
-                                />
-                                <a>a journey to the eastern front reveals more than one may expect.</a>
-                            </div>
-                        </div>
-                    </div>
+                    <Release
+                        title="copenhagen"
+                        date="1 june 2024"
+                        cover="/art/albums/copenhagen/copenhagen cover.jpg"
+                        route="/audio/copenhagen"
+                        links={{
+                            spotify: "https://open.spotify.com/track/1kX29xlXs2Aqi02tLduRmP?si=3e8bbb44b7a24b81",
+                            apple: "https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214" 
+                            }}
+                        description="a journey to the eastern front reveals more than you might expect."
+                    />
                 </div>
             }
             {selected == albums &&
@@ -112,6 +103,49 @@ function Album(props: AlbumProps){
             <div className="album-info">
                 <i style={{fontSize: "1.5em", fontWeight: "bold"}}>{props.title}</i>
                 <a style={{fontSize: ".75em"}}>{props.year}</a>
+            </div>
+        </div>
+    )
+}
+
+interface ReleaseProps {
+    cover: string,
+    title: string,
+    date: string,
+    route?: string
+    links?: any
+    description?: string
+}
+function Release(props: ReleaseProps){
+    const isMobile = useIsMobile()
+    return (
+        <div className={isMobile ? "releases-container-mobile" : ""}>
+            <div className={"release-container" + (isMobile ? " release-container-mobile" : "")}>
+                {props.route ?
+                <Link href={props.route} className={"release-image" + (isMobile ? "-mobile" : "")}>
+                    <img 
+                        src={props.cover} 
+                        style={{maxWidth: "100%"}}
+                    />
+                </Link>
+                :
+                <img 
+                    src={props.cover} 
+                    className={"release-image" + (isMobile ? "-mobile" : "")}
+                />
+                }
+                
+                <div className={isMobile ? "release-info-mobile" : "release-info"}>
+                    <div style={{fontSize: "1.5rem", fontWeight: "bold"}}>{props.title}</div>
+                    <a style={{color: "var(--secondary-text-color)", fontSize: ".75rem"}}>{props.date}</a>
+                    <div className={"release-text" + (isMobile ? " release-text-mobile" : "")}>
+                        <MusicLinkBar 
+                            links={props.links}
+                            sx={{marginBottom: "2rem"}}
+                        />
+                        <a>{props.description}</a>
+                    </div>
+                </div>
             </div>
         </div>
     )
