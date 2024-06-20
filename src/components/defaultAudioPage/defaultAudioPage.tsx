@@ -15,21 +15,21 @@ export default function DefaultAudioPage(props: AudioPageProps){
     const isMobile = useIsMobile()
 
     return (
-        <div className={"album-page-container" + (isMobile ? " album-page-mobile" : "")}>
+        <div className={"dap-container" + (isMobile ? " dap-mobile" : "")}>
             {isMobile && <img 
                 src={props.cover} 
                 className="album-image"
                 style={{width: "75vw"}}
             />}
-            <div className="album-page-row">
+            <div className="dap-row">
                 {!isMobile && <img 
                     src={props.cover} 
-                    className="album-page-image"
+                    className="dap-image"
                 />}
                 <div style={{display: "flex", flexDirection: "column", justifyContent: "center", marginTop: "2rem"}}>
                     <div style={{fontSize: "2rem", fontWeight: "bold", textAlign: "center"}}>{props.title}</div>
                     <a style={{color: "var(--secondary-text-color)", textAlign: "center"}}>{props.date}</a>
-                    <div className="album-page-text" style={{marginTop: "2rem"}}>
+                    <div className="dap-text" style={{marginTop: "2rem"}}>
                         <MusicLinkBar 
                             links={props.links}
                             sx={{marginBottom: "2rem"}}
