@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Break } from "../../components/blog/blog"
-import { desktopClass, mobileClass, mobileStyles, useIsMobile } from "../../hooks/mobileHooks"
+import { useIsMobile } from "../../hooks/mobileHooks"
 import SelectorButton from "../../components/buttons/selectorButton"
 import { MusicLinkBar } from "../../components/linkBar/linkBar"
 import "./audio.css"
@@ -36,7 +36,6 @@ export default function AudioPage(){
                 />
             </div> */}
             {selected == releases &&
-                // <div style={mobileStyles({display: "flex", flexDirection: "column", justifyContent: "center", backgroundColor: "blue"})}>
                 <div className={isMobile ? "releases-container-mobile" : ""}>
                     <Release
                         title="copenhagen"
