@@ -13,8 +13,7 @@ export default function Copenhagen(){
     document.documentElement.style.setProperty("--secondary-text-color", "#f23430");
  
     return (
-        <div className={"album-page-container" + (isMobile ? " album-page-mobile" : "")}>
-            <DefaultAudioPage
+        <DefaultAudioPage
             title="copenhagen"
             date="1 june 2024"
             cover="/art/albums/copenhagen/copenhagen cover.jpg"
@@ -22,7 +21,7 @@ export default function Copenhagen(){
                 spotify: "https://open.spotify.com/track/1kX29xlXs2Aqi02tLduRmP?si=3e8bbb44b7a24b81",
                 apple: "https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214"
             }}
-            description="a journey to the eastern front reveals more than you might expect."/>
-        </div>
+            description="a journey to the eastern front reveals more than you might expect."
+        />
     )
 }
