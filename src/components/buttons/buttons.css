@@ -79,6 +79,7 @@
     justify-content: center;
 
     transition: background-color var(--transition-time);
+    user-select: none;
 }
 
 .selector-button-hover:hover{
