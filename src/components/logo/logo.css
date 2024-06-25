@@ -109,3 +109,23 @@
     width: var(--mobile-cover-size);
     animation: rotation 20s ease-in-out 0s infinite forwards;
 }
+
+/* LANDING LOGO */
+.landing-logo-platform{
+    --platform-x: min(20rem, 100vw);
+    --platform-y: min(20rem, 100vh);
+    --center-x: calc(50vw - calc(var(--platform-x) / 2));
+    --center-y: calc(50vh - calc(var(--platform-y) / 2));
+}
+
+.landing-logo{
+    position: absolute;
+    max-width: var(--platform-x);
+    max-height: var(--platform-y);
+    left: var(--center-x);
+    top: var(--center-y);
+}
+
+.logo-rotate{
+    animation: rotation 20s 0s infinite forwards;
+}

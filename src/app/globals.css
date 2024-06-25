@@ -9,6 +9,12 @@
   --content-width: min(calc(100vw - 18rem), 100rem); /* whole view minus width of navbar + padding */
 }
 
+/* animations */
+@keyframes rotation {
+  from {rotate: 0deg;}
+  to {rotate: 360deg;}
+}
+
 .line-decoration{
   min-width: 0.25rem;
   min-height: 100%;

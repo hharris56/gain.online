@@ -27,9 +27,40 @@
     color: var(--primary-text-color);
     letter-spacing: 0.25rem;
     text-decoration: none;
+
+    position: absolute;
+    max-width: var(--size-x);
+    left: calc(50vw - 5rem);
+    bottom: 10vh;
 }
 
 /* .enter-button:active .mobile-cover{
     transform: translate(100rem);
     transition: transform 1s;
 } */
+
+
+/* LANDING LOGO */
+.landing-page-parent{
+    --size-x: min(20rem, 100vw);
+    --size-y: min(20rem, 100vh);
+    --center-x: calc(50vw - calc(var(--size-x) / 2));
+    --center-y: calc(50vh - calc(var(--size-y) / 2));
+
+    display: flex;
+    flex-direction: column-reverse;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.landing-logo{
+    position: absolute;
+    max-width: var(--size-x);
+    max-height: var(--size-y);
+    left: var(--center-x);
+    top: var(--center-y);
+}
+
+.logo-rotate{
+    animation: rotation 20s 0s infinite forwards;
+}
