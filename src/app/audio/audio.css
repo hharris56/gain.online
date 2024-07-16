@@ -35,7 +35,7 @@
     justify-content: center;
     align-items: stretch;
 
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     cursor: pointer;
 }
 
@@ -91,9 +91,12 @@
 }
 
 .releases-container-mobile{
-    min-width: 100%;
+    width: 100%;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .release-container-mobile{

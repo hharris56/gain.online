@@ -20,7 +20,7 @@ export default function AudioPage(){
     return (
         <div className="page-content-container">
             <h1>gain audio</h1>
-            <a>it all starts here</a>
+            {/* <a>it all starts here</a> */}
             <div className="audio-selector-container">
                 <SelectorButton text={releases} onClick={() => setSelected(releases)} selected={selected == releases} />
                 <SelectorButton text={albums} onClick={() => setSelected(albums)} selected={selected == albums} />
@@ -36,6 +36,17 @@ export default function AudioPage(){
             </div> */}
             {selected == releases &&
                 <div className={isMobile ? "releases-container-mobile" : ""}>
+                    <Release
+                        title="barsbuttel step"
+                        date="12 jluy 2024"
+                        cover="/art/albums/barsbuttel step/barsbuttel step cover.png"
+                        route="/audio/barsbuttelStep"
+                        links={{
+                            spotify: "https://open.spotify.com/track/1kX29xlXs2Aqi02tLduRmP?si=3e8bbb44b7a24b81",
+                            apple: "https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214" 
+                            }}
+                        description="deep sounds from berlin pour out into the surrounding streets."
+                    />
                     <Release
                         title="copenhagen"
                         date="1 june 2024"

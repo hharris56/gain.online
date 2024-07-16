@@ -3,6 +3,7 @@
 import "./defaultAudioPage.css"
 import { useIsMobile } from "../../hooks/mobileHooks"
 import { MusicLinkBar } from "../linkBar/linkBar"
+import BackButton from "../buttons/backButton"
 
 interface AudioPageProps{
     cover: string,
@@ -16,6 +17,7 @@ export default function DefaultAudioPage(props: AudioPageProps){
 
     return (
         <div className={"dap-container" + (isMobile ? " dap-mobile" : "")}>
+            {/* <BackButton route="/audio" /> */}
             {isMobile && <img 
                 src={props.cover} 
                 className="dap-image"
