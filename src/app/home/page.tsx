@@ -13,7 +13,7 @@ export default function Home() {
       <div className="home-content-container">
         <Posts/>
       </div>
-      <img src="/art/mountain - copy.png" style={{width: "100%"}}/>
+      {/* <img src="/art/mountain - copy.png" style={{width: "100%"}}/> */}
     </div>
   )
 }

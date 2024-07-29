@@ -146,7 +146,7 @@ function Release(props: ReleaseProps){
                 
                 <div className={isMobile ? "release-info-mobile" : "release-info"}>
                     <div style={{fontSize: "1.5rem", fontWeight: "bold"}}>{props.title}</div>
-                    <a style={{color: "var(--secondary-text-color)", fontSize: ".75rem"}}>{props.date}</a>
+                    <a style={{color: "var(--secondary-text-color)", fontSize: "1rem"}}>{props.date}</a>
                     <div className={"release-text" + (isMobile ? " release-text-mobile" : "")}>
                         <MusicLinkBar 
                             links={props.links}

@@ -5,7 +5,7 @@ import { DesktopLogo } from "../logo/logo"
 import { useState } from "react"
 import DropdownButton from "../buttons/dropdownButton"
 
-export default function Header(props: any){
+function Header(props: any){
   const [isExpanded, setExpanded] = useState(false)
 
     return (
@@ -20,9 +20,18 @@ export default function Header(props: any){
         // VERTICAL HEADER
         <div className="vheader-container">
           <div className="vlogo-buffer">
-            <DropdownButton size="8rem" expanded={false} callback={() => setExpanded(!isExpanded)}/>
+            {/* <DropdownButton size="8rem" expanded={false} callback={() => setExpanded(!isExpanded)}/> */}
+            <img src="/logos/cloud logo blank.png" className="cloud-logo"/>
           </div>
-          <VerticalNavbar expanded={true}/>
+            <VerticalNavbar expanded={true}/>
         </div>
     )
 }
+
+function HeaderBuffer(){
+  return (
+    <div style={{minWidth: "13rem", minHeight: "11rem"}}/>
+  )
+}
+
+export {Header, HeaderBuffer}

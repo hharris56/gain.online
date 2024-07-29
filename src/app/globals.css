@@ -1,12 +1,13 @@
 :root{
   --transition-time: 0.5s;
 
+  /* no longer defined here, check colorManager.tsx
   --primary-color: white;
-  --accent-color: lightblue; /*#ADD8E6 <- this one #55a7ff*/
+  --accent-color: lightblue; /*#ADD8E6 <- this one #55a7ff
   --primary-text-color: black;
-  --secondary-text-color: grey;
+  --secondary-text-color: grey; */
 
-  --content-width: min(calc(100vw - 18rem), 100rem); /* whole view minus width of navbar + padding */
+  --content-width: min(calc(100vw - 20rem), 100rem); /* whole view minus width of navbar + padding */
 }
 
 /* animations */
@@ -35,17 +36,12 @@
 }
 
 .post-container{
-  /* min-width: 100%; */
-  /* background-color: lightblue; */
-  
   padding: 0rem 0rem 0.5rem 0rem;
   margin-bottom: 2rem;
   margin-left: 0rem;
-  /* margin-right: 2rem; */
 
   display: flex;
   flex-direction: row;
-  /* overflow-x: scroll; */
 }
 
 .open{
@@ -73,14 +69,9 @@
 .webpage-container{
   width: 100%;
   max-width: 100rem;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-self: center; */
 }
 
 .webpage-background{
-  /* display: flex;
-  justify-content: center; */
   background-color: var(--primary-color);
   color: var(--primary-text-color)
 }

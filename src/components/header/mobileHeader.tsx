@@ -18,7 +18,7 @@ export default function MobileHeader(props: any){
                 className="mobile-header-online">
                     gain.<b>online</b>
                 </Link>
-                <DropDownButton expanded={isExpanded} callback={() => setExpanded(!isExpanded)} />
+                <DropDownButton color="gray" expanded={isExpanded} callback={() => setExpanded(!isExpanded)} />
             </div>
             <NavbarMobile expanded={isExpanded} callback={setExpanded}/>
         </div>

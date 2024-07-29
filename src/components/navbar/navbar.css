@@ -18,15 +18,10 @@
 } */
 
 .navbar-button{
-    /* height: 100%;
-    max-width: 25%; */
     height: 2rem;
     min-height: 2rem;
     width: 100%;
-    background-color: transparent;
-    transition: background-color var(--transition-time);
-    /* transition: letter-spacing 2s, background-color var(--transition-time); */
-    
+    background-color: transparent;    
     display: flex;
     flex-grow: 1;
 
@@ -35,59 +30,18 @@
 
     cursor: pointer;
 
-    color: var(--primary-text-color);
+    color: var(--primary-color) !important;
     letter-spacing: 0.5rem;
     text-decoration: none;
 
     z-index: 1;
-
-    /* filter: blur(1rem) */
+    transition: all var(--transition-time)
 }
 
 .navbar-button:hover{
     background-color: var(--primary-color);
-    color: var(--primary-text-color);
-    /* height: 2.5rem; */
-    /* font-weight: 600; */
-    /* letter-spacing: 0.25rem; */
-    /* filter: none; */
+    color: var(--accent-color) !important;
 }
-
-/*
-.navbar-button{
-    height: 100%;
-    background-image: linear-gradient(white 70%, gray);
-    
-    display: flex;
-    flex-grow: 1;
-
-    justify-content: center;
-    align-items: center;
-
-    cursor: pointer;
-
-    position: relative;
-    z-index: 1;
-}
-
-.navbar-button::before{
-    position: absolute;
-    content: "";
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    background-image: linear-gradient(gray, white 30%);
-
-    z-index: -1;
-    opacity: 0;
-    transition: opacity var(--transition-time);
-}
-.navbar-button:hover::before{
-    opacity: 1;
-}
-*/
 
 
 /* MOBILE VIEW */
@@ -111,15 +65,15 @@
     text-align: center;
     line-height: 4rem;
 
-    color: var(--primary-text-color);
+    color: var(--secondary-text-color);
     letter-spacing: 0.25rem;
     text-decoration: none;
 }
 
-.mobile-navbar-button:hover{
+/* .mobile-navbar-button:hover{
     background-color: transparent;
     color: var(--primary-text-color);
-}
+} */
 
 /* VERTICAL NAVBAR */
 .vnavbar-container{
