@@ -21,7 +21,8 @@ function Header(props: any){
         <div className="vheader-container">
           <div className="vlogo-buffer">
             {/* <DropdownButton size="8rem" expanded={false} callback={() => setExpanded(!isExpanded)}/> */}
-            <img src="/logos/cloud logo blank.png" className="cloud-logo"/>
+            <img src="/logos/logo gray.png" className="header-logo"/>
+            {/* <img src="/logos/cloud logo blank.png" className="cloud-logo"/> */}
           </div>
             <VerticalNavbar expanded={true}/>
         </div>
@@ -30,7 +31,7 @@ function Header(props: any){
 
 function HeaderBuffer(){
   return (
-    <div style={{minWidth: "13rem", minHeight: "11rem"}}/>
+    <div style={{minWidth: "11rem", minHeight: "11rem"}}/>
   )
 }
 

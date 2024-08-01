@@ -38,12 +38,12 @@ export default function AudioPage(){
                 <div className={isMobile ? "releases-container-mobile" : ""}>
                     <Release
                         title="barsbuttel step"
-                        date="12 jluy 2024"
+                        date="2 august 2024"
                         cover="/art/albums/barsbuttel step/barsbuttel step cover.png"
                         route="/audio/barsbuttelStep"
                         links={{
-                            spotify: "https://open.spotify.com/track/1kX29xlXs2Aqi02tLduRmP?si=3e8bbb44b7a24b81",
-                            apple: "https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214" 
+                            spotify: "https://open.spotify.com/album/1gNbnzo50mqxwiWbDvnSyv?si=DT6z217VQpaB5Z5HnsYHwQ",
+                            apple: "https://music.apple.com/us/album/barsbuttel-step-single/1759280614" 
                             }}
                         description="deep sounds from berlin pour out into the surrounding streets."
                     />
@@ -53,7 +53,7 @@ export default function AudioPage(){
                         cover="/art/albums/copenhagen/copenhagen cover.jpg"
                         route="/audio/copenhagen"
                         links={{
-                            spotify: "https://open.spotify.com/track/1kX29xlXs2Aqi02tLduRmP?si=3e8bbb44b7a24b81",
+                            spotify: "https://open.spotify.com/album/1w25geZB4DstHJMsNZ4H8A?si=CzIUu5LSTUGDOz7mY_1hUA",
                             apple: "https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214" 
                             }}
                         description="a journey to the eastern front reveals more than you might expect."

@@ -26,8 +26,9 @@
     letter-spacing: 0.25rem;
     text-decoration: none;
 
-    width: 15rem;
-    max-width: 80vw;
+    /* width: 15rem;
+    max-width: 80vw; */
+    width: var(--size-x);
     height: 3rem;
     margin-bottom: 5rem;
 }
@@ -41,17 +42,18 @@
     --center-y: calc(50vh - calc(var(--size-y) / 2));
 
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     min-height: 97vh;
 }
 
 .landing-logo{
-    position: absolute;
+    /* position: absolute; */
     max-width: var(--size-x);
     max-height: var(--size-y);
-    left: var(--center-x);
-    top: var(--center-y);
+    /* left: var(--center-x);
+    top: var(--center-y); */
 }
 
 .logo-rotate{

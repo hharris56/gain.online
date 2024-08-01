@@ -6,16 +6,18 @@ export default function Landing() {
 
   return (
     <div className="landing-page-parent">
-      <LandingLogo />
-      <Link 
-      className="expand-button enter-button"
-      // className="expand-button enter-button"
-      href="/home"
-      // style={{height: "4rem", width: "40%"}}
-      // passHref={true}
-      >
-      enter
-      </Link>
+      <div className="landing-page-content">
+        <LandingLogo />
+        <Link 
+        className="expand-button enter-button"
+        // className="expand-button enter-button"
+        href="/home"
+        // style={{height: "4rem", width: "40%"}}
+        // passHref={true}
+        >
+        enter
+        </Link>
+      </div>
     </div>
     )
 }

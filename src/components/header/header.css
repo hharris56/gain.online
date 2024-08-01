@@ -10,6 +10,20 @@
     background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
+.header-logo{
+    height: 8rem;
+    width: 8rem;
+
+    cursor: pointer;
+    transition: transform 1s;
+    transform: rotate(0deg);
+}
+
+.header-logo:active{
+    transition: transform 5s;
+    transform: rotate(360deg);
+}
+
 .logo-buffer{
     width: 8em;
 }
@@ -68,11 +82,10 @@
     max-width: 11rem;
     height: 90vh;
     max-height: 100%;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     /* background-color: red; */
-    background-image: linear-gradient(var(--accent-color) 40%, var(--primary-color) 80%);
+    background-image: linear-gradient(var(--accent-color), var(--primary-color));
     background-repeat: no-repeat;
-    background-position-y: 7rem;
 }
 
 .vlogo-buffer{
