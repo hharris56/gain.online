@@ -84,6 +84,7 @@
 
 .selector-button-hover:hover{
     background-color: var(--accent-color);
+    color: var(--primary-color)
 }
 
 .sb-selected{
@@ -91,4 +92,11 @@
     box-sizing: border-box;
     border: 0.2rem solid var(--accent-color);
     pointer-events: none;
+}
+
+.back-button{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    width: fit-content;
 }

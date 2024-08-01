@@ -20,7 +20,7 @@ export default function AudioPage(){
     return (
         <div className="page-content-container">
             <h1>gain audio</h1>
-            {/* <a>it all starts here</a> */}
+            <a>resonant sound seeker</a>
             <div className="audio-selector-container">
                 <SelectorButton text={releases} onClick={() => setSelected(releases)} selected={selected == releases} />
                 <SelectorButton text={albums} onClick={() => setSelected(albums)} selected={selected == albums} />
@@ -38,12 +38,12 @@ export default function AudioPage(){
                 <div className={isMobile ? "releases-container-mobile" : ""}>
                     <Release
                         title="barsbuttel step"
-                        date="12 jluy 2024"
+                        date="2 august 2024"
                         cover="/art/albums/barsbuttel step/barsbuttel step cover.png"
                         route="/audio/barsbuttelStep"
                         links={{
-                            spotify: "https://open.spotify.com/track/1kX29xlXs2Aqi02tLduRmP?si=3e8bbb44b7a24b81",
-                            apple: "https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214" 
+                            spotify: "https://open.spotify.com/album/1gNbnzo50mqxwiWbDvnSyv?si=DT6z217VQpaB5Z5HnsYHwQ",
+                            apple: "https://music.apple.com/us/album/barsbuttel-step-single/1759280614" 
                             }}
                         description="deep sounds from berlin pour out into the surrounding streets."
                     />
@@ -53,7 +53,7 @@ export default function AudioPage(){
                         cover="/art/albums/copenhagen/copenhagen cover.jpg"
                         route="/audio/copenhagen"
                         links={{
-                            spotify: "https://open.spotify.com/track/1kX29xlXs2Aqi02tLduRmP?si=3e8bbb44b7a24b81",
+                            spotify: "https://open.spotify.com/album/1w25geZB4DstHJMsNZ4H8A?si=CzIUu5LSTUGDOz7mY_1hUA",
                             apple: "https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214" 
                             }}
                         description="a journey to the eastern front reveals more than you might expect."
@@ -146,7 +146,7 @@ function Release(props: ReleaseProps){
                 
                 <div className={isMobile ? "release-info-mobile" : "release-info"}>
                     <div style={{fontSize: "1.5rem", fontWeight: "bold"}}>{props.title}</div>
-                    <a style={{color: "var(--secondary-text-color)", fontSize: ".75rem"}}>{props.date}</a>
+                    <a style={{color: "var(--secondary-text-color)", fontSize: "1rem"}}>{props.date}</a>
                     <div className={"release-text" + (isMobile ? " release-text-mobile" : "")}>
                         <MusicLinkBar 
                             links={props.links}

@@ -13,6 +13,7 @@
 
 .tag-button{
     background-color: var(--accent-color);
+    color: var(--primary-color);
     height: var(--height);
     line-height: var(--height);
 

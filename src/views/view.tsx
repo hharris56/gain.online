@@ -1,6 +1,6 @@
 "use client"
 
-import Header from '../components/header/header'
+import { Header, HeaderBuffer } from '../components/header/header'
 import Footer from '../components/footer/footer'
 import { useIsMobile } from '../hooks/mobileHooks'
 import MobileView from './mobileView/mobileView'
@@ -23,6 +23,7 @@ export default function View({ children, }:
     // desktop view
     <div style={{padding:"2rem", display: "flex", flexDirection: "row"}}>
         <Header />
+        <HeaderBuffer />
         <div style={{display: "flex", flexDirection: "column", padding: "0rem 2rem"}}>
             <div style={{marginBottom: "2rem", fontSize: "1rem"}}>{children}</div>
             <Footer />
