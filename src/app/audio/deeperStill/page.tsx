@@ -16,7 +16,7 @@ export default function DeeperStill(){
 
     return (
         <div className={"album-page-container" + (isMobile ? " album-page-mobile" : "")}>
-            {/* <BackButton route="/audio" /> */}
+            <BackButton route="/audio" />
             {isMobile && <img 
                 src={"/art/albums/deeper still/deeper still album cover.png"} 
                 className="album-image"

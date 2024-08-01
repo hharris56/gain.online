@@ -20,7 +20,7 @@ export default function AudioPage(){
     return (
         <div className="page-content-container">
             <h1>gain audio</h1>
-            {/* <a>it all starts here</a> */}
+            <a>resonant sound seeker</a>
             <div className="audio-selector-container">
                 <SelectorButton text={releases} onClick={() => setSelected(releases)} selected={selected == releases} />
                 <SelectorButton text={albums} onClick={() => setSelected(albums)} selected={selected == albums} />
