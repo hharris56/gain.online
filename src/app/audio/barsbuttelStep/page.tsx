@@ -16,7 +16,7 @@ export default function BarsbuttelStep(){
         <div>
             <DefaultAudioPage
                 title="barsbuttel step"
-                date="12 july 2024"
+                date="2 august 2024"
                 cover="/art/albums/barsbuttel step/barsbuttel step cover.png"
                 links={{
                     spotify: "https://open.spotify.com/album/1gNbnzo50mqxwiWbDvnSyv?si=DT6z217VQpaB5Z5HnsYHwQ",
