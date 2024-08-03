@@ -19,7 +19,7 @@ export default function BarsbuttelStep(){
                 date="12 july 2024"
                 cover="/art/albums/barsbuttel step/barsbuttel step cover.png"
                 links={{
-                    spotify: "https://open.spotify.com/track/6xp56OOUFoxyRmiHnCT0zr?si=2m2K02FBQQO9L95TcAgDCA",
+                    spotify: "https://open.spotify.com/album/1gNbnzo50mqxwiWbDvnSyv?si=DT6z217VQpaB5Z5HnsYHwQ",
                     apple: "https://music.apple.com/us/album/barsbuttel-step-single/1756583733"
                 }}
                 description="deep sounds from berlin pour out into the surrounding streets."
