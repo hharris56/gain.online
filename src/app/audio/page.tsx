@@ -45,7 +45,7 @@ export default function AudioPage(){
                             spotify: "https://open.spotify.com/album/1gNbnzo50mqxwiWbDvnSyv?si=DT6z217VQpaB5Z5HnsYHwQ",
                             apple: "https://music.apple.com/us/album/barsbuttel-step-single/1759280614" 
                             }}
-                        description="deep sounds from berlin pour out into the surrounding streets."
+                        description="deep sounds from hamburg's club scene pour out into the surrounding streets."
                     />
                     <Release
                         title="copenhagen"
