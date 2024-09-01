@@ -25,7 +25,7 @@ export default function Landing() {
 function LandingLogo(){
   return (
       <div>
-        <img src="/logos/logo blue.png" className="landing-logo logo-rotate" />
+        <img src="/logos/logo black.png" className="landing-logo logo-rotate" />
         {/* <img src="/logos/logo blue.png" className="landing-logo logo-rotate" 
         style={{animationDelay: "0.2s", zIndex: "-1"}}/>
         <img src="/logos/logo purple.png" className="landing-logo logo-rotate" 
