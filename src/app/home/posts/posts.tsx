@@ -45,7 +45,7 @@ export default function Posts(){
     return (
         <div>
             {expanded ? posts : posts.slice(0, 3)}
-            <ExpandButton expanded={expanded} callback={() => setExpanded(!expanded)} />
+            <ExpandButton expanded={expanded} callback={() => setExpanded(!expanded)} color="white" />
         </div>
     )
 }

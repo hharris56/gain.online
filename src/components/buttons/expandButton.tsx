@@ -2,7 +2,7 @@
 import "./buttons.css"
 import { useIsMobile } from "../../hooks/mobileHooks"
 
-export default function ExpandButton(props: {expanded?: boolean, callback: any, text?: string}){
+export default function ExpandButton(props: {expanded?: boolean, callback: any, text?: string, color?: string}){
     const isMobile = useIsMobile()
     const dotClass = isMobile? "dotdotdot-mobile" : "dotdotdot"
     // const content = props.text ?? (
@@ -23,8 +23,8 @@ export default function ExpandButton(props: {expanded?: boolean, callback: any, 
                 // <div style={{display:"flex", flexDirection:"row", width:"fit-content"}}>
                 //     {content}
                 // </div> :
-                <img src="/logos/logo black.png" style={{maxHeight: "100%"}}/> : 
-                <img src="/logos/logo black.png" style={{maxHeight: "100%", rotate: "45deg"}}/>
+                <img src={`/logos/logo ${props.color ?? "black"}.png`} style={{maxHeight: "100%"}}/> : 
+                <img src={`/logos/logo ${props.color ?? "black"}.png`} style={{maxHeight: "100%", rotate: "45deg"}}/>
                 }
             </div>
         )
