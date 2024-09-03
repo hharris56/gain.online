@@ -1,3 +1,15 @@
+@keyframes bobbing {
+    0% { transform: translate(0, 0rem);}
+    50% { transform: translate(0, var(--distance));}
+    100% { transform: translate(0, 0rem);}
+}
+
+@keyframes swaying {
+    0% { transform: translate(0, 0rem);}
+    50% { transform: translate(var(--distance), 0rem);}
+    100% { transform: translate(0, 0rem);}
+}
+
 .header-container{
     display: flex;
     flex-direction: row-reverse;
@@ -99,4 +111,14 @@
 .cloud-logo{
     /* height: 100%; */
     width: 14rem;
+}
+
+.menu-arrow{
+    --distance: -1rem;
+    animation: bobbing 2s ease-in-out 0s infinite forwards;
+}
+
+.mobile-menu-arrow{
+    --distance: -1rem;
+    animation: swaying 2s ease-in-out 0s infinite forwards;
 }
