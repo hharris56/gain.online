@@ -33,6 +33,10 @@
     margin-bottom: 5rem;
 }
 
+@keyframes spin-out {
+    from {rotate: 0deg;}
+    to {rotate: -2160deg;}
+}
 
 /* LANDING LOGO */
 .landing-page-parent{
@@ -54,8 +58,35 @@
     max-height: var(--size-y);
     /* left: var(--center-x);
     top: var(--center-y); */
+    cursor: pointer;
+    transform: rotate(0deg);
 }
 
+/* .landing-logo:hover{
+    transform: rotate(-180deg);
+    transition: transform 1s;
+} */
+
 .logo-rotate{
-    animation: rotation 20s 0s infinite forwards;
+    animation: rotation 20s 0s infinite forwards; 
+    opacity: 1;
+    /* background-color: green; */
 }
+
+.spin-out-container{
+    /* background-color: red; */
+    
+}
+
+.logo-rotate:focus{
+    /* background-color: blue; */
+    opacity: 0;
+    transform: rotate(-180deg) scale(-.05);
+    transition: all 1s ease-in;
+}
+
+/* .landing-logo:focus{
+    animation: spin-out 5s linear 0s 1 forwards;
+    transform: scale(20);
+    transition: transform 1s ease-in;
+} */
