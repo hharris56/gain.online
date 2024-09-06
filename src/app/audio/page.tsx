@@ -37,6 +37,17 @@ export default function AudioPage(){
             {selected == releases &&
                 <div className={isMobile ? "releases-container-mobile" : ""}>
                     <Release
+                        title="binary sky"
+                        date="3 september 2024"
+                        cover="/art/albums/binary sky/binary sky cover.jpg"
+                        route="/audio/binarySky"
+                        links={{
+                            spotify: "https://open.spotify.com/album/0hvk7wFYTcV4DndMn79X24?si=xUuXK6gqTUCwWha905ja7g",
+                            apple: "" 
+                            }}
+                        description="sometimes diving in blind is the only way to see the other side."
+                    />
+                    <Release
                         title="barsbuttel step"
                         date="2 august 2024"
                         cover="/art/albums/barsbuttel step/barsbuttel step cover.png"
