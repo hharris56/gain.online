@@ -43,7 +43,7 @@ export default function AudioPage(){
                         route="/audio/binarySky"
                         links={{
                             spotify: "https://open.spotify.com/album/0hvk7wFYTcV4DndMn79X24?si=xUuXK6gqTUCwWha905ja7g",
-                            apple: "" 
+                            apple: "https://music.apple.com/us/album/binary-sky-single/1767128385" 
                             }}
                         description="sometimes diving in blind is the only way to see the other side."
                     />

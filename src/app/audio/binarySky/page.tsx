@@ -7,10 +7,10 @@ import DefaultAudioPage from "../../../components/defaultAudioPage/defaultAudioP
 export default function BarsbuttelStep(){
     const isMobile = useIsMobile()
 
-    document.documentElement.style.setProperty("--primary-color", "black");
-    document.documentElement.style.setProperty("--accent-color", "#7823c0");
-    document.documentElement.style.setProperty("--primary-text-color", "#0bb774");
-    document.documentElement.style.setProperty("--secondary-text-color", "#f043be");
+    // document.documentElement.style.setProperty("--primary-color", "black");
+    document.documentElement.style.setProperty("--accent-color", "#5e61ff");
+    document.documentElement.style.setProperty("--primary-text-color", "#ffefb0");
+    document.documentElement.style.setProperty("--secondary-text-color", "#5e61ff");
  
     return (
         <div>
@@ -20,7 +20,7 @@ export default function BarsbuttelStep(){
                 cover="/art/albums/binary sky/binary sky cover.jpg"
                 links={{
                     spotify: "https://open.spotify.com/album/0hvk7wFYTcV4DndMn79X24?si=xUuXK6gqTUCwWha905ja7g",
-                    apple: ""
+                    apple: "https://music.apple.com/us/album/binary-sky-single/1767128385"
                 }}
                 description="sometimes diving in blind is the only way to see the other side."
             />
