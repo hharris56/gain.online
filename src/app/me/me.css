@@ -15,3 +15,9 @@
 .linktree-pfp{
     width: 50vw;
 }
+
+.linktree-button{
+    width: 10rem;
+    border: solid 0.1rem var(--accent-color);
+    margin-top: 0.5rem;
+}

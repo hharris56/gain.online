@@ -5,6 +5,7 @@ interface LinkButtonProps{
     icon: string
     text?: string
     sx?: any
+    class?: string
 }
 export default function LinkButton(props: LinkButtonProps){
     const icons: { [id: string] : string; } = {
@@ -13,9 +14,9 @@ export default function LinkButton(props: LinkButtonProps){
         "soundcloud": "/icons/soundcloud icon.png"
     }
     return (
-        <a className="link-button" href={props.link} target="_blank" style={props.sx}>
+        <a className={`link-button ${props.class}`}href={props.link} target="_blank" style={props.sx}>
             <img src={icons[props.icon] ?? props.icon} className="link-icon"></img>
-            {props.text && <a style={{marginLeft: "0.5rem"}}>{props.text}</a>}
+            {props.text && <a style={{margin: "0rem 0.5rem", width: "100%", textAlign: "center"}}>{props.text}</a>}
         </a>
     )
 }

@@ -20,11 +20,11 @@ export default function AudioPage(){
     return (
         <div className="page-content-container">
             {!isMobile && 
-            (<div style={{marginBottom: "2rem"}}>
+            (<div style={{marginBottom: "1rem"}}>
                 <h1>gain audio</h1>
                 <a>sound seeker</a>
             </div>)}
-            <div className="audio-selector-container">
+            <div className="audio-selector-container" style={{marginTop: "1rem"}}>
                 <SelectorButton text={releases} onClick={() => setSelected(releases)} selected={selected == releases} />
                 <SelectorButton text={albums} onClick={() => setSelected(albums)} selected={selected == albums} />
                 {/* <SelectorButton text={playlists} onClick={() => setSelected(playlists)} selected={selected == playlists} />
