@@ -1,0 +1,17 @@
+.linktree-container{
+    width: 100%;
+    height: fit-content;
+    min-height: 75vh;
+    /* background-color: red; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+
+    margin-top: 2rem;
+}
+
+.linktree-pfp{
+    width: 50vw;
+}
