@@ -8,7 +8,6 @@ import DropDownButton from "../buttons/dropdownButton"
 
 export default function MobileHeader(props: any){
     const [isExpanded, setExpanded] = useState(false)
-    const [hasExpanded, setHasExpanded] = useState(false)
 
     return (
         <div className="mobile-header">
@@ -20,10 +19,7 @@ export default function MobileHeader(props: any){
                     <a style={{fontSize: "1.5rem"}}>gain.<b>online</b></a>
                     <a style={{fontSize: "0.75rem", marginLeft: "1rem", marginTop: "-.3rem"}}>sound seeker</a>
                 </Link>
-                <div style={{display: "flex", alignContent: "center"}}>
-                    {!hasExpanded && <img src="/icons/arrow right.svg" style={{width: "2rem"}} className="mobile-menu-arrow"/>}
-                    <DropDownButton color="black" expanded={isExpanded} callback={() => {setExpanded(!isExpanded); setHasExpanded(true)}} />
-                </div>
+                <DropDownButton color="black" expanded={isExpanded} callback={() => setExpanded(!isExpanded)} />
             </div>
             <NavbarMobile expanded={isExpanded} callback={setExpanded}/>
         </div>
