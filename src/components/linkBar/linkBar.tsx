@@ -1,4 +1,5 @@
 import "./linkBar.css"
+import LinkButton from "../buttons/linkButton";
 
 interface MusicLinkProps{
     links: any;
@@ -8,21 +9,9 @@ interface MusicLinkProps{
 function MusicLinkBar(props: MusicLinkProps){
     return (
         <span className="link-bar" style={props.sx}>
-            {props.links.spotify &&
-            <a className="link-button" href={props.links.spotify} target="_blank">
-                <img src={"/icons/spotify icon.png"} className="link-icon"></img>
-                <a style={{marginLeft: "0.5rem"}}>spotify</a>
-            </a>}
-            {props.links.apple &&
-            <a className="link-button" href={props.links.apple} target="_blank">
-                <img src={"/icons/apple music icon.png"} className="link-icon"></img>
-                <a style={{marginLeft: "0.5rem"}}>apple music</a>
-            </a>}
-            {props.links.soundcloud &&
-            <a className="link-button" href={props.links.soundcloud} target="_blank">
-                <img src={"/icons/soundcloud icon.png"} className="link-icon"></img>
-                <a style={{marginLeft: "0.5rem"}}>soundcloud</a>
-            </a>}
+            {props.links.spotify && <LinkButton link={props.links.spotify} icon="spotify" text="spotify"/>}
+            {props.links.apple && <LinkButton link={props.links.apple} icon="apple" text="apple music"/>}
+            {props.links.soundcloud && <LinkButton link={props.links.soundcloud} icon="soundcloud" text="soundcloud"/>}
         </span>
     )
 }

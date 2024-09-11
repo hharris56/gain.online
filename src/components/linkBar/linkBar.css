@@ -1,6 +1,4 @@
 .link-bar{
-    /* background-color: red; */
-    /* background-image: linear-gradient(-90deg, var(--accent-color), var(--primary-color)); */
     width: 100%;
     min-height: 3rem;
     display: flex;
@@ -8,25 +6,4 @@
     justify-content: space-evenly;
 
     margin-bottom: 1rem;
-}
-
-.link-icon{
-    max-height: 2rem;
-    max-width: 2rem;
-}
-
-.link-button{
-    display: flex;
-    align-items: center;
-    transition: all var(--transition-time);
-    border-radius: 10rem;
-    padding: 0rem 1rem 0rem 1rem;
-
-    color: var(--accent-color);
-    cursor: pointer;
-}
-
-.link-button:hover{
-    background-color: var(--accent-color);
-    color: var(--primary-color)
 }
