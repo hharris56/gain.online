@@ -17,7 +17,8 @@ export default function MobileHeader(props: any){
                 <Link 
                 href="/"
                 className="mobile-header-online">
-                    gain.<b>online</b>
+                    <a style={{fontSize: "1.5rem"}}>gain.<b>online</b></a>
+                    <a style={{fontSize: "0.75rem", marginLeft: "1rem", marginTop: "-.3rem"}}>sound seeker</a>
                 </Link>
                 <div style={{display: "flex", alignContent: "center"}}>
                     {!hasExpanded && <img src="/icons/arrow right.svg" style={{width: "2rem"}} className="mobile-menu-arrow"/>}
