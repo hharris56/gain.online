@@ -35,7 +35,6 @@
     justify-content: center;
     align-items: stretch;
 
-    margin-top: 2rem;
     cursor: pointer;
 }
 
@@ -92,6 +91,7 @@
 
 .releases-container-mobile{
     width: 100%;
+    margin-top: 2rem;
 
     display: flex;
     flex-direction: column;
@@ -101,20 +101,36 @@
 
 .release-container-mobile{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    width: 80%;
+    width: 100%;
+    /* background-color: blue; */
+    margin-bottom: 1rem;
+}
+
+.release-image-mobile{
+    /* width: 15rem; */
+    width: 30vw;
 }
 
 .release-info-mobile{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
-.release-text-mobile{
-    width: 100%;
+.release-description-mobile{
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0rem 1rem;
+    width: 80%;
+}
+
+.release-date-mobile{
+    font-size: 0.5rem;
+    color: var(--accent-color)
 }
 
 

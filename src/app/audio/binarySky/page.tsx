@@ -4,8 +4,7 @@ import "../audio.css"
 import { useIsMobile } from "../../../hooks/mobileHooks"
 import DefaultAudioPage from "../../../components/defaultAudioPage/defaultAudioPage"
 
-export default function BarsbuttelStep(){
-    const isMobile = useIsMobile()
+export default function BinarySky(){
 
     // document.documentElement.style.setProperty("--primary-color", "black");
     document.documentElement.style.setProperty("--accent-color", "#5e61ff");

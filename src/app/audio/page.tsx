@@ -19,8 +19,11 @@ export default function AudioPage(){
 
     return (
         <div className="page-content-container">
-            <h1>gain audio</h1>
-            <a>resonant sound seeker</a>
+            {!isMobile && 
+            (<div style={{marginBottom: "2rem"}}>
+                <h1>gain audio</h1>
+                <a>sound seeker</a>
+            </div>)}
             <div className="audio-selector-container">
                 <SelectorButton text={releases} onClick={() => setSelected(releases)} selected={selected == releases} />
                 <SelectorButton text={albums} onClick={() => setSelected(albums)} selected={selected == albums} />
@@ -132,36 +135,44 @@ interface ReleaseProps {
     cover: string,
     title: string,
     date: string,
-    route?: string
+    route: string
     links?: any
     description?: string
 }
 function Release(props: ReleaseProps){
     const isMobile = useIsMobile()
-    return (
-        <div className={isMobile ? "releases-container-mobile" : ""}>
-            <div className={"release-container" + (isMobile ? " release-container-mobile" : "")}>
-                {props.route ?
-                <Link href={props.route} className={"release-image" + (isMobile ? "-mobile" : "")}>
+    return isMobile ?
+    // mobile
+    (
+        <Link href={props.route}>
+            <div className="release-container-mobile">
+                <img src={props.cover} className="release-image-mobile"/>
+                <div className="release-info-mobile">
+                    <h3 style={{margin: "0.5rem 0.5rem 0rem 0.5rem"}}>{props.title}</h3>
+                    <a className="release-date-mobile">{props.date}</a>
+                    <a className="release-description-mobile">{props.description}</a>
+                </div>
+            </div>
+        </Link>
+    ) :
+    // desktop
+    (
+        <div>
+            <div className={"release-container"}>
+                <Link href={props.route} className="release-image">
                     <img 
                         src={props.cover} 
                         style={{maxWidth: "100%"}}
                     />
                 </Link>
-                :
-                <img 
-                    src={props.cover} 
-                    className={"release-image" + (isMobile ? "-mobile" : "")}
-                />
-                }
-                
-                <div className={isMobile ? "release-info-mobile" : "release-info"}>
-                    <div style={{fontSize: "1.5rem", fontWeight: "bold"}}>{props.title}</div>
-                    <a style={{color: "var(--secondary-text-color)", fontSize: "1rem"}}>{props.date}</a>
-                    <div className={"release-text" + (isMobile ? " release-text-mobile" : "")}>
+                <div className="release-info">
+                    
+                    <div className="release-text">
+                        <h2 style={{marginBottom: "0rem"}}>{props.title}</h2>
+                        <a style={{color: "var(--secondary-text-color)", fontSize: "1rem"}}>{props.date}</a>
                         <MusicLinkBar 
                             links={props.links}
-                            sx={{marginBottom: "2rem"}}
+                            sx={{margin: "2rem 0rem"}}
                         />
                         <a>{props.description}</a>
                     </div>
