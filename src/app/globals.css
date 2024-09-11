@@ -16,6 +16,23 @@
   to {rotate: 360deg;}
 }
 
+@keyframes gradient-move {
+  from {background-position: 0%;}
+  to {background-position: 100%;}
+}
+
+@keyframes bobbing {
+  0% { transform: translate(0, 0rem);}
+  50% { transform: translate(0, var(--distance));}
+  100% { transform: translate(0, 0rem);}
+}
+
+@keyframes swaying {
+  0% { transform: translate(0, 0rem);}
+  50% { transform: translate(var(--distance), 0rem);}
+  100% { transform: translate(0, 0rem);}
+}
+
 .line-decoration{
   min-width: 0.25rem;
   min-height: 100%;
