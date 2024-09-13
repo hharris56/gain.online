@@ -144,16 +144,27 @@ function Release(props: ReleaseProps){
     return isMobile ?
     // mobile
     (
-        <Link href={props.route}>
-            <div className="release-container-mobile">
+        // <Link href={props.route}>
+        //     <div className="release-container-mobile">
+        //         <img src={props.cover} className="release-image-mobile"/>
+        //         <div className="release-info-mobile">
+        //             <h3 style={{margin: "0.5rem 0.5rem 0rem 0.5rem"}}>{props.title}</h3>
+        //             <a className="release-date-mobile">{props.date}</a>
+        //             <a className="release-description-mobile">{props.description}</a>
+        //         </div>
+        //     </div>
+        // </Link>
+        <div className="release-container-mobile">
+            <Link href={props.route}>
                 <img src={props.cover} className="release-image-mobile"/>
-                <div className="release-info-mobile">
-                    <h3 style={{margin: "0.5rem 0.5rem 0rem 0.5rem"}}>{props.title}</h3>
-                    <a className="release-date-mobile">{props.date}</a>
-                    <a className="release-description-mobile">{props.description}</a>
-                </div>
+            </Link>
+            <div className="release-info-mobile">
+                <i style={{fontSize: "1.5em", fontWeight: "bold"}}>{props.title}</i>
+                <a style={{fontSize: ".75em"}}>{props.date}</a>
+                <a className="release-description-mobile">{props.description}</a>
             </div>
-        </Link>
+            <MusicLinkBar links={props.links} sx={{margin: "1rem 0rem"}}/>
+        </div>
     ) :
     // desktop
     (

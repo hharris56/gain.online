@@ -101,16 +101,17 @@
 
 .release-container-mobile{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
     /* background-color: blue; */
     margin-bottom: 1rem;
 }
 
 .release-image-mobile{
-    /* width: 15rem; */
-    width: 30vw;
+    width: 80vw;
+    /* width: 30rem; */
 }
 
 .release-info-mobile{
@@ -123,7 +124,6 @@
 
 .release-description-mobile{
     text-align: center;
-    font-size: 0.75rem;
     padding: 0rem 1rem;
     width: 80%;
 }
