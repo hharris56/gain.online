@@ -39,7 +39,7 @@ export default function AudioPage(){
             </div> */}
             {selected == releases &&
                 <div className={isMobile ? "releases-container-mobile" : ""}>
-                    <Release
+                    {/* <Release
                         title="binary sky"
                         date="3 september 2024"
                         cover="/art/albums/binary sky/binary sky cover.jpg"
@@ -71,7 +71,34 @@ export default function AudioPage(){
                             apple: "https://music.apple.com/us/album/copenhagen/1744846213?i=1744846214" 
                             }}
                         description="a journey to the eastern front reveals more than you might expect."
-                    />
+                    /> */}
+                    <div className="release-container-mobile">
+                        <Link href="/audio/binarySky">
+                            <img src="/art/albums/binary sky/binary sky cover.jpg" className="release-image-mobile"/>
+                        </Link>
+                        <div className="release-info-mobile" style={{color: "#5e61ff"}}>
+                            <a>binary</a>
+                            <a>sky</a>
+                        </div>
+                    </div>
+                    <div className="release-container-mobile">
+                        <Link href="/audio/barsbuttelStep">
+                            <img src="/art/albums/barsbuttel step/barsbuttel step cover.png" className="release-image-mobile"/>
+                        </Link>
+                        <div className="release-info-mobile" style={{color: "#0bb774", textAlign: "left"}}>
+                            <a style={{fontSize: "1.75rem"}}>barsbuttel</a>
+                            <a>step</a>
+                        </div>
+                    </div>
+                    <div className="release-container-mobile">
+                        <Link href="/audio/copenhagen">
+                            <img src="/art/albums/copenhagen/copenhagen cover.jpg" className="release-image-mobile"/>
+                        </Link>
+                        <div className="release-info-mobile" style={{color: "#f7b140"}}>
+                            <a>copen</a>
+                            <a style={{fontSize: "1.75rem"}}>hagen</a>
+                        </div>
+                    </div>
                 </div>
             }
             {selected == albums &&
@@ -159,11 +186,11 @@ function Release(props: ReleaseProps){
                 <img src={props.cover} className="release-image-mobile"/>
             </Link>
             <div className="release-info-mobile">
-                <i style={{fontSize: "1.5em", fontWeight: "bold"}}>{props.title}</i>
-                <a style={{fontSize: ".75em"}}>{props.date}</a>
-                <a className="release-description-mobile">{props.description}</a>
+                <a style={{fontSize: "1.5em", fontWeight: "bold"}}>{props.title}</a>
+                {/* <a style={{fontSize: ".75em"}}>{props.date}</a>
+                <a className="release-description-mobile">{props.description}</a> */}
             </div>
-            <MusicLinkBar links={props.links} sx={{margin: "1rem 0rem"}}/>
+            {/* <MusicLinkBar links={props.links} sx={{margin: "1rem 0rem"}}/> */}
         </div>
     ) :
     // desktop

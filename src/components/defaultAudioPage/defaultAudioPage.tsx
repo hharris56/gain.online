@@ -17,7 +17,7 @@ export default function DefaultAudioPage(props: AudioPageProps){
 
     return (
         <div className={"dap-container" + (isMobile ? " dap-mobile" : "")}>
-            <BackButton route="/audio"/>
+            {/* <BackButton route="/audio"/> */}
             {isMobile && <img 
                 src={props.cover} 
                 className="dap-image"

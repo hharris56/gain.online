@@ -106,7 +106,7 @@
     align-items: center;
     width: 100%;
     /* background-color: blue; */
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
 }
 
 .release-image-mobile{
@@ -117,9 +117,18 @@
 .release-info-mobile{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
+    text-align: right;
     flex-grow: 1;
+    /* background-color: red; */
+    word-wrap: break-word;
+    overflow-y: visible;
+
+    width: 40vw;
+    font-size: 2.5rem;
+    font-weight: bold;
+    transform: scaleX(2)
 }
 
 .release-description-mobile{
