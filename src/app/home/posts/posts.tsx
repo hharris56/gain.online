@@ -14,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Jan6 key="jan6" />,
         <June2 key="6/2" />,
         <May17 key="5/17" />,
         <May13 key="5/13" />,
@@ -49,6 +50,20 @@ export default function Posts(){
         </div>
     )
 }
+function Jan6(){
+    return (
+        <BlogPost title="better late than never" date="6 january - 10:45pm">
+            there is more to update you on than i care to write out, sorry for the absence. making it to 6 months last year with regular posts was better than i was expecting, but lets get past 8 this time around.
+            <Break/>
+            that 'overseas' album i hinted at in my last post drops this friday. making it has been a trip and i'm really really excited for it to be officially released, especially after seeing how much love the 3 singles received. i moved to SF last october and am still settling in but man does living in a walkable city make a huge difference. i also picked up the piano around that time and now i'm able to play a few songs, looking into lessons this year.
+            <Break/>
+            i've got a ton more i want to discuss but it's getting late so i'll save it for upcoming posts. the start of a new year always feels fresh and i'm glad the site is back in action. we'll be chatting again real soon, promise :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function June2(){
     return (
         <BlogPost title="take me there" date="2 june - 5:06pm">

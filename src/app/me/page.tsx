@@ -9,7 +9,7 @@ export default function Me(){
 
     return (
         <div className="linktree-container">
-            {/* <img src="/assets/gain pfp.jpg" className="linktree-pfp"/> */}
+            <img src="/assets/gain pfp.jpg" className="linktree-pfp"/>
             <h1><i>gain online</i></h1>
             <a>bay area electronic artist</a>
             <a>tech + ambient house / jungle + breakcore</a>
