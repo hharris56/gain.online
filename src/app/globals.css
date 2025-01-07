@@ -6,7 +6,7 @@
   --accent-color: lightblue; /*#ADD8E6 <- this one #55a7ff
   --primary-text-color: black;
   --secondary-text-color: grey; */
-
+  --background-path: url("../../public/assets/gain\ portrait.jpeg");
   --content-width: min(calc(100vw - 20rem), 100rem); /* whole view minus width of navbar + padding */
 }
 
@@ -90,7 +90,13 @@
 
 .webpage-background{
   background-color: var(--primary-color);
-  color: var(--primary-text-color)
+  color: var(--primary-text-color);
+    
+  /* background-image: var(--background-path);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; */
 }
 
 a:link, a:visited{

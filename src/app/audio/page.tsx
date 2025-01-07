@@ -19,11 +19,13 @@ export default function AudioPage(){
 
     return (
         <div className="page-content-container">
-            {!isMobile && 
-            (<div style={{marginBottom: "1rem"}}>
+            <div style={{marginBottom: "1rem"}}>
                 <h1>gain audio</h1>
-                <a>sound seeker</a>
-            </div>)}
+                <div style={{display: "flex", flexDirection: "column"}}>
+                    <a>lofi / ambient  house + jungle + breakcore.</a>
+                    <a>sound seeker.</a>
+                </div>
+            </div>
             <div className="audio-selector-container" style={{marginTop: "1rem"}}>
                 <SelectorButton text={releases} onClick={() => setSelected(releases)} selected={selected == releases} />
                 <SelectorButton text={albums} onClick={() => setSelected(albums)} selected={selected == albums} />
@@ -38,7 +40,25 @@ export default function AudioPage(){
                 />
             </div> */}
             {selected == releases &&
-                <div className={isMobile ? "releases-container-mobile" : ""}>
+                <div className={"albums-container" + (isMobile? "-mobile" : "")}>
+                    <Album
+                        cover="/art/albums/binary sky/binary sky cover.jpg"
+                        title="binary sky"
+                        year={2024}
+                        route="binarySky"
+                    />
+                    <Album
+                        cover="/art/albums/barsbuttel step/barsbuttel step cover.png"
+                        title="barsbuttel step"
+                        year={2024}
+                        route="barsbuttelStep"
+                    />
+                    <Album
+                        cover="/art/albums/copenhagen/copenhagen cover.jpg"
+                        title="copenhagen"
+                        year={2024}
+                        route="copenhagen"
+                    />
                     {/* <Release
                         title="binary sky"
                         date="3 september 2024"
@@ -72,7 +92,7 @@ export default function AudioPage(){
                             }}
                         description="a journey to the eastern front reveals more than you might expect."
                     /> */}
-                    <div className="release-container-mobile">
+                    {/* <div className="release-container-mobile">
                         <Link href="/audio/binarySky">
                             <img src="/art/albums/binary sky/binary sky cover.jpg" className="release-image-mobile"/>
                         </Link>
@@ -98,7 +118,7 @@ export default function AudioPage(){
                             <a>copen</a>
                             <a style={{fontSize: "1.75rem"}}>hagen</a>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             }
             {selected == albums &&

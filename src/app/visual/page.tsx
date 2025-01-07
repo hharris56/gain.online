@@ -12,7 +12,7 @@ export default function VisualPage(){
     return (
         <div>
             <h1>gain design</h1>
-            <a>private gallery showing of visual art projects and explorations from over the years. different eras use different approaches, tools, and ideologies.</a>
+            <a>private gallery for some of my visual art projects and explorations over the years. different eras use different approaches, tools, and ideologies.</a>
             <div style={{width: "100%", marginTop: "2rem"}}>
                 <Cars/>
                 <CloudStudy1/>

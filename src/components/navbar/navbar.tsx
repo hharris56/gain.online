@@ -22,7 +22,7 @@ function VerticalNavbar(props: {expanded: boolean}){
             <NavbarButton title="home" route="/home"></NavbarButton>
             <NavbarButton title="audio" route="/audio"></NavbarButton>
             <NavbarButton title="visual" route="/visual"></NavbarButton>
-            <NavbarButton title="code" route="/code"></NavbarButton>
+            {/* <NavbarButton title="code" route="/code"></NavbarButton> */}
         </div>
     )
 }

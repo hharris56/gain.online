@@ -35,7 +35,7 @@ function LandingLogo(){
   return (
       <div>
         <img src="/logos/logo white.png" className="landing-logo logo-rotate" id="logo" tabIndex={0} 
-        onClick={() => sleep(900).then(() => router.push("/me")) }/>
+        onClick={() => sleep(900).then(() => router.push("/home")) }/>
         {/* <img src="/logos/logo blue.png" className="landing-logo logo-rotate" 
         style={{animationDelay: "0.2s", zIndex: "-1"}}/>
         <img src="/logos/logo purple.png" className="landing-logo logo-rotate" 

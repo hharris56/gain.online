@@ -4,9 +4,12 @@ import "./me.css"
 import LinkButton from "../../components/buttons/linkButton"
 
 export default function Me(){
+    // let bgp = "url(../../public/assets/gain\ accent.jpeg)"
+    // if (document) document.documentElement.style.setProperty("--background-path", bgp)
+
     return (
         <div className="linktree-container">
-            <img src="/assets/gain pfp.jpg" className="linktree-pfp"/>
+            {/* <img src="/assets/gain pfp.jpg" className="linktree-pfp"/> */}
             <h1><i>gain online</i></h1>
             <a>bay area electronic artist</a>
             <a>tech + ambient house / jungle + breakcore</a>
