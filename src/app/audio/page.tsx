@@ -42,6 +42,12 @@ export default function AudioPage(){
             {selected == releases &&
                 <div className={"albums-container" + (isMobile? "-mobile" : "")}>
                     <Album
+                        cover="/art/albums/overseas/overseas cover.jpg"
+                        title="overseas"
+                        year={2025}
+                        route="overseas"
+                    />
+                    <Album
                         cover="/art/albums/binary sky/binary sky cover.jpg"
                         title="binary sky"
                         year={2024}

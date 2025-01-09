@@ -49,11 +49,13 @@ export default function MobileHeader(props: any){
                 // href="/"
                 className="mobile-header-online">
                     {/* <a style={{fontSize: "1.5rem"}}>gain.<b>online</b></a> */}
-                    <div style={{fontSize: "1.5rem"}}><b>{
+                    <Link 
+                        href="/audio/overseas"
+                        style={{fontSize: "1.5rem"}}><b>{
                         releaseDate.getTime() - time.getTime() > 1000 ?
                         formatTime(time)
                         : "online"}
-                    </b></div>
+                    </b></Link>
                     {/* <div style={{fontSize: "1.5rem"}}><b>online</b></div> */}
                     {/* <div style={{fontSize: "0.75rem", marginLeft: "1rem", marginTop: "-.3rem"}}>sound seeker</div> */}
                 </div>
