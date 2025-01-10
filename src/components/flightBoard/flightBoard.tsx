@@ -16,7 +16,7 @@ export default function FlightBoard(props: FlightBoardProps){
         })
         return mem.map((letter: number[][]) => {
             return (
-                <div style={{display: "flex", flexDirection: "column", marginRight: "0.2rem"}}>
+                <div style={{display: "flex", flexDirection: "column", marginRight: "0.2rem"}} key={Math.random().toString()}>
                 {letter.map((row: number[]) => {
                 return (
                     <div style={{display: "flex", flexDirection: "row"}} key={Math.random().toString()}>
