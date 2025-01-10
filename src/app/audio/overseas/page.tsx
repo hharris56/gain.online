@@ -19,8 +19,8 @@ export default function Overseas(){
                 date="10 january 2024"
                 cover="/art/albums/overseas/overseas cover.jpg"
                 links={{
-                    spotify: "https://open.spotify.com/album/5o10I4PQsEjcVQe04l0JOn?si=dlxkk5PaTAuHDTR45ZL9Nw",
-                    apple: "https://music.apple.com/us/album/jungle-jungle/1747786677"
+                    spotify: "https://open.spotify.com/album/6EHllJmgFCdGQoR9yV3fD4?si=y4WqHILAQeSkq7DA5SWj7g",
+                    apple: "https://music.apple.com/us/album/overseas/1788945323"
                 }}
                 description="the pursuit of desire comes at a price... one night overseas can change everything"
             />

@@ -10,34 +10,34 @@ export default function MobileHeader(props: any){
     const [isExpanded, setExpanded] = useState(false)
 
     // start
-    const releaseDate = new Date("January 10, 2025 09:00:00")
-    const [time, setTime] = useState(new Date());
+    // const releaseDate = new Date("January 10, 2025 09:00:00")
+    // const [time, setTime] = useState(new Date());
 
-    const refreshClock = useCallback(() => {
-        setTime(new Date());
-    }, [setTime]);
+    // const refreshClock = useCallback(() => {
+    //     setTime(new Date());
+    // }, [setTime]);
     
-    useEffect(() => {
-        const timerID = setInterval(refreshClock, 1000);
-        return function cleanup() {
-            clearInterval(timerID);
-        };
-    }, [refreshClock]);
+    // useEffect(() => {
+    //     const timerID = setInterval(refreshClock, 1000);
+    //     return function cleanup() {
+    //         clearInterval(timerID);
+    //     };
+    // }, [refreshClock]);
 
-    const formatTime = (dt: Date) => {
-        let TwoString = (num: number) => {
-            let str = num.toString()
-            if (str.length < 2) return "0" + str
-            else return str
-        }
-        let difference = releaseDate.getTime() - time.getTime()
-        let hours = Math.floor(difference / 1000 / 60 / 60)
-        difference = difference - (hours * 1000 * 60 * 60)
-        let minutes = Math.floor((difference) / 1000 / 60)
-        difference = difference - (minutes * 1000 * 60)
-        let seconds = Math.floor((difference) / 1000)
-        return `${TwoString(hours)}:${TwoString(minutes)}:${TwoString(seconds)}`
-    }
+    // const formatTime = (dt: Date) => {
+    //     let TwoString = (num: number) => {
+    //         let str = num.toString()
+    //         if (str.length < 2) return "0" + str
+    //         else return str
+    //     }
+    //     let difference = releaseDate.getTime() - time.getTime()
+    //     let hours = Math.floor(difference / 1000 / 60 / 60)
+    //     difference = difference - (hours * 1000 * 60 * 60)
+    //     let minutes = Math.floor((difference) / 1000 / 60)
+    //     difference = difference - (minutes * 1000 * 60)
+    //     let seconds = Math.floor((difference) / 1000)
+    //     return `${TwoString(hours)}:${TwoString(minutes)}:${TwoString(seconds)}`
+    // }
 
     // end
 
@@ -48,16 +48,15 @@ export default function MobileHeader(props: any){
                 <div 
                 // href="/"
                 className="mobile-header-online">
-                    {/* <a style={{fontSize: "1.5rem"}}>gain.<b>online</b></a> */}
-                    <Link 
+                    {/* <Link 
                         href="/audio/overseas"
                         style={{fontSize: "1.5rem"}}><b>{
-                        releaseDate.getTime() - time.getTime() > 1000 ?
-                        formatTime(time)
-                        : "online"}
-                    </b></Link>
-                    {/* <div style={{fontSize: "1.5rem"}}><b>online</b></div> */}
-                    {/* <div style={{fontSize: "0.75rem", marginLeft: "1rem", marginTop: "-.3rem"}}>sound seeker</div> */}
+                        // releaseDate.getTime() - time.getTime() > 1000 ?
+                        // formatTime(time) :
+                        "00:00:00"}
+                    </b></Link> */}
+                    <div style={{fontSize: "1.5rem"}}>gain.<b>online</b></div>
+                    <div style={{fontSize: "0.75rem", marginLeft: "1rem", marginTop: "-.3rem"}}>sound seeker</div>
                 </div>
                 <DropDownButton color="black" expanded={isExpanded} callback={() => setExpanded(!isExpanded)} />
             </div>
