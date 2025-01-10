@@ -19,9 +19,9 @@ export default function FlightBoard(props: FlightBoardProps){
                 <div style={{display: "flex", flexDirection: "column", marginRight: "0.2rem"}}>
                 {letter.map((row: number[]) => {
                 return (
-                    <div style={{display: "flex", flexDirection: "row"}}>
+                    <div style={{display: "flex", flexDirection: "row"}} key={Math.random().toString()}>
                     {row.map((c: number) => {
-                        return (<Cell on={c > 0} />)
+                        return (<Cell on={c > 0} key={Math.random().toString()}/>)
                     })}
                     </div>
                 )})}
@@ -33,7 +33,7 @@ export default function FlightBoard(props: FlightBoardProps){
         <div style={{display: "flex", flexDirection: "column", overflowX: "scroll", ...props.sx}}>
             {props.rows.map(w => {
                 return (
-                    <div style={{display: "flex", flexDirection: "row", marginBottom: "0.5rem"}}>
+                    <div style={{display: "flex", flexDirection: "row", marginBottom: "0.5rem"}} key={Math.random().toString()}>
                     {convert(w)}
                     </div>
                 )})}
