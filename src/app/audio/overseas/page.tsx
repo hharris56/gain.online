@@ -45,7 +45,7 @@ export default function Overseas(){
                 <FlightBoard rows={boardRows} sx={{margin: "2rem 0rem"}}/>
             </div>
             <div style={{width: "100%", display: "flex", justifyContent: "center", marginBottom: "2rem"}}>
-                <div style={{maxWidth: "50rem"}}>
+                <div hidden style={{maxWidth: "50rem"}}>
                     <h2 style={{width: "100%", textAlign: "center"}}>synopsis:</h2>
                     <p>inspired by the bleak landscapes and brutalist architecture of central and eastern europe, 'overseas' explores spiritual and emotional burdens derived from the pursuit of pleasure, recounting the events of an unknown protaganist during a single night overseas.</p>
                     <p>the desolate soundscapes and droning pads punctuated by lush arps and kicking basslines create a wave of sound and emotion that rush past, leaving traces of some featureless longing in their wake.</p>
