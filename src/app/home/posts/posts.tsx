@@ -14,7 +14,8 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
-        <Jan6 key="jan6" />,
+        <Jan24 key="1/24"/>,
+        <Jan6 key="1/6" />,
         <June2 key="6/2" />,
         <May17 key="5/17" />,
         <May13 key="5/13" />,
@@ -50,6 +51,20 @@ export default function Posts(){
         </div>
     )
 }
+function Jan24(){
+    return (
+        <BlogPost title="overseas, from your bedroom" date="6 january - 10:22pm">
+            two weeks of 'overseas' in the books and what a start. the reception was unreal, having people text me unprompted talking about how much they liked the new project was so heartwarming. my friends posting my songs on their stories and sharing with their friends man it was all really surreal. thank you so much to everyone who supported and if you havent yet check out 'overseas' on all platforms.
+            <Break/>
+            so whats next? i'm working on some post release promotional material to keep pushing overseas for the next month or two. these include visualizers for a few of my favorite songs, some flyers and graphics to associate with the album and lastly a super special secret project that im still trying to pull off. additionally i'm finishing fleshing out the 'overseas' page on the site, including some of my biggest influences and a deeper dive into the story behind the music. also still trying to get a few of my songs added to playlists on spotify but it might take longer than expected because i need to figure out what genre these songs slot into lmao.
+            <Break/>
+            anyways, lots in the works and there is new music coming soon<sup>tm</sup>, some jungle first then maybe a few new singles for those esoteric electronica enjoyers. chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function Jan6(){
     return (
         <BlogPost title="better late than never" date="6 january - 10:45pm">
