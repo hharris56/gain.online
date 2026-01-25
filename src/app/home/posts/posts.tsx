@@ -14,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Jan25 key="1/25"/>,
         <Jan24 key="1/24"/>,
         <Jan6 key="1/6" />,
         <June2 key="6/2" />,
@@ -51,9 +52,28 @@ export default function Posts(){
         </div>
     )
 }
+function Jan25(){
+    return (
+        <BlogPost title="act 2" date="25 january - 2:09pm">
+            its been a year and some change since the last entry into this log and i still dont know where to begin. last year was a whirlwind of stuff. two new jobs, moving back and forth across the country, and an indescribably sense of longing for the monotiny of a previous lifestyle.
+            <Break />
+            ive undoubtedly grown a lot. i think its one of those things where your life splits into many directions around the age of 27. things i thought i knew, like what i wanted to do and who i wanted to be, really got tested over these past few months. the impermenence of stuff has always bothered me, in fact i think that is one of the most consistent motivations for me to make music; it feels like capturing something that will live forever unchanged. i know thats not true but it still feels special to me.
+            <Break />
+            i want to approach things differently this time around. i want to be more technical, more effeceint, and less reliant on some boundless motivation that i often delude myself into believing i have. 
+            <Break />
+            so cheers to that, and welcome to act 2. the death of sentimentality and the birth of something else entirely.
+            <Break />
+            chat soon :)
+            <Break />
+            + gain 
+            <Break />
+            oh also - the site is going to go through some major changes over the next few months. i hope to cover a lot of it in separate posts, so keep an eye out for those.
+        </BlogPost>
+    )
+}
 function Jan24(){
     return (
-        <BlogPost title="overseas, from your bedroom" date="6 january - 10:22pm">
+        <BlogPost title="overseas, from your bedroom" date="24 january - 10:22pm">
             two weeks of 'overseas' in the books and what a start. the reception was unreal, having people text me unprompted talking about how much they liked the new project was so heartwarming. my friends posting my songs on their stories and sharing with their friends man it was all really surreal. thank you so much to everyone who supported and if you havent yet check out 'overseas' on all platforms.
             <Break/>
             so whats next? i'm working on some post release promotional material to keep pushing overseas for the next month or two. these include visualizers for a few of my favorite songs, some flyers and graphics to associate with the album and lastly a super special secret project that im still trying to pull off. additionally i'm finishing fleshing out the 'overseas' page on the site, including some of my biggest influences and a deeper dive into the story behind the music. also still trying to get a few of my songs added to playlists on spotify but it might take longer than expected because i need to figure out what genre these songs slot into lmao.
