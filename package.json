@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "prepare": "husky",
     "precommit": "lint-staged",
     "dev": "next dev -p 8080",
     "build": "next build",
