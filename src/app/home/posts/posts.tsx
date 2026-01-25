@@ -14,6 +14,7 @@ export default function Posts(){
     // TODO: implement filtering based on tags
 
     var posts = [
+        <Jan25_2 key="1/25-2"/>,
         <Jan25 key="1/25"/>,
         <Jan24 key="1/24"/>,
         <Jan6 key="1/6" />,
@@ -52,6 +53,41 @@ export default function Posts(){
         </div>
     )
 }
+
+function Jan25_2(){
+    return (
+        <BlogPost title="#todo" date="25 january - 2:31pm">
+            theres a lot to do on this site man. i just spent a good amount of time looking over what i made a year or 2 ago and the bones are solid, but theres a lot of things ive learned and opinions ive changed in the past 12 months that are going to require some heavy lifting on the technical side.
+            <Break/>
+            1. these posts are written in custom HTML
+            <Break/>
+            i have defined custom tags for breaks, quotes, indents and whatever else has been used in these posts. it was cool at first but i think switching to markdown will be better, so i guess i'll have to convert all these legacy posts to markdown as well.
+            <Break/>
+            2. file structure
+            <Break/>
+            big fan of the bulletproof react's guide to project structure, separating similar functionality into 'features' and having all related stuff under that one directory. as you can imagine this website is not setup like that, in fact it is an app/ directory with routes and a components/ directory with everything else.
+            <Break/>
+            3. tailwind & css for that matter
+            <Break/>
+            i could (and probably will at some point) write an entire post about my opinions on tailwind but the TLDR is that while i was initially against it, i now am a believer that abstraction should take place at the component level and tailwind is fantastic if you operate under that asumption.
+            <Break/>
+            i was also unaware of css breakpoints when i initially wrote this website. mobile vs desktop view is determind with a useEffect that watches the window.width.
+            <Break/>
+            4. quality of life
+            <Break/>
+            there are a lot of code management tools that i had not taken advantage of when initially building this site. i think it would be good to take some time and implement them. specifically looking at you (autolinter, pnpm).
+            <Break/>
+            5. site structure
+            <Break/>
+            the last, biggest, most impactful, and most amiguious is the actual layout and interaction map of this website. i'd really like to simplify the landing page. i'd really like to display music differently. i don't even know if i want to have my visual art up. much to consider, but i thought i should atleast write it down for now.
+            <Break/>
+            so yea, theres a lot to do on this site man. chat soon :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function Jan25(){
     return (
         <BlogPost title="act 2" date="25 january - 2:09pm">
