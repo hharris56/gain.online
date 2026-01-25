@@ -4,10 +4,17 @@
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "precommit": "lint-staged",
     "dev": "next dev -p 8080",
     "build": "next build",
     "start": "next start -p 8080",
     "lint": "next lint"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@types/node": "25.0.10",
@@ -23,6 +30,8 @@
     "underscore": "^1.13.7"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "pre-commit": "^1.2.2"
   }
 }

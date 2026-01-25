@@ -54,6 +54,18 @@ export default function Posts(){
     )
 }
 
+function Jan25_3(){
+    return (
+        <BlogPost title="progess" date="25 january - 3:27pm">
+            alright this post is half update half test. i got pnpm working and setup some pre-commit hooks as well. i also setup an auto-lint of staged stuff to see if i can run prettier automatically and the only way to test it is to stage some stuff so here goes nothing.
+            <Break/>
+            chat soon, extra soon if this doesn't work :)
+            <Break/>
+            + gain
+        </BlogPost>
+    )
+}
+
 function Jan25_2(){
     return (
         <BlogPost title="#todo" date="25 january - 2:31pm">
@@ -75,7 +87,7 @@ function Jan25_2(){
             <Break/>
             4. quality of life
             <Break/>
-            there are a lot of code management tools that i had not taken advantage of when initially building this site. i think it would be good to take some time and implement them. specifically looking at you (autolinter, pnpm).
+            there are a lot of code management tools that i had not taken advantage of when initially building this site. i think it would be good to take some time and implement them. specifically looking at you (pre-commit, pnpm).
             <Break/>
             5. site structure
             <Break/>
@@ -95,13 +107,13 @@ function Jan25(){
             <Break />
             ive undoubtedly grown a lot. i think its one of those things where your life splits into many directions around the age of 27. things i thought i knew, like what i wanted to do and who i wanted to be, really got tested over these past few months. the impermenence of stuff has always bothered me, in fact i think that is one of the most consistent motivations for me to make music; it feels like capturing something that will live forever unchanged. i know thats not true but it still feels special to me.
             <Break />
-            i want to approach things differently this time around. i want to be more technical, more effeceint, and less reliant on some boundless motivation that i often delude myself into believing i have. 
+            i want to approach things differently this time around. i want to be more technical, more effeceint, and less reliant on some boundless motivation that i often delude myself into believing i have.
             <Break />
             so cheers to that, and welcome to act 2. the death of sentimentality and the birth of something else entirely.
             <Break />
             chat soon :)
             <Break />
-            + gain 
+            + gain
             <Break />
             oh also - the site is going to go through some major changes over the next few months. i hope to cover a lot of it in separate posts, so keep an eye out for those.
         </BlogPost>
@@ -226,7 +238,7 @@ function Apr26(){
 function Apr22(){
     return (
         <BlogPost title="from the shadows" date="22 april - 8:51pm" tags={["site updates", "music", "deeper still"]}>
-            been spending a lot of time irl these past two weekends catching up with some good friends and doing things away from the computer. i did make some major site changes last weekend but haven't pushed them yet since they completely overhaul the desktop interface and are still a few stages away from finished. 
+            been spending a lot of time irl these past two weekends catching up with some good friends and doing things away from the computer. i did make some major site changes last weekend but haven't pushed them yet since they completely overhaul the desktop interface and are still a few stages away from finished.
             <Break/>
             music has been the highlight though - about a week and a half ago i finally tapped into this sound i have been chasing for like a year so. if you know me at all i've probably tried to show you my favorite artist 'cult member' and after months of taking bits and pieces from his music i finally sat down and tried to make a full on song. the final product turned out so good it immediately became a 3 track ep and i gotta say this is probably some of my best work yet (although i may be a bit biased). super excited to share what with you all but first... we must go <b>deeper</b>.
             <Break/>
@@ -350,7 +362,7 @@ function Mar15pt2(){
             <Break/>
             on multiple occasions buzzati refers to the night as "deep" and i love it. i remember being a kid biking around the town i grew up in with my friends. the night held this heavy quietness that made it feel like we were the only people left awake in a sleeping world. 'deep' perfectly encapsulates this feeling, and also happens to be a word i have been interested in artistically as of late.
             <Break />
-            buzzati's description of life is beautifully tragic as well. there is a passage at the end of chapter 6 that is heart-wrenching. i wont include it here (mainly due to length) but he creates this illustration of growing up through youth and into adulthood as a run that starts so freeing. suddenly there is this creeping feeling that time is closing in on you, friends go on ahead or get left behind, and it's followed by a crushing realization that 
+            buzzati's description of life is beautifully tragic as well. there is a passage at the end of chapter 6 that is heart-wrenching. i wont include it here (mainly due to length) but he creates this illustration of growing up through youth and into adulthood as a run that starts so freeing. suddenly there is this creeping feeling that time is closing in on you, friends go on ahead or get left behind, and it's followed by a crushing realization that
             <Break/>
             <Quote>
                 the good lies far behind, very far behind, and [you] passed it without realizing.
@@ -419,7 +431,7 @@ function Feb18(){
             + gain
         </BlogPost>
     )
-    
+
 }
 
 function Feb16(){
@@ -494,7 +506,7 @@ function Jan28pt2(){
                 <img src="/art/albums/Commuter Cover.jpg" style={{height: "100%"}} />
             </div> */}
             <Break/>
-            the since release single 'tuned in' needed something to fill in the emptiness when the drums were pulled. i decided to throw in an old recording of a houston traffic report and voila, an idea was born. a jungle / breakcore ep centered around the morning commute. it was incredibly fitting since i almost always use my own morning commute to study new music or analize my own tracks. 
+            the since release single 'tuned in' needed something to fill in the emptiness when the drums were pulled. i decided to throw in an old recording of a houston traffic report and voila, an idea was born. a jungle / breakcore ep centered around the morning commute. it was incredibly fitting since i almost always use my own morning commute to study new music or analize my own tracks.
             <Break/>
             sound design / scaping for the ep was decidely consistent, using almost exclusively a set of vital presets i've created over the past year, the fl studio stock electric piano, recorded bass guitar (it's been getting better) and of course, the amen + think + funky drummer breaks. this ep was incredibly fun to make and i genuinely feel the limitation of elements really pushed my creativity of how to use those pieces.
             <Break/>
@@ -509,10 +521,10 @@ function Jan28pt2(){
 
 function Jan28(){
     const img = [getFromMasterDict("cars!", "mr2")]
-    
+
     return (
         <BlogPost title="locked in?" date="28 january 2024 - 10:30am" tags={["weekly drawing"]}>
-            you know that feeling when things start to click? creating this week felt super rewarding. pushed out 2 new songs to round out commuter (both hits btw) and ended up with a really nice drawing (shoutout toyota's designers for making a car as gorgeous as the mr2). 
+            you know that feeling when things start to click? creating this week felt super rewarding. pushed out 2 new songs to round out commuter (both hits btw) and ended up with a really nice drawing (shoutout toyota's designers for making a car as gorgeous as the mr2).
             <Gallery images={img} collectionName="cars!" />
             ill be back in a follow up post to discuss commuter in more depth - maybe ill also figure out what id like to do with that 'audio' tab in the navigation bar.
             <Break/>
@@ -585,10 +597,10 @@ function Jan13(){
             persists through both of those catagories is consistency. that is why for the next year i am
             going to make a minimum of 1 song and 1 drawing each week. ill upload them here in a new blog
             post every weekend and maybe even throw in a few thoughts about how my process as a creative
-            is progressing. there is much to expand upon with this new practice but for now, lets keep 
+            is progressing. there is much to expand upon with this new practice but for now, lets keep
             things simple.
             <Break/>
-            chat soon :) 
+            chat soon :)
             <Break/>
             + gain
         </BlogPost>
