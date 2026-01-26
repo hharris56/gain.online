@@ -14,6 +14,7 @@ export default function Posts() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Jan25_6 key="1/25-6" />,
     <Jan25_5 key="1/25-5" />,
     <Jan25_4 key="1/25-4" />,
     <Jan25_3 key="1/25-3" />,
@@ -51,13 +52,28 @@ export default function Posts() {
 
   return (
     <div>
-      {expanded ? posts : posts.slice(0, 3)}
+      {expanded ? posts : posts.slice(0, 5)}
       <ExpandButton
         expanded={expanded}
         callback={() => setExpanded(!expanded)}
         color="white"
       />
     </div>
+  );
+}
+
+function Jan25_6() {
+  return (
+    <BlogPost title="for the record" date="25 january - 10:18pm">
+      just wanted to say i got the site back up and live. no pretty url or
+      anything yet but we are back in action officially. next step will be
+      moving off the device check and migrating to tailwind. i feel like those
+      will go hand in hand for the most part. then i have GOT get markdown going
+      because writing posts like this is absurd.
+      <Break />
+      anyways, chat soon :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
