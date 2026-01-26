@@ -14,6 +14,7 @@ export default function Posts() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Jan25_5 key="1/25-5" />,
     <Jan25_4 key="1/25-4" />,
     <Jan25_3 key="1/25-3" />,
     <Jan25_2 key="1/25-2" />,
@@ -57,6 +58,38 @@ export default function Posts() {
         color="white"
       />
     </div>
+  );
+}
+
+function Jan25_5() {
+  return (
+    <BlogPost title="a peak behind the curtains" date="25 january - 9:48pm">
+      i've been poking around the codebase a bunch and you would not believe the
+      shit younger me cooked up to cover for stuff i didn't know existed. for
+      background this site is written in react, specifically nextjs with
+      typescript.
+      <Break />
+      firstly, the entire application is wrapped with a root layout that checks
+      the window dimensions on every rerender. this functionality is outsourced
+      to a hook called isMobile which i refernce all over the codebase for
+      conditional rendering and styling.
+      <Break />
+      additionally, all the colors are set using another hook called
+      colorManager. colorManager (referred to as cm) has some default colors
+      that act as the baseline and when cm is instanciated in the baseLayout it
+      calls resetColors, effectively setting the entire pallet for the site. i'm
+      actually reallly fond of this solution as it let me dynamically change
+      colors across different pages, so maybe this sticks around until i can
+      cook up a better way to that.
+      <Break />
+      last and least crazy is i used to be a custom css warrior. every component
+      has its own class, sometimes two when needing to define both desktop and
+      mobile. i forgot how much i used to hate on tailwind and now i must pay
+      the price.
+      <Break />
+      might go make some music instead. chat soon :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
