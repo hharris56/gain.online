@@ -14,6 +14,8 @@ export default function Posts() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Jan25_4 key="1/25-4" />,
+    <Jan25_3 key="1/25-3" />,
     <Jan25_2 key="1/25-2" />,
     <Jan25 key="1/25" />,
     <Jan24 key="1/24" />,
@@ -55,6 +57,23 @@ export default function Posts() {
         color="white"
       />
     </div>
+  );
+}
+
+function Jan25_4() {
+  return (
+    <BlogPost title="bigger fish to fry" date="25 january - 4:26pm">
+      so the quality of life stuff is up and working which is great, but there
+      are some deeper rooted issues that have bubbled up thanks to me updated
+      all my package versions. specifically there is something wrong with how i
+      initially checked for mobile vs desktop devices, which i will be replacing
+      with css (probably tailwinds) breakpoints.
+      <Break />
+      this is unfortunately going to be a much larger lift than i intiallly
+      hoped so idk if the site will be back up today or not. wish me luck and
+      we'll chat soon :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
