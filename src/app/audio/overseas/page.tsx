@@ -4,12 +4,12 @@ import "../audio.css";
 import { useIsMobile } from "../../../hooks/mobileHooks";
 import DefaultAudioPage from "../../../components/defaultAudioPage/defaultAudioPage";
 import FlightBoard from "../../../components/flightBoard/flightBoard";
-import { PropsWithChildren, useEffect } from "react";
+import { PropsWithChildren, useLayoutEffect } from "react";
 
 export default function Overseas() {
   const isMobile = useIsMobile();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.style.setProperty("--primary-color", "black");
     // document.documentElement.style.setProperty("--accent-color", "#5489d8");
     document.documentElement.style.setProperty("--primary-text-color", "white");

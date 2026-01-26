@@ -2,10 +2,10 @@
 
 import "../audio.css";
 import DefaultAudioPage from "../../../components/defaultAudioPage/defaultAudioPage";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export default function Copenhagen() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.style.setProperty("--primary-color", "black");
     document.documentElement.style.setProperty("--accent-color", "#3875f8");
     document.documentElement.style.setProperty(

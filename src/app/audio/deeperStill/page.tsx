@@ -3,12 +3,12 @@ import { useIsMobile } from "../../../hooks/mobileHooks";
 import { MusicLinkBar } from "../../../components/linkBar/linkBar";
 import "../audio.css";
 import BackButton from "../../../components/buttons/backButton";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export default function DeeperStill() {
   const isMobile = useIsMobile();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.style.setProperty("--primary-color", "black");
     document.documentElement.style.setProperty("--accent-color", "#65b53a");
     document.documentElement.style.setProperty(

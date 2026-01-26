@@ -2,10 +2,10 @@
 
 import "../audio.css";
 import DefaultAudioPage from "../../../components/defaultAudioPage/defaultAudioPage";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export default function JungleJungle() {
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.style.setProperty("--primary-color", "black");
     document.documentElement.style.setProperty("--accent-color", "#f23430");
     document.documentElement.style.setProperty(

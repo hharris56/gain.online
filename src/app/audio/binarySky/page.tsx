@@ -2,11 +2,11 @@
 
 import "../audio.css";
 import DefaultAudioPage from "../../../components/defaultAudioPage/defaultAudioPage";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 export default function BinarySky() {
   // document.documentElement.style.setProperty("--primary-color", "black");
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.style.setProperty("--accent-color", "#5e61ff");
     document.documentElement.style.setProperty(
       "--primary-text-color",
