@@ -1,10 +1,7 @@
-import dynamic from 'next/dynamic'
-import React from 'react'
+"use client";
 
-const NoSsr = (props: any) => (
-  <React.Fragment>{props.children}</React.Fragment>
-)
+import React from "react";
 
-export default dynamic(() => Promise.resolve(NoSsr), {
-  ssr: false
-})
+const NoSsr = (props: any) => <React.Fragment>{props.children}</React.Fragment>;
+
+export default NoSsr;
