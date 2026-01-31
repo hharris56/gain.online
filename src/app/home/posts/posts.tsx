@@ -14,6 +14,8 @@ export default function Posts() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Jan31_2 key="1/31-2" />,
+    <Jan31 key="1/31" />,
     <Jan25_6 key="1/25-6" />,
     <Jan25_5 key="1/25-5" />,
     <Jan25_4 key="1/25-4" />,
@@ -59,6 +61,63 @@ export default function Posts() {
         color="white"
       />
     </div>
+  );
+}
+
+function Jan31_2() {
+  return (
+    <BlogPost title="the great name debate" date="31 january - 12:38pm">
+      another thing i thought of the other day is a potential separation of this
+      site and my main music promotion. while this seems like overkill at the
+      moment heres my thoughts on it:
+      <Break />
+      1. gain.audio (ITS TAKEN RAHHHH)
+      <Break />
+      i really love this url and i feel like i could host a really simplistic
+      SPA that acts like a linktree for new releases and what not. i could try
+      out different design stuff without having to port this entire site and it
+      would be much leaner on content.
+      <Break />
+      2. gain archive (idk the actual url yet)
+      <Break />
+      the true motivation behind this site is not promotion but archival. i
+      intended it to be a portfolio / museum of all my prior works; a single
+      location to view all the stuff i've made, not just the recent things. i
+      love doing this but also trying to promote / push new content to the front
+      has always felt awkward / forced in this context.
+      <Break />
+      anyways, i just wanted to get that idea down in writing. will lyk soon if
+      any urls get purchased. chat then :)
+      <Break />+ gain
+    </BlogPost>
+  );
+}
+
+function Jan31() {
+  return (
+    <BlogPost title="what doesn't kill you" date="31 january - 12:01pm">
+      on the docket for today is (hopefully) a light lift with big impact.
+      implementing tailwind styles will be a bit tedious but id also really like
+      to get a light / dark mode working for the site.
+      <Break />
+      in addition to the site work i'm also really pushing to get some music
+      releases scheduled TODAY. one thing that i am frustratingly bad at is
+      commiting to releasing music. the making part is my favorite, the sharing
+      with others not so much.
+      <Break />
+      last thing i'd like to try out is some exploratory work for a home media
+      server. i have an old laptop kicking around from university thats been
+      doing a whole lot of nothing the past few years, so im thinking i could
+      flash it with popOS or some other lightweight linux distro and spin up a
+      jellyfin server. that in tandem with a couple of hard drives i pulled from
+      my late pc (may he rest in peace) should be enough to get the groundwork
+      laid for future expansions. and before you ask no i haven't looked into
+      exposing it outside my local network, though i may cross that bridge
+      sooner rather than later.
+      <Break />
+      ill update as things progress - chat soon :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
