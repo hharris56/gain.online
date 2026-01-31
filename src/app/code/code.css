@@ -1,17 +1,17 @@
-.site-link-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: var(--accent-color);
+.site-link-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--accent-color);
 
-    width: fit-content;
-    padding: 1rem 2rem;
-    border-radius: 5rem;
+  width: fit-content;
+  padding: 1rem 2rem;
+  border-radius: 5rem;
 
-    transition: background-color var(--transition-time);
+  transition: background-color var(--transition-time);
 }
 
-.site-link-button:hover{
-    background-color: transparent;
+.site-link-button:hover {
+  background-color: transparent;
 }

@@ -1,131 +1,143 @@
-.logo-container{
-    --img-size: 8em;
-    height: var(--img-size);
-    width: var(--img-size);
-    /* background-color: red; */
-    left: 4em;
-    top: 4em;
+.logo-container {
+  --img-size: 8em;
+  height: var(--img-size);
+  width: var(--img-size);
+  /* background-color: red; */
+  left: 4em;
+  top: 4em;
 
-    position: absolute;
-    cursor: pointer;
-    z-index: 1;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
 }
 
-.logo{
-    height: var(--img-size);
-    width: var(--img-size);
-    transform: scale(1);
-    transition: transform 1s;
+.logo {
+  height: var(--img-size);
+  width: var(--img-size);
+  transform: scale(1);
+  transition: transform 1s;
 }
 
-.shadow{
-    position: absolute;
-    top: 0;
-    left: 0;
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* rotate each individual to add delay */
-.rotate{
-    transform: rotate(0deg);
-    transition: all 2s;
+.rotate {
+  transform: rotate(0deg);
+  transition: all 2s;
 }
 
-.rotate1{
-    transform: rotate(0deg);
-    transition: all 2s;
-    transition-delay: 0.05s;
+.rotate1 {
+  transform: rotate(0deg);
+  transition: all 2s;
+  transition-delay: 0.05s;
 }
 
-.rotate2{
-    transform: rotate(0deg);
-    transition: all 2s;
-    transition-delay: 0.1s;
+.rotate2 {
+  transform: rotate(0deg);
+  transition: all 2s;
+  transition-delay: 0.1s;
 }
 
 /* on hover */
-.logo-container:hover .rotate{
-    transform: rotate(360deg);
-    transition: all 5s;
+.logo-container:hover .rotate {
+  transform: rotate(360deg);
+  transition: all 5s;
 }
 
-.logo-container:hover .rotate1{
-    transform: rotate(360deg);
-    transition: all 5s;
-    transition-delay: 0.1s;
+.logo-container:hover .rotate1 {
+  transform: rotate(360deg);
+  transition: all 5s;
+  transition-delay: 0.1s;
 }
 
-.logo-container:hover .rotate2{
-    transform: rotate(360deg);
-    transition: all 5s;
-    transition-delay: 0.2s;
+.logo-container:hover .rotate2 {
+  transform: rotate(360deg);
+  transition: all 5s;
+  transition-delay: 0.2s;
 }
 
 /* on click */
-.logo-container:active{
-    transform: scale(0.75);
-    transition: all 0.1s;
+.logo-container:active {
+  transform: scale(0.75);
+  transition: all 0.1s;
 }
 
-.logo-container:focus .rotate{
-    transform: rotate(0deg);
-    /* transition: all 0.2s; */
+.logo-container:focus .rotate {
+  transform: rotate(0deg);
+  /* transition: all 0.2s; */
 }
 
-.logo-container:focus .rotate1{
-    transform: rotate(360deg);
-    /* transition: all 0.2s; */
+.logo-container:focus .rotate1 {
+  transform: rotate(360deg);
+  /* transition: all 0.2s; */
 }
 
-.logo-container:focus .rotate2{
-    transform: rotate(360deg);
-    /* transition: all 0.2s; */
+.logo-container:focus .rotate2 {
+  transform: rotate(360deg);
+  /* transition: all 0.2s; */
 }
 
 /* MOBILE LOGO */
 @keyframes rotation {
-    from {rotate: 0deg;}
-    to {rotate: 360deg;}
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
 }
 @keyframes rotation2 {
-    from {rotate: 0deg;}
-    to {rotate: -720deg;}
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: -720deg;
+  }
 }
 @keyframes rotation3 {
-    from {rotate: 0deg;}
-    to {rotate: 1080deg;}
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 1080deg;
+  }
 }
 
-.mobile-cover-container{
-    --mobile-cover-size: 20em;
-    width: var(--mobile-cover-size);
-    height: var(--mobile-cover-size);
-    /* background-color: red; */
+.mobile-cover-container {
+  --mobile-cover-size: 20em;
+  width: var(--mobile-cover-size);
+  height: var(--mobile-cover-size);
+  /* background-color: red; */
 
-    /* position: absolute; */
+  /* position: absolute; */
 }
 
-.mobile-cover-logo{
-    height: var(--mobile-cover-size);
-    width: var(--mobile-cover-size);
-    animation: rotation 20s ease-in-out 0s infinite forwards;
+.mobile-cover-logo {
+  height: var(--mobile-cover-size);
+  width: var(--mobile-cover-size);
+  animation: rotation 20s ease-in-out 0s infinite forwards;
 }
 
 /* LANDING LOGO */
-.landing-logo-platform{
-    --platform-x: min(20rem, 100vw);
-    --platform-y: min(20rem, 100vh);
-    --center-x: calc(50vw - calc(var(--platform-x) / 2));
-    --center-y: calc(50vh - calc(var(--platform-y) / 2));
+.landing-logo-platform {
+  --platform-x: min(20rem, 100vw);
+  --platform-y: min(20rem, 100vh);
+  --center-x: calc(50vw - calc(var(--platform-x) / 2));
+  --center-y: calc(50vh - calc(var(--platform-y) / 2));
 }
 
-.landing-logo{
-    position: absolute;
-    max-width: var(--platform-x);
-    max-height: var(--platform-y);
-    left: var(--center-x);
-    top: var(--center-y);
+.landing-logo {
+  position: absolute;
+  max-width: var(--platform-x);
+  max-height: var(--platform-y);
+  left: var(--center-x);
+  top: var(--center-y);
 }
 
-.logo-rotate{
-    animation: rotation 20s 0s infinite forwards;
+.logo-rotate {
+  animation: rotation 20s 0s infinite forwards;
 }

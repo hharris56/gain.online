@@ -1,67 +1,83 @@
-.timer{
-    font-size: 3rem;
-    display: flex;
-    /* max-width: fit-content; */
-    /* font-weight: 800; */
-    /* font: 100; */
-    /* margin-top: 4rem; */
-    margin-bottom: 8rem;
+.timer {
+  font-size: 3rem;
+  display: flex;
+  /* max-width: fit-content; */
+  /* font-weight: 800; */
+  /* font: 100; */
+  /* margin-top: 4rem; */
+  margin-bottom: 8rem;
 }
 
-.mobile-timer{
-    margin-bottom: 4rem;
+.mobile-timer {
+  margin-bottom: 4rem;
 }
 
-.rem-page-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: var(--content-width);
-    min-height: 10rem;
+.rem-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: var(--content-width);
+  min-height: 10rem;
 }
 
-.options-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    min-height: 10rem;
-    min-width: 100%;
+.options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 10rem;
+  min-width: 100%;
 }
 
-.rem-option{
-    min-width: 23%;
-    min-height: 10rem;
-    text-align: center;
+.rem-option {
+  min-width: 23%;
+  min-height: 10rem;
+  text-align: center;
 }
 
-.rem-option-time{
-    font-size: 1.5rem;
+.rem-option-time {
+  font-size: 1.5rem;
 }
 
-.rem-option-time-mobile{
-    font-size: 1.25rem;
+.rem-option-time-mobile {
+  font-size: 1.25rem;
 }
 
-.rem-decoration{
-    min-width: 100%;
-    min-height: 10rem;
+.rem-decoration {
+  min-width: 100%;
+  min-height: 10rem;
 
-    padding-top: 0.5rem;
+  padding-top: 0.5rem;
 }
 
-.number1{
-    background-image: linear-gradient(var(--accent-color), 20%, var(--primary-color) 40%);
+.number1 {
+  background-image: linear-gradient(
+    var(--accent-color),
+    20%,
+    var(--primary-color) 40%
+  );
 }
 
-.number2{
-    background-image: linear-gradient(var(--accent-color), 40%, var(--primary-color) 60%);
+.number2 {
+  background-image: linear-gradient(
+    var(--accent-color),
+    40%,
+    var(--primary-color) 60%
+  );
 }
 
-.number3{
-    background-image: linear-gradient(var(--accent-color), 60%, var(--primary-color) 80%);
+.number3 {
+  background-image: linear-gradient(
+    var(--accent-color),
+    60%,
+    var(--primary-color) 80%
+  );
 }
 
-.number4{
-    background-image: linear-gradient(var(--accent-color), 80%, var(--primary-color));
+.number4 {
+  background-image: linear-gradient(
+    var(--accent-color),
+    80%,
+    var(--primary-color)
+  );
 }

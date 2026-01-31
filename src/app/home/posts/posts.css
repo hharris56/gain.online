@@ -1,13 +1,13 @@
-.preview-image-container{
-    width: 100%;
-    height: fit-content;
+.preview-image-container {
+  width: 100%;
+  height: fit-content;
 
-    margin: 1rem 0rem 1rem 0rem;
+  margin: 1rem 0rem 1rem 0rem;
 
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-.preview-image{
-    max-height: 18rem;
+.preview-image {
+  max-height: 18rem;
 }

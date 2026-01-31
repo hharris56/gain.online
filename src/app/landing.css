@@ -1,65 +1,69 @@
-.mobile-cover{
-    width: 100%;
-    min-height: 90vh;
-    /* background-color: blue; */
+.mobile-cover {
+  width: 100%;
+  min-height: 90vh;
+  /* background-color: blue; */
 
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-.enter-mantle{
-    /* background-color: red; */
-    min-height: 33vh;
-    width: 100%;
+.enter-mantle {
+  /* background-color: red; */
+  min-height: 33vh;
+  width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.enter-button{
-    /* height: 4rem;
+.enter-button {
+  /* height: 4rem;
     width: 40%; */
-    letter-spacing: 0.25rem;
-    text-decoration: none;
+  letter-spacing: 0.25rem;
+  text-decoration: none;
 
-    /* width: 15rem;
+  /* width: 15rem;
     max-width: 80vw; */
-    width: var(--size-x);
-    height: 3rem;
-    margin-bottom: 5rem;
+  width: var(--size-x);
+  height: 3rem;
+  margin-bottom: 5rem;
 }
 
 @keyframes spin-out {
-    from {rotate: 0deg;}
-    to {rotate: -2160deg;}
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: -2160deg;
+  }
 }
 
 /* LANDING LOGO */
-.landing-page-parent{
-    --size-x: min(20rem, 100vw);
-    --size-y: min(20rem, 100vh);
-    --center-x: calc(50vw - calc(var(--size-x) / 2));
-    --center-y: calc(50vh - calc(var(--size-y) / 2));
+.landing-page-parent {
+  --size-x: min(20rem, 100vw);
+  --size-y: min(20rem, 100vh);
+  --center-x: calc(50vw - calc(var(--size-x) / 2));
+  --center-y: calc(50vh - calc(var(--size-y) / 2));
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
 }
 
-.landing-logo{
-    /* position: absolute; */
-    max-width: var(--size-x);
-    max-height: var(--size-y);
-    /* left: var(--center-x);
+.landing-logo {
+  /* position: absolute; */
+  max-width: var(--size-x);
+  max-height: var(--size-y);
+  /* left: var(--center-x);
     top: var(--center-y); */
-    cursor: pointer;
-    transform: rotate(0deg);
+  cursor: pointer;
+  transform: rotate(0deg);
 }
 
 /* .landing-logo:hover{
@@ -67,22 +71,21 @@
     transition: transform 1s;
 } */
 
-.logo-rotate{
-    animation: rotation 20s 0s infinite forwards; 
-    opacity: 1;
-    /* background-color: green; */
+.logo-rotate {
+  animation: rotation 20s 0s infinite forwards;
+  opacity: 1;
+  /* background-color: green; */
 }
 
-.spin-out-container{
-    /* background-color: red; */
-    
+.spin-out-container {
+  /* background-color: red; */
 }
 
-.logo-rotate:focus{
-    /* background-color: blue; */
-    opacity: 0;
-    transform: rotate(-180deg) scale(-.05);
-    transition: all 1s ease-in;
+.logo-rotate:focus {
+  /* background-color: blue; */
+  opacity: 0;
+  transform: rotate(-180deg) scale(-0.05);
+  transition: all 1s ease-in;
 }
 
 /* .landing-logo:focus{

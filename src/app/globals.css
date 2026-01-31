@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root{
+:root {
   --transition-time: 0.5s;
 
   /* no longer defined here, check colorManager.tsx
@@ -9,52 +9,75 @@
   --primary-text-color: black;
   --secondary-text-color: grey; */
   --background-path: url("../../public/assets/gain\ portrait.jpeg");
-  --content-width: min(calc(100vw - 20rem), 100rem); /* whole view minus width of navbar + padding */
+  --content-width: min(
+    calc(100vw - 20rem),
+    100rem
+  ); /* whole view minus width of navbar + padding */
 }
 
 /* animations */
 @keyframes rotation {
-  from {rotate: 0deg;}
-  to {rotate: 360deg;}
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
 }
 
 @keyframes gradient-move {
-  from {background-position: 0%;}
-  to {background-position: 100%;}
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 100%;
+  }
 }
 
 @keyframes bobbing {
-  0% { transform: translate(0, 0rem);}
-  50% { transform: translate(0, var(--distance));}
-  100% { transform: translate(0, 0rem);}
+  0% {
+    transform: translate(0, 0rem);
+  }
+  50% {
+    transform: translate(0, var(--distance));
+  }
+  100% {
+    transform: translate(0, 0rem);
+  }
 }
 
 @keyframes swaying {
-  0% { transform: translate(0, 0rem);}
-  50% { transform: translate(var(--distance), 0rem);}
-  100% { transform: translate(0, 0rem);}
+  0% {
+    transform: translate(0, 0rem);
+  }
+  50% {
+    transform: translate(var(--distance), 0rem);
+  }
+  100% {
+    transform: translate(0, 0rem);
+  }
 }
 
-.line-decoration{
+.line-decoration {
   min-width: 0.25rem;
   min-height: 100%;
   margin: 0rem 2rem 0rem 1rem;
   background-image: linear-gradient(var(--accent-color), var(--primary-color));
 }
 
-.line-decoration-mobile{
+.line-decoration-mobile {
   min-width: 0.25rem;
   min-height: 100%;
   margin: 0rem 1rem 0rem 0rem;
   background-image: linear-gradient(var(--accent-color), var(--primary-color));
 }
 
-.post-divider{
+.post-divider {
   min-width: 100%;
   min-height: 1rem;
 }
 
-.post-container{
+.post-container {
   padding: 0rem 0rem 0.5rem 0rem;
   margin-bottom: 2rem;
   margin-left: 0rem;
@@ -63,21 +86,25 @@
   flex-direction: row;
 }
 
-.open{
+.open {
   transform: rotate(45deg);
 }
 
-.closed{
+.closed {
   transform: rotate(0deg);
 }
 
-.image-base{
+.image-base {
   filter: drop-shadow(rgb(171, 170, 170) 0 0 0.05rem);
   cursor: pointer;
 }
 
-.default-button{
-  background-image: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+.default-button {
+  background-image: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
 
   display: flex;
   justify-content: center;
@@ -85,15 +112,15 @@
   cursor: pointer;
 }
 
-.webpage-container{
+.webpage-container {
   width: 100%;
   max-width: 100rem;
 }
 
-.webpage-background{
+.webpage-background {
   background-color: var(--primary-color);
   color: var(--primary-text-color);
-    
+
   /* background-image: var(--background-path);
   background-repeat: no-repeat;
   background-size: cover;
@@ -101,12 +128,13 @@
   background-position: center; */
 }
 
-a:link, a:visited{
+a:link,
+a:visited {
   color: var(--primary-text-color);
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
-.page-content-container{
+.page-content-container {
   display: flex;
   flex-direction: column;
   min-width: var(--content-width);

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import "./landing.css";
 import { useRouter } from "next/navigation";
@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export default function Landing() {
-
   return (
     <div className="landing-page-parent">
       <div className="landing-page-content">
@@ -22,24 +21,29 @@ export default function Landing() {
         </Link> */}
       </div>
     </div>
-    )
+  );
 }
 
 function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function LandingLogo(){
-  const router = useRouter()
+function LandingLogo() {
+  const router = useRouter();
 
   return (
-      <div>
-        <img src="/logos/logo white.png" className="landing-logo logo-rotate" id="logo" tabIndex={0} 
-        onClick={() => sleep(900).then(() => router.push("/home")) }/>
-        {/* <img src="/logos/logo blue.png" className="landing-logo logo-rotate" 
+    <div>
+      <img
+        src="/logos/logo white.png"
+        className="landing-logo logo-rotate"
+        id="logo"
+        tabIndex={0}
+        onClick={() => sleep(900).then(() => router.push("/home"))}
+      />
+      {/* <img src="/logos/logo blue.png" className="landing-logo logo-rotate" 
         style={{animationDelay: "0.2s", zIndex: "-1"}}/>
         <img src="/logos/logo purple.png" className="landing-logo logo-rotate" 
         style={{animationDelay: "0.4s", zIndex: "-2"}}/> */}
-      </div>
-  )
+    </div>
+  );
 }

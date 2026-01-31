@@ -1,30 +1,30 @@
-.mobile-cover{
-    width: 100%;
-    min-height: 95vh;
-    /* background-color: blue; */
+.mobile-cover {
+  width: 100%;
+  min-height: 95vh;
+  /* background-color: blue; */
 
-    display: flex;
-    flex-direction: column-reverse;
-    /* justify-content: center; */
-    align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+  /* justify-content: center; */
+  align-items: center;
 }
 
-.enter-mantle{
-    /* background-color: red; */
-    min-height: 33vh;
-    width: 100%;
+.enter-mantle {
+  /* background-color: red; */
+  min-height: 33vh;
+  width: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.enter-button{
-    height: 4rem;
-    width: 10rem;
+.enter-button {
+  height: 4rem;
+  width: 10rem;
 }
 
-.enter-button:active .mobile-cover{
-    transform: translate(100rem);
-    transition: transform 1s;
+.enter-button:active .mobile-cover {
+  transform: translate(100rem);
+  transition: transform 1s;
 }

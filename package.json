@@ -6,6 +6,7 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "precommit": "lint-staged",
+    "format": "prettier --write .",
     "dev": "next dev -p 8080",
     "build": "next build",
     "start": "next start -p 8080",

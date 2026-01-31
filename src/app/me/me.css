@@ -1,23 +1,23 @@
-.linktree-container{
-    width: 100%;
-    height: fit-content;
-    min-height: 75vh;
-    /* background-color: red; */
+.linktree-container {
+  width: 100%;
+  height: fit-content;
+  min-height: 75vh;
+  /* background-color: red; */
 
-    display: flex;
-    flex-direction: column;
-    justify-content: top;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
 
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
-.linktree-pfp{
-    width: 50vw;
+.linktree-pfp {
+  width: 50vw;
 }
 
-.linktree-button{
-    width: 10rem;
-    border: solid 0.1rem var(--accent-color);
-    margin-top: 0.5rem;
+.linktree-button {
+  width: 10rem;
+  border: solid 0.1rem var(--accent-color);
+  margin-top: 0.5rem;
 }

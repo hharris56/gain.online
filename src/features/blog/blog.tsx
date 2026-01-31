@@ -1,6 +1,5 @@
 "use client";
 
-import { useIsMobile } from "../../hooks/mobileHooks";
 import "./blog.css";
 
 interface BlogProps {
@@ -11,7 +10,7 @@ interface BlogProps {
 }
 
 function BlogPost(props: BlogProps) {
-  const isMobile = useIsMobile();
+  const isMobile = false;
 
   return (
     <div

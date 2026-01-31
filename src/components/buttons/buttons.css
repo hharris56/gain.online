@@ -1,118 +1,128 @@
 @keyframes bobbing {
-    0% { transform: translate(0, 0rem);}
-    50% { transform: translate(0, var(--distance));}
-    100% { transform: translate(0, 0rem);}
+  0% {
+    transform: translate(0, 0rem);
+  }
+  50% {
+    transform: translate(0, var(--distance));
+  }
+  100% {
+    transform: translate(0, 0rem);
+  }
 }
 
 /* EXPAND BUTTON */
-.expand-button{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.expand-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    margin-top: 0.5rem;
-    padding: 0.5rem 0rem 0.5rem 0rem;
-    height: 2rem;
-    width: 100%;
-    /* transition: all 1s; */
+  margin-top: 0.5rem;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+  height: 2rem;
+  width: 100%;
+  /* transition: all 1s; */
 
-    background-size: 200%;
-    background-position: 0%;
-    background-image: linear-gradient(90deg, var(--primary-color) 50%, var(--accent-color))
+  background-size: 200%;
+  background-position: 0%;
+  background-image: linear-gradient(
+    90deg,
+    var(--primary-color) 50%,
+    var(--accent-color)
+  );
 }
 
-.expand-button:hover{
-    transform: rotate(90);
-    background-color: var(--accent-color);
-    transition: all 1s;
-    cursor: pointer;
+.expand-button:hover {
+  transform: rotate(90);
+  background-color: var(--accent-color);
+  transition: all 1s;
+  cursor: pointer;
 
-    animation: gradient-move 1s;
-    animation-fill-mode: forwards;
+  animation: gradient-move 1s;
+  animation-fill-mode: forwards;
 }
 
-.expand-button:active{
-    animation: gradient-move .2s;
-    animation-fill-mode: forwards;
+.expand-button:active {
+  animation: gradient-move 0.2s;
+  animation-fill-mode: forwards;
 }
 
-.dotdotdot{
-    --distance: -0.5rem;
-    animation: none;
+.dotdotdot {
+  --distance: -0.5rem;
+  animation: none;
 }
 
-.dotdotdot-mobile{
-    --distance: -0.5rem;
-    animation: bobbing 1s infinite forwards;
+.dotdotdot-mobile {
+  --distance: -0.5rem;
+  animation: bobbing 1s infinite forwards;
 }
 
-.expand-button:hover .dotdotdot{
-    animation: bobbing 1s infinite forwards;
+.expand-button:hover .dotdotdot {
+  animation: bobbing 1s infinite forwards;
 }
 
 /* DROPDOWN BUTTON */
-.dropdown-button{
-    width: 3rem;
-    height: 3rem;
-    /* margin-right: .5rem; */
+.dropdown-button {
+  width: 3rem;
+  height: 3rem;
+  /* margin-right: .5rem; */
 
-    cursor: pointer;
-    transition: rotate 0.5s;
+  cursor: pointer;
+  transition: rotate 0.5s;
 }
 
 /* SELECTOR BUTTON */
-.selector-button{
-    background-color: var(--primary-color);
-    width: 10rem;
-    margin: 0rem 0.5rem;
-    border-radius: 5rem;
+.selector-button {
+  background-color: var(--primary-color);
+  width: 10rem;
+  margin: 0rem 0.5rem;
+  border-radius: 5rem;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    transition: background-color var(--transition-time);
-    user-select: none;
+  transition: background-color var(--transition-time);
+  user-select: none;
 }
 
-.selector-button-hover:hover{
-    background-color: var(--accent-color);
-    color: var(--primary-color)
+.selector-button-hover:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
 }
 
-.sb-selected{
-    background-color: transparent;
-    box-sizing: border-box;
-    border: 0.2rem solid var(--accent-color);
-    pointer-events: none;
+.sb-selected {
+  background-color: transparent;
+  box-sizing: border-box;
+  border: 0.2rem solid var(--accent-color);
+  pointer-events: none;
 }
 
-.back-button{
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-    width: fit-content;
+.back-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: fit-content;
 }
 
 /* LINK BUTTON */
-.link-button{
-    display: flex;
-    align-items: center;
-    transition: all var(--transition-time);
-    border-radius: 10rem;
-    padding: 0.5rem;
+.link-button {
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-time);
+  border-radius: 10rem;
+  padding: 0.5rem;
 
-    color: var(--accent-color);
-    cursor: pointer;
+  color: var(--accent-color);
+  cursor: pointer;
 }
 
-.link-button:hover{
-    background-color: var(--accent-color);
-    color: var(--primary-color)
+.link-button:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
 }
 
-.link-icon{
-    max-height: 2rem;
-    max-width: 2rem;
+.link-icon {
+  max-height: 2rem;
+  max-width: 2rem;
 }

@@ -1,42 +1,46 @@
 @keyframes scrollable {
-    from {width: 10%}
-    to {width: 50%}
+  from {
+    width: 10%;
+  }
+  to {
+    width: 50%;
+  }
 }
 
-.timeline-container{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    max-width: 100%;
-    /* background-color: orangered; */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-width: 100%;
+  /* background-color: orangered; */
 }
 
-.timeline-item{
-    /* background-color: red; */
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    overflow-x: hidden;
+.timeline-item {
+  /* background-color: red; */
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-.timeline-mobile-header{
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: orange; */
+.timeline-mobile-header {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: orange; */
 }
 
-.scroll-prompt{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    color: var(--accent-color);
+.scroll-prompt {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: var(--accent-color);
 }
 
-.scroll-prompt-spacer{
-    animation: scrollable 3s infinite alternate
+.scroll-prompt-spacer {
+  animation: scrollable 3s infinite alternate;
 }

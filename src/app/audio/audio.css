@@ -1,185 +1,184 @@
-.albums-container{
-    /* background-color: lightblue; */
-    margin: 1rem;
-    min-height: 10rem;
-    /* width: 100%; */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+.albums-container {
+  /* background-color: lightblue; */
+  margin: 1rem;
+  min-height: 10rem;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.album-item{
-    min-width: 10rem;
-    max-width: 20%;
-    max-height: fit-content;
-    margin: 1rem;
+.album-item {
+  min-width: 10rem;
+  max-width: 20%;
+  max-height: fit-content;
+  margin: 1rem;
 }
 
-.album-info{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 0.5rem;
+.album-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
-.album-image{
-    width: 100%;
+.album-image {
+  width: 100%;
 }
 
-.audio-selector-container{
-    width: 100%;
-    height: 2rem;
-    
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
+.audio-selector-container {
+  width: 100%;
+  height: 2rem;
 
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+
+  cursor: pointer;
 }
 
 /* RELEASES */
 
-.release-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.release-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-    margin: 1rem 0rem;
-    padding: 1rem;
+  margin: 1rem 0rem;
+  padding: 1rem;
 
-    --release-image-size: 20rem;
+  --release-image-size: 20rem;
 }
 
-.release-text{
-    margin: 2rem 0rem;
-    text-align: center;
-    min-width: var(--release-image-size);
-    width: 40%;
-    height: fit-content;
+.release-text {
+  margin: 2rem 0rem;
+  text-align: center;
+  min-width: var(--release-image-size);
+  width: 40%;
+  height: fit-content;
 }
 
-.release-image{
-    width: var(--release-image-size);
-    height: var(--release-image-size);
+.release-image {
+  width: var(--release-image-size);
+  height: var(--release-image-size);
 }
 
-.release-info{
-    padding-left: 2rem;
-    min-height: var(--release-image-size);
-    width: 70%;
+.release-info {
+  padding-left: 2rem;
+  min-height: var(--release-image-size);
+  width: 70%;
 }
 
 /* MOBILE VIEW */
 
-.albums-container-mobile{
-    margin-top: 1rem;
-    height: fit-content;
-    width: 100%;
+.albums-container-mobile {
+  margin-top: 1rem;
+  height: fit-content;
+  width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.album-item-mobile{
-    width: 80%;
-    margin: 1rem;
-    margin-bottom: 2rem;
+.album-item-mobile {
+  width: 80%;
+  margin: 1rem;
+  margin-bottom: 2rem;
 }
 
-.releases-container-mobile{
-    width: 100%;
-    margin-top: 2rem;
+.releases-container-mobile {
+  width: 100%;
+  margin-top: 2rem;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.release-container-mobile{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    /* background-color: blue; */
-    margin-bottom: 4rem;
+.release-container-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* background-color: blue; */
+  margin-bottom: 4rem;
 }
 
-.release-image-mobile{
-    width: 80vw;
-    /* width: 30rem; */
+.release-image-mobile {
+  width: 80vw;
+  /* width: 30rem; */
 }
 
-.release-info-mobile{
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
-    text-align: right;
-    flex-grow: 1;
-    /* background-color: red; */
-    word-wrap: break-word;
-    overflow-y: visible;
+.release-info-mobile {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  text-align: right;
+  flex-grow: 1;
+  /* background-color: red; */
+  word-wrap: break-word;
+  overflow-y: visible;
 
-    width: 40vw;
-    font-size: 2.5rem;
-    font-weight: bold;
-    transform: scaleX(2)
+  width: 40vw;
+  font-size: 2.5rem;
+  font-weight: bold;
+  transform: scaleX(2);
 }
 
-.release-description-mobile{
-    text-align: center;
-    padding: 0rem 1rem;
-    width: 80%;
+.release-description-mobile {
+  text-align: center;
+  padding: 0rem 1rem;
+  width: 80%;
 }
 
-.release-date-mobile{
-    font-size: 0.5rem;
-    color: var(--accent-color)
+.release-date-mobile {
+  font-size: 0.5rem;
+  color: var(--accent-color);
 }
-
 
 /* ALBUM PAGE */
 
-.album-page-cover{
-    width: 33vw;
+.album-page-cover {
+  width: 33vw;
 }
 
-.album-page-container{
-    display: flex;
-    flex-direction: column;
-    min-width: 100%;
-    /* background-color: lightblue; */
+.album-page-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  /* background-color: lightblue; */
 }
 
-.album-page-mobile{
-    justify-content: center;
-    align-items: center;
+.album-page-mobile {
+  justify-content: center;
+  align-items: center;
 }
 
-.album-page-row{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 0.5rem;
-    /* width: 100%; */
-    /* padding: 0rem 2rem 0rem 2rem; */
-    /* background-color: orange; */
+.album-page-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 0.5rem;
+  /* width: 100%; */
+  /* padding: 0rem 2rem 0rem 2rem; */
+  /* background-color: orange; */
 }
 
-.album-page-text{
-    padding: 0rem 2rem;
-    margin: 2rem 2rem;
-    text-align: center;
-    width: 20rem;
-    max-width: 80vw;
+.album-page-text {
+  padding: 0rem 2rem;
+  margin: 2rem 2rem;
+  text-align: center;
+  width: 20rem;
+  max-width: 80vw;
 }
 
-.album-page-image{
-    width: 30rem;
+.album-page-image {
+  width: 30rem;
 }
