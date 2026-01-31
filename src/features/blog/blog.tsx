@@ -1,6 +1,6 @@
 "use client";
 
-import "./blog.css";
+import { LineDecoration } from "@/components/line-decoration";
 
 interface BlogProps {
   title: string;
@@ -13,26 +13,18 @@ function BlogPost(props: BlogProps) {
   const isMobile = false;
 
   return (
-    <div
-      className="post-container"
-      style={{ marginRight: !isMobile ? "2rem" : "" }}
-      key={props.title}
-    >
-      <div className={"line-decoration" + (isMobile ? "-mobile" : "")} />
-      <div>
-        <h3 style={{ marginBottom: "0rem", marginTop: "0rem" }}>
-          {props.title}
-        </h3>
-        <a style={{ color: "var(--secondary-text-color)", fontSize: "0.75em" }}>
+    <div className="flex flex-row mb-8" key={props.title}>
+      {/* <div className={"line-decoration" + (isMobile ? "-mobile" : "")} /> */}
+      <LineDecoration />
+      <div className="flex flex-col">
+        <div className="w-full flex flex-row justify-between items-center">
+          <h3 className="text-xl underline">{props.title}</h3>
+          <div className="h-6 flex gap-2">{props.tags?.map((t) => Tag(t))}</div>
+        </div>
+        <a className="text-xs text-[var(--secondary-text-color)]">
           {props.date}
         </a>
-        {props.tags ? (
-          <div className="tags-container">{props.tags.map((t) => Tag(t))}</div>
-        ) : (
-          <></>
-        )}
-        <Break />
-        <div className="post-content">{props.children}</div>
+        <div className="mt-4">{props.children}</div>
         <div className="post-divider" />
       </div>
     </div>
@@ -40,8 +32,16 @@ function BlogPost(props: BlogProps) {
 }
 
 function Tag(name: string) {
+  // return (
+  //   <div className="tag-button" key={name}>
+  //     # {name}
+  //   </div>
+  // );
   return (
-    <div className="tag-button" key={name}>
+    <div
+      className="flex items-center px-2 rounded-full cursor-pointer bg-[var(--accent-color)] text-xs text-[var(--primary-color)]"
+      key={name}
+    >
       # {name}
     </div>
   );

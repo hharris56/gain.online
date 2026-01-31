@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Break, BlogPost, Quote } from "../../../components/blog/blog";
+import { Break, BlogPost, Quote } from "@/features/blog/blog";
+
 import MediaPlayer from "../../../components/mediaPlayer/mediaPlayer";
 import "./posts.css";
 import { getFromMasterDict } from "../../../models/artMasterList";
@@ -41,7 +42,7 @@ export default function Posts() {
     <Feb18 key="2/18" />,
     <Feb16 key="2/16" />,
     <Feb10 key="2/10" />,
-    <Feb6 key="2/4" />,
+    <Feb6 key="2/6" />,
     <Feb4 key="2/4" />,
     <Jan28pt2 key="1/28-2" />,
     <Jan28 key="1/28" />,
@@ -67,11 +68,11 @@ export default function Posts() {
 function Jan31_2() {
   return (
     <BlogPost title="the great name debate" date="31 january - 12:38pm">
-      another thing i thought of the other day is a potential separation of this
-      site and my main music promotion. while this seems like overkill at the
-      moment heres my thoughts on it:
+      another thing i thought of today is a potential separation of this site
+      and my main music promotion. while this seems like overkill at the moment
+      heres my thoughts on it:
       <Break />
-      1. gain.audio (ITS TAKEN RAHHHH)
+      1. gain.audio (its taken RAHHHH)
       <Break />
       i really love this url and i feel like i could host a really simplistic
       SPA that acts like a linktree for new releases and what not. i could try

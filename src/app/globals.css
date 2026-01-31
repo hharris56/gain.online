@@ -8,6 +8,7 @@
   --accent-color: lightblue; /*#ADD8E6 <- this one #55a7ff
   --primary-text-color: black;
   --secondary-text-color: grey; */
+  --shadow: 0 0 4px 1px lightgray;
   --background-path: url("../../public/assets/gain\ portrait.jpeg");
   --content-width: min(
     calc(100vw - 20rem),
@@ -59,9 +60,9 @@
 }
 
 .line-decoration {
-  min-width: 0.25rem;
+  /* min-width: 0.25rem;
   min-height: 100%;
-  margin: 0rem 2rem 0rem 1rem;
+  margin: 0rem 2rem 0rem 1rem; */
   background-image: linear-gradient(var(--accent-color), var(--primary-color));
 }
 
