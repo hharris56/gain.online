@@ -7,6 +7,7 @@ import { useIsMobile } from "../hooks/mobileHooks";
 import MobileView from "./mobileView/mobileView";
 import { usePathname } from "next/navigation";
 import ColorManager from "../hooks/colorManager";
+import { UniversalHeader } from "@/features/layout/header";
 
 export default function View({ children }: { children: React.ReactNode }) {
   const pathName = usePathname();
@@ -44,6 +45,14 @@ export default function View({ children }: { children: React.ReactNode }) {
   return pathName == "/" ? (
     <>{children}</>
   ) : (
-    <div className="webpage-container">{newLayout}</div>
+    <div className="webpage-container">
+      <div className="flex flex-col md:flex-row md:p-8">
+        <UniversalHeader />
+        <div className="flex flex-col px-4 gap-4 md:pl-8">
+          <div>{children}</div>
+          <Footer />
+        </div>
+      </div>
+    </div>
   );
 }

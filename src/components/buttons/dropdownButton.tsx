@@ -1,3 +1,4 @@
+import { twMerge } from "tailwind-merge";
 import "./buttons.css";
 
 interface DropdownButtonProps {
@@ -5,6 +6,7 @@ interface DropdownButtonProps {
   callback: () => void;
   size?: string;
   color?: string;
+  sx?: string;
 }
 
 export default function DropdownButton(props: DropdownButtonProps) {
@@ -12,7 +14,7 @@ export default function DropdownButton(props: DropdownButtonProps) {
   return (
     <img
       src={logoString}
-      className="dropdown-button"
+      className={twMerge("dropdown-button", props.sx)}
       style={{
         rotate: props.expanded ? "45deg" : "0deg",
         width: props.size ?? "",
