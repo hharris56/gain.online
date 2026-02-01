@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@utility gradient-y {
+  background-image: linear-gradient(var(--accent-color), var(--primary-color));
+}
+
+@utility gradient-x {
+  background-image: linear-gradient(-90deg, var(--accent-color), var(--primary-color));
+}
+
 :root {
   --transition-time: 0.5s;
 
@@ -59,12 +67,6 @@
   }
 }
 
-.line-decoration {
-  /* min-width: 0.25rem;
-  min-height: 100%;
-  margin: 0rem 2rem 0rem 1rem; */
-  background-image: linear-gradient(var(--accent-color), var(--primary-color));
-}
 
 .line-decoration-mobile {
   min-width: 0.25rem;

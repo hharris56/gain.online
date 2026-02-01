@@ -34,7 +34,7 @@ function LandingLogo() {
   return (
     <div>
       <img
-        src="/logos/logo white.png"
+        src="/logos/logo black.png"
         className="landing-logo logo-rotate"
         id="logo"
         tabIndex={0}

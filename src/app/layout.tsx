@@ -23,7 +23,6 @@ export default function RootLayout({
       <body className={"webpage-background " + inter.className}>
         <NoSsr>
           <View>{children}</View>
-          {children}
         </NoSsr>
       </body>
     </>

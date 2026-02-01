@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Jan31_3 key="1/31-3" />,
     <Jan31_2 key="1/31-2" />,
     <Jan31 key="1/31" />,
     <Jan25_6 key="1/25-6" />,
@@ -55,12 +56,31 @@ export function Blog() {
   return (
     <div>
       {expanded ? posts : posts.slice(0, 5)}
-      <ExpandButton
+      {/* <ExpandButton
         expanded={expanded}
         callback={() => setExpanded(!expanded)}
-        color="white"
-      />
+        color="black"
+      /> */}
     </div>
+  );
+}
+
+function Jan31_3() {
+  return (
+    <BlogPost title="steady as she goes" date="31 january - 4:35pm">
+      tailwind migration is coming along nicely. im pulling back the site's
+      content to just this blog for the time being in an effort to scope the
+      amount of stuff i have to migrate right now. im also doing everything in
+      my power to remove legacy references to 'useIsMobile', that crazy hook i
+      wrote to check which layout to display.
+      <Break />
+      as a side effect we'll get some small stylistic updates to certain
+      components, plus i've decided to shift back into light mode for the time
+      being; i just love how the white and blue looks together.
+      <Break />
+      thats all for now but incase this is the last update today, chat soon :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
