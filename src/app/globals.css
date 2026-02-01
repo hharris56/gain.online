@@ -5,7 +5,7 @@
 }
 
 @utility gradient-x {
-  background-image: linear-gradient(-90deg, var(--accent-color), var(--primary-color));
+  background-image: linear-gradient(90deg, var(--accent-color), var(--primary-color));
 }
 
 :root {
