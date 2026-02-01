@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Feb1 key="2/1" />,
     <Jan31_3 key="1/31-3" />,
     <Jan31_2 key="1/31-2" />,
     <Jan31 key="1/31" />,
@@ -62,6 +63,28 @@ export function Blog() {
         color="black"
       /> */}
     </div>
+  );
+}
+
+function Feb1() {
+  return (
+    <BlogPost title="the places we've been" date="1 february - 12:28pm">
+      im sitting at the park across the street from where i used to live. its
+      one of those beautiful places where it feels like nothings really changed.
+      the green grass and blue sky, the smell of eucaliptus, the feeling of the
+      sun on my back and the sound of birds in trees nearby; its all the same as
+      just a few years ago when i would come here what felt like weekend.
+      <Break />
+      i've always been an overly sentimental person, and while im doing my best
+      to not let those emotions impact my decisions, it does feel nice every
+      once in a while to sit with that feeling for a bit. a vauge meloncholy, a
+      bittersweet appreciation for what once was.
+      <Break />
+      thats all for today. maybe some site work later but im really enjoying
+      this minimal aesthetic. until i find a good way to incorperate other tabs
+      itll remain just this blog. chat soon :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
