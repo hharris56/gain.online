@@ -1,6 +1,6 @@
 import "./mobileView.css";
 import MobileHeader from "../../components/header/mobileHeader";
-import Footer from "../../components/footer/footer";
+import Footer from "../../features/layout/footer";
 
 export default function MobileView(props: any) {
   return (

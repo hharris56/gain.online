@@ -2,7 +2,7 @@
 
 import { useLayoutEffect } from "react";
 import { Header, HeaderBuffer } from "../components/header/header";
-import Footer from "../components/footer/footer";
+import Footer from "@/features/layout/footer";
 import { useIsMobile } from "../hooks/mobileHooks";
 import MobileView from "./mobileView/mobileView";
 import { usePathname } from "next/navigation";
@@ -46,7 +46,7 @@ export default function View({ children }: { children: React.ReactNode }) {
     <>{children}</>
   ) : (
     <div className="webpage-container">
-      <div className="flex flex-col md:flex-row md:p-8">
+      <div className="flex flex-col md:flex-row md:p-8 md:pb-0">
         <UniversalHeader />
         <div className="flex flex-col px-4 gap-4 md:pl-8">
           <div>{children}</div>
