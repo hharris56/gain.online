@@ -13,7 +13,7 @@ export function UniversalHeader({ children }: { children?: React.ReactNode }) {
         // mobile view
         "gradient-x min-h-16 p-2",
         // desktop view
-        "md:h-screen md:min-w-28 md:gradient-y md:flex-col md:justify-start md:p-8 md:top-8",
+        "md:h-[calc(100vh-2rem)] md:min-w-28 md:gradient-y md:flex-col md:justify-start md:p-8 md:top-8",
       )}
     >
       {/* <DropdownButton
