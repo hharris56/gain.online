@@ -3,7 +3,7 @@ import { Blog } from "@/features/blog/blog";
 export default function Home() {
   return (
     <div className="min-w=[var(--content-width)]">
-      <h1 className="text-4xl font-bold my-4">gain online</h1>
+      <h1 className="text-4xl font-bold my-4 md:mt-0">gain online</h1>
       <div>
         hey, welcome to my corner of the web. my name is{" "}
         <mark className="bg-(--primary-text-color) text-(--primary-text-color)">
