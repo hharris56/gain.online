@@ -1,12 +1,14 @@
 import { LineDecoration } from "../../components/line-decoration";
 
+const className = "cursor-pointer text-inherit underline";
+
 export default function Footer() {
   return (
-    <div className="flex grow justify-around align-top h-8 max-h-8 text-(--secondary-text-color)">
+    <div className="flex grow justify-around items-center align-top h-8 text-(--secondary-text-color) mb-2">
       <a
         href="https://twitter.com/gain__online"
         target="_blank"
-        className="cursor-pointer text-inherit no-underline"
+        className={className}
       >
         twitter
       </a>
@@ -14,7 +16,7 @@ export default function Footer() {
       <a
         href="https://www.instagram.com/gain__online/?next=%2F"
         target="_blank"
-        className="cursor-pointer text-inherit no-underline"
+        className={className}
       >
         instagram
       </a>
@@ -22,7 +24,7 @@ export default function Footer() {
       <a
         href="https://soundcloud.com/gain_online"
         target="_blank"
-        className="cursor-pointer text-inherit no-underline"
+        className={className}
       >
         soundcloud
       </a>

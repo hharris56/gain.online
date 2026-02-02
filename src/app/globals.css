@@ -19,7 +19,7 @@
   --shadow: 0 0 4px 1px lightgray;
   --background-path: url("../../public/assets/gain\ portrait.jpeg");
   --content-width: min(
-    calc(100vw - 20rem),
+    calc(100vw - 10rem),
     100rem
   ); /* whole view minus width of navbar + padding */
 }
