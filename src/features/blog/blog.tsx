@@ -71,17 +71,17 @@ function Feb1() {
     <BlogPost title="the places we've been" date="1 february - 12:28pm">
       im sitting at the park across the street from where i used to live. its
       one of those beautiful places where it feels like nothings really changed.
-      the green grass and blue sky, the smell of eucaliptus, the feeling of the
+      the green grass and blue sky, the smell of eucalyptus, the feeling of the
       sun on my back and the sound of birds in trees nearby; its all the same as
-      just a few years ago when i would come here what felt like weekend.
+      just a few years ago when i would come here what felt like every weekend.
       <Break />
       i've always been an overly sentimental person, and while im doing my best
       to not let those emotions impact my decisions, it does feel nice every
-      once in a while to sit with that feeling for a bit. a vauge meloncholy, a
+      once in a while to sit with that feeling for a bit. a vague melancholy, a
       bittersweet appreciation for what once was.
       <Break />
       thats all for today. maybe some site work later but im really enjoying
-      this minimal aesthetic. until i find a good way to incorperate other tabs
+      this minimal aesthetic. until i find a good way to incorporate other tabs
       itll remain just this blog. chat soon :)
       <Break />+ gain
     </BlogPost>
@@ -101,7 +101,7 @@ function Jan31_3() {
       components, plus i've decided to shift back into light mode for the time
       being; i just love how the white and blue looks together.
       <Break />
-      thats all for now but incase this is the last update today, chat soon :)
+      thats all for now but in case this is the last update today, chat soon :)
       <Break />+ gain
     </BlogPost>
   );
@@ -170,8 +170,8 @@ function Jan25_6() {
       just wanted to say i got the site back up and live. no pretty url or
       anything yet but we are back in action officially. next step will be
       moving off the device check and migrating to tailwind. i feel like those
-      will go hand in hand for the most part. then i have GOT get markdown going
-      because writing posts like this is absurd.
+      will go hand in hand for the most part. then i have GOT to get markdown
+      going because writing posts like this is absurd.
       <Break />
       anyways, chat soon :)
       <Break />+ gain
@@ -181,7 +181,7 @@ function Jan25_6() {
 
 function Jan25_5() {
   return (
-    <BlogPost title="a peak behind the curtains" date="25 january - 9:48pm">
+    <BlogPost title="a peek behind the curtains" date="25 january - 9:48pm">
       i've been poking around the codebase a bunch and you would not believe the
       shit younger me cooked up to cover for stuff i didn't know existed. for
       background this site is written in react, specifically nextjs with
@@ -189,16 +189,16 @@ function Jan25_5() {
       <Break />
       firstly, the entire application is wrapped with a root layout that checks
       the window dimensions on every rerender. this functionality is outsourced
-      to a hook called isMobile which i refernce all over the codebase for
+      to a hook called isMobile which i reference all over the codebase for
       conditional rendering and styling.
       <Break />
       additionally, all the colors are set using another hook called
       colorManager. colorManager (referred to as cm) has some default colors
-      that act as the baseline and when cm is instanciated in the baseLayout it
+      that act as the baseline and when cm is instantiated in the baseLayout it
       calls resetColors, effectively setting the entire pallet for the site. i'm
-      actually reallly fond of this solution as it let me dynamically change
+      actually really fond of this solution as it let me dynamically change
       colors across different pages, so maybe this sticks around until i can
-      cook up a better way to that.
+      cook up a better way to do that.
       <Break />
       last and least crazy is i used to be a custom css warrior. every component
       has its own class, sometimes two when needing to define both desktop and
@@ -215,12 +215,12 @@ function Jan25_4() {
   return (
     <BlogPost title="bigger fish to fry" date="25 january - 4:26pm">
       so the quality of life stuff is up and working which is great, but there
-      are some deeper rooted issues that have bubbled up thanks to me updated
+      are some deeper rooted issues that have bubbled up thanks to me updating
       all my package versions. specifically there is something wrong with how i
       initially checked for mobile vs desktop devices, which i will be replacing
-      with css (probably tailwinds) breakpoints.
+      with css (probably tailwind's) breakpoints.
       <Break />
-      this is unfortunately going to be a much larger lift than i intiallly
+      this is unfortunately going to be a much larger lift than i initially
       hoped so idk if the site will be back up today or not. wish me luck and
       we'll chat soon :)
       <Break />+ gain
@@ -230,7 +230,7 @@ function Jan25_4() {
 
 function Jan25_3() {
   return (
-    <BlogPost title="progess" date="25 january - 3:27pm">
+    <BlogPost title="progress" date="25 january - 3:27pm">
       alright this post is half update half test. i got pnpm working and setup
       some pre-commit hooks as well. i also setup an auto-lint of staged stuff
       to see if i can run prettier automatically and the only way to test it is
@@ -272,10 +272,10 @@ function Jan25_2() {
       opinions on tailwind but the TLDR is that while i was initially against
       it, i now am a believer that abstraction should take place at the
       component level and tailwind is fantastic if you operate under that
-      asumption.
+      assumption.
       <Break />
       i was also unaware of css breakpoints when i initially wrote this website.
-      mobile vs desktop view is determind with a useEffect that watches the
+      mobile vs desktop view is determined with a useEffect that watches the
       window.width.
       <Break />
       4. quality of life
@@ -286,11 +286,11 @@ function Jan25_2() {
       <Break />
       5. site structure
       <Break />
-      the last, biggest, most impactful, and most amiguious is the actual layout
+      the last, biggest, most impactful, and most ambiguous is the actual layout
       and interaction map of this website. i'd really like to simplify the
       landing page. i'd really like to display music differently. i don't even
       know if i want to have my visual art up. much to consider, but i thought i
-      should atleast write it down for now.
+      should at least write it down for now.
       <Break />
       so yea, theres a lot to do on this site man. chat soon :)
       <Break />+ gain
@@ -304,18 +304,18 @@ function Jan25() {
       its been a year and some change since the last entry into this log and i
       still dont know where to begin. last year was a whirlwind of stuff. two
       new jobs, moving back and forth across the country, and an indescribably
-      sense of longing for the monotiny of a previous lifestyle.
+      sense of longing for the monotony of a previous lifestyle.
       <Break />
       ive undoubtedly grown a lot. i think its one of those things where your
       life splits into many directions around the age of 27. things i thought i
       knew, like what i wanted to do and who i wanted to be, really got tested
-      over these past few months. the impermenence of stuff has always bothered
+      over these past few months. the impermanence of stuff has always bothered
       me, in fact i think that is one of the most consistent motivations for me
       to make music; it feels like capturing something that will live forever
       unchanged. i know thats not true but it still feels special to me.
       <Break />
       i want to approach things differently this time around. i want to be more
-      technical, more effeceint, and less reliant on some boundless motivation
+      technical, more efficient, and less reliant on some boundless motivation
       that i often delude myself into believing i have.
       <Break />
       so cheers to that, and welcome to act 2. the death of sentimentality and
@@ -438,7 +438,7 @@ function May13() {
       tritt. i remember my dad playing it out the radio on warm summer weekends
       while he washed the cars or landscaped. looking back i feel so
       indescribably lucky to grow up the way i did. my parents did such a good
-      job of teaching me how to manuever through the ups and downs of life. even
+      job of teaching me how to maneuver through the ups and downs of life. even
       aside from that i feel lucky to be who i am, someone who's able to shake
       things off easily and see the best in most scenes.
       <Break />
@@ -470,13 +470,13 @@ function Apr26pt2() {
       so the solution is to shift the orientation of the website. i accomplished
       this by reworking the top navigation bar into a side bar that sits on the
       left side of the screen. the large plus logo now opens a drawer menu that
-      allows for site navigation and i really like this changes as it parallels
+      allows for site navigation and i really like this change as it parallels
       the mobile ui's similar design choice. i do think that while this new
       design looks (very) good, it does lose a little of the sauce that the
       original design had, which is why it took me a week or two to decide
       whether or not to go through with the changes. after reflecting though i
-      think the benefits of the new orientation out weigh the loss of sauce, and
-      therefor with this post i will be deploying the new ui.
+      think the benefits of the new orientation outweigh the loss of sauce, and
+      therefore with this post i will be deploying the new ui.
       <Break />
       chat soon :)
       <Break />+ gain
@@ -496,7 +496,7 @@ function Apr26() {
       rereading the material i think these first 6 deserve their own entry. the
       previous chapter ended with drogo deciding to stay at the fortezza, and we
       open to him returning to his room more or less justifying to himself that
-      he had made the right decision to say. he speaks about this things that
+      he had made the right decision to stay. he speaks about this things that
       had originally bothered him,
       <Break />
       <Quote>
@@ -550,7 +550,7 @@ function Apr26() {
       prove a point to opposing forces that their spirits are not broken despite
       not reaching the summit. reading that aloud this scenario seems hilarious
       but the way buzzati paints the scene is both moving and heartbreaking all
-      at once. the imagery he invokes is incredible, likening augstinas
+      at once. the imagery he invokes is incredible, likening augustina's
       situation to that of a painting in the fortezza.
       <Break />
       <Quote>
@@ -564,7 +564,7 @@ function Apr26() {
       </Quote>
       <Break />
       the fact it takes about 2 and half pages for him to die is the hardest
-      part. captain monty is watching augstina in awe the entire time, pleading
+      part. captain monty is watching augustina in awe the entire time, pleading
       him to come back under the shelter, but in the end he does nothing to help
       him. augustina dies there on the mountain top, encased in snow and ice,
       leaned against a boulder with a "thin smile on his lips".
@@ -604,7 +604,7 @@ function Apr22() {
       <Break />
       <i>deeper still</i> is a 4 song ambient breaks / jungle ep i put together
       during the february-march timeframe of this year. it started as a
-      composition study, trying to better understand how songs are layed out and
+      composition study, trying to better understand how songs are laid out and
       progress, but ended up as a concept ep about a group of explorers a
       hundred years from now venturing deep into the earths crust on a globally
       funded expedition. the full story can be found on the album page (whenever
@@ -788,13 +788,13 @@ function Mar15pt2() {
       </i>{" "}
       by my sister who just finished reading it this past weekend. she's a much
       more avid reader than myself and as such her recommendations always seem
-      to resonate with me. in fact she originally introduced me to paulo cuelo
+      to resonate with me. in fact she originally introduced me to paulo coelho
       through{" "}
       <i>
         <u>the alchemist</u>
       </i>{" "}
       which had a lasting impact on my life and resulted in me reading a large
-      part of cuelo's collection. Back to <i>the stronghold</i>, this post will
+      part of coelho's collection. Back to <i>the stronghold</i>, this post will
       cover chapters 1-9.
       <Break />
       my initial impression of buzzati's writing style (and lawrence ventui's
@@ -806,8 +806,8 @@ function Mar15pt2() {
         at that hour, they were thinking, a fine mist must have materialized and
         the lamps were casting a tenuous, yellowish light ... shadowy couples
         sauntered down solitary streets and you could hear coachmen shouting ...
-        echos of violins and laughter, women's voices in the dark ... it was a
-        city made fascinating by thier youthful dreams, by its still-unknown
+        echoes of violins and laughter, women's voices in the dark ... it was a
+        city made fascinating by their youthful dreams, by its still-unknown
         adventures.
       </Quote>
       <Break />
@@ -841,7 +841,7 @@ function Mar15pt2() {
       tangent that he hits with such perfect literary finesse that it resonates
       without feeling like he's droning on. i really admire that about his
       writing. thats something that i feel applies to all kinds of art,
-      especially music. tapping into that resonate feeling and driving it home
+      especially music. tapping into that resonant feeling and driving it home
       the perfect amount.
       <Break />
       last thing i want to touch on in this post is the 'twist' at the end of
@@ -903,7 +903,7 @@ function Mar2() {
       direction i am headed. for as proud as i am of what i've accomplished i'm
       not much closer to publicly sharing any of this work for a few big
       reasons; the biggest one being that while my webpage looks great on a
-      desktop, 99% of users will be viewing on their phone. therefor the next
+      desktop, 99% of users will be viewing on their phone. therefore the next
       enhancement to the website will be a mobile version and once that is
       finished (slated for april 1) i will move to publishing on a real url and
       sharing on my socials.
@@ -950,7 +950,7 @@ function Feb18() {
       good morning friends! the weather today is nice and sunny, the music has
       been grooving and i'm excited to share these new works with you all. first
       up is this porsche 911 in moonstone purple with the targa top. this photo
-      was actually posted by my favorite car photograph syd (@deerfella) on
+      was actually posted by my favorite car photographer syd (@deerfella) on
       twitter. eventually i'll write up a nice way to embed tweets in these
       posts but for now just use this ugly{" "}
       <a
@@ -1008,10 +1008,10 @@ function Feb10() {
       this is where accountability comes into the picture. trying to find ways
       to effectively hold myself accountable has been at the top of my mind and
       it seems like i respond well to time-boxed habits. for example, new years
-      resolutions work well for me because i can engrain into my subconcious
+      resolutions work well for me because i can engrain into my subconscious
       that for this current year i will do <i>*insert activity*</i> on a given
       cadence (very much like these weekly updates). this is a great starting
-      point, but evalutating once a year is not often enough to make meaningful
+      point, but evaluating once a year is not often enough to make meaningful
       progress in the short term.
       <Break />
       today is chinese new year and i had a revelation. i was thinking to myself
@@ -1115,9 +1115,9 @@ function Jan28pt2() {
       recording of a houston traffic report and voila, an idea was born. a
       jungle / breakcore ep centered around the morning commute. it was
       incredibly fitting since i almost always use my own morning commute to
-      study new music or analize my own tracks.
+      study new music or analyze my own tracks.
       <Break />
-      sound design / scaping for the ep was decidely consistent, using almost
+      sound design / scaping for the ep was decidedly consistent, using almost
       exclusively a set of vital presets i've created over the past year, the fl
       studio stock electric piano, recorded bass guitar (it's been getting
       better) and of course, the amen + think + funky drummer breaks. this ep
@@ -1126,7 +1126,7 @@ function Jan28pt2() {
       <Break />
       after commuter i think we'll be locking in for vol 2 of the midnight club
       series or something similar. i have so many ideas of where i want to take
-      this music, now its just about executing it. steam commuter on soundcloud
+      this music, now its just about executing it. stream commuter on soundcloud
       january 29 - other platforms in however long a release takes.
       <Break />
       chat soon :)
@@ -1198,7 +1198,7 @@ function Jan14pt2() {
       {player}
       fyi, this soundcloud embed is just an interm solution until i figure out a
       better way to display my audio work. this is the year i will put my music
-      on major distibuting platforms, fingers crossed i get to that sooner
+      on major distributing platforms, fingers crossed i get to that sooner
       rather than later.
       <Break />
       chat soon :)
@@ -1238,7 +1238,7 @@ function Jan13() {
       i figured it best to put my intentions for this year down in writing
       somewhere. theres a lot that i want to get better at in 2024, both
       personally and artistically, and the key idea that persists through both
-      of those catagories is consistency. that is why for the next year i am
+      of those categories is consistency. that is why for the next year i am
       going to make a minimum of 1 song and 1 drawing each week. ill upload them
       here in a new blog post every weekend and maybe even throw in a few
       thoughts about how my process as a creative is progressing. there is much
