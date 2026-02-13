@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Feb12 key="2/12" />,
     <Feb1 key="2/1" />,
     <Jan31_3 key="1/31-3" />,
     <Jan31_2 key="1/31-2" />,
@@ -63,6 +64,19 @@ export function Blog() {
         color="black"
       /> */}
     </div>
+  );
+}
+function Feb12() {
+  return (
+    <BlogPost title="the thick of it" date="12 february - 11:10pm">
+      man.
+      <Break />
+      lots of stuff happening at work, lots of bleed into personal life. here's
+      to hoping it ends soon, supposedly next week.
+      <Break />
+      till then, wish me luck :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
