@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Feb25 key="2/25" />,
     <Feb12 key="2/12" />,
     <Feb1 key="2/1" />,
     <Jan31_3 key="1/31-3" />,
@@ -66,6 +67,32 @@ export function Blog() {
     </div>
   );
 }
+
+function Feb25() {
+  return (
+    <BlogPost title="asdf" date="25 february - 10:07pm">
+      so it wasn't next week. it wasn't even this week. whatever. i'll spend the
+      weekend snowboarding with some friends and get over it.
+      <Break />
+      there's a bunch of art stuff i'd like to get rolling, specifically some
+      new music to put out. what i really need to do is find someone or
+      something to help promote because lord knows im not gonna. instgram is a
+      bust. posting pics is cool but im not going to turn into some prolific
+      content machine in my late 20s. i don't have the time, patience or hustle
+      for that.
+      <Break />
+      i have been spending time on the decks though. right now i'm trying to put
+      together like a 20 to 30 min mix. there's so much cool stuff i've found on
+      youtube recently, like really awesome trance mixes with like 17 views; i
+      hope that's not a glimpse of the future. either way, i'm still gonna do
+      it.
+      <Break />
+      chat soon :)
+      <Break />+ gain
+    </BlogPost>
+  );
+}
+
 function Feb12() {
   return (
     <BlogPost title="the thick of it" date="12 february - 11:10pm">
