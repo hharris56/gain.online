@@ -14,7 +14,8 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
-    <Mar14 key="3/15" />,
+    <Mar14_2 key="3/14-2" />,
+    <Mar14 key="3/14" />,
     <Feb25 key="2/25" />,
     <Feb12 key="2/12" />,
     <Feb1 key="2/1" />,
@@ -69,13 +70,27 @@ export function Blog() {
   );
 }
 
+function Mar14_2() {
+  return (
+    <BlogPost title="[redacted]" date="π day - 9:57">
+      <mark className="bg-(--primary-text-color) text-(--primary-text-color)">
+        im fr gonna lose it. everything is being difficult today and i spent so
+        much time to accomplish not so much.
+        <Break />
+        trying again tommorrow. talk then.
+      </mark>{" "}
+      <Break />+ gain
+    </BlogPost>
+  );
+}
+
 function Mar14() {
   return (
-    <BlogPost title="" date="π day - 9:15pm">
+    <BlogPost title="saturday checkin" date="π day - 9:15pm">
       whats up
       <Break />
-      quick update for the real one, i've really wanted to make some technical
-      changes to the site.
+      quick update before the real one, i've really wanted to make some
+      technical changes to the site.
       <Break />
       1. switch from this custom blog post style to markdown.
       <Break />
