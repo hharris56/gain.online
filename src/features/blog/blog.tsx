@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Mar14 key="3/15" />,
     <Feb25 key="2/25" />,
     <Feb12 key="2/12" />,
     <Feb1 key="2/1" />,
@@ -65,6 +66,33 @@ export function Blog() {
         color="black"
       /> */}
     </div>
+  );
+}
+
+function Mar14() {
+  return (
+    <BlogPost title="" date="π day - 9:15pm">
+      whats up
+      <Break />
+      quick update for the real one, i've really wanted to make some technical
+      changes to the site.
+      <Break />
+      1. switch from this custom blog post style to markdown.
+      <Break />
+      this one is pretty self explanitory i feel. even writing this post is
+      difficult. also in the future we can pull these posts in from a backend.
+      <Break />
+      2. actually leverage next js.
+      <Break />
+      a big reason of using next is the performance boost of having things
+      statically loaded. my initial solution for changing colors based on the
+      page was an app level useEffect that would edit the root level css
+      variables. we're gonna remove that. maybe i'll re-implement it with
+      tailwind, still tbd.
+      <Break />
+      chat soon :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 

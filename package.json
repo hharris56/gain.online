@@ -7,9 +7,9 @@
     "prepare": "husky",
     "precommit": "lint-staged",
     "format": "prettier --write .",
-    "dev": "next dev -p 8080",
+    "dev": "next dev -p 5173",
     "build": "next build",
-    "start": "next start -p 8080",
+    "start": "next start -p 5173",
     "lint": "next lint"
   },
   "lint-staged": {
