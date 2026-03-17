@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Mar16 key="3/16" />,
     <Mar14_2 key="3/14-2" />,
     <Mar14 key="3/14" />,
     <Feb25 key="2/25" />,
@@ -70,9 +71,45 @@ export function Blog() {
   );
 }
 
+function Mar16() {
+  return (
+    <BlogPost title="connecting the dots" date="march 16 - 10:13pm">
+      so i think i figured out what has been plauging my side-project
+      productivity the past few weeks, and surprise surprise its something i've
+      discussed not so long ago.
+      <Break />
+      <i>intentionality</i>
+      <Break />
+      i've really hit my stride at work recently and while i attribute a lot of
+      that to hard work and familiarity with our product the truth is that a lot
+      has come from a recent emphasis on seriously tracking my tasks. and i'm
+      not talking the linear tickets or work items or OKRs or whatever the fuck
+      corporate speak you're thinking of, im talking a simple checklist every
+      single day.
+      <Break />
+      these lists have brought order, purpose and most of all{" "}
+      <i>intentionality</i> to my days. yea they help with prioritizing and
+      focus and what not, but most importantly they've provided me with a
+      tangible path to progress that helps keep the momentum high. that
+      momentum, the fever if you will, is what separates a bad day from a good
+      day and a good day from a great one.
+      <Break />
+      so i think it's time to bring this same approach to my personal projects.
+      there's a lot in the air at the moment and recently i've been flailing
+      around in an attempt to forward something, which to me sounds like the
+      opposite of intentional application of effort. let's do something about
+      that.
+      <Break />
+      that's all for today, because i have other things on the checklist. chat
+      soon.
+      <Break />+ gain
+    </BlogPost>
+  );
+}
+
 function Mar14_2() {
   return (
-    <BlogPost title="[redacted]" date="π day - 9:57">
+    <BlogPost title="[redacted]" date="π day - 9:57pm">
       <mark className="bg-(--primary-text-color) text-(--primary-text-color)">
         im fr gonna lose it. everything is being difficult today and i spent so
         much time to accomplish not so much.
