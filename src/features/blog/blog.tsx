@@ -74,7 +74,7 @@ export function Blog() {
 function Mar16() {
   return (
     <BlogPost title="connecting the dots" date="march 16 - 10:13pm">
-      so i think i figured out what has been plauging my side-project
+      so i think i figured out what has been plaguing my side-project
       productivity the past few weeks, and surprise surprise its something i've
       discussed not so long ago.
       <Break />
@@ -114,7 +114,7 @@ function Mar14_2() {
         im fr gonna lose it. everything is being difficult today and i spent so
         much time to accomplish not so much.
         <Break />
-        trying again tommorrow. talk then.
+        trying again tomorrow. talk then.
       </mark>{" "}
       <Break />+ gain
     </BlogPost>
@@ -131,7 +131,7 @@ function Mar14() {
       <Break />
       1. switch from this custom blog post style to markdown.
       <Break />
-      this one is pretty self explanitory i feel. even writing this post is
+      this one is pretty self explanatory i feel. even writing this post is
       difficult. also in the future we can pull these posts in from a backend.
       <Break />
       2. actually leverage next js.
