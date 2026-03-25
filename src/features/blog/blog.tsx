@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Mar24 key="3/24" />,
     <Mar16 key="3/16" />,
     <Mar14_2 key="3/14-2" />,
     <Mar14 key="3/14" />,
@@ -68,6 +69,34 @@ export function Blog() {
         color="black"
       /> */}
     </div>
+  );
+}
+
+function Mar24() {
+  return (
+    <BlogPost title="finally paid the electric bill" date="march 24 - 9:39m">
+      quick update since i've been impulse doing things - we're back on the web!
+      i know techincally this site has been live at some strange url but
+      recently i've been working on a side project that required a domain.
+      naturally i bought three.
+      <Break />
+      you can now find talking to no one at{" "}
+      <a
+        className="!text-blue-500 font-bold !underline"
+        href="https://gain.place"
+      >
+        gain.place
+      </a>
+      . waiting for the perfect domain to become available was stupid, but we
+      learn from our mistakes. i'll check back in with more details about that
+      side project in a bit, but i want to make sure i have enough time to
+      actually progress it instead of just talking. plus i think there's a good
+      "stop to plan" section right around the corner assuming i get everything
+      configured.
+      <Break />
+      wish me luck &lt;3
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
