@@ -14,6 +14,8 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Mar25_2 key="3/25-2" />,
+    <Mar25 key="3/25" />,
     <Mar24 key="3/24" />,
     <Mar16 key="3/16" />,
     <Mar14_2 key="3/14-2" />,
@@ -72,9 +74,90 @@ export function Blog() {
   );
 }
 
+function Mar25_2() {
+  return (
+    <BlogPost title="the technical side" date="march 25 - 9:48pm">
+      so where does the project actually stand? like many of my endeavors these
+      end up becoming learning opportunities just as much as an actual
+      deliverable. heres the premise
+      <Break />
+      i have an old laptop from uni thats collecting dust in a drawer. i also
+      need a media server. that right there is an opportunity
+      <Break />
+      where we're at:
+      <br />
+      * jellyfin - the media server
+      <br />
+      * cloudflare tunnel - connect from anywhere via a publicly exposed url
+      <br />
+      * tailscale - ssh into the server from anywhere over a private network
+      <br />
+      * docker - orchestrate everything for me
+      <br />
+      <Break />
+      where we're headed:
+      <br />
+      * vpn - for a friend
+      <br />
+      * the arr stack - sonarr & radarr for sure, likely prowlarr as well
+      <br />
+      * some phone integration (likely lunasea) - for queueing downloads
+      remotely
+      <br />
+      * something to manage / pull metadata - idk about this one yet, maybe its
+      already covered above
+      <Break />
+      i've hit some rough spots with my server laptop, mainly it falling out of
+      support and a bunch of things not being availble because of that. the
+      workarounds work until they don't and i got tired of finding a different
+      way so i'm updating to ubuntu LTS as i type this out.
+      <Break />
+      hoping to get back to where i was 20 minutes ago by the end of tonight,
+      but on LTS. i'd consider that a win.
+      <Break />+ gain
+    </BlogPost>
+  );
+}
+
+function Mar25() {
+  return (
+    <BlogPost title="the passionate side" date="march 25 - 9:37pm">
+      thank's to the short post yesterday i was able to make some serious
+      (albeit tedious) progress on my newest side project: a media server. i
+      think logically speaking this is a great project that can help stitch a
+      lot of my more disconnected effortst together.
+      <Break />
+      it started from a desire to watch specific shows that i can no longer view
+      due to cutting subscriptions, but i think it will bleed nicely into my
+      efforts to become more catalog centric with my hobbies. i have a lot of
+      interests and opinions - wouldn't it be greate if i could openly share
+      those with others?
+      <Break />
+      my brother and i share a lot of the same favorite movies. i think it'd be
+      awesome to build an accessible collection with him. additionally, i've
+      always been like "ahh i loved that movie as a kid, i can't wait to show my
+      kid / younger cousin" just to immediately forget about it the next day. in
+      theory this will help catalog those one of thoughts into a usable
+      resource.
+      <Break />
+      the last point i want to harp on is from a music standpoint. i have this
+      dream of a physical cd catalog with a digital streaming counterpart.
+      something that truly reflects my personal music taste, sourced from the
+      various services i've used over the years. would also make for a sick way
+      of organizing music for mixing. i'm thinking of an integration where any
+      hi-fidelity files automatically create compressed version for streaming /
+      casual listening.
+      <Break />
+      that's enough of that. i'm going to write up a more technical post now
+      about where i am / where i see this project going next. chat soon
+      <Break />+ gain
+    </BlogPost>
+  );
+}
+
 function Mar24() {
   return (
-    <BlogPost title="finally paid the electric bill" date="march 24 - 9:39m">
+    <BlogPost title="finally paid the electric bill" date="march 24 - 9:39pm">
       quick update since i've been impulse doing things - we're back on the web!
       i know techincally this site has been live at some strange url but
       recently i've been working on a side project that required a domain.
