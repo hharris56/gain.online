@@ -13,7 +13,7 @@ export default function Home() {
         but online i go by gain. im a 27yo artist, programmer, and avid enjoyer
         of all things related to music and design. this site acts like a
         personal blog, check out some of my music via the socials below. enjoy
-        your stay :)
+        your stay
         {/* of all things related to music and design. check out some of my work, */}
         {/* you can reach me via the contact page or find me on my socials. */}
       </div>

@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Mar30 key="3/30" />,
     <Mar25_2 key="3/25-2" />,
     <Mar25 key="3/25" />,
     <Mar24 key="3/24" />,
@@ -71,6 +72,67 @@ export function Blog() {
         color="black"
       /> */}
     </div>
+  );
+}
+
+function Mar30() {
+  return (
+    <BlogPost title="unofficial server devlog entry 1" date="march 30 - 8:27pm">
+      this home server project is taking a turn for the bigger. with each new
+      thing i learn there's a new thing i want to setup, and i figured it might
+      be good to keep track of what's being worked on.
+      <Break />
+      most recently (last night 2am to be specific) i finally got mullvad up
+      without breaking tailscale. i know there is technically a mullvad
+      extension for tailscale that acts as a simplified version but i was
+      interested in how it would work natively. the short answer is "not
+      easily".
+      <Break />
+      the first issue is the moment i would connect to mullvad it would
+      immediately kill my ssh session. split-tunneling did not solve this and
+      also does not offer any durable solution since the split-tunnel target
+      must be designated by pid, making reboots extremely dangerous. around this
+      time i was thinking maybe just opt for the tailscale extension. then i
+      found{" "}
+      <a href="https://www.reddit.com/r/mullvadvpn/comments/1n0y6hx/how_to_pair_tailscale_with_mullvad_vpn_without/">
+        this article
+      </a>{" "}
+      and fell down the rabbit hole.
+      <Break />
+      so mullvad is VERY secure and is VERY diligent about locking the computer
+      down when there are unknowns. testing with an un-loaded account was
+      difficult but let me see things i think would have otherwise been missed.
+      here's a breakdown of how i got everything to play nicely.
+      <Break />
+      1. on boot mullvad IMMEDIATELY writes to the nftables (kernel level
+      firewall) blocking basically all inbound traffic. i needed to disable the
+      'mullvad-early-boot-blocking.service' using systemctl (lots of systemd
+      last night)
+      <br />
+      2. next i needed to run tailscale in <i>userspace</i> meaning it routes
+      traffic through a SOCKS5 proxy. this basically makes tailscale traffic
+      look like local traffic so mullvad leaves it alone
+      <br />
+      3. lastly, we needed to absolutely make sure that tailscale is up BEFORE
+      the real 'mullvad-daemon' starts up. this was causing a lot of issues with
+      circular dependency, but editing the requirements to allow mullvad to
+      launch after network-online.target was the last change i needed
+      <br />
+      <Break />
+      the tradeoff here is on boot there is a tiny window where network traffic
+      can leak out, but theoretically this is very minimal and a small tradeoff
+      to get these to work in conjunction. either way it was a long, grueling,
+      and educational excursion into the world of systems programming; something
+      i have not had the opportunity to do for a while and a welcomed challenge.
+      <Break />
+      today will be loading mullvad for real (time to fork over the bread) and
+      setting up my server as an exit node so i can remotely route all my
+      traffic through mullvad on any tailscale device.
+      <Break />
+      i'll check back in soon with some updates and maybe even some topics
+      outside of this project. chat soon :)
+      <Break />+ gain
+    </BlogPost>
   );
 }
 

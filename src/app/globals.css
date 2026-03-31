@@ -133,8 +133,11 @@
 
 a:link,
 a:visited {
-  color: var(--primary-text-color);
-  text-decoration: none !important;
+  @apply text-blue-500 underline;
+}
+
+a:hover {
+  @apply text-blue-700;
 }
 
 .page-content-container {
