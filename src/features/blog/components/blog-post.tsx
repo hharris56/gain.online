@@ -17,9 +17,7 @@ export function BlogPost(props: BlogProps) {
           <h3 className="underline">{props.title}</h3>
           <div className="h-6 flex gap-2">{props.tags?.map((t) => Tag(t))}</div>
         </div>
-        <a className="text-xs text-[var(--secondary-text-color)]">
-          {props.date}
-        </a>
+        <p className="text-xs text-(--secondary-text-color)">{props.date}</p>
         <div className="mt-4">{props.children}</div>
         <div className="post-divider" />
       </div>
