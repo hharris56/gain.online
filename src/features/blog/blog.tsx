@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <Apr15 key="4/15" />,
     <Mar30 key="3/30" />,
     <Mar25_2 key="3/25-2" />,
     <Mar25 key="3/25" />,
@@ -72,6 +73,44 @@ export function Blog() {
         color="black"
       /> */}
     </div>
+  );
+}
+
+function Apr15() {
+  return (
+    <BlogPost title="breaking the silence" date="april 15 - 11:09pm">
+      there comes a point in time where you realized that planning is just the
+      same as procrastinating if you don't ever act on said plan. i had big
+      dreams to push out social media content to help promote my music.
+      visualizers, snippets, the works. but tonight i was sitting in bed and
+      realized i haven't dropped anything in over a YEAR, despite making some of
+      my favorite music this past year, solely because i was "waiting" to get
+      some content cooked up to promote it.
+      <Break />
+      what a joke man.
+      <Break />
+      so i dropped a song tonight. no promotion, no content, nothing. it's so
+      lame i tricked myself into doing nothing publicly for a year all for some
+      grandious vision of better promotion. one of the most powerful tools in my
+      production suite is a soundcloud premium membership. it lets me put out
+      music (privately) in an easily accessibly and shareable way for feedback +
+      iteration. the reason it works is because you can hot swap the mp3 files
+      really easily, meaning i can make a change tonight and listen to it on the
+      way to work tomorrow. it turns out distrokid has that too, and as of
+      tonight i am their newest member.
+      <Break />
+      the funny thing is this impulsivity seems, atleast on the surface,
+      directly at odds with the <i>intentionality</i> i've been hammering the
+      past few months, but i actually think they forward the same cause. it's
+      about building momentum and keeping it. identifying when you're stuck and
+      doing whatever it takes to shake that.
+      <Break />
+      who knows. i'm just a guy talking to my computer screen before bed, but
+      maybe one day i'll look back and see this is when it all started to click.
+      <Break />
+      chat soon :) [update on server project next btw]
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
