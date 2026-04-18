@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gain-blue: '#6CD4FF'
+}
+
 @utility gradient-y {
   background-image: linear-gradient(var(--accent-color), var(--primary-color));
 }
