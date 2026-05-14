@@ -14,6 +14,7 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
+    <May13_2 key="3/13-2" />,
     <Apr15 key="4/15" />,
     <Mar30 key="3/30" />,
     <Mar25_2 key="3/25-2" />,
@@ -73,6 +74,49 @@ export function Blog() {
         color="black"
       /> */}
     </div>
+  );
+}
+
+function May13_2() {
+  return (
+    <BlogPost title="archival as a game mechanic" date="may 13 - 10:30pm">
+      if you know me you probably know my favorite artist, a (formerly)
+      underground electronic artist by the name of cult member. he has been my
+      biggest influence for the last 4 years or so and is the person i look to
+      most for song / sound ideas.
+      <Break />
+      well a year or so back i stumbled upon his "archive" account on
+      soundcloud. a secondary account supposedly run by someone other than
+      himself that uploads ureleased tracks, demos and songs he has otherwise
+      removed from his main page. this really got me thinking, what if this
+      approach counld entirely remove the barrier to release?
+      <Break />
+      for me, one of the biggest hurdles i have to get over mentally when
+      releasing music is the permanence of it. it's is the official release,
+      that is how the song will live forever and i have to be ok with both that
+      being the final version and it becoming cemented into the collection that
+      is my music catalog. but what if that wasn't true? what if there was no
+      single source of truth? what if songs can be released, removed, remixed,
+      reuploaded, or reworked at will?
+      <Break />
+      this shift would make the main account catalog much more dynamic and
+      subject to revising. additionally it would add a layer to the lore
+      iceberg, digging for those ultra-rare tracks that only the "real fans"
+      know of. that last part is a bit cheesy but there is some truth to it.
+      having an additional way of engaging with music is something i genuinely
+      enjoy, so emmulating it could be something worth trying out.
+      <Break />
+      the idea has been on my mind since earlier when a few of my favorite CM
+      songs resurfaced on the Cult Member Archives spotify account as new
+      releases. that's one last thing i'm going to hightlight; it make
+      re-releasing exisiting music possible, not in a mind-number single with 7
+      versions kind of way, but in this authentic rediscovery kind of way. a
+      song you used to love, with new cover art thats add to the aesthetic, and
+      readily availble on major streaming services.
+      <Break />
+      food for though, i'm gonna go queue up a new release.
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
