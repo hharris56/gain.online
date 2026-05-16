@@ -114,7 +114,7 @@ function May13_2() {
       song you used to love, with new cover art thats add to the aesthetic, and
       readily availble on major streaming services.
       <Break />
-      food for though, i'm gonna go queue up a new release.
+      food for thought, i'm gonna go queue up a new release.
       <Break />+ gain
     </BlogPost>
   );
