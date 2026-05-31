@@ -14,7 +14,8 @@ export function Blog() {
   // TODO: implement filtering based on tags
 
   var posts = [
-    <May13_2 key="3/13-2" />,
+    <May30 key="5/30" />,
+    <May13_2 key="5/13-2" />,
     <Apr15 key="4/15" />,
     <Mar30 key="3/30" />,
     <Mar25_2 key="3/25-2" />,
@@ -74,6 +75,37 @@ export function Blog() {
         color="black"
       /> */}
     </div>
+  );
+}
+
+function May30() {
+  return (
+    <BlogPost title="staring you in the face" date="may 13 - 9:52pm">
+      today i had see a project to near completion before finding a fundamental
+      flaw so deeply damaging and so strikingly obvious that it was an almost
+      physically painful revalation.
+      <Break />
+      one of the key aspects of this mini-server im building is that it{" "}
+      <b>
+        <i>must</i>
+      </b>{" "}
+      be invisible. i dont want to see hear or think about this thing aside from
+      accessing it over web or shelling in. my initial solution to this was to
+      put the entire setup in my closet since that is where the router is
+      located. so i have the laptop setup, cables ran for power and ethernet,
+      and im setting up the HDD enclosure when it hits me:
+      <Break />
+      every time i move an article of clothing its going to rattle the hard
+      drives.
+      <Break />
+      so instead of creating a digital safehaven for my legacy files i've
+      effectively made a data corruption factory. obviously this doesn't kill
+      the entire project, its just another hiccup that needs to be solved before
+      i can shelf this project (literally) and move onto something else.
+      <Break />
+      anyways, ill check back in soon with an actual devlog update.
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
