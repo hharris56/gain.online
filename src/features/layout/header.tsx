@@ -10,13 +10,14 @@ export function UniversalHeader({ children }: { children?: React.ReactNode }) {
     <div
       className={twMerge(
         // base stuff
-        "z-10 sticky top-0 max-w-screen flex items-center justify-end",
+        "z-10 sticky top-0 max-w-screen flex items-center justify-start",
         // mobile view
-        "gradient-x min-h-16 p-2",
+        "gradient-x min-h-16 px-4",
         // desktop view (96px wide btw)
         "md:h-[calc(100vh-4rem)] md:min-w-24 md:gradient-y md:p-4 md:gap-4 md:flex-col md: md:justify-start md:top-8",
       )}
     >
+      <b className="text-4xl text-white md:hidden">gain.online</b>
       {/* <Box className="cursor-pointer text-(--primary-color) opacity-0 hover:opacity-100" size="64px" />
       <Headphones className="cursor-pointer text-(--primary-color) opacity-0 hover:opacity-100" size="64px" /> */}
       {/* <DropdownButton

@@ -4,15 +4,18 @@ import { Break } from "@/features/blog/components";
 export default function Home() {
   return (
     <div className="min-w=[var(--content-width)]">
-      <h1 className="text-4xl font-bold my-4 md:mt-0">gain.online</h1>
-      <div>
+      <h1 className="hidden text-4xl font-bold my-4 md:flex md:mt-0">
+        gain.online
+      </h1>
+      <div className="mt-4">
         hey, welcome to my corner of the web. my name is{" "}
         <mark className="bg-(--primary-text-color) text-(--primary-text-color)">
           nicetrylol
         </mark>{" "}
-        but online i go by gain. im a 27yo artist, programmer, and avid enjoyer
-        of all things related to music and design. for now this site acts like a
-        personal blog, check out some of my music via the socials below.
+        but <u>online</u> i go by <u>gain</u>. im a 27yo artist, programmer, and
+        avid enjoyer of all things related to music and design. for now this
+        site acts like a personal blog, check out some of my music via the
+        socials below.
         {/* of all things related to music and design. check out some of my work, */}
         {/* you can reach me via the contact page or find me on my socials. */}
       </div>
