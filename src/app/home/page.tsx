@@ -14,8 +14,9 @@ export default function Home() {
         </mark>{" "}
         but <u>online</u> i go by <u>gain</u>. im a 27yo artist, programmer, and
         avid enjoyer of all things related to music and design. for now this
-        site acts like a personal blog, check out some of my music via the
-        socials below.
+        site acts as a personal blog, soon it will return to functioning as an
+        archive of my current and past works. until then you can check out some
+        of my music via the socials below.
         {/* of all things related to music and design. check out some of my work, */}
         {/* you can reach me via the contact page or find me on my socials. */}
       </div>

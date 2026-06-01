@@ -7,9 +7,10 @@ import MediaPlayer from "@/components/mediaPlayer/mediaPlayer";
 import { getFromMasterDict } from "@/models/artMasterList";
 import { Gallery } from "@/components/gallery/gallery";
 import ExpandButton from "@/components/buttons/expandButton";
+import { MoreHorizontal } from "react-feather";
 
 export function Blog() {
-  var [expanded, setExpanded] = useState(false);
+  const [postCount, setPostCount] = useState(5);
 
   // TODO: implement filtering based on tags
 
@@ -67,20 +68,24 @@ export function Blog() {
   ];
 
   return (
-    <div>
-      {expanded ? posts : posts.slice(0, 5)}
+    <>
+      {posts.slice(0, postCount)}
+      <div className="w-full flex justify-center">
+        <MoreHorizontal
+          onClick={() => setPostCount(Math.min(postCount + 5, posts.length))}
+        />
+      </div>
       {/* <ExpandButton
-        expanded={expanded}
-        callback={() => setExpanded(!expanded)}
+        callback={() => setPostCount(Math.min(postCount + 5, posts.length))}
         color="black"
       /> */}
-    </div>
+    </>
   );
 }
 
 function May30() {
   return (
-    <BlogPost title="staring you in the face" date="may 13 - 9:52pm">
+    <BlogPost title="staring you in the face" date="may 30 - 9:52pm">
       today i had see a project to near completion before finding a fundamental
       flaw so deeply damaging and so strikingly obvious that it was an almost
       physically painful revalation.
