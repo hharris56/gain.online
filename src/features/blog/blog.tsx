@@ -1,18 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Break, BlogPost, Quote } from "@/features/blog/components";
 
 import MediaPlayer from "@/components/mediaPlayer/mediaPlayer";
 import { getFromMasterDict } from "@/models/artMasterList";
 import { Gallery } from "@/components/gallery/gallery";
-import ExpandButton from "@/components/buttons/expandButton";
-import { MoreHorizontal } from "react-feather";
+import { ArrowDown } from "react-feather";
 
 export function Blog() {
   const [postCount, setPostCount] = useState(5);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState<string | number>("auto");
 
-  // TODO: implement filtering based on tags
+  // dynamic div sizing for grow effect
+  useEffect(() => {
+    if (containerRef.current) {
+      setHeight(containerRef.current.scrollHeight);
+    }
+  }, [postCount]);
 
   var posts = [
     <May30 key="5/30" />,
@@ -69,16 +75,18 @@ export function Blog() {
 
   return (
     <>
-      {posts.slice(0, postCount)}
+      <div
+        ref={containerRef}
+        style={{ height }}
+        className="transition-all duration-1000 ease-in overflow-hidden"
+      >
+        {posts.slice(0, postCount)}
+      </div>
       <div className="w-full flex justify-center">
-        <MoreHorizontal
+        <ArrowDown
           onClick={() => setPostCount(Math.min(postCount + 5, posts.length))}
         />
       </div>
-      {/* <ExpandButton
-        callback={() => setPostCount(Math.min(postCount + 5, posts.length))}
-        color="black"
-      /> */}
     </>
   );
 }
