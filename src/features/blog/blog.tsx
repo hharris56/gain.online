@@ -21,6 +21,7 @@ export function Blog() {
   }, [postCount]);
 
   var posts = [
+    <June13 key="6/13" />,
     <May30 key="5/30" />,
     <May13_2 key="5/13-2" />,
     <Apr15 key="4/15" />,
@@ -88,6 +89,50 @@ export function Blog() {
         />
       </div>
     </>
+  );
+}
+
+function June13() {
+  return (
+    <BlogPost title="theory of required investment" date="june 13 - 2:24pm">
+      i think one issue with my historical approach to music promotion was an
+      extreme overemphasis on promotion being free. basically every scheme i had
+      devised was no-cost to execute, leaving the actual investment to be based
+      in time as opposed to currency.
+      <Break />
+      what i've realized recently is that is quite stupid. i am a man of many
+      hobbies and tasks. free time is not something i have an abundance of,
+      however i am fortunate enough to have a good job that affords me some
+      overhead in budgeting.
+      <Break />
+      so earlier this week i revisited submithub for the first time in a year.
+      my previous failed attempts using free credits really did a number on my
+      confidence in the platform / my music. this time around i payed a few
+      dollars and submitted to more "premium" playlists (whatever that means)
+      and just yesterday i found out that one of my songs was accepted.
+      <Break />
+      this really shouldn't be a big deal, but for me it confirmed two things.
+      <Break />
+      first and foremost, my music does have a place on peoples playlist. as
+      much as i love the sound i've crafted i'll be the first to admit it
+      doesn't always mesh well with people's existing catalogs and after being
+      rejected from many playlists that fear grew in credibility. this dispells
+      it for the time being and warms my heart that someone, somewhere enjoyed
+      that track.
+      <Break />
+      secondly this validates my theory of required investment. i've gotten
+      further with a few dollars and an evening on the couch than i did with
+      weeks of time sink. for the first time in a long time there is an
+      achievable path forward and man does that feel good.
+      <Break />
+      no, i'm not going to start botting streams and buying billboards. there is
+      a tasteful and tactful way applying money to push my art and i promise
+      (more to myself than you) that i will find that path and walk it. the tldr
+      though is i'm psyched i got a playlist placement at all.
+      <Break />
+      chat soon
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
