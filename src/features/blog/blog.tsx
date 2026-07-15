@@ -21,6 +21,7 @@ export function Blog() {
   }, [postCount]);
 
   var posts = [
+    <July14 key="7/14" />,
     <June13 key="6/13" />,
     <May30 key="5/30" />,
     <May13_2 key="5/13-2" />,
@@ -92,6 +93,47 @@ export function Blog() {
   );
 }
 
+function July14() {
+  return (
+    <BlogPost title="the bends" date="july 14 - 10:16pm">
+      so i've been submitting to playlists for a month now. one placement. the
+      one i wrote about in the last post.
+      <Break />
+      i'd be lying if i said it doesn't hurt. that fear i mentioned about my
+      music not 'fitting' with others is back in full force with about 4 songs
+      and 17 playlist submissions to back it up. unfortunately for them
+      something has to give, and it isn't going to be me.
+      <Break />
+      aside from the playlist push i've been making some of my favorite music to
+      date. really atmospheric house stuff with extremely progressive elements.
+      i love when an artist can just drop in or pull an instrument at
+      (objectively speaking) the wrong time but they're in such a flow state it
+      sounds good; i feel like that's been achieved in a few tracks over this
+      past month.
+      <Break />
+      outside of music entirely i've been plugging away at a few projects. i got
+      switch emulation up on the steam deck so nintendo isn't getting another{" "}
+      <u>cent</u> out of me until they drop whatever the next smash game is.
+      i've also been on a web components kick and really want to try rewriting
+      this site to be much less javascript heavy, the entire thing is static
+      content anyways.
+      <Break />
+      i also wrapped the red rising trilogy in these past few weeks. i know i
+      haven't done a book review in a while, maybe it's time to bring those
+      back? right now i'm re-reading neuromancer since apple announced they're
+      making an adaptation. last chance to imagine it myself before the visuals
+      are retconned by whatever the team over there whips up.
+      <Break />
+      that's about it for today. i figured it's been a while since i checked in.
+      the world cup games have been taking a lot of my weekends away but i'd
+      like to get back to sunday workdays soon.
+      <Break />
+      cheers for now
+      <Break />+ gain
+    </BlogPost>
+  );
+}
+
 function June13() {
   return (
     <BlogPost title="theory of required investment" date="june 13 - 2:24pm">
@@ -107,7 +149,7 @@ function June13() {
       <Break />
       so earlier this week i revisited submithub for the first time in a year.
       my previous failed attempts using free credits really did a number on my
-      confidence in the platform / my music. this time around i payed a few
+      confidence in the platform / my music. this time around i paid a few
       dollars and submitted to more "premium" playlists (whatever that means)
       and just yesterday i found out that one of my songs was accepted.
       <Break />
@@ -116,7 +158,7 @@ function June13() {
       first and foremost, my music does have a place on peoples playlist. as
       much as i love the sound i've crafted i'll be the first to admit it
       doesn't always mesh well with people's existing catalogs and after being
-      rejected from many playlists that fear grew in credibility. this dispells
+      rejected from many playlists that fear grew in credibility. this dispels
       it for the time being and warms my heart that someone, somewhere enjoyed
       that track.
       <Break />
@@ -141,7 +183,7 @@ function May30() {
     <BlogPost title="staring you in the face" date="may 30 - 9:52pm">
       today i had see a project to near completion before finding a fundamental
       flaw so deeply damaging and so strikingly obvious that it was an almost
-      physically painful revalation.
+      physically painful revelation.
       <Break />
       one of the key aspects of this mini-server im building is that it{" "}
       <b>
@@ -177,9 +219,9 @@ function May13_2() {
       <Break />
       well a year or so back i stumbled upon his "archive" account on
       soundcloud. a secondary account supposedly run by someone other than
-      himself that uploads ureleased tracks, demos and songs he has otherwise
+      himself that uploads unreleased tracks, demos and songs he has otherwise
       removed from his main page. this really got me thinking, what if this
-      approach counld entirely remove the barrier to release?
+      approach could entirely remove the barrier to release?
       <Break />
       for me, one of the biggest hurdles i have to get over mentally when
       releasing music is the permanence of it. it's is the official release,
@@ -194,12 +236,12 @@ function May13_2() {
       iceberg, digging for those ultra-rare tracks that only the "real fans"
       know of. that last part is a bit cheesy but there is some truth to it.
       having an additional way of engaging with music is something i genuinely
-      enjoy, so emmulating it could be something worth trying out.
+      enjoy, so emulating it could be something worth trying out.
       <Break />
       the idea has been on my mind since earlier when a few of my favorite CM
       songs resurfaced on the Cult Member Archives spotify account as new
-      releases. that's one last thing i'm going to hightlight; it make
-      re-releasing exisiting music possible, not in a mind-number single with 7
+      releases. that's one last thing i'm going to highlight; it make
+      re-releasing existing music possible, not in a mind-numbing single with 7
       versions kind of way, but in this authentic rediscovery kind of way. a
       song you used to love, with new cover art thats add to the aesthetic, and
       readily availble on major streaming services.
@@ -225,15 +267,15 @@ function Apr15() {
       <Break />
       so i dropped a song tonight. no promotion, no content, nothing. it's so
       lame i tricked myself into doing nothing publicly for a year all for some
-      grandious vision of better promotion. one of the most powerful tools in my
+      grandiose vision of better promotion. one of the most powerful tools in my
       production suite is a soundcloud premium membership. it lets me put out
-      music (privately) in an easily accessibly and shareable way for feedback +
+      music (privately) in an easily accessible and shareable way for feedback +
       iteration. the reason it works is because you can hot swap the mp3 files
       really easily, meaning i can make a change tonight and listen to it on the
       way to work tomorrow. it turns out distrokid has that too, and as of
       tonight i am their newest member.
       <Break />
-      the funny thing is this impulsivity seems, atleast on the surface,
+      the funny thing is this impulsivity seems, at least on the surface,
       directly at odds with the <i>intentionality</i> i've been hammering the
       past few months, but i actually think they forward the same cause. it's
       about building momentum and keeping it. identifying when you're stuck and
