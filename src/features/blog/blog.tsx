@@ -96,7 +96,7 @@ export function Blog() {
 
 function August9() {
   return (
-    <BlogPost title="" date="august 9 - 12:25pm">
+    <BlogPost title="what's next" date="august 9 - 12:25pm">
       it's been a crazy couple of weeks, gonna do my best to recap all thats
       happened and what my current priorities are for the next month or so.
       <Break />
@@ -106,7 +106,7 @@ function August9() {
       a new song like a week or 2 back. a personal favorite of mine, its this
       crazy trance / techno track i worked on with a friend of mine.
       <Break />
-      but whats next? well theres a few things.
+      but what's next? well there's a few things.
       <Break />
       with the slight increase in exposure on spotify this site has actually
       gotten a few views, and it's really motivating me to extend it beyond a
