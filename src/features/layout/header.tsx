@@ -1,11 +1,8 @@
 import { twMerge } from "tailwind-merge";
-import { useState } from "react";
 import { Box, Plus, Circle, Music, Headphones } from "react-feather";
 import DropdownButton from "@/components/buttons/dropdownButton";
 
 export function UniversalHeader({ children }: { children?: React.ReactNode }) {
-  const [isExpanded, setExpanded] = useState<boolean>(false);
-
   return (
     <div
       className={twMerge(
