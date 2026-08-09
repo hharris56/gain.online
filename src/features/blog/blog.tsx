@@ -117,9 +117,13 @@ function August9() {
       with SEO in the near future and the site is at its slimmest right now so
       it should be fairly easy.
       <Break />
-      2. migrate to markdown for writing the blog posts. its the right move in
-      the long run, and it will (in theory) mean i update more frequently
-      because its easier.
+      2.{" "}
+      <a className="line-through">
+        migrate to markdown for writing the blog posts.
+      </a>{" "}
+      actually gonna stick with HTML here, though i want to transition to
+      writing with less custom components and more native HTML elements (think
+      p, a, h3, etc).
       <Break />
       3. bring back the archived music tab. the gallery i had for prior releases
       was cool and added a lot of context about the inspiration and art behind
