@@ -1,22 +1,22 @@
-// "use client";
+"use client";
 
-// import { useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import "../audio.css";
 import DefaultAudioPage from "@/components/defaultAudioPage/defaultAudioPage";
 
 export default function BarsbuttelStep() {
-  // useLayoutEffect(() => {
-  // document.documentElement.style.setProperty("--primary-color", "black");
-  // document.documentElement.style.setProperty("--accent-color", "#7823c0");
-  // document.documentElement.style.setProperty(
-  //   "--primary-text-color",
-  //   "#0bb774",
-  // );
-  // document.documentElement.style.setProperty(
-  //   "--secondary-text-color",
-  //   "#f043be",
-  // );
-  // }, []);
+  useLayoutEffect(() => {
+    document.documentElement.style.setProperty("--primary-color", "black");
+    document.documentElement.style.setProperty("--accent-color", "#7823c0");
+    document.documentElement.style.setProperty(
+      "--primary-text-color",
+      "#0bb774",
+    );
+    document.documentElement.style.setProperty(
+      "--secondary-text-color",
+      "#f043be",
+    );
+  }, []);
 
   return (
     <div>
