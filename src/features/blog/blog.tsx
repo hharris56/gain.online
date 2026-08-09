@@ -21,6 +21,7 @@ export function Blog() {
   }, [postCount]);
 
   var posts = [
+    <August9 key="8/9" />,
     <July14 key="7/14" />,
     <June13 key="6/13" />,
     <May30 key="5/30" />,
@@ -90,6 +91,50 @@ export function Blog() {
         />
       </div>
     </>
+  );
+}
+
+function August9() {
+  return (
+    <BlogPost title="" date="august 9 - 12:25pm">
+      it's been a crazy couple of weeks, gonna do my best to recap all thats
+      happened and what my current priorities are for the next month or so.
+      <Break />
+      first off, a few days after my previous post i locked in and submitted a
+      new song to like 15 different playlists. two of them landed and i'm now at
+      over 100 monthly listeners, more than i've ever had before. i also dropped
+      a new song like a week or 2 back. a personal favorite of mine, its this
+      crazy trance / techno track i worked on with a friend of mine.
+      <Break />
+      but whats next? well theres a few things.
+      <Break />
+      with the slight increase in exposure on spotify this site has actually
+      gotten a few views, and it's really motivating me to extend it beyond a
+      barebones blog. theres a few improvements i want to make internally as
+      well, so this is the order i am thinking.
+      <Break />
+      1. push to server-side rendering and fully static content. this will help
+      with SEO in the near future and the site is at its slimmest right now so
+      it should be fairly easy.
+      <Break />
+      2. migrate to markdown for writing the blog posts. its the right move in
+      the long run, and it will (in theory) mean i update more frequently
+      because its easier.
+      <Break />
+      3. bring back the archived music tab. the gallery i had for prior releases
+      was cool and added a lot of context about the inspiration and art behind
+      the music.
+      <Break />
+      i'm going to keep it to three for right now, but i'll leave you with this.
+      i have a secret 4th thing i've been working on for the past week or so.
+      right now i'm ironing out a cloudflare kink but once the bones are solid
+      i'm really really excited to share this new endeavor. it sits at a very
+      interesting intersection of art and technology and i can't wait to publish
+      it for real.
+      <Break />
+      chat soon
+      <Break />+ gain
+    </BlogPost>
   );
 }
 
