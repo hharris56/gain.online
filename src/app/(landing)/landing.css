@@ -1,0 +1,39 @@
+.mobile-cover {
+  width: 100%;
+  min-height: 90vh;
+  /* background-color: blue; */
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+@keyframes spin-out {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: -2160deg;
+  }
+}
+
+/* LANDING LOGO */
+.landing-logo {
+  max-width: var(--size-x);
+  max-height: var(--size-y);
+  cursor: pointer;
+  transform: rotate(0deg);
+}
+
+.logo-rotate {
+  animation: rotation 20s 0s infinite forwards;
+  opacity: 1;
+}
+
+.logo-rotate:focus {
+  opacity: 0;
+  transform: rotate(-180deg) scale(-0.05);
+  transition: all 1s ease-in;
+}

@@ -19,7 +19,7 @@ export function BlogPost(props: BlogProps) {
         </div>
         <p className="text-xs text-(--secondary-text-color)">{props.date}</p>
         <div className="mt-4">{props.children}</div>
-        <div className="post-divider" />
+        <div className="min-w-full min-h-4" />
       </div>
     </div>
   );

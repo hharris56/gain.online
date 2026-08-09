@@ -1,7 +1,4 @@
-"use client";
-
 import "./defaultAudioPage.css";
-import { useIsMobile } from "../../hooks/mobileHooks";
 import { MusicLinkBar } from "../linkBar/linkBar";
 import BackButton from "../buttons/backButton";
 
@@ -13,20 +10,16 @@ interface AudioPageProps {
   description?: string;
 }
 export default function DefaultAudioPage(props: AudioPageProps) {
-  const isMobile = useIsMobile();
-
   return (
-    <div className={"dap-container" + (isMobile ? " dap-mobile" : "")}>
+    <div className="dap-container">
       {/* <BackButton route="/audio"/> */}
-      {isMobile && (
-        <img
-          src={props.cover}
-          className="dap-image"
-          style={{ width: "75vw" }}
-        />
-      )}
+      <img
+        src={props.cover}
+        className="dap-image lg:hidden"
+        style={{ width: "75vw" }}
+      />
       <div className="dap-row">
-        {!isMobile && <img src={props.cover} className="dap-image" />}
+        <img src={props.cover} className="dap-image hidden lg:flex" />
         <div className="dap-text-container">
           <div
             style={{
@@ -37,20 +30,17 @@ export default function DefaultAudioPage(props: AudioPageProps) {
           >
             {props.title}
           </div>
-          <a
+          <p
             style={{
               color: "var(--secondary-text-color)",
               textAlign: "center",
             }}
           >
             {props.date}
-          </a>
-          <div
-            className="dap-text"
-            style={{ marginTop: "2rem", padding: isMobile ? "0rem" : "" }}
-          >
+          </p>
+          <div className="dap-text mt-8">
             <MusicLinkBar links={props.links} sx={{ marginBottom: "2rem" }} />
-            <a>{props.description}</a>
+            <p>{props.description}</p>
           </div>
         </div>
       </div>
