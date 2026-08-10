@@ -3,24 +3,30 @@ import "./buttons.css";
 
 interface DropdownButtonProps {
   expanded: boolean;
-  callback: () => void;
+  onClick: () => void;
   size?: string;
   color?: string;
-  sx?: string;
+  className?: string;
 }
 
-export default function DropdownButton(props: DropdownButtonProps) {
-  const logoString = `/logos/logo ${props.color ?? "black"}.png`;
+export default function DropdownButton({
+  expanded,
+  onClick,
+  size,
+  color,
+  className,
+}: DropdownButtonProps) {
+  const logoString = `/logos/logo ${color ?? "black"}.png`;
   return (
     <img
       src={logoString}
-      className={twMerge("dropdown-button", props.sx)}
+      className={twMerge("dropdown-button", className)}
       style={{
-        rotate: props.expanded ? "45deg" : "0deg",
-        width: props.size ?? "",
-        height: props.size ?? "",
+        rotate: expanded ? "45deg" : "0deg",
+        width: size ?? "",
+        height: size ?? "",
       }}
-      onClick={props.callback}
+      onClick={onClick}
     />
   );
 }

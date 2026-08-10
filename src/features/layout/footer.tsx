@@ -12,7 +12,6 @@ export default function Footer() {
       >
         twitter
       </a>
-      <LineDecoration className="mx-0" />
       <a
         href="https://www.instagram.com/gain__online/?next=%2F"
         target="_blank"
@@ -20,7 +19,6 @@ export default function Footer() {
       >
         instagram
       </a>
-      <LineDecoration className="mx-0" />
       <a
         href="https://soundcloud.com/gain_online"
         target="_blank"

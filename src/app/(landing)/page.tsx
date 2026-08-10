@@ -14,7 +14,7 @@ export default function Landing() {
         className="landing-logo logo-rotate w-80"
         id="logo"
         tabIndex={0}
-        onClick={() => sleep(1000).then(() => router.push("/home"))}
+        onClick={() => sleep(1000).then(() => router.push("/releases"))}
       />
     </div>
   );

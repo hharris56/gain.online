@@ -1,5 +1,7 @@
 "use client";
 
+/*
+
 import { useState } from "react";
 import "./visual.css";
 import { ArtMasterList } from "@/models/artMasterList";
@@ -182,3 +184,5 @@ function AccretionDepartment() {
     </TimelineItem>
   );
 }
+
+*/

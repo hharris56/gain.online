@@ -1,6 +1,6 @@
 "use client";
 import "./buttons.css";
-import { useIsMobile } from "../../hooks/mobileHooks";
+// import { useIsMobile } from "../../hooks/mobileHooks";
 
 export default function ExpandButton(props: {
   expanded?: boolean;
@@ -8,8 +8,8 @@ export default function ExpandButton(props: {
   text?: string;
   color?: string;
 }) {
-  const isMobile = useIsMobile();
-  const dotClass = isMobile ? "dotdotdot-mobile" : "dotdotdot";
+  // const isMobile = useIsMobile();
+  // const dotClass = isMobile ? "dotdotdot-mobile" : "dotdotdot";
   // const content = props.text ?? (
   //     <>
   //         <h1 className={dotClass}>.</h1>

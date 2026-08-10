@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gain-blue: '#6CD4FF'
+  --color-gain-blue: '#6CD4FF';
+  --breakpoint-xs: 30rem;
 }
 
 @utility gradient-y {
@@ -17,15 +18,19 @@
 
   /* no longer defined here, check colorManager.tsx */
   --primary-color: white;
-  --accent-color: #6CD4FF;
+  /* --accent-color: #6CD4FF; */
+  --accent-color: var(--color-blue-500);
   --primary-text-color: black;
   --secondary-text-color: darkgrey;
   --shadow: 0 0 4px 1px lightgray;
-  --background-path: url("../../public/assets/gain\ portrait.jpeg");
   --content-width: min(
     calc(100vw - 10rem),
     100rem
   ); /* whole view minus width of navbar + padding */
+}
+
+body {
+  overflow-x: hidden;
 }
 
 /* animations */
@@ -68,6 +73,26 @@
   }
   100% {
     transform: translate(0, 0rem);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cycle-fade {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
