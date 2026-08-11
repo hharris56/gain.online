@@ -1,5 +1,12 @@
 "use client";
 
+export default function VisualPage() {
+  return (
+    <div className="w-full h-40 flex justify-center items-center">
+      <p>check back later</p>
+    </div>
+  );
+}
 /*
 
 import { useState } from "react";
