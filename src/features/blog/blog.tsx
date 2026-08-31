@@ -21,6 +21,7 @@ export function Blog() {
   }, [postCount]);
 
   var posts = [
+    <August30 key="8/30" />,
     <August9 key="8/9" />,
     <July14 key="7/14" />,
     <June13 key="6/13" />,
@@ -91,6 +92,39 @@ export function Blog() {
         />
       </div>
     </>
+  );
+}
+
+function August30() {
+  return (
+    <BlogPost title="defining self" date="august 30 - 9:48pm">
+      the gain moniker is vague by design. it is intended to represent the act
+      of self betterment; the small, everyday decisions and wins that
+      accumuliate into true greatness overtime. it was also chosen to be
+      detached from any one aesthetic in particuler as i wanted a label that
+      could last across genres, artistic progressions, etc. in these aspects it
+      has succeeded, however i am starting to fear the lack of narrative /
+      design boundaries is inhibiting my ability to to form cohesive projects.
+      <Break />
+      overseas was an outlier, it had a clear vision from the beginning and (in
+      my opinion) is in the territory of concept album. the question of where to
+      go from there is one that has been haunting me for a while now. with each
+      single that comes out i get an opportunity to explore different sounds,
+      but they aren't fitting together cleanly and are making my catalog feel a
+      bit frantic and all over the place, atleast from my perspective.
+      <Break />
+      to combat this i think it's time to define what gain really is. not in the
+      metaphysical sense, but in the visual, perceivable way that can help me
+      establish where this musical journey is headed. so i'm starting on a sort
+      of design bible for the aesthetic of gain. right now i'm leaning towards
+      digital symbolism and internet iconography; occult, eclectic visuals that
+      embody the cumulative nature of gain and it's vapid and elusive nature.
+      i'm also thinking it would pair well with some very functional design
+      language (think aeronautics, space flight) as the governing body.
+      <Break />
+      that's all for today, i'm off to pull some references for dissection.
+      <Break />+ gain
+    </BlogPost>
   );
 }
 

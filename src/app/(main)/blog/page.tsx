@@ -1,5 +1,4 @@
 import { Blog } from "@/features/blog/blog";
-import { Releases } from "@/features/releases/releases";
 
 export default function Home() {
   return (
