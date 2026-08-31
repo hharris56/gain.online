@@ -30,8 +30,8 @@ export default function RootLayout({
             {/* you can reach me via the contact page or find me on my socials. */}
           </div>
           <div className="flex flex-row gap-4 justify-center mt-4">
-            <a href="/releases">[releases]</a>
             <a href="/blog">[blog]</a>
+            <a href="/releases">[releases]</a>
           </div>
           <div>{children}</div>
           <Footer />

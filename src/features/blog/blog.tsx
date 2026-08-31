@@ -104,7 +104,7 @@ function August30() {
       detached from any one aesthetic in particuler as i wanted a label that
       could last across genres, artistic progressions, etc. in these aspects it
       has succeeded, however i am starting to fear the lack of narrative /
-      design boundaries is inhibiting my ability to to form cohesive projects.
+      design boundaries is inhibiting my ability to form cohesive projects.
       <Break />
       overseas was an outlier, it had a clear vision from the beginning and (in
       my opinion) is in the territory of concept album. the question of where to
