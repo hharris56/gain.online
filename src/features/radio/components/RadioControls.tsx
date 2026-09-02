@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/helpers/cn";
-import { useIsIOS } from "../hooks/useIsIOS";
 import { PlayButton } from "./PlayButton";
 import { VolumeControl } from "./VolumeControl";
 
@@ -35,8 +34,6 @@ export function RadioControls({
   onToggleMute,
   className,
 }: RadioControlsProps) {
-  const isIOS = useIsIOS();
-
   return (
     <div
       className={cn(
@@ -50,14 +47,12 @@ export function RadioControls({
         disabled={!canPlay}
         onToggle={onToggle}
       />
-      {!isIOS && (
-        <VolumeControl
-          volume={volume}
-          muted={muted}
-          onVolumeChange={onVolumeChange}
-          onToggleMute={onToggleMute}
-        />
-      )}
+      <VolumeControl
+        volume={volume}
+        muted={muted}
+        onVolumeChange={onVolumeChange}
+        onToggleMute={onToggleMute}
+      />
     </div>
   );
 }

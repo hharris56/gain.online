@@ -1,4 +1,5 @@
 import { cn } from "@/helpers/cn";
+import { useIsIOS } from "../hooks/useIsIOS";
 
 interface VolumeControlProps {
   volume: number;
@@ -25,6 +26,7 @@ export function VolumeControl({
   const pct = Math.round(effective * 100);
   const filled = Math.round(effective * width);
 
+  const isIOS = useIsIOS();
   const nudge = (delta: number) => onVolumeChange(effective + delta);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -59,39 +61,41 @@ export function VolumeControl({
   return (
     <>
       {/* volume control */}
-      <div>
-        <span className="hidden xxs:inline">VOL </span>
-        <button
-          type="button"
-          aria-label="Decrease volume"
-          onClick={() => nudge(-0.05)}
-          className="transition-colors hover:text-(--accent-color) cursor-pointer"
-        >
-          -
-        </button>
-        <span
-          role="slider"
-          tabIndex={0}
-          aria-label="Volume"
-          aria-valuemin={0}
-          aria-valuemax={100}
-          aria-valuenow={pct}
-          onKeyDown={onKeyDown}
-          onClick={onBarClick}
-          className="cursor-pointer rounded-xs outline-offset-2 focus-visible:outline focus-visible:outline-(--accent-color)"
-        >
-          [<span className="text-(--accent-color)">{"|".repeat(filled)}</span>
-          {"-".repeat(Math.max(0, width - filled))}]
-        </span>
-        <button
-          type="button"
-          aria-label="Increase volume"
-          onClick={() => nudge(0.05)}
-          className="transition-colors hover:text-(--accent-color) cursor-pointer"
-        >
-          +
-        </button>
-      </div>
+      {!isIOS && (
+        <div>
+          <span className="hidden xxs:inline">VOL </span>
+          <button
+            type="button"
+            aria-label="Decrease volume"
+            onClick={() => nudge(-0.05)}
+            className="transition-colors hover:text-(--accent-color) cursor-pointer"
+          >
+            -
+          </button>
+          <span
+            role="slider"
+            tabIndex={0}
+            aria-label="Volume"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={pct}
+            onKeyDown={onKeyDown}
+            onClick={onBarClick}
+            className="cursor-pointer rounded-xs outline-offset-2 focus-visible:outline focus-visible:outline-(--accent-color)"
+          >
+            [<span className="text-(--accent-color)">{"|".repeat(filled)}</span>
+            {"-".repeat(Math.max(0, width - filled))}]
+          </span>
+          <button
+            type="button"
+            aria-label="Increase volume"
+            onClick={() => nudge(0.05)}
+            className="transition-colors hover:text-(--accent-color) cursor-pointer"
+          >
+            +
+          </button>
+        </div>
+      )}
 
       {/* mute button */}
       <button
