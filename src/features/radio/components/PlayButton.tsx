@@ -44,7 +44,7 @@ export function PlayButton({
       disabled={disabled}
       onClick={onToggle}
       className={cn(
-        "font-mono text-sm whitespace-pre text-(--primary-text-color) transition-colors",
+        "font-mono text-sm whitespace-pre text-(--primary-text-color) transition-colors cursor-pointer",
         "hover:text-(--accent-color) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-(--primary-text-color)",
         className,
       )}

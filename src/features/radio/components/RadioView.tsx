@@ -6,9 +6,8 @@ import { useSpectrum } from "../hooks/useSpectrum";
 import type { ConnectionState } from "../types";
 import { AsciiEqualizer } from "./AsciiEqualizer";
 import { NowPlayingCard } from "./NowPlayingCard";
-import { PlayButton } from "./PlayButton";
+import { RadioControls } from "./RadioControls";
 import { TrackProgress } from "./TrackProgress";
-import { VolumeControl } from "./VolumeControl";
 
 const CONNECTION_TAG: Record<ConnectionState, string> = {
   connecting: "....",
@@ -39,7 +38,7 @@ export function RadioView() {
   const player = useRadioPlayer();
 
   const bands = useSpectrum(player.readSpectrum, {
-    bands: 10,
+    bands: 64,
     active: player.isPlaying,
   });
 
@@ -73,28 +72,31 @@ export function RadioView() {
 
       {/* <Rule /> */}
 
-      <div className="space-y-3 py-3">
+      <div className="py-2">
         <NowPlayingCard nowPlaying={nowPlaying} />
-        {/* <AsciiEqualizer bands={bands} height={6} /> */}
-        <TrackProgress elapsed={elapsed} duration={duration} />
+        <AsciiEqualizer
+          bands={bands}
+          height={6}
+          logBands
+          logCompression
+          spectralTilt={true}
+        />
+        <TrackProgress elapsed={elapsed} duration={duration} className="mt-4" />
       </div>
 
       {/* <Rule /> */}
 
-      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 py-3">
-        <PlayButton
-          isPlaying={player.isPlaying}
-          isBuffering={player.isBuffering}
-          disabled={!canPlay}
-          onToggle={player.toggle}
-        />
-        <VolumeControl
-          volume={player.volume}
-          muted={player.muted}
-          onVolumeChange={player.setVolume}
-          onToggleMute={player.toggleMute}
-        />
-      </div>
+      <RadioControls
+        className="py-2"
+        isPlaying={player.isPlaying}
+        isBuffering={player.isBuffering}
+        canPlay={canPlay}
+        onToggle={player.toggle}
+        volume={player.volume}
+        muted={player.muted}
+        onVolumeChange={player.setVolume}
+        onToggleMute={player.toggleMute}
+      />
 
       {/* <Rule /> */}
 

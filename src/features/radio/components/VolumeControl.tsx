@@ -18,7 +18,7 @@ export function VolumeControl({
   muted,
   onVolumeChange,
   onToggleMute,
-  width = 12,
+  width = 10,
   className,
 }: VolumeControlProps) {
   const effective = muted ? 0 : volume;
@@ -57,55 +57,53 @@ export function VolumeControl({
   };
 
   return (
-    <div
-      className={cn(
-        "flex items-center gap-1 font-mono text-sm whitespace-pre text-(--secondary-text-color)",
-        className,
-      )}
-    >
-      <span>VOL </span>
-      <button
-        type="button"
-        aria-label="Decrease volume"
-        onClick={() => nudge(-0.05)}
-        className="transition-colors hover:text-(--accent-color)"
-      >
-        -
-      </button>
-      <span
-        role="slider"
-        tabIndex={0}
-        aria-label="Volume"
-        aria-valuemin={0}
-        aria-valuemax={100}
-        aria-valuenow={pct}
-        onKeyDown={onKeyDown}
-        onClick={onBarClick}
-        className="cursor-pointer rounded-xs outline-offset-2 focus-visible:outline focus-visible:outline-(--accent-color)"
-      >
-        [<span className="text-(--accent-color)">{"|".repeat(filled)}</span>
-        {"-".repeat(Math.max(0, width - filled))}]
-      </span>
-      <button
-        type="button"
-        aria-label="Increase volume"
-        onClick={() => nudge(0.05)}
-        className="transition-colors hover:text-(--accent-color)"
-      >
-        +
-      </button>
+    <>
+      {/* volume button */}
+      <div>
+        <span className="hidden xxs:inline">VOL </span>
+        <button
+          type="button"
+          aria-label="Decrease volume"
+          onClick={() => nudge(-0.05)}
+          className="transition-colors hover:text-(--accent-color) cursor-pointer"
+        >
+          -
+        </button>
+        <span
+          role="slider"
+          tabIndex={0}
+          aria-label="Volume"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={pct}
+          onKeyDown={onKeyDown}
+          onClick={onBarClick}
+          className="cursor-pointer rounded-xs outline-offset-2 focus-visible:outline focus-visible:outline-(--accent-color)"
+        >
+          [<span className="text-(--accent-color)">{"|".repeat(filled)}</span>
+          {"-".repeat(Math.max(0, width - filled))}]
+        </span>
+        <button
+          type="button"
+          aria-label="Increase volume"
+          onClick={() => nudge(0.05)}
+          className="transition-colors hover:text-(--accent-color) cursor-pointer"
+        >
+          +
+        </button>
+      </div>
       {/* <span>{` ${pct.toString().padStart(3, "0")}%  `}</span> */}
       <button
         type="button"
         aria-pressed={muted}
         onClick={onToggleMute}
         className={cn(
-          "transition-colors hover:text-(--accent-color)",
+          "transition-colors hover:text-(--accent-color) cursor-pointer",
           muted && "text-(--accent-color)",
         )}
       >
-        {muted ? "[MUTED]" : "[MUTE]"}
+        {muted ? "[ MUTED ]" : "[ MUTE ]"}
       </button>
-    </div>
+    </>
   );
 }

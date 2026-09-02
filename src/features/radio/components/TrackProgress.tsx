@@ -1,7 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { cn } from "@/helpers/cn";
+import {
+  CHAR_RULER,
+  charRulerClassName,
+  useCharCells,
+} from "../hooks/useCharCells";
 import { AsciiBar } from "./AsciiBar";
 
 function formatTime(seconds: number): string {
@@ -15,8 +19,6 @@ function formatTime(seconds: number): string {
 interface TrackProgressProps {
   elapsed: number;
   duration: number;
-  /** Cell count used until the container has been measured. */
-  fallbackCells?: number;
   /** Never render fewer cells than this. */
   minCells?: number;
   className?: string;
@@ -30,32 +32,13 @@ interface TrackProgressProps {
 export function TrackProgress({
   elapsed,
   duration,
-  fallbackCells = 24,
   minCells = 8,
   className,
 }: TrackProgressProps) {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const rulerRef = useRef<HTMLSpanElement>(null);
-  const [cells, setCells] = useState(fallbackCells);
-
-  useEffect(() => {
-    const wrap = wrapRef.current;
-    const ruler = rulerRef.current;
-    if (!wrap || !ruler) return;
-
-    const measure = () => {
-      const charWidth = ruler.getBoundingClientRect().width / 20;
-      const avail = wrap.clientWidth;
-      if (charWidth > 0 && avail > 0) {
-        setCells(Math.max(minCells, Math.floor(avail / charWidth)));
-      }
-    };
-
-    measure();
-    const ro = new ResizeObserver(measure);
-    ro.observe(wrap);
-    return () => ro.disconnect();
-  }, [minCells]);
+  const { containerRef, rulerRef, cells } = useCharCells({
+    fallback: 24,
+    min: minCells,
+  });
 
   const hasDuration = duration > 0;
   // Reserve the two bracket cells.
@@ -72,16 +55,11 @@ export function TrackProgress({
 
   return (
     <div
-      ref={wrapRef}
+      ref={containerRef}
       className={cn("relative w-full font-mono text-sm", className)}
     >
-      {/* Off-layout ruler: 20 monospace cells, measured for exact char width. */}
-      <span
-        ref={rulerRef}
-        aria-hidden
-        className="pointer-events-none absolute -z-10 whitespace-pre opacity-0 select-none"
-      >
-        00000000000000000000
+      <span ref={rulerRef} aria-hidden className={charRulerClassName}>
+        {CHAR_RULER}
       </span>
 
       {hasDuration ? (

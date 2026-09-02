@@ -109,16 +109,37 @@ Gotchas encoded in the code — **do not "simplify" these away**:
   gesture. The store calls it from `start()`, which is only reached via a
   play-button click.
 
-**Two independent smoothing stages** feed the visual "reactivity":
+**Temporal smoothing** — two stages:
 
 1. `AnalyserNode.smoothingTimeConstant` in `audioGraph.ts` (default `0.35`) —
-   the dominant smoother; dampens attack _and_ release. Plus a per-band `curve`
-   exponent and peak (not mean) bin aggregation for punch.
+   the dominant smoother; dampens attack _and_ release. If someone reports "the
+   EQ isn't reactive", this is almost always why.
 2. `useSpectrum`'s asymmetric envelope (default `attack: 1` instant-rise,
    `decay: 0.4`/frame fall) and a `fps` repaint cap.
 
-If someone reports "the EQ isn't reactive", it's almost always
-`smoothingTimeConstant`.
+**Frequency-domain shaping** is split by ownership:
+
+- `audioGraph.ts` `read()` (shared, so kept generic): **log-spaced bands**
+  between `minHz`/`maxHz` (default `SPECTRUM_MIN_HZ`/`SPECTRUM_MAX_HZ`, exported),
+  each ≈ a constant musical interval, mean-aggregated. Needs a large `fftSize`
+  (default `2048`) for bass bin resolution — ~46ms latency, fine for a
+  visualiser. No tilt/compression here — the analyser feeds every display.
+- `AsciiEqualizer` (per-display, since each display may want different shaping) —
+  **three independent boolean toggles**, all default `true`, with fixed internal
+  constants (`TILT_EXP 0.5`, `TILT_PIVOT_HZ 900`, `COMPRESSION_K 5`):
+  - `logBands` — log-frequency column spacing (bass gets equal width). `false`
+    re-buckets to linear frequency (`resampleLinearFreq`), bass squished left.
+  - `spectralTilt` — `(centerHz / pivot) ** exp` high-lift vs. music's bass-heavy
+    slope. Band centre freqs recovered from the log spacing.
+  - `logCompression` — `log1p(k*v) / log1p(k)`, large values become less
+    differentiated than small ones.
+  - Fitting source bands to the displayed column count averages, not peaks.
+
+Flip these off one at a time to isolate what a given look owes to.
+
+If you build a custom display straight off `useSpectrum` you get the raw
+log-spaced spectrum — replicate the shaping (`applyTilt` / `applyCompression` in
+`AsciiEqualizer`) or just use `AsciiEqualizer`.
 
 ### 7. `AsciiEqualizer` fixed height
 
@@ -137,15 +158,19 @@ every row at full width. This is intentional: earlier it collapsed on silence
 | `types.ts` | types | `Raw*` = AzuraCast wire shapes. `NowPlaying` etc. = the trimmed shapes everything else uses. |
 | `lib/normalize.ts` | connection | `RawNowPlaying` → `NowPlaying`. Tolerant of missing fields (offline / live-DJ). |
 | `lib/azuracastClient.ts` | connection | SSE + polling fallback. No React. |
-| `lib/audioGraph.ts` | connection | Web Audio analyser factory. No React. Tuning knobs: `smoothing`, `fftSize`, `min/maxDecibels`, `curve`. |
+| `lib/audioGraph.ts` | connection | Web Audio analyser factory. No React. Returns the raw log-spaced spectrum. Knobs: `smoothing`, `fftSize`, `min/maxDecibels`, `minHz`/`maxHz`. Exports `SPECTRUM_MIN_HZ`/`SPECTRUM_MAX_HZ`. |
 | `lib/radioStore.ts` | state | The global singleton. `useSyncExternalStore` surface + imperative controls + `attach/detachAudioElement`. |
 | `hooks/useRadioPlayer.ts` | react bridge | **No args.** Playback state + actions + `readSpectrum`. |
 | `hooks/useNowPlaying.ts` | react bridge | Shared feed + a local 1s ticker projecting `elapsed` between server pushes. |
-| `hooks/useSpectrum.ts` | react bridge | Drives a rAF loop over `readSpectrum`, returns `number[]` bands. Envelope knobs: `bands`, `fps`, `attack`, `decay`. |
+| `hooks/useSpectrum.ts` | react bridge | Drives a rAF loop over `readSpectrum`, returns `number[]` bands. Envelope knobs: `bands`, `fps`, `attack`, `decay`. `RadioView` runs it at 64 source bands; `AsciiEqualizer` resamples down to whatever fits. |
+| `hooks/useCharCells.ts` | react bridge | Measures a container's width in monospace character cells (via an off-layout ruler `<span>` + `ResizeObserver`). Used by `TrackProgress` and `AsciiEqualizer` to grow-to-fit. |
 | `components/RadioAudioMount.tsx` | mount | The one `<audio>`. Render once. |
 | `components/RadioView.tsx` | display | The full terminal-style console. Composition only. **Most of the dev's manual edits are here.** |
-| `components/{NowPlayingCard,PlayButton,VolumeControl,TrackProgress}.tsx` | display | Pure presentational, props + callbacks only. |
-| `components/{AsciiBar,AsciiEqualizer}.tsx` | display | Pure string/`<pre>` renderers. `AsciiBar` = `[####    ]` meter; `AsciiEqualizer` = vertical bar graph. |
+| `components/{NowPlayingCard,PlayButton,VolumeControl}.tsx` | display | Pure presentational, props + callbacks only. |
+| `components/RadioControls.tsx` | display | Combines `PlayButton` + `VolumeControl` into one transport row so displays place a single element. Pure. |
+| `components/TrackProgress.tsx` | display | `[####    ]` meter; grows to fill its container via `useCharCells` (client component, but still just props in). |
+| `components/AsciiEqualizer.tsx` | display | Vertical bar graph; grows to fill via `useCharCells`, averaging-resamples `bands` to the fitted column count. Height pinned to `height` lines. Shaping toggles (all default on): `logBands`, `spectralTilt`, `logCompression`. |
+| `components/AsciiBar.tsx` | display | Pure string renderer — `[####    ]` given `ratio` + `width`. |
 | `index.ts` | barrel | Public surface. Import from `@/features/radio`. |
 
 ---
