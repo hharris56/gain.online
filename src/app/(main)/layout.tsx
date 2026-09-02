@@ -1,3 +1,5 @@
+"use client";
+
 import "../globals.css";
 import Link from "next/link";
 import Footer from "@/features/layout/footer";
@@ -5,12 +7,15 @@ import { UniversalHeader } from "@/features/layout/header";
 import { RadioAudioMount } from "@/features/radio/components/RadioAudioMount";
 import { LayoutRadioControls } from "@/features/radio/components/LayoutRadioControls";
 import NoSsr from "../../hooks/noSsr";
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+  console.log(pathname);
   return (
     <NoSsr>
       {/* The one shared radio stream — lives at the (main) layout level so it
@@ -40,7 +45,10 @@ export default function RootLayout({
             <Link href="/releases">[releases]</Link>
             <Link href="/radio">[radio]</Link>
           </div>
-          <LayoutRadioControls className="mt-4 p-2 border" />
+          {!(pathname == "/radio") && (
+            <LayoutRadioControls className="mt-4 p-2 border" />
+          )}
+
           <div>{children}</div>
           <Footer />
         </div>

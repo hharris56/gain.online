@@ -4,7 +4,8 @@
  *
  *   - a single <audio> element (mounted once, invisibly, by <RadioAudioMount/>
  *     in the header so it survives client-side navigation)
- *   - the Web Audio analyser graph tapped off that element
+ *   - the equalizer analysis path (a second fetch+decode of the same stream —
+ *     see spectrumSource.ts for why it isn't tapped off the <audio> element)
  *   - the AzuraCast now-playing feed (one connection, not one per display)
  *
  * Any number of display components subscribe through `useSyncExternalStore`
@@ -16,7 +17,10 @@ import {
   createNowPlayingClient,
   type NowPlayingClient,
 } from "./azuracastClient";
-import { createSpectrumAnalyser, type SpectrumAnalyser } from "./audioGraph";
+import {
+  createStreamSpectrumSource,
+  type StreamSpectrumSource,
+} from "./spectrumSource";
 import { radioConfig } from "../config";
 import type { ConnectionState, NowPlaying } from "../types";
 
@@ -65,11 +69,17 @@ let npClient: NowPlayingClient | null = null;
 let initialized = false;
 /** URL the element is currently pointed at, so we can re-point on stream change. */
 let playingUrl: string | null = null;
+
 /**
- * `createMediaElementSource` may run only once per element ever, so the analyser
- * is cached against the element and never rebuilt / destroyed for its lifetime.
+ * The equalizer analysis path. Created lazily by `readSpectrum` only while
+ * playback is active AND something is actually asking for spectrum data, and
+ * torn down by a watchdog once demand stops — so the second stream download
+ * only exists when an equalizer is on screen and playing.
  */
-const analyserByEl = new WeakMap<HTMLAudioElement, SpectrumAnalyser>();
+let spectrumSource: StreamSpectrumSource | null = null;
+let spectrumLastReadAt = 0;
+let spectrumWatchdog: ReturnType<typeof setInterval> | null = null;
+const SPECTRUM_IDLE_MS = 2000;
 
 // --- snapshot plumbing ---------------------------------------------------------
 
@@ -146,6 +156,21 @@ function ensureInitialized() {
   });
   npClient.onStateChange((cs) => patchRoot({ connectionState: cs }));
   npClient.start();
+
+  spectrumWatchdog = setInterval(() => {
+    if (!spectrumSource) return;
+    if (
+      !snapshot.player.isPlaying ||
+      Date.now() - spectrumLastReadAt > SPECTRUM_IDLE_MS
+    ) {
+      teardownSpectrumSource();
+    }
+  }, 1000);
+}
+
+function teardownSpectrumSource() {
+  spectrumSource?.destroy();
+  spectrumSource = null;
 }
 
 // --- audio element wiring (called by <RadioAudioMount/>) --------------------
@@ -206,27 +231,21 @@ function detachAudioElement(el: HTMLAudioElement) {
   el.load();
   audioEl = null;
   playingUrl = null;
-  // Analyser stays cached against `el` (see analyserByEl) in case it remounts.
+  teardownSpectrumSource();
   patchPlayer({ ready: false, isPlaying: false, isBuffering: false });
 }
 
 // --- playback controls ------------------------------------------------------
-
-function ensureAnalyser(el: HTMLAudioElement) {
-  if (analyserByEl.has(el)) return;
-  const a = createSpectrumAnalyser(el);
-  if (a) analyserByEl.set(el, a);
-}
 
 function start(url: string) {
   if (!audioEl) {
     patchPlayer({ error: "Player not ready yet." });
     return;
   }
-  // Tap the analyser now — we're inside a user gesture, so the AudioContext
-  // is allowed to start. Harmless if it fails; audio still plays.
-  ensureAnalyser(audioEl);
-  void analyserByEl.get(audioEl)?.resume();
+
+  // The equalizer analysis path follows the stream URL. Drop any existing one;
+  // `readSpectrum` rebuilds it against the new URL on demand.
+  teardownSpectrumSource();
 
   const fresh = `${url}${url.includes("?") ? "&" : "?"}_=${Date.now()}`;
   if (audioEl.src !== fresh) audioEl.src = fresh;
@@ -256,6 +275,7 @@ function pause() {
   audioEl.removeAttribute("src");
   audioEl.load();
   playingUrl = null;
+  teardownSpectrumSource();
   patchPlayer({ isPlaying: false, isBuffering: false });
 }
 
@@ -283,9 +303,20 @@ function toggleMute() {
   patchPlayer({ muted });
 }
 
-/** Fill `out` with live 0..1 spectrum magnitudes. No-op until playback + tap. */
+/**
+ * Fill `out` with live 0..1 spectrum magnitudes. Self-managing: spins up the
+ * analysis path (a second fetch+decode of the stream) on first call while
+ * playing, and the watchdog tears it down once calls stop. All-zero until the
+ * decoder has enough samples.
+ */
 function readSpectrum(out: number[]) {
-  if (audioEl) analyserByEl.get(audioEl)?.read(out);
+  spectrumLastReadAt = Date.now();
+  if (!spectrumSource && snapshot.player.isPlaying && playingUrl) {
+    spectrumSource = createStreamSpectrumSource(playingUrl);
+    void spectrumSource.resume();
+  }
+  if (spectrumSource) spectrumSource.read(out);
+  else for (let i = 0; i < out.length; i++) out[i] = 0;
 }
 
 // --- store surface for useSyncExternalStore --------------------------------

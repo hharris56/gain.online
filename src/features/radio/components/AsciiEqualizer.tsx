@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/helpers/cn";
-import { SPECTRUM_MAX_HZ, SPECTRUM_MIN_HZ } from "../lib/audioGraph";
+import { SPECTRUM_MAX_HZ, SPECTRUM_MIN_HZ } from "../lib/spectrumBands";
 import {
   CHAR_RULER,
   charRulerClassName,

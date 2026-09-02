@@ -22,8 +22,9 @@ The whole point of the current shape: **a single shared audio stream that any
 number of display components can render.** State does not live in a component or
 a React context — it lives in a **module singleton**, `lib/radioStore.ts`.
 
-- The store owns: the one `HTMLAudioElement`, the Web Audio analyser graph, the
-  one AzuraCast now-playing connection, and playback/volume state.
+- The store owns: the one `HTMLAudioElement` (playback), the equalizer's
+  independent fetch+decode+FFT spectrum source (§6), the one AzuraCast
+  now-playing connection, and playback/volume state.
 - Components read it through `useSyncExternalStore` (see `hooks/`). Any display
   calling `useRadioPlayer()` / `useNowPlaying()` / `useSpectrum()` sees the same
   state; controlling playback from one updates all of them.
@@ -51,8 +52,9 @@ that way.
 
 ### 3. The connection layer is framework-agnostic
 
-`lib/azuracastClient.ts` and `lib/audioGraph.ts` contain **zero React**. They
-are plain factory functions with imperative `subscribe` / `read` / `close`
+`lib/azuracastClient.ts`, `lib/spectrumSource.ts`, `lib/fft.ts` and
+`lib/spectrumBands.ts` contain **zero React**. They are plain factory functions
+/ pure helpers with imperative `subscribe` / `read` / `resume` / `destroy`
 APIs. The store adapts them to React; the hooks adapt the store to components;
 the components are pure presentational. This layering is deliberate — keep new
 code in the layer it belongs to.
@@ -84,46 +86,67 @@ That's the whole model — there is nothing server-side to call.
   not from a stale buffer.
 - `volume` / `muted` persist to `localStorage` (`radio:volume`, `radio:muted`).
 
-### 6. Spectrum analyser (Web Audio)
+### 6. Spectrum analyser — a SEPARATE fetch+decode path (not tapped off `<audio>`)
 
-`lib/audioGraph.ts` builds:
+**The equalizer never touches playback.** iOS WebKit returns all-zeros from
+`AnalyserNode.getByteFrequencyData()` when the analyser is tapped off a
+cross-origin *streaming* `<audio>` element via `createMediaElementSource()`
+(desktop works, iOS does not — even with correct CORS). And iOS makes
+`HTMLMediaElement.volume` a no-op. Rather than route playback through Web Audio
+(which would fix both but hands us the whole playback engine + loses free iOS
+background/lock-screen playback), the EQ runs an **independent path**:
 
 ```
-MediaElementAudioSourceNode(audioEl) -> AnalyserNode -> AudioContext.destination
+fetch(streamUrl)  →  mpg123-decoder (Web Worker)  →  Float32 ring buffer
+  →  our own FFT (lib/fft.ts) over newest 2048 samples  →  binsToLogBands()
 ```
 
-Gotchas encoded in the code — **do not "simplify" these away**:
+- `lib/spectrumSource.ts` — `createStreamSpectrumSource(url)` → `{ read, resume,
+  destroy }`. `read()` windows (Hann) + FFTs the newest samples, maps magnitude
+  → dB → `[-85,-25]` → 0..1, applies per-bin exponential smoothing (`0.35`, the
+  old `smoothingTimeConstant`), then `binsToLogBands`.
+- `lib/spectrumBands.ts` — `binsToLogBands(freq, out, sampleRate, minHz?,
+  maxHz?)` + `SPECTRUM_MIN_HZ` / `SPECTRUM_MAX_HZ`. Shared shape so
+  `AsciiEqualizer`'s tilt/compression props are unchanged.
+- **`radioStore` self-manages the source's lifecycle** (do not "simplify" this):
+  `readSpectrum` lazily creates it while `isPlaying && playingUrl`; a 1s
+  watchdog `destroy()`s it once `!isPlaying` or no `readSpectrum` call for 2s
+  (i.e. paused, or no equalizer on screen). `start()` / `pause()` /
+  `detachAudioElement` also tear it down; a stream-URL change recreates it.
+  Net effect: the **second stream download only exists while an equalizer is
+  visible and playing**.
 
-- `createMediaElementSource(el)` may be called **once per element, ever**. The
-  store caches the analyser in a `WeakMap<HTMLAudioElement, SpectrumAnalyser>`
-  and never rebuilds/destroys it, which also makes React Strict Mode's
-  double-mount safe.
-- Once tapped, the element's audio only reaches the speakers **through the
-  graph** — hence `analyser.connect(destination)`. Removing that = silence.
-- Real FFT data requires the stream response to send
-  `Access-Control-Allow-Origin` **and** `audioEl.crossOrigin = "anonymous"`
-  (the store sets it). Without CORS, `getByteFrequencyData` returns all zeros —
-  audio still plays, the EQ just flatlines. The dev's station currently sends
-  permissive CORS.
-- The `AudioContext` starts suspended; `.resume()` must run inside a user
-  gesture. The store calls it from `start()`, which is only reached via a
-  play-button click.
+Gotchas — **do not "simplify" these away**:
+
+- **MP3-only.** `read` stays flat if the fetched `Content-Type` isn't `audio/*mpeg*`.
+- **No ICY metadata.** We never send `Icy-MetaData: 1`, so the response is a
+  clean MP3 byte stream (interleaved metadata would break the decoder).
+- **`@eshaz/web-worker` is aliased** in `next.config.js` →
+  `turbopack.resolveAlias` to `lib/eshazWebWorkerShim.js`, because
+  `mpg123-decoder` pulls that package's Node entry, whose dynamic `import()`
+  Turbopack can't statically resolve. The shim is just `Worker` in the browser,
+  a dummy `class {}` on the server (never instantiated — the path is client-only
+  and lazy).
+- **~0.5–1s A/V drift** between the bars and what you hear (independent fetch;
+  both near the live edge). Acceptable for a visualiser.
+- **Nothing here can regress playback** — the `<audio>` element and all of
+  `radioStore`'s playback code are untouched; the two paths share only a URL
+  string. (iOS volume buttons still no-op — separate, handled by hiding that UI
+  on iOS.)
 
 **Temporal smoothing** — two stages:
 
-1. `AnalyserNode.smoothingTimeConstant` in `audioGraph.ts` (default `0.35`) —
-   the dominant smoother; dampens attack _and_ release. If someone reports "the
-   EQ isn't reactive", this is almost always why.
+1. Per-bin exponential smoothing in `spectrumSource.ts` `read()` (constant
+   `SMOOTHING = 0.35`) — the dominant smoother. If someone reports "the EQ isn't
+   reactive", this is almost always why.
 2. `useSpectrum`'s asymmetric envelope (default `attack: 1` instant-rise,
    `decay: 0.4`/frame fall) and a `fps` repaint cap.
 
 **Frequency-domain shaping** is split by ownership:
 
-- `audioGraph.ts` `read()` (shared, so kept generic): **log-spaced bands**
-  between `minHz`/`maxHz` (default `SPECTRUM_MIN_HZ`/`SPECTRUM_MAX_HZ`, exported),
-  each ≈ a constant musical interval, mean-aggregated. Needs a large `fftSize`
-  (default `2048`) for bass bin resolution — ~46ms latency, fine for a
-  visualiser. No tilt/compression here — the analyser feeds every display.
+- `spectrumBands.ts` `binsToLogBands()` (shared): **log-spaced bands** between
+  `minHz`/`maxHz` (default `SPECTRUM_MIN_HZ`/`SPECTRUM_MAX_HZ`, exported), each ≈
+  a constant musical interval, mean-aggregated. No tilt/compression here.
 - `AsciiEqualizer` (per-display, since each display may want different shaping) —
   **three independent boolean toggles**, all default `true`, with fixed internal
   constants (`TILT_EXP 0.5`, `TILT_PIVOT_HZ 900`, `COMPRESSION_K 5`):
@@ -158,8 +181,11 @@ every row at full width. This is intentional: earlier it collapsed on silence
 | `types.ts` | types | `Raw*` = AzuraCast wire shapes. `NowPlaying` etc. = the trimmed shapes everything else uses. |
 | `lib/normalize.ts` | connection | `RawNowPlaying` → `NowPlaying`. Tolerant of missing fields (offline / live-DJ). |
 | `lib/azuracastClient.ts` | connection | SSE + polling fallback. No React. |
-| `lib/audioGraph.ts` | connection | Web Audio analyser factory. No React. Returns the raw log-spaced spectrum. Knobs: `smoothing`, `fftSize`, `min/maxDecibels`, `minHz`/`maxHz`. Exports `SPECTRUM_MIN_HZ`/`SPECTRUM_MAX_HZ`. |
-| `lib/radioStore.ts` | state | The global singleton. `useSyncExternalStore` surface + imperative controls + `attach/detachAudioElement`. |
+| `lib/spectrumSource.ts` | connection | `createStreamSpectrumSource(url)` — the EQ's independent fetch→mpg123-decode→FFT path. No React. Constants: `FFT_SIZE`, `SMOOTHING`, `MIN_DB`/`MAX_DB`. |
+| `lib/fft.ts` | connection | Radix-2 FFT + Hann window. Pure, no deps. |
+| `lib/spectrumBands.ts` | connection | `binsToLogBands()` + `SPECTRUM_MIN_HZ`/`SPECTRUM_MAX_HZ`. Shared by the source and `AsciiEqualizer`. |
+| `lib/eshazWebWorkerShim.js` | build | Browser `Worker` stand-in, aliased in via `next.config.js` (see §6). |
+| `lib/radioStore.ts` | state | The global singleton. `useSyncExternalStore` surface + imperative controls + `attach/detachAudioElement`. Self-manages the spectrum source (created on demand, torn down when idle/paused). |
 | `hooks/useRadioPlayer.ts` | react bridge | **No args.** Playback state + actions + `readSpectrum`. |
 | `hooks/useNowPlaying.ts` | react bridge | Shared feed + a local 1s ticker projecting `elapsed` between server pushes. |
 | `hooks/useSpectrum.ts` | react bridge | Drives a rAF loop over `readSpectrum`, returns `number[]` bands. Envelope knobs: `bands`, `fps`, `attack`, `decay`. `RadioView` runs it at 64 source bands; `AsciiEqualizer` resamples down to whatever fits. |
@@ -217,19 +243,20 @@ before changing the corresponding layer.
   `is_online`) was confirmed against the dev's live endpoint
   `GET {baseUrl}/api/nowplaying/{station}` and encoded in `types.ts`.
 
-**Web Audio API (MDN)**
+**Equalizer analysis path**
 
-- `AnalyserNode` — `fftSize`, `frequencyBinCount`, `smoothingTimeConstant`,
-  `min/maxDecibels`, `getByteFrequencyData`:
-  <https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode>
-- `AudioContext.createMediaElementSource()` — the once-per-element rule and the
-  "audio now routes through the graph" behaviour:
-  <https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/createMediaElementSource>
-- Autoplay policy / resuming a suspended context from a user gesture:
+- `mpg123-decoder` (streaming MPEG L-I/II/III → PCM, WASM, self-hosted Web
+  Worker): <https://github.com/eshaz/wasm-audio-decoders/tree/main/src/mpg123-decoder>
+- Streaming a fetch response body:
+  <https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Using_readable_streams>
+- Why the old `<audio>` tap failed on iOS — `createMediaElementSource()` +
+  cross-origin streaming media returns silence to `AnalyserNode` on WebKit;
+  `HTMLMediaElement.volume` is a no-op on iOS. Background: MDN
+  `createMediaElementSource` / `HTMLMediaElement.volume` notes + WebKit bug
+  history.
+- Autoplay / resuming an `AudioContext` from a gesture (relevant only if the EQ
+  path is ever moved back onto Web Audio):
   <https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#the_web_audio_api>
-- CORS + media elements (`crossorigin`), which is what makes the analyser return
-  real data instead of zeros:
-  <https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin>
 
 **Server-Sent Events**
 

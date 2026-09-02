@@ -21,6 +21,6 @@ export { useCharCells } from "./hooks/useCharCells";
 // Escape hatches.
 export { radioStore } from "./lib/radioStore";
 export { createNowPlayingClient } from "./lib/azuracastClient";
-export { SPECTRUM_MIN_HZ, SPECTRUM_MAX_HZ } from "./lib/audioGraph";
+export { SPECTRUM_MIN_HZ, SPECTRUM_MAX_HZ } from "./lib/spectrumBands";
 export { radioConfig } from "./config";
 export type { ConnectionState, NowPlaying, NowPlayingSong } from "./types";
