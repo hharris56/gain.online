@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/helpers/cn";
+import { useIsIOS } from "../hooks/useIsIOS";
 import { PlayButton } from "./PlayButton";
 import { VolumeControl } from "./VolumeControl";
 
@@ -16,9 +19,10 @@ interface RadioControlsProps {
 }
 
 /**
- * Transport row: play/stop + volume. Pure presentational — wire it straight to
- * `useRadioPlayer()` fields. Combines `PlayButton` and `VolumeControl` so
- * displays only place one element.
+ * Transport row: play/stop + volume. Wire it straight to `useRadioPlayer()`
+ * fields. Combines `PlayButton` and `VolumeControl` so displays only place one
+ * element. The volume control is hidden on iOS, where `HTMLMediaElement.volume`
+ * does nothing (system-level restriction).
  */
 export function RadioControls({
   isPlaying,
@@ -31,6 +35,8 @@ export function RadioControls({
   onToggleMute,
   className,
 }: RadioControlsProps) {
+  const isIOS = useIsIOS();
+
   return (
     <div
       className={cn(
@@ -44,12 +50,14 @@ export function RadioControls({
         disabled={!canPlay}
         onToggle={onToggle}
       />
-      <VolumeControl
-        volume={volume}
-        muted={muted}
-        onVolumeChange={onVolumeChange}
-        onToggleMute={onToggleMute}
-      />
+      {!isIOS && (
+        <VolumeControl
+          volume={volume}
+          muted={muted}
+          onVolumeChange={onVolumeChange}
+          onToggleMute={onToggleMute}
+        />
+      )}
     </div>
   );
 }

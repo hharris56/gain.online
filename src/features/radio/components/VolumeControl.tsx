@@ -58,7 +58,7 @@ export function VolumeControl({
 
   return (
     <>
-      {/* volume button */}
+      {/* volume control */}
       <div>
         <span className="hidden xxs:inline">VOL </span>
         <button
@@ -92,7 +92,8 @@ export function VolumeControl({
           +
         </button>
       </div>
-      {/* <span>{` ${pct.toString().padStart(3, "0")}%  `}</span> */}
+
+      {/* mute button */}
       <button
         type="button"
         aria-pressed={muted}

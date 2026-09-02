@@ -17,6 +17,7 @@ export { useNowPlaying } from "./hooks/useNowPlaying";
 export { useRadioPlayer } from "./hooks/useRadioPlayer";
 export { useSpectrum } from "./hooks/useSpectrum";
 export { useCharCells } from "./hooks/useCharCells";
+export { useIsIOS } from "./hooks/useIsIOS";
 
 // Escape hatches.
 export { radioStore } from "./lib/radioStore";

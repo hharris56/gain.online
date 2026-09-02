@@ -190,10 +190,11 @@ every row at full width. This is intentional: earlier it collapsed on silence
 | `hooks/useNowPlaying.ts` | react bridge | Shared feed + a local 1s ticker projecting `elapsed` between server pushes. |
 | `hooks/useSpectrum.ts` | react bridge | Drives a rAF loop over `readSpectrum`, returns `number[]` bands. Envelope knobs: `bands`, `fps`, `attack`, `decay`. `RadioView` runs it at 64 source bands; `AsciiEqualizer` resamples down to whatever fits. |
 | `hooks/useCharCells.ts` | react bridge | Measures a container's width in monospace character cells (via an off-layout ruler `<span>` + `ResizeObserver`). Used by `TrackProgress` and `AsciiEqualizer` to grow-to-fit. |
+| `hooks/useIsIOS.ts` | react bridge | iOS/iPadOS UA check, hydration-safe (starts `false`, updates post-mount). `RadioControls` uses it to hide `VolumeControl` (iOS `HTMLMediaElement.volume` is a no-op). |
 | `components/RadioAudioMount.tsx` | mount | The one `<audio>`. Render once. |
 | `components/RadioView.tsx` | display | The full terminal-style console. Composition only. **Most of the dev's manual edits are here.** |
 | `components/{NowPlayingCard,PlayButton,VolumeControl}.tsx` | display | Pure presentational, props + callbacks only. |
-| `components/RadioControls.tsx` | display | Combines `PlayButton` + `VolumeControl` into one transport row so displays place a single element. Pure. |
+| `components/RadioControls.tsx` | display | Combines `PlayButton` + `VolumeControl` into one transport row. Hides `VolumeControl` on iOS (`useIsIOS`). |
 | `components/LayoutRadioControls.tsx` | display | Client wrapper: reads `useRadioPlayer()` and renders `RadioControls` only while playing/buffering. Mounted under the nav in `(main)/layout.tsx`. |
 | `components/TrackProgress.tsx` | display | `[####    ]` meter; grows to fill its container via `useCharCells` (client component, but still just props in). |
 | `components/AsciiEqualizer.tsx` | display | Vertical bar graph; grows to fill via `useCharCells`, averaging-resamples `bands` to the fitted column count. Height pinned to `height` lines. Shaping toggles (all default on): `logBands`, `spectralTilt`, `logCompression`. |
