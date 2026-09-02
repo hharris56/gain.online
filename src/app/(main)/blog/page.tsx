@@ -6,7 +6,6 @@ export default function Home() {
       <div className="my-8 flex flex-col gap-8">
         <Blog />
       </div>
-      <img src="/art/mountain - copy.png" className="w-full" />
     </div>
   );
 }
