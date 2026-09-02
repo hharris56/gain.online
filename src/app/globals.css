@@ -2,7 +2,9 @@
 
 @theme {
   --color-gain-blue: '#6CD4FF';
-  --breakpoint-xs: 30rem;
+  --breakpoint-xs: 480px;
+  --breakpoint-xxs: 400px;
+  --breakpoint-xxxs: 320px;
 }
 
 @utility gradient-y {
@@ -96,6 +98,11 @@ body {
   }
 }
 
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
 
 .line-decoration-mobile {
   min-width: 0.25rem;
