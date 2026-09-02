@@ -64,7 +64,7 @@ export function UniversalHeader() {
       <div
         className={cn(
           // base stuff
-          "z-10 sticky top-0 max-w-screen flex items-center justify-start",
+          "z-10 sticky top-0 max-w-screen flex items-center justify-start overflow-hidden",
           // mobile view
           "gradient-x min-h-16 p-2 gap-2",
           // desktop view (96px wide btw)
