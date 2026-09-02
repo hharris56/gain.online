@@ -3,6 +3,7 @@ export { RadioView } from "./components/RadioView";
 export { AsciiEqualizer } from "./components/AsciiEqualizer";
 export { TrackProgress } from "./components/TrackProgress";
 export { RadioControls } from "./components/RadioControls";
+export { LayoutRadioControls } from "./components/LayoutRadioControls";
 export { PlayButton } from "./components/PlayButton";
 export { VolumeControl } from "./components/VolumeControl";
 export { NowPlayingCard } from "./components/NowPlayingCard";

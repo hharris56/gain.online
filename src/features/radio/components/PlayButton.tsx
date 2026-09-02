@@ -33,8 +33,8 @@ export function PlayButton({
   const label = isBuffering
     ? `${SPINNER[frame]} ...`
     : isPlaying
-      ? "[] STOP"
-      : "|> PLAY";
+      ? "STOP"
+      : "PLAY";
 
   return (
     <button
@@ -49,7 +49,7 @@ export function PlayButton({
         className,
       )}
     >
-      {`[ ${label.padEnd(7)} ]`}
+      {`[ ${label} ]`}
     </button>
   );
 }

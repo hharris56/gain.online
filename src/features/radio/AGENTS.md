@@ -168,6 +168,7 @@ every row at full width. This is intentional: earlier it collapsed on silence
 | `components/RadioView.tsx` | display | The full terminal-style console. Composition only. **Most of the dev's manual edits are here.** |
 | `components/{NowPlayingCard,PlayButton,VolumeControl}.tsx` | display | Pure presentational, props + callbacks only. |
 | `components/RadioControls.tsx` | display | Combines `PlayButton` + `VolumeControl` into one transport row so displays place a single element. Pure. |
+| `components/LayoutRadioControls.tsx` | display | Client wrapper: reads `useRadioPlayer()` and renders `RadioControls` only while playing/buffering. Mounted under the nav in `(main)/layout.tsx`. |
 | `components/TrackProgress.tsx` | display | `[####    ]` meter; grows to fill its container via `useCharCells` (client component, but still just props in). |
 | `components/AsciiEqualizer.tsx` | display | Vertical bar graph; grows to fill via `useCharCells`, averaging-resamples `bands` to the fitted column count. Height pinned to `height` lines. Shaping toggles (all default on): `logBands`, `spectralTilt`, `logCompression`. |
 | `components/AsciiBar.tsx` | display | Pure string renderer — `[####    ]` given `ratio` + `width`. |
@@ -192,7 +193,8 @@ every row at full width. This is intentional: earlier it collapsed on silence
 ## Integration points (outside this dir)
 
 - `src/app/(main)/layout.tsx` — renders `<RadioAudioMount/>` once (so it never
-  unmounts during navigation) and has the `[radio]` nav link.
+  unmounts during navigation), `<LayoutRadioControls/>` under the nav (shows only
+  while playing), and has the `[radio]` nav link.
 - `src/app/(main)/radio/page.tsx` — the route; renders `<RadioView/>`.
 
 ## Reference material
