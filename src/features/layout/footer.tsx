@@ -10,21 +10,21 @@ export default function Footer() {
         target="_blank"
         className={className}
       >
-        twitter
+        [twitter]
       </a>
       <a
         href="https://www.instagram.com/gain__online/?next=%2F"
         target="_blank"
         className={className}
       >
-        instagram
+        [instagram]
       </a>
       <a
         href="https://soundcloud.com/gain_online"
         target="_blank"
         className={className}
       >
-        soundcloud
+        [soundcloud]
       </a>
     </div>
   );

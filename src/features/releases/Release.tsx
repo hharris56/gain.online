@@ -41,7 +41,7 @@ export const Release = ({
             )}
           >
             <div className="xs:px-8 text-center">{description}</div>
-            {link && <a href="">listen now</a>}
+            {link && <a href="">[listen now]</a>}
           </div>
         </div>
       </div>

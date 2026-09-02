@@ -1,6 +1,9 @@
 import "../globals.css";
+import Link from "next/link";
 import Footer from "@/features/layout/footer";
 import { UniversalHeader } from "@/features/layout/header";
+import { RadioAudioMount } from "@/features/radio/components/RadioAudioMount";
+import { LayoutRadioControls } from "@/features/radio/components/LayoutRadioControls";
 import NoSsr from "../../hooks/noSsr";
 
 export default function RootLayout({
@@ -10,6 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <NoSsr>
+      {/* The one shared radio stream — lives at the (main) layout level so it
+          is never unmounted while navigating between pages. */}
+      <RadioAudioMount />
       <div className="flex flex-col md:flex-row md:p-8 md:pb-0">
         <UniversalHeader />
         <div className="flex flex-col px-4 md:pl-8">
@@ -30,9 +36,11 @@ export default function RootLayout({
             {/* you can reach me via the contact page or find me on my socials. */}
           </div>
           <div className="flex flex-row gap-4 justify-center mt-4">
-            <a href="/blog">[blog]</a>
-            <a href="/releases">[releases]</a>
+            <Link href="/blog">[blog]</Link>
+            <Link href="/releases">[releases]</Link>
+            <Link href="/radio">[radio]</Link>
           </div>
+          <LayoutRadioControls className="mt-4 p-2 border" />
           <div>{children}</div>
           <Footer />
         </div>
