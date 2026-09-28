@@ -1,17 +1,22 @@
 /**
- * Equalizer analysis path — deliberately independent of the `<audio>` element
- * that actually plays sound.
+ * Equalizer analysis path — **iOS/iPadOS-only fallback**, deliberately
+ * independent of the `<audio>` element that actually plays sound. On every
+ * other platform the EQ instead taps a real `AnalyserNode` directly off the
+ * playing `<audio>` element (see `analyserSpectrumSource.ts`) — zero drift, no
+ * second stream download.
  *
- * Why: iOS WebKit returns all-zeros from `AnalyserNode.getByteFrequencyData()`
- * when the analyser is tapped off a cross-origin *streaming* media element via
- * `createMediaElementSource()`. So instead of tapping playback, we `fetch` the
- * same stream URL a second time, decode the MP3 to PCM in a Web Worker, and run
- * our own FFT over the newest samples.
+ * Why iOS needs this: iOS WebKit returns all-zeros from
+ * `AnalyserNode.getByteFrequencyData()` when the analyser is tapped off a
+ * cross-origin *streaming* media element via `createMediaElementSource()`. So
+ * instead of tapping playback, we `fetch` the same stream URL a second time,
+ * decode the MP3 to PCM in a Web Worker, and run our own FFT over the newest
+ * samples. See AGENTS.md §6.
  *
- * Consequences (accepted): a second stream download while the EQ is on screen
- * and playing; ~0.5–1s drift vs. what you hear (both sit near the live edge);
- * MP3-only (a non-`audio/mpeg` response disables the path — flat bars, audio
- * untouched). Nothing here can affect playback: the two paths share only a URL.
+ * Consequences (accepted, iOS only): a second stream download while the EQ is
+ * on screen and playing; ~0.5–1s drift vs. what you hear (both sit near the
+ * live edge); MP3-only (a non-`audio/mpeg` response disables the path — flat
+ * bars, audio untouched). Nothing here can affect playback: the two paths
+ * share only a URL.
  */
 
 import { MPEGDecoderWebWorker } from "mpg123-decoder";

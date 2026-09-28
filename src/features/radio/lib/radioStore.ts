@@ -4,8 +4,10 @@
  *
  *   - a single <audio> element (mounted once, invisibly, by <RadioAudioMount/>
  *     in the header so it survives client-side navigation)
- *   - the equalizer analysis path (a second fetch+decode of the same stream —
- *     see spectrumSource.ts for why it isn't tapped off the <audio> element)
+ *   - the equalizer analysis path — an AnalyserNode tapped directly off that
+ *     <audio> element on most platforms (zero drift), or an independent
+ *     fetch+decode of the same stream on iOS only (see AGENTS.md §6 and
+ *     analyserSpectrumSource.ts / spectrumSource.ts for why)
  *   - the AzuraCast now-playing feed (one connection, not one per display)
  *
  * Any number of display components subscribe through `useSyncExternalStore`
@@ -17,10 +19,12 @@ import {
   createNowPlayingClient,
   type NowPlayingClient,
 } from "./azuracastClient";
+import { createAnalyserSpectrumSource } from "./analyserSpectrumSource";
 import {
   createStreamSpectrumSource,
   type StreamSpectrumSource,
 } from "./spectrumSource";
+import { isIOS } from "./platform";
 import { radioConfig } from "../config";
 import type { ConnectionState, NowPlaying } from "../types";
 
@@ -305,14 +309,17 @@ function toggleMute() {
 
 /**
  * Fill `out` with live 0..1 spectrum magnitudes. Self-managing: spins up the
- * analysis path (a second fetch+decode of the stream) on first call while
- * playing, and the watchdog tears it down once calls stop. All-zero until the
- * decoder has enough samples.
+ * analysis path on first call while playing (an AnalyserNode tap on the real
+ * <audio> element everywhere except iOS, which gets an independent
+ * fetch+decode of the stream instead — see AGENTS.md §6), and the watchdog
+ * tears it down once calls stop. All-zero until primed.
  */
 function readSpectrum(out: number[]) {
   spectrumLastReadAt = Date.now();
-  if (!spectrumSource && snapshot.player.isPlaying && playingUrl) {
-    spectrumSource = createStreamSpectrumSource(playingUrl);
+  if (!spectrumSource && snapshot.player.isPlaying && playingUrl && audioEl) {
+    spectrumSource = isIOS()
+      ? createStreamSpectrumSource(playingUrl)
+      : createAnalyserSpectrumSource(audioEl);
     void spectrumSource.resume();
   }
   if (spectrumSource) spectrumSource.read(out);

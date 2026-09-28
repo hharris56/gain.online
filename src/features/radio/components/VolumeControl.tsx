@@ -10,6 +10,8 @@ interface VolumeControlProps {
   className?: string;
 }
 
+const NUDGE_AMOUNT = 0.1;
+
 /**
  * `VOL -[||||||------]+ 060%  [MUTE]` — the bar is an ARIA slider (click to seek,
  * arrow keys to nudge); `-` / `+` step by 5%.
@@ -34,12 +36,12 @@ export function VolumeControl({
       case "ArrowLeft":
       case "ArrowDown":
         e.preventDefault();
-        nudge(-0.05);
+        nudge(-NUDGE_AMOUNT);
         break;
       case "ArrowRight":
       case "ArrowUp":
         e.preventDefault();
-        nudge(0.05);
+        nudge(NUDGE_AMOUNT);
         break;
       case "Home":
         e.preventDefault();
@@ -67,7 +69,7 @@ export function VolumeControl({
           <button
             type="button"
             aria-label="Decrease volume"
-            onClick={() => nudge(-0.05)}
+            onClick={() => nudge(-NUDGE_AMOUNT)}
             className="transition-colors hover:text-(--accent-color) cursor-pointer"
           >
             -
@@ -89,7 +91,7 @@ export function VolumeControl({
           <button
             type="button"
             aria-label="Increase volume"
-            onClick={() => nudge(0.05)}
+            onClick={() => nudge(NUDGE_AMOUNT)}
             className="transition-colors hover:text-(--accent-color) cursor-pointer"
           >
             +

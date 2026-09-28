@@ -86,15 +86,44 @@ That's the whole model — there is nothing server-side to call.
   not from a stale buffer.
 - `volume` / `muted` persist to `localStorage` (`radio:volume`, `radio:muted`).
 
-### 6. Spectrum analyser — a SEPARATE fetch+decode path (not tapped off `<audio>`)
+### 6. Spectrum analyser — `AnalyserNode` tap, except on iOS
 
-**The equalizer never touches playback.** iOS WebKit returns all-zeros from
-`AnalyserNode.getByteFrequencyData()` when the analyser is tapped off a
-cross-origin *streaming* `<audio>` element via `createMediaElementSource()`
-(desktop works, iOS does not — even with correct CORS). And iOS makes
-`HTMLMediaElement.volume` a no-op. Rather than route playback through Web Audio
-(which would fix both but hands us the whole playback engine + loses free iOS
-background/lock-screen playback), the EQ runs an **independent path**:
+The equalizer taps a real `AnalyserNode` **directly off the actual playing
+`<audio>` element** on every platform except iOS/iPadOS — bars and sound are
+the literal same buffer, zero drift, no second stream download. iOS is the one
+exception, and falls back to an independent fetch+decode of the stream.
+`radioStore.readSpectrum` picks the implementation via `lib/platform.ts`'s
+`isIOS()` (the same UA check `hooks/useIsIOS.ts` uses to hide the volume
+slider).
+
+#### Non-iOS: `AnalyserNode` tap (zero drift)
+
+`lib/analyserSpectrumSource.ts` — `createAnalyserSpectrumSource(audioEl)` →
+`{ read, resume, destroy }`. `createMediaElementSource(audioEl)` can only be
+called **once ever** per element, so the `AudioContext` +
+`MediaElementAudioSourceNode` are cached in a module-level `WeakMap` keyed by
+the element and created lazily on first use; `destroy()` only disconnects the
+`AnalyserNode`, never the cached graph. `fftSize = 2048`,
+`smoothingTimeConstant = 0.35` (matches the iOS path's smoothing so the two
+feel the same). `read()` calls `getByteFrequencyData` then the shared
+`binsToLogBands` — identical final step to the iOS path, so `AsciiEqualizer`'s
+shaping is unaffected either way.
+
+**Do not remove `node.connect(audioCtx.destination)`** — once
+`createMediaElementSource` is called, the Web Audio graph becomes the _only_
+audio output path for that element. Removing this connection silences
+playback entirely.
+
+#### iOS: independent fetch+decode+FFT fallback
+
+**The equalizer never touches playback here either.** iOS WebKit returns
+all-zeros from `AnalyserNode.getByteFrequencyData()` when the analyser is
+tapped off a cross-origin _streaming_ `<audio>` element via
+`createMediaElementSource()` (desktop/Android work, iOS does not — even with
+correct CORS). And iOS makes `HTMLMediaElement.volume` a no-op. Rather than
+route playback through Web Audio everywhere (which would fix both but hands us
+the whole playback engine + loses free iOS background/lock-screen playback),
+iOS alone runs an **independent path**:
 
 ```
 fetch(streamUrl)  →  mpg123-decoder (Web Worker)  →  Float32 ring buffer
@@ -102,21 +131,24 @@ fetch(streamUrl)  →  mpg123-decoder (Web Worker)  →  Float32 ring buffer
 ```
 
 - `lib/spectrumSource.ts` — `createStreamSpectrumSource(url)` → `{ read, resume,
-  destroy }`. `read()` windows (Hann) + FFTs the newest samples, maps magnitude
+destroy }`. `read()` windows (Hann) + FFTs the newest samples, maps magnitude
   → dB → `[-85,-25]` → 0..1, applies per-bin exponential smoothing (`0.35`, the
   old `smoothingTimeConstant`), then `binsToLogBands`.
 - `lib/spectrumBands.ts` — `binsToLogBands(freq, out, sampleRate, minHz?,
-  maxHz?)` + `SPECTRUM_MIN_HZ` / `SPECTRUM_MAX_HZ`. Shared shape so
-  `AsciiEqualizer`'s tilt/compression props are unchanged.
-- **`radioStore` self-manages the source's lifecycle** (do not "simplify" this):
-  `readSpectrum` lazily creates it while `isPlaying && playingUrl`; a 1s
-  watchdog `destroy()`s it once `!isPlaying` or no `readSpectrum` call for 2s
-  (i.e. paused, or no equalizer on screen). `start()` / `pause()` /
-  `detachAudioElement` also tear it down; a stream-URL change recreates it.
-  Net effect: the **second stream download only exists while an equalizer is
-  visible and playing**.
+maxHz?)` + `SPECTRUM_MIN_HZ` / `SPECTRUM_MAX_HZ`. Shared shape so
+  `AsciiEqualizer`'s tilt/compression props are unchanged, and shared with the
+  non-iOS `AnalyserNode` path above.
+- **`radioStore` self-manages the source's lifecycle** (do not "simplify" this,
+  on either platform): `readSpectrum` lazily creates it while `isPlaying &&
+playingUrl`; a 1s watchdog `destroy()`s it once `!isPlaying` or no
+  `readSpectrum` call for 2s (i.e. paused, or no equalizer on screen).
+  `start()` / `pause()` / `detachAudioElement` also tear it down; a stream-URL
+  change recreates it. Net effect on iOS: the **second stream download only
+  exists while an equalizer is visible and playing**.
 
-Gotchas — **do not "simplify" these away**:
+Gotchas — **do not "simplify" these away, and don't delete this path as "dead
+code" just because most users hit the `AnalyserNode` path above** — it's the
+only thing that works on iOS:
 
 - **MP3-only.** `read` stays flat if the fetched `Content-Type` isn't `audio/*mpeg*`.
 - **No ICY metadata.** We never send `Icy-MetaData: 1`, so the response is a
@@ -127,8 +159,8 @@ Gotchas — **do not "simplify" these away**:
   Turbopack can't statically resolve. The shim is just `Worker` in the browser,
   a dummy `class {}` on the server (never instantiated — the path is client-only
   and lazy).
-- **~0.5–1s A/V drift** between the bars and what you hear (independent fetch;
-  both near the live edge). Acceptable for a visualiser.
+- **~0.5–1s A/V drift** between the bars and what you hear, iOS only
+  (independent fetch; both near the live edge). Acceptable for a visualiser.
 - **Nothing here can regress playback** — the `<audio>` element and all of
   `radioStore`'s playback code are untouched; the two paths share only a URL
   string. (iOS volume buttons still no-op — separate, handled by hiding that UI
@@ -175,31 +207,33 @@ every row at full width. This is intentional: earlier it collapsed on silence
 
 ## File map
 
-| Path | Layer | Notes |
-| --- | --- | --- |
-| `config.ts` | config | **Only** file with station specifics: `baseUrl`, `station`. Hardcoded on purpose (matches the rest of this codebase; no env vars). |
-| `types.ts` | types | `Raw*` = AzuraCast wire shapes. `NowPlaying` etc. = the trimmed shapes everything else uses. |
-| `lib/normalize.ts` | connection | `RawNowPlaying` → `NowPlaying`. Tolerant of missing fields (offline / live-DJ). |
-| `lib/azuracastClient.ts` | connection | SSE + polling fallback. No React. |
-| `lib/spectrumSource.ts` | connection | `createStreamSpectrumSource(url)` — the EQ's independent fetch→mpg123-decode→FFT path. No React. Constants: `FFT_SIZE`, `SMOOTHING`, `MIN_DB`/`MAX_DB`. |
-| `lib/fft.ts` | connection | Radix-2 FFT + Hann window. Pure, no deps. |
-| `lib/spectrumBands.ts` | connection | `binsToLogBands()` + `SPECTRUM_MIN_HZ`/`SPECTRUM_MAX_HZ`. Shared by the source and `AsciiEqualizer`. |
-| `lib/eshazWebWorkerShim.js` | build | Browser `Worker` stand-in, aliased in via `next.config.js` (see §6). |
-| `lib/radioStore.ts` | state | The global singleton. `useSyncExternalStore` surface + imperative controls + `attach/detachAudioElement`. Self-manages the spectrum source (created on demand, torn down when idle/paused). |
-| `hooks/useRadioPlayer.ts` | react bridge | **No args.** Playback state + actions + `readSpectrum`. |
-| `hooks/useNowPlaying.ts` | react bridge | Shared feed + a local 1s ticker projecting `elapsed` between server pushes. |
-| `hooks/useSpectrum.ts` | react bridge | Drives a rAF loop over `readSpectrum`, returns `number[]` bands. Envelope knobs: `bands`, `fps`, `attack`, `decay`. `RadioView` runs it at 64 source bands; `AsciiEqualizer` resamples down to whatever fits. |
-| `hooks/useCharCells.ts` | react bridge | Measures a container's width in monospace character cells (via an off-layout ruler `<span>` + `ResizeObserver`). Used by `TrackProgress` and `AsciiEqualizer` to grow-to-fit. |
-| `hooks/useIsIOS.ts` | react bridge | iOS/iPadOS UA check, hydration-safe (starts `false`, updates post-mount). `RadioControls` uses it to hide `VolumeControl` (iOS `HTMLMediaElement.volume` is a no-op). |
-| `components/RadioAudioMount.tsx` | mount | The one `<audio>`. Render once. |
-| `components/RadioView.tsx` | display | The full terminal-style console. Composition only. **Most of the dev's manual edits are here.** |
-| `components/{NowPlayingCard,PlayButton,VolumeControl}.tsx` | display | Pure presentational, props + callbacks only. |
-| `components/RadioControls.tsx` | display | Combines `PlayButton` + `VolumeControl` into one transport row. Hides `VolumeControl` on iOS (`useIsIOS`). |
-| `components/LayoutRadioControls.tsx` | display | Client wrapper: reads `useRadioPlayer()` and renders `RadioControls` only while playing/buffering. Mounted under the nav in `(main)/layout.tsx`. |
-| `components/TrackProgress.tsx` | display | `[####    ]` meter; grows to fill its container via `useCharCells` (client component, but still just props in). |
-| `components/AsciiEqualizer.tsx` | display | Vertical bar graph; grows to fill via `useCharCells`, averaging-resamples `bands` to the fitted column count. Height pinned to `height` lines. Shaping toggles (all default on): `logBands`, `spectralTilt`, `logCompression`. |
-| `components/AsciiBar.tsx` | display | Pure string renderer — `[####    ]` given `ratio` + `width`. |
-| `index.ts` | barrel | Public surface. Import from `@/features/radio`. |
+| Path                                                       | Layer        | Notes                                                                                                                                                                                                                          |
+| ---------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `config.ts`                                                | config       | **Only** file with station specifics: `baseUrl`, `station`. Hardcoded on purpose (matches the rest of this codebase; no env vars).                                                                                             |
+| `types.ts`                                                 | types        | `Raw*` = AzuraCast wire shapes. `NowPlaying` etc. = the trimmed shapes everything else uses.                                                                                                                                   |
+| `lib/normalize.ts`                                         | connection   | `RawNowPlaying` → `NowPlaying`. Tolerant of missing fields (offline / live-DJ).                                                                                                                                                |
+| `lib/azuracastClient.ts`                                   | connection   | SSE + polling fallback. No React.                                                                                                                                                                                              |
+| `lib/platform.ts`                                          | connection   | `isIOS()` — plain UA check shared by `radioStore` (spectrum routing) and `hooks/useIsIOS.ts` (hides `VolumeControl`).                                                                                                          |
+| `lib/analyserSpectrumSource.ts`                            | connection   | `createAnalyserSpectrumSource(audioEl)` — the non-iOS EQ path: an `AnalyserNode` tapped directly off the real `<audio>` element. Zero drift. No React.                                                                         |
+| `lib/spectrumSource.ts`                                    | connection   | `createStreamSpectrumSource(url)` — the EQ's **iOS-only** independent fetch→mpg123-decode→FFT fallback. No React. Constants: `FFT_SIZE`, `SMOOTHING`, `MIN_DB`/`MAX_DB`.                                                       |
+| `lib/fft.ts`                                               | connection   | Radix-2 FFT + Hann window. Pure, no deps.                                                                                                                                                                                      |
+| `lib/spectrumBands.ts`                                     | connection   | `binsToLogBands()` + `SPECTRUM_MIN_HZ`/`SPECTRUM_MAX_HZ`. Shared by both spectrum sources and `AsciiEqualizer`.                                                                                                                |
+| `lib/eshazWebWorkerShim.js`                                | build        | Browser `Worker` stand-in, aliased in via `next.config.js` (see §6).                                                                                                                                                           |
+| `lib/radioStore.ts`                                        | state        | The global singleton. `useSyncExternalStore` surface + imperative controls + `attach/detachAudioElement`. Self-manages the spectrum source (created on demand per platform via `isIOS()`, torn down when idle/paused).         |
+| `hooks/useRadioPlayer.ts`                                  | react bridge | **No args.** Playback state + actions + `readSpectrum`.                                                                                                                                                                        |
+| `hooks/useNowPlaying.ts`                                   | react bridge | Shared feed + a local 1s ticker projecting `elapsed` between server pushes.                                                                                                                                                    |
+| `hooks/useSpectrum.ts`                                     | react bridge | Drives a rAF loop over `readSpectrum`, returns `number[]` bands. Envelope knobs: `bands`, `fps`, `attack`, `decay`. `RadioView` runs it at 64 source bands; `AsciiEqualizer` resamples down to whatever fits.                  |
+| `hooks/useCharCells.ts`                                    | react bridge | Measures a container's width in monospace character cells (via an off-layout ruler `<span>` + `ResizeObserver`). Used by `TrackProgress` and `AsciiEqualizer` to grow-to-fit.                                                  |
+| `hooks/useIsIOS.ts`                                        | react bridge | iOS/iPadOS UA check, hydration-safe (starts `false`, updates post-mount). `RadioControls` uses it to hide `VolumeControl` (iOS `HTMLMediaElement.volume` is a no-op).                                                          |
+| `components/RadioAudioMount.tsx`                           | mount        | The one `<audio>`. Render once.                                                                                                                                                                                                |
+| `components/RadioView.tsx`                                 | display      | The full terminal-style console. Composition only. **Most of the dev's manual edits are here.**                                                                                                                                |
+| `components/{NowPlayingCard,PlayButton,VolumeControl}.tsx` | display      | Pure presentational, props + callbacks only.                                                                                                                                                                                   |
+| `components/RadioControls.tsx`                             | display      | Combines `PlayButton` + `VolumeControl` into one transport row. Hides `VolumeControl` on iOS (`useIsIOS`).                                                                                                                     |
+| `components/LayoutRadioControls.tsx`                       | display      | Client wrapper: reads `useRadioPlayer()` and renders `RadioControls` only while playing/buffering. Mounted under the nav in `(main)/layout.tsx`.                                                                               |
+| `components/TrackProgress.tsx`                             | display      | `[####    ]` meter; grows to fill its container via `useCharCells` (client component, but still just props in).                                                                                                                |
+| `components/AsciiEqualizer.tsx`                            | display      | Vertical bar graph; grows to fill via `useCharCells`, averaging-resamples `bands` to the fitted column count. Height pinned to `height` lines. Shaping toggles (all default on): `logBands`, `spectralTilt`, `logCompression`. |
+| `components/AsciiBar.tsx`                                  | display      | Pure string renderer — `[####    ]` given `ratio` + `width`.                                                                                                                                                                   |
+| `index.ts`                                                 | barrel       | Public surface. Import from `@/features/radio`.                                                                                                                                                                                |
 
 ---
 
@@ -250,13 +284,15 @@ before changing the corresponding layer.
   Worker): <https://github.com/eshaz/wasm-audio-decoders/tree/main/src/mpg123-decoder>
 - Streaming a fetch response body:
   <https://developer.mozilla.org/en-US/docs/Web/API/Streams_API/Using_readable_streams>
-- Why the old `<audio>` tap failed on iOS — `createMediaElementSource()` +
-  cross-origin streaming media returns silence to `AnalyserNode` on WebKit;
-  `HTMLMediaElement.volume` is a no-op on iOS. Background: MDN
-  `createMediaElementSource` / `HTMLMediaElement.volume` notes + WebKit bug
-  history.
-- Autoplay / resuming an `AudioContext` from a gesture (relevant only if the EQ
-  path is ever moved back onto Web Audio):
+- Why iOS needs the fallback — `createMediaElementSource()` + cross-origin
+  streaming media returns silence to `AnalyserNode` on WebKit specifically
+  (the `AnalyserNode` tap in `analyserSpectrumSource.ts` is the current
+  approach on every other platform); `HTMLMediaElement.volume` is also a
+  no-op on iOS. Background: MDN `createMediaElementSource` /
+  `HTMLMediaElement.volume` notes + WebKit bug history.
+- Autoplay / resuming an `AudioContext` from a gesture — relevant to
+  `analyserSpectrumSource.ts`'s `resume()`, which the Play button's click
+  handler satisfies:
   <https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#the_web_audio_api>
 
 **Server-Sent Events**
