@@ -20,7 +20,7 @@ export function NowPlayingCard({ nowPlaying, className }: NowPlayingCardProps) {
   return (
     <div className={cn("font-mono text-sm whitespace-pre", className)}>
       <div className="flex flex-row justify-between">
-        <div className="text-(--secondary-text-color)">
+        <div className="text-(--accent-color)">
           {isLive ? "~ ON AIR ~" : ">> NOW PLAYING"}
         </div>
         <div className="text-(--secondary-text-color)">
@@ -29,7 +29,6 @@ export function NowPlayingCard({ nowPlaying, className }: NowPlayingCardProps) {
         </div>
       </div>
       <div className="mt-1 truncate">
-        {/* <span className="text-(--secondary-text-color)">{"  track   "}</span> */}
         <span className="font-bold">{title}</span>
       </div>
       <div className="truncate text-(--secondary-text-color)">

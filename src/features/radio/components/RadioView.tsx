@@ -47,14 +47,17 @@ export function RadioView() {
     player.ready && Boolean(nowPlaying?.station.listenUrl) && isOnline;
   const stationName = nowPlaying?.station.name || "gain radio";
   const nextSong = nowPlaying?.next;
+  const mode = nowPlaying?.current?.playlist || "";
 
   return (
     <section className="my-8 font-mono text-sm border-black border p-4">
       <div className="flex items-baseline justify-between whitespace-pre">
-        {/* <span className="font-bold">
-          GAIN AUDIO
-        </span> */}
-        <div className="truncate">Station :: {stationName}</div>
+        <div className="truncate">
+          Station :: {stationName}
+          {mode && (
+            <span className="text-(--secondary-text-color)">{` [${mode}]`}</span>
+          )}
+        </div>
         <span
           className={
             connectionState == "live"

@@ -24,6 +24,8 @@ export interface RawNowPlayingCurrent {
   remaining: number;
   played_at: number;
   song: RawSong;
+  /** Name of the AzuraCast playlist this track came from, e.g. "Trance", "House". */
+  playlist?: string;
 }
 
 export interface RawPlayingNext {
@@ -76,6 +78,11 @@ export interface NowPlaying {
     duration: number;
     /** Seconds into the track at the moment this payload was produced. */
     elapsed: number;
+    /**
+     * Name of the AzuraCast playlist driving this track, e.g. "Trance", "House".
+     * "" when AzuraCast doesn't report one (requests, live DJ, etc.).
+     */
+    playlist: string;
   } | null;
   next: NowPlayingSong | null;
   live: {

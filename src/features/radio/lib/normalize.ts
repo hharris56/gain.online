@@ -31,6 +31,7 @@ export function normalize(raw: RawNowPlaying): NowPlaying {
           song: normalizeSong(raw.now_playing.song),
           duration: raw.now_playing.duration ?? 0,
           elapsed: raw.now_playing.elapsed ?? 0,
+          playlist: raw.now_playing.playlist ?? "",
         }
       : null,
     next: raw.playing_next ? normalizeSong(raw.playing_next.song) : null,
