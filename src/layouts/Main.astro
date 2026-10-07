@@ -1,0 +1,112 @@
+---
+/**
+ * The shell every content page sits in: icon rail, bio, nav, mini player, footer.
+ */
+import Base from "./Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+
+// The full radio console already shows controls, so the mini player would be a
+// duplicate there.
+const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
+---
+
+<Base title={title} description={description}>
+  <div class="flex flex-col md:flex-row md:p-8 md:pb-0">
+    <Header />
+    <div class="flex flex-col px-4 md:pl-8">
+      <h1 class="hidden text-4xl font-bold my-4 md:flex md:mt-0">gain.online</h1>
+      <div class="mt-4">
+        hey, welcome to my corner of the web. my name is{" "}
+        <mark class="bg-(--primary-text-color) text-(--primary-text-color)">
+          nicetrylol
+        </mark>{" "}
+        but <u>online</u> i go by <u>gain</u>. im a 28yo artist, programmer, and
+        avid enjoyer of all things related to music and design. for now this site
+        acts as a personal blog, soon it will return to functioning as an archive
+        of my current and past works. until then you can check out some of my
+        music via the socials below.
+      </div>
+      <div class="flex flex-row gap-4 justify-center mt-4">
+        <a href="/blog">[blog]</a>
+        <a href="/releases">[releases]</a>
+        <a href="/radio">[radio]</a>
+      </div>
+
+      {!onRadioPage && <gain-mini-player class="mt-4 p-2 border" hidden />}
+
+      <div><slot /></div>
+      <Footer />
+    </div>
+  </div>
+</Base>
+
+{
+  !onRadioPage && (
+    <script>
+      import { radioStore } from "@/features/radio/lib/radioStore";
+
+      /**
+       * The persistent mini player. Shows transport controls on non-radio pages,
+       * but only while something is actually playing or buffering.
+       *
+       * This element is destroyed and recreated on every navigation (only the
+       * <audio> node is persisted), so it must never tear down playback state —
+       * it only reads the store and unsubscribes.
+       */
+      class GainMiniPlayer extends HTMLElement {
+        #unsub: (() => void) | null = null;
+
+        connectedCallback() {
+          this.innerHTML = `
+            <div class="font-mono text-sm flex items-center gap-3">
+              <button type="button" data-toggle class="cursor-pointer">[ PLAY ]</button>
+              <span data-title class="truncate"></span>
+            </div>`;
+
+          this.querySelector("[data-toggle]")?.addEventListener("click", () =>
+            radioStore.toggle(),
+          );
+
+          this.#unsub = radioStore.subscribe(() => this.render());
+          this.render();
+        }
+
+        disconnectedCallback() {
+          // Only drop the subscription. Touching the audio element here would
+          // stop the stream on every page change.
+          this.#unsub?.();
+          this.#unsub = null;
+        }
+
+        render() {
+          const { player, nowPlaying } = radioStore.getSnapshot();
+          const live = player.isPlaying || player.isBuffering;
+          this.hidden = !live;
+          if (!live) return;
+
+          const btn = this.querySelector("[data-toggle]");
+          if (btn) btn.textContent = player.isBuffering ? "[ ... ]" : "[ STOP ]";
+
+          const song = nowPlaying?.current?.song;
+          const title = this.querySelector("[data-title]");
+          if (title) {
+            title.textContent = song
+              ? `${song.artist ? song.artist + " - " : ""}${song.title}`
+              : "";
+          }
+        }
+      }
+
+      if (!customElements.get("gain-mini-player")) {
+        customElements.define("gain-mini-player", GainMiniPlayer);
+      }
+    </script>
+  )
+}

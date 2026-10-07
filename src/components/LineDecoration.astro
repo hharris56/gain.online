@@ -1,0 +1,5 @@
+---
+interface Props { class?: string }
+const { class: className } = Astro.props;
+---
+<div class:list={["gradient-y min-w-1 min-h-full mr-4 md:mr-8", className]} />
