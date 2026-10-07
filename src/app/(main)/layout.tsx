@@ -32,7 +32,7 @@ export default function RootLayout({
             <mark className="bg-(--primary-text-color) text-(--primary-text-color)">
               nicetrylol
             </mark>{" "}
-            but <u>online</u> i go by <u>gain</u>. im a 27yo artist, programmer,
+            but <u>online</u> i go by <u>gain</u>. im a 28yo artist, programmer,
             and avid enjoyer of all things related to music and design. for now
             this site acts as a personal blog, soon it will return to
             functioning as an archive of my current and past works. until then
