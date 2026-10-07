@@ -1,0 +1,59 @@
+---
+/**
+ * The shell every content page sits in: icon rail, bio, nav, mini player, footer.
+ */
+import Base from "./Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import MiniPlayer from "../components/radio/MiniPlayer.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+
+// The full radio console already shows controls, so the mini player would be a
+// duplicate there.
+const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
+---
+
+<Base title={title} description={description}>
+  <div class="flex flex-col md:flex-row md:p-8 md:pb-0">
+    <Header />
+    <div class="flex flex-col px-4 md:pl-8">
+      <h1 class="hidden text-4xl font-bold my-4 md:flex md:mt-0">gain.online</h1>
+      <div class="mt-4">
+        hey, welcome to my corner of the web. my name is{" "}
+        <mark class="bg-(--primary-text-color) text-(--primary-text-color)">
+          nicetrylol
+        </mark>{" "}
+        but <u>online</u> i go by <u>gain</u>. im a 28yo artist, programmer, and
+        avid enjoyer of all things related to music and design. for now this site
+        acts as a personal blog, soon it will return to functioning as an archive
+        of my current and past works. until then you can check out some of my
+        music via the socials below.
+      </div>
+      <div class="flex flex-row gap-4 justify-center mt-4">
+        <a href="/blog">[blog]</a>
+        <a href="/releases">[releases]</a>
+        <a href="/radio">[radio]</a>
+      </div>
+
+      {!onRadioPage && <MiniPlayer class="mt-4 p-2 border" />}
+
+      <div><slot /></div>
+      <Footer />
+    </div>
+  </div>
+</Base>
+
+{
+  /* The radio elements are only shipped where radio UI actually exists: the
+     mini player off /radio, and the full console on it (see radio.astro). */
+  !onRadioPage && (
+    <script>
+      import "@/features/radio/elements/chrome";
+    </script>
+  )
+}

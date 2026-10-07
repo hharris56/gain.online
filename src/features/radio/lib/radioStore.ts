@@ -19,11 +19,7 @@ import {
   createNowPlayingClient,
   type NowPlayingClient,
 } from "./azuracastClient";
-import { createAnalyserSpectrumSource } from "./analyserSpectrumSource";
-import {
-  createStreamSpectrumSource,
-  type StreamSpectrumSource,
-} from "./spectrumSource";
+import type { StreamSpectrumSource } from "./spectrumSource";
 import { isIOS } from "./platform";
 import { radioConfig } from "../config";
 import type { ConnectionState, NowPlaying } from "../types";
@@ -81,6 +77,13 @@ let playingUrl: string | null = null;
  * only exists when an equalizer is on screen and playing.
  */
 let spectrumSource: StreamSpectrumSource | null = null;
+/**
+ * True while the spectrum implementation's module is still being fetched. The
+ * two sources are imported lazily (see `readSpectrum`) so that pages which only
+ * need playback state — every page, for the mini player — don't pull in the
+ * iOS MP3 decoder's WASM payload.
+ */
+let spectrumSourceLoading = false;
 let spectrumLastReadAt = 0;
 let spectrumWatchdog: ReturnType<typeof setInterval> | null = null;
 const SPECTRUM_IDLE_MS = 2000;
@@ -175,6 +178,7 @@ function ensureInitialized() {
 function teardownSpectrumSource() {
   spectrumSource?.destroy();
   spectrumSource = null;
+  spectrumSourceLoading = false;
 }
 
 // --- audio element wiring (called by <RadioAudioMount/>) --------------------
@@ -316,11 +320,40 @@ function toggleMute() {
  */
 function readSpectrum(out: number[]) {
   spectrumLastReadAt = Date.now();
-  if (!spectrumSource && snapshot.player.isPlaying && playingUrl && audioEl) {
-    spectrumSource = isIOS()
-      ? createStreamSpectrumSource(playingUrl)
-      : createAnalyserSpectrumSource(audioEl);
-    void spectrumSource.resume();
+  if (
+    !spectrumSource &&
+    !spectrumSourceLoading &&
+    snapshot.player.isPlaying &&
+    playingUrl &&
+    audioEl
+  ) {
+    // Capture these now; `playingUrl`/`audioEl` may change while the module
+    // loads, and the source must be built against the stream we saw here.
+    const url = playingUrl;
+    const el = audioEl;
+    spectrumSourceLoading = true;
+    (isIOS()
+      ? import("./spectrumSource").then((m) =>
+          m.createStreamSpectrumSource(url),
+        )
+      : import("./analyserSpectrumSource").then((m) =>
+          m.createAnalyserSpectrumSource(el),
+        )
+    )
+      .then((source) => {
+        spectrumSourceLoading = false;
+        // Playback may have stopped, or a teardown may have run, while the
+        // module was in flight. Don't install a source nobody asked for.
+        if (!snapshot.player.isPlaying || audioEl !== el) {
+          source.destroy();
+          return;
+        }
+        spectrumSource = source;
+        void source.resume();
+      })
+      .catch(() => {
+        spectrumSourceLoading = false;
+      });
   }
   if (spectrumSource) spectrumSource.read(out);
   else for (let i = 0; i < out.length; i++) out[i] = 0;

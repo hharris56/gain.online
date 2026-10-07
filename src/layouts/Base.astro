@@ -1,0 +1,83 @@
+---
+/**
+ * Root document. Also the home of the one shared <audio> element for the whole
+ * site — see the comment on it below.
+ */
+import { ClientRouter } from "astro:transitions";
+import "../styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "gain online",
+  description = "gain portfolio spread",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/icons/icon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    />
+
+    <!-- Client-side routing. This is what makes persistent audio possible: it
+         swaps page content in place instead of loading a new document, so plain
+         <a href> links no longer tear down the player. -->
+    <ClientRouter />
+  </head>
+
+  <body class="webpage-background font-sans">
+    {/*
+      THE one shared radio stream, for the entire site.
+
+      `transition:persist` moves this exact DOM node across navigations rather
+      than recreating it, so playback — and the Web Audio graph tapped off it —
+      survive. Verified: node identity holds, the cached MediaElementAudioSource
+      keeps producing live data, and audio never drops. Without the directive,
+      playback stops dead on the first navigation.
+
+      It lives here in Base rather than in Main so the landing page has a player
+      too (the old Next app's (landing) route group had none).
+
+      Careful: a custom element wrapping this gets disconnectedCallback on EVERY
+      navigation. Never call radioStore.detachAudioElement() from a disconnect
+      hook — it pauses, strips src and calls load(), which would kill playback
+      on every page change. attachAudioElement() is idempotent, so re-attaching
+      is safe; detaching is not.
+    */}
+    <audio
+      transition:persist="radio-audio"
+      id="radio-audio"
+      hidden
+      aria-hidden="true"
+      preload="none"></audio>
+
+    <slot />
+
+    <script>
+      import { radioStore } from "@/features/radio/lib/radioStore";
+
+      // Re-attach after every navigation. The <audio> node is persisted, and
+      // attachAudioElement() early-returns when handed the element it already
+      // holds, so this is a no-op on every call after the first.
+      function attach() {
+        const el = document.getElementById("radio-audio");
+        if (el instanceof HTMLAudioElement) radioStore.attachAudioElement(el);
+      }
+      attach();
+      document.addEventListener("astro:page-load", attach);
+    </script>
+  </body>
+</html>

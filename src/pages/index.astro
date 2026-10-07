@@ -1,0 +1,55 @@
+---
+/**
+ * Landing page — a slowly rotating logo that spins out and navigates to /blog
+ * when clicked. The spin-out is pure CSS (:focus on a tabbable <img>, as in the
+ * original); the only script is the 1s delay before navigating so the animation
+ * can finish.
+ */
+import Base from "../layouts/Base.astro";
+---
+
+<Base>
+  <div class="w-dvw h-dvh flex justify-center items-center">
+    <img
+      src="/logos/logo black.png"
+      alt="gain.online"
+      class="landing-logo logo-rotate w-80"
+      id="logo"
+      tabindex="0"
+    />
+  </div>
+</Base>
+
+<style>
+  .landing-logo {
+    max-width: var(--size-x);
+    max-height: var(--size-y);
+    cursor: pointer;
+    transform: rotate(0deg);
+  }
+
+  .logo-rotate {
+    animation: rotation 20s 0s infinite forwards;
+    opacity: 1;
+  }
+
+  /* Clicking focuses the image, which triggers the spin-out. */
+  .logo-rotate:focus {
+    opacity: 0;
+    transform: rotate(-180deg) scale(-0.05);
+    transition: all 1s ease-in;
+  }
+</style>
+
+<script>
+  import { navigate } from "astro:transitions/client";
+
+  document.addEventListener("astro:page-load", () => {
+    const logo = document.getElementById("logo");
+    if (!logo) return;
+    logo.addEventListener("click", () => {
+      logo.focus(); // drive the :focus spin-out even for mouse clicks
+      setTimeout(() => navigate("/blog"), 1000);
+    });
+  });
+</script>
