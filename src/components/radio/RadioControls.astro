@@ -1,0 +1,51 @@
+---
+/**
+ * Transport row: play/stop + volume. Pure markup — <gain-play-button> and
+ * <gain-volume> each subscribe to the store and update only their own text.
+ */
+const RULER_WIDTH = 10;
+interface Props { class?: string }
+const { class: className } = Astro.props;
+
+const hoverable = "transition-colors hover:text-(--accent-color) cursor-pointer";
+---
+
+<div
+  class:list={[
+    "flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm font-mono",
+    className,
+  ]}
+>
+  <gain-play-button>
+    <button
+      type="button"
+      aria-label="Play"
+      aria-pressed="false"
+      disabled
+      class="font-mono text-sm whitespace-pre text-(--primary-text-color) transition-colors cursor-pointer hover:text-(--accent-color) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-(--primary-text-color)"
+      >[ PLAY ]</button
+    >
+  </gain-play-button>
+
+  <gain-volume data-width={RULER_WIDTH} class="contents">
+    <div data-volume-group>
+      <span class="hidden xxs:inline">VOL </span>
+      <button type="button" data-down aria-label="Decrease volume" class={hoverable}>-</button>
+      <span
+        data-slider
+        role="slider"
+        tabindex="0"
+        aria-label="Volume"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="100"
+        class="cursor-pointer rounded-xs outline-offset-2 focus-visible:outline focus-visible:outline-(--accent-color)"
+        >[<span data-fill class="text-(--accent-color)">{"|".repeat(RULER_WIDTH)}</span
+        ><span data-empty></span>]</span
+      >
+      <button type="button" data-up aria-label="Increase volume" class={hoverable}>+</button>
+    </div>
+
+    <button type="button" data-mute aria-pressed="false" class={hoverable}>[ MUTE ]</button>
+  </gain-volume>
+</div>

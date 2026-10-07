@@ -31,6 +31,16 @@
   ); /* whole view minus width of navbar + padding */
 }
 
+/*
+ * The `hidden` attribute must beat layout utilities. Author-origin rules like
+ * Tailwind's `.block` override the UA stylesheet's `[hidden] { display: none }`,
+ * so elements toggled via `el.hidden` (the radio mini player, the up-next block)
+ * would stay visible without this.
+ */
+[hidden] {
+  display: none !important;
+}
+
 body {
   overflow-x: hidden;
 }

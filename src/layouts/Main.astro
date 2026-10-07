@@ -5,6 +5,7 @@
 import Base from "./Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import MiniPlayer from "../components/radio/MiniPlayer.astro";
 
 interface Props {
   title?: string;
@@ -39,7 +40,7 @@ const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
         <a href="/radio">[radio]</a>
       </div>
 
-      {!onRadioPage && <gain-mini-player class="mt-4 p-2 border" hidden />}
+      {!onRadioPage && <MiniPlayer class="mt-4 p-2 border" />}
 
       <div><slot /></div>
       <Footer />
@@ -48,65 +49,11 @@ const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
 </Base>
 
 {
+  /* The radio elements are only shipped where radio UI actually exists: the
+     mini player off /radio, and the full console on it (see radio.astro). */
   !onRadioPage && (
     <script>
-      import { radioStore } from "@/features/radio/lib/radioStore";
-
-      /**
-       * The persistent mini player. Shows transport controls on non-radio pages,
-       * but only while something is actually playing or buffering.
-       *
-       * This element is destroyed and recreated on every navigation (only the
-       * <audio> node is persisted), so it must never tear down playback state —
-       * it only reads the store and unsubscribes.
-       */
-      class GainMiniPlayer extends HTMLElement {
-        #unsub: (() => void) | null = null;
-
-        connectedCallback() {
-          this.innerHTML = `
-            <div class="font-mono text-sm flex items-center gap-3">
-              <button type="button" data-toggle class="cursor-pointer">[ PLAY ]</button>
-              <span data-title class="truncate"></span>
-            </div>`;
-
-          this.querySelector("[data-toggle]")?.addEventListener("click", () =>
-            radioStore.toggle(),
-          );
-
-          this.#unsub = radioStore.subscribe(() => this.render());
-          this.render();
-        }
-
-        disconnectedCallback() {
-          // Only drop the subscription. Touching the audio element here would
-          // stop the stream on every page change.
-          this.#unsub?.();
-          this.#unsub = null;
-        }
-
-        render() {
-          const { player, nowPlaying } = radioStore.getSnapshot();
-          const live = player.isPlaying || player.isBuffering;
-          this.hidden = !live;
-          if (!live) return;
-
-          const btn = this.querySelector("[data-toggle]");
-          if (btn) btn.textContent = player.isBuffering ? "[ ... ]" : "[ STOP ]";
-
-          const song = nowPlaying?.current?.song;
-          const title = this.querySelector("[data-title]");
-          if (title) {
-            title.textContent = song
-              ? `${song.artist ? song.artist + " - " : ""}${song.title}`
-              : "";
-          }
-        }
-      }
-
-      if (!customElements.get("gain-mini-player")) {
-        customElements.define("gain-mini-player", GainMiniPlayer);
-      }
+      import "@/features/radio/elements/chrome";
     </script>
   )
 }

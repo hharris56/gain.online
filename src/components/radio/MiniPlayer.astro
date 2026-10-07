@@ -1,0 +1,14 @@
+---
+/**
+ * Radio transport for the site chrome. Hidden until something is playing.
+ * Starts hidden so it never flashes on first paint.
+ */
+import RadioControls from "./RadioControls.astro";
+
+interface Props { class?: string }
+const { class: className } = Astro.props;
+---
+
+<gain-mini-player hidden class:list={["block", className]}>
+  <RadioControls />
+</gain-mini-player>

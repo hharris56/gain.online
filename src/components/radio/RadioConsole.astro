@@ -1,0 +1,82 @@
+---
+/**
+ * The terminal-style radio console. Composition and static skeleton only — every
+ * dynamic region is a custom element that subscribes to `radioStore` and updates
+ * its own text.
+ *
+ * The markup below is the pre-connection state, which is what ships in the HTML:
+ * nothing playing, feed connecting, volume at the default. The elements overwrite
+ * it as soon as the store has real data.
+ */
+import RadioControls from "./RadioControls.astro";
+import { CHAR_RULER, CHAR_RULER_CLASS } from "@/features/radio/lib/charCells";
+
+const EQ_HEIGHT = 6;
+const EQ_GAP = 1;
+const VOLUME_WIDTH = 10;
+const dim = "text-(--secondary-text-color)";
+---
+
+<section class="my-8 font-mono text-sm border-black border p-4">
+  <gain-station-line class="block">
+    <div class="flex items-baseline justify-between whitespace-pre">
+      <div class="truncate">
+        Station :: <span data-station>gain radio</span><span data-mode class={dim} hidden></span>
+      </div>
+      <span data-conn-tag class={dim}>
+        [<span data-conn>....</span><span data-conn-dot hidden class="animate-[blink_2s_step-start_infinite]"> ●</span>]
+      </span>
+    </div>
+  </gain-station-line>
+
+  <div class="py-2">
+    <gain-now-playing class="block font-mono text-sm whitespace-pre">
+      <div class="flex flex-row justify-between">
+        <div data-state class="text-(--accent-color)">&gt;&gt; NOW PLAYING</div>
+        <div class={dim}>
+          <span data-listeners>000</span><span class="hidden xxs:inline"> listening</span>
+        </div>
+      </div>
+      <div class="mt-1 truncate"><span data-title class="font-bold">(nothing playing)</span></div>
+      <div data-artist class:list={["truncate", dim]}>--</div>
+      <div data-album class:list={["truncate", dim]}>--</div>
+    </gain-now-playing>
+
+    <gain-ascii-eq class="block" data-height={EQ_HEIGHT} data-gap={EQ_GAP}>
+      <pre
+        data-container
+        aria-hidden="true"
+        style={`height:${EQ_HEIGHT}em;line-height:1`}
+        class="relative m-0 overflow-hidden font-mono text-sm whitespace-pre text-(--accent-color) select-none"
+      ><span data-ruler aria-hidden="true" class={CHAR_RULER_CLASS}>{CHAR_RULER}</span><span
+          data-rows></span></pre>
+    </gain-ascii-eq>
+
+    <gain-track-progress class="relative block w-full font-mono text-sm mt-4">
+      <span data-ruler aria-hidden="true" class={CHAR_RULER_CLASS}>{CHAR_RULER}</span>
+
+      <div class="whitespace-pre">
+        <span class={dim}>[</span><span data-fill class="text-(--accent-color)"
+        ></span><span data-empty></span><span class={dim}>]</span>
+      </div>
+
+      <div class:list={["flex justify-between text-xs", dim]}>
+        <span data-elapsed>0:00</span>
+        <span data-duration>LIVE</span>
+      </div>
+    </gain-track-progress>
+  </div>
+
+  <RadioControls class="py-2" />
+
+  <gain-up-next class:list={["block space-y-1 pt-2 whitespace-pre", dim]}>
+    <div data-next class="truncate" hidden>
+      &gt;&gt; UP NEXT
+      <div class="mt-1 truncate"><span data-next-title class="font-bold"></span></div>
+      <div data-next-artist class="truncate"></div>
+      <div data-next-album class="truncate"></div>
+    </div>
+    <div data-error class="text-red-600" hidden></div>
+    <div data-offline hidden>!! station offline -- stream unavailable</div>
+  </gain-up-next>
+</section>
