@@ -1,8 +1,144 @@
 ---
+/**
+ * The blog: 53 posts, hand-written HTML, newest first.
+ *
+ * Every post is in this page's markup; <gain-posts> reveals them five at a time.
+ * The posts themselves are plain templates with no client JS at all.
+ */
 import Main from "../layouts/Main.astro";
+import August30 from "@/content-html/posts/august30.astro";
+import August9 from "@/content-html/posts/august9.astro";
+import July14 from "@/content-html/posts/july14.astro";
+import June13 from "@/content-html/posts/june13.astro";
+import May30 from "@/content-html/posts/may30.astro";
+import May13_2 from "@/content-html/posts/may13-2.astro";
+import Apr15 from "@/content-html/posts/apr15.astro";
+import Mar30 from "@/content-html/posts/mar30.astro";
+import Mar25_2 from "@/content-html/posts/mar25-2.astro";
+import Mar25 from "@/content-html/posts/mar25.astro";
+import Mar24 from "@/content-html/posts/mar24.astro";
+import Mar16 from "@/content-html/posts/mar16.astro";
+import Mar14_2 from "@/content-html/posts/mar14-2.astro";
+import Mar14 from "@/content-html/posts/mar14.astro";
+import Feb25 from "@/content-html/posts/feb25.astro";
+import Feb12 from "@/content-html/posts/feb12.astro";
+import Feb1 from "@/content-html/posts/feb1.astro";
+import Jan31_3 from "@/content-html/posts/jan31-3.astro";
+import Jan31_2 from "@/content-html/posts/jan31-2.astro";
+import Jan31 from "@/content-html/posts/jan31.astro";
+import Jan25_6 from "@/content-html/posts/jan25-6.astro";
+import Jan25_5 from "@/content-html/posts/jan25-5.astro";
+import Jan25_4 from "@/content-html/posts/jan25-4.astro";
+import Jan25_3 from "@/content-html/posts/jan25-3.astro";
+import Jan25_2 from "@/content-html/posts/jan25-2.astro";
+import Jan25 from "@/content-html/posts/jan25.astro";
+import Jan24 from "@/content-html/posts/jan24.astro";
+import Jan6 from "@/content-html/posts/jan6.astro";
+import June2 from "@/content-html/posts/june2.astro";
+import May17 from "@/content-html/posts/may17.astro";
+import May13 from "@/content-html/posts/may13.astro";
+import Apr26pt2 from "@/content-html/posts/apr26pt2.astro";
+import Apr26 from "@/content-html/posts/apr26.astro";
+import Apr22 from "@/content-html/posts/apr22.astro";
+import Apr6 from "@/content-html/posts/apr6.astro";
+import Apr1 from "@/content-html/posts/apr1.astro";
+import Mar23pt2 from "@/content-html/posts/mar23pt2.astro";
+import Mar23 from "@/content-html/posts/mar23.astro";
+import Mar18 from "@/content-html/posts/mar18.astro";
+import Mar15pt2 from "@/content-html/posts/mar15pt2.astro";
+import Mar15 from "@/content-html/posts/mar15.astro";
+import Mar2 from "@/content-html/posts/mar2.astro";
+import Feb18 from "@/content-html/posts/feb18.astro";
+import Feb16 from "@/content-html/posts/feb16.astro";
+import Feb10 from "@/content-html/posts/feb10.astro";
+import Feb6 from "@/content-html/posts/feb6.astro";
+import Feb4 from "@/content-html/posts/feb4.astro";
+import Jan28pt2 from "@/content-html/posts/jan28pt2.astro";
+import Jan28 from "@/content-html/posts/jan28.astro";
+import Jan20 from "@/content-html/posts/jan20.astro";
+import Jan14pt2 from "@/content-html/posts/jan14pt2.astro";
+import Jan13 from "@/content-html/posts/jan13.astro";
+import Jan7 from "@/content-html/posts/jan7.astro";
+
+const arrowSvg = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line><polyline points=\"19 12 12 19 5 12\"></polyline></svg>";
 ---
-<Main>
+
+<Main title="gain online — blog">
   <div class="page-content-container min-w-[var(--content-width)]">
-    <p>TODO: port blog</p>
+    <gain-posts class="block" data-initial="5">
+      <div
+        data-list
+        class="transition-all duration-1000 ease-in overflow-hidden"
+      >
+      <div data-post><August30 /></div>
+      <div data-post><August9 /></div>
+      <div data-post><July14 /></div>
+      <div data-post><June13 /></div>
+      <div data-post><May30 /></div>
+      <div data-post hidden><May13_2 /></div>
+      <div data-post hidden><Apr15 /></div>
+      <div data-post hidden><Mar30 /></div>
+      <div data-post hidden><Mar25_2 /></div>
+      <div data-post hidden><Mar25 /></div>
+      <div data-post hidden><Mar24 /></div>
+      <div data-post hidden><Mar16 /></div>
+      <div data-post hidden><Mar14_2 /></div>
+      <div data-post hidden><Mar14 /></div>
+      <div data-post hidden><Feb25 /></div>
+      <div data-post hidden><Feb12 /></div>
+      <div data-post hidden><Feb1 /></div>
+      <div data-post hidden><Jan31_3 /></div>
+      <div data-post hidden><Jan31_2 /></div>
+      <div data-post hidden><Jan31 /></div>
+      <div data-post hidden><Jan25_6 /></div>
+      <div data-post hidden><Jan25_5 /></div>
+      <div data-post hidden><Jan25_4 /></div>
+      <div data-post hidden><Jan25_3 /></div>
+      <div data-post hidden><Jan25_2 /></div>
+      <div data-post hidden><Jan25 /></div>
+      <div data-post hidden><Jan24 /></div>
+      <div data-post hidden><Jan6 /></div>
+      <div data-post hidden><June2 /></div>
+      <div data-post hidden><May17 /></div>
+      <div data-post hidden><May13 /></div>
+      <div data-post hidden><Apr26pt2 /></div>
+      <div data-post hidden><Apr26 /></div>
+      <div data-post hidden><Apr22 /></div>
+      <div data-post hidden><Apr6 /></div>
+      <div data-post hidden><Apr1 /></div>
+      <div data-post hidden><Mar23pt2 /></div>
+      <div data-post hidden><Mar23 /></div>
+      <div data-post hidden><Mar18 /></div>
+      <div data-post hidden><Mar15pt2 /></div>
+      <div data-post hidden><Mar15 /></div>
+      <div data-post hidden><Mar2 /></div>
+      <div data-post hidden><Feb18 /></div>
+      <div data-post hidden><Feb16 /></div>
+      <div data-post hidden><Feb10 /></div>
+      <div data-post hidden><Feb6 /></div>
+      <div data-post hidden><Feb4 /></div>
+      <div data-post hidden><Jan28pt2 /></div>
+      <div data-post hidden><Jan28 /></div>
+      <div data-post hidden><Jan20 /></div>
+      <div data-post hidden><Jan14pt2 /></div>
+      <div data-post hidden><Jan13 /></div>
+      <div data-post hidden><Jan7 /></div>
+      </div>
+      <div class="w-full flex justify-center">
+        <button
+          type="button"
+          data-more
+          hidden
+          aria-label="Show more posts"
+          class="cursor-pointer bg-transparent border-0 p-2"
+        >
+          <Fragment set:html={arrowSvg} />
+        </button>
+      </div>
+    </gain-posts>
   </div>
 </Main>
+
+<script>
+  import "@/components/blog/gain-posts";
+</script>

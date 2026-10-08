@@ -1,0 +1,17 @@
+---
+/**
+ * A single image in a post.
+ *
+ * The old `<Gallery>` wrapped these in links to /visual/<collection>/<name>,
+ * rendered separate mobile and desktop trees, and attached an info card. All of
+ * that went with the gallery; it'll come back when the gallery is rebuilt.
+ */
+interface Props {
+  /** Path within /art, e.g. "cars/911 targa.jpg". */
+  src: string;
+  alt?: string;
+}
+const { src, alt = "" } = Astro.props;
+const href = `/art/${src.replace(/^\.\//, "").split("/").map(encodeURIComponent).join("/")}`;
+---
+<img src={href} alt={alt} loading="lazy" class="image-base my-4 max-w-full" />

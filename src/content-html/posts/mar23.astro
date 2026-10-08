@@ -1,0 +1,32 @@
+---
+import BlogPost from "@/components/blog/BlogPost.astro";
+import Break from "@/components/blog/Break.astro";
+import Quote from "@/components/blog/Quote.astro";
+---
+
+<BlogPost title="technical difficulties" date="23 march - 2:49pm" tags={["web dev"]}>
+      so remember in the last post when i said this?
+      <Break />
+      <Quote>
+        + reworked how the webapp determines mobile vs web view which removed an
+        issue that caused the desktop version to render by default
+      </Quote>
+      <Break />
+      yea well that broke every single button on the app, but only in production
+      *facepalm*. i'm pretty sure the issue has to do with the previous page not
+      unmounting since i was not setting any content until after running a
+      useEffect hook that checks if it should render mobile (useEffects will
+      only run after the component has finished mounted). the result was the
+      page would not update until you manually refreshed it. this couldn't stay
+      for obvious reasons, so if you ever see the desktop site render on mobile
+      pretend like you didn't.
+      <Break />
+      ...
+      <Break />
+      as i wrote that i realized i could just make the mobile site the default
+      since that will still look fine on desktop. gonna put that in now then go
+      read a book or something idk. spent a week on this btw.
+      <Break />
+      chat (under better circumstances) soon :/
+      <Break />+ gain
+    </BlogPost>

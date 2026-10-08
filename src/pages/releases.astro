@@ -1,8 +1,13 @@
 ---
 import Main from "../layouts/Main.astro";
+import Release from "../components/releases/Release.astro";
+import { releases } from "@/data/releases";
 ---
-<Main>
+
+<Main title="gain online — releases">
   <div class="page-content-container min-w-[var(--content-width)]">
-    <p>TODO: port releases</p>
+    <div class="flex flex-col gap-8">
+      {releases.map((r) => <Release {...r} />)}
+    </div>
   </div>
 </Main>

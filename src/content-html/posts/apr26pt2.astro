@@ -1,0 +1,30 @@
+---
+import BlogPost from "@/components/blog/BlogPost.astro";
+import Break from "@/components/blog/Break.astro";
+---
+
+<BlogPost title="perspective shift" date="26 april - 9:22am" tags={["site updates", "web dev"]}>
+      i've been hesitant to release these site changes because they shift away
+      from my initial design for the desktop view. however, as i was working to
+      flesh out the individual album pages i realized that having the website be
+      a static width (visually speaking) with the top bar always spanning the
+      entire screen caused some serious design headaches for laying out content.
+      for one, screen size would drastically impact the viewing experience of
+      the website. secondly, a wider screen meant content felt stretched thin;
+      this was especially apparent on the home page where certain blog posts
+      would have paragraphs barely spanning one line.
+      <Break />
+      so the solution is to shift the orientation of the website. i accomplished
+      this by reworking the top navigation bar into a side bar that sits on the
+      left side of the screen. the large plus logo now opens a drawer menu that
+      allows for site navigation and i really like this change as it parallels
+      the mobile ui's similar design choice. i do think that while this new
+      design looks (very) good, it does lose a little of the sauce that the
+      original design had, which is why it took me a week or two to decide
+      whether or not to go through with the changes. after reflecting though i
+      think the benefits of the new orientation outweigh the loss of sauce, and
+      therefore with this post i will be deploying the new ui.
+      <Break />
+      chat soon :)
+      <Break />+ gain
+    </BlogPost>
