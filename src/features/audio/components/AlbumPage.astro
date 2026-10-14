@@ -1,0 +1,90 @@
+---
+/**
+ * The standard album page: cover, title, date, store links, blurb.
+ * Was components/defaultAudioPage. The old version rendered the cover twice and
+ * hid one copy with `lg:hidden`; one copy plus CSS does the same job.
+ */
+import MusicLinkBar from "./MusicLinkBar.astro";
+import { artUrl, type AlbumLinks } from "@/data/albums";
+
+interface Props {
+  title: string;
+  date?: string;
+  cover: string;
+  links?: AlbumLinks;
+  description?: string;
+}
+const { title, date, cover, links, description } = Astro.props;
+---
+
+<div class="album">
+  <div class="album-row">
+    <img class="album-cover" src={artUrl(cover)} alt={`${title} cover art`} />
+    <div class="album-text">
+      <div class="album-title">{title}</div>
+      {date && <p class="album-date">{date}</p>}
+      <div class="album-body">
+        {links && <MusicLinkBar links={links} class="album-links" />}
+        <p>{description}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .album {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .album-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+  }
+  .album-cover {
+    width: 75vw;
+  }
+  .album-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+    max-width: 100%;
+  }
+  .album-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .album-date {
+    color: var(--secondary-text-color);
+    text-align: center;
+  }
+  .album-body {
+    margin: 1rem 0;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .album-links {
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 64rem) {
+    .album-row {
+      flex-direction: row;
+      align-items: center;
+    }
+    .album-cover {
+      width: 30rem;
+    }
+    .album-body {
+      padding: 0 4rem;
+      width: 20rem;
+    }
+  }
+</style>

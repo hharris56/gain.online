@@ -1,0 +1,24 @@
+---
+import LinkButton from "./LinkButton.astro";
+import type { AlbumLinks } from "@/data/albums";
+
+interface Props {
+  links: AlbumLinks;
+  class?: string;
+}
+const { links, class: className } = Astro.props;
+---
+<span class:list={["link-bar", className]}>
+  {links.spotify && <LinkButton link={links.spotify} icon="spotify" text="spotify" />}
+  {links.apple && <LinkButton link={links.apple} icon="apple" text="apple music" />}
+  {links.soundcloud && <LinkButton link={links.soundcloud} icon="soundcloud" text="soundcloud" />}
+</span>
+
+<style>
+  .link-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+</style>

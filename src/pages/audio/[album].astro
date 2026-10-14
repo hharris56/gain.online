@@ -1,0 +1,30 @@
+---
+/**
+ * The five album pages that are nothing but data. Replaces five near-identical
+ * Next pages whose only per-page code was a useLayoutEffect poking CSS vars.
+ */
+import Main from "@/layouts/Main.astro";
+import AlbumPage from "@/features/audio/components/AlbumPage.astro";
+import { albums } from "@/data/albums";
+
+export function getStaticPaths() {
+  return albums.map((album) => ({
+    params: { album: album.slug },
+    props: { album },
+  }));
+}
+
+const { album } = Astro.props;
+---
+
+<Main title={`${album.title} — gain audio`} theme={album.theme}>
+  <div class="page-content-container min-w-[var(--content-width)]">
+    <AlbumPage
+      title={album.title}
+      date={album.date}
+      cover={album.cover}
+      links={album.links}
+      description={album.description}
+    />
+  </div>
+</Main>

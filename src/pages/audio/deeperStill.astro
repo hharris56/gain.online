@@ -1,0 +1,154 @@
+---
+/**
+ * deeper still — a five-part narrative, each section pairing art with prose.
+ *
+ * The old page branched on `useIsMobile()` to decide whether to render the
+ * section images at all. That's a media query's job, so the images are always in
+ * the markup and CSS hides them on narrow screens, exactly as before.
+ */
+import Main from "@/layouts/Main.astro";
+import MusicLinkBar from "@/features/audio/components/MusicLinkBar.astro";
+import { artUrl } from "@/data/albums";
+
+const COVER = "/art/albums/deeper still/deeper still album cover.png";
+
+const sections = [
+  {
+    heading: "deeper still",
+    image: "/art/albums/deeper still/deeper still cover.jpg",
+    body: "As our expedition party sets out there is a communal sense of excitement about the impending journey. One by we descend into the earth, slipping through cracks and squeezing through holes. Our headlamps illuminate path markers painted on the surrounding walls along with graphics, signatures and tags of those who came before us. Countless hours and millions of dollars have been spent preparing us for this journey. On our backs we carry not only the most advanced surveying equipment available, but also the hopes of our respective nations. The dreams and fears, speculations and doubts, all hinge on our success exploring deeper than ever before.",
+    imageFirst: false,
+  },
+  {
+    heading: "metric ton",
+    image: "/art/albums/deeper still/metric ton cover.jpg",
+    body: "The deep earth sensor array beeps and whirs as we descend further into the cavern. Little lights blink to indicate measurements have been relayed back up the signalway to researches on the surface. We past the third encampment a few days ago, a facility that serves as a jumping off point for many of the UGF’s expeditions and also marks the last man made structure on our route through the cave network. From here on out we will be in the dark, figuratively speaking, requiring one of us to find the nearest relay tower if we want to send or receive comms. Spirits are high among our party, although the last few days have been quiet as we trek ever deeper, engrossed in our expedition.",
+    imageFirst: true,
+  },
+  {
+    heading: "fleeting shadows",
+    image: "/art/albums/deeper still/fleeting shadows cover.jpg",
+    body: "Our supplies, 2 weeks worth of nutrition for the entire party, ran out days ago. Strangely enough none of the remaining members still traveling with me feel hungry or show any signs of fatigue. Even sleep has become entirely optional as most of us just lie wide awake, unable to rest our minds. There’s someone or something calling to us - to me specifically - from ahead, always seemingly just a chamber away. While this journey drives further into the unknown I find myself wondering if we’re still descending for our mission or if there’s something within ourselves emerging, some innate or primal curiosity that keeps pushing us deeper.",
+    imageFirst: false,
+  },
+  {
+    heading: "one in a million",
+    image: "/art/albums/deeper still/one in a million cover.jpg",
+    body: "I don’t know what lies at the end of this, or even if there is an end. The narrow passageways we once squeezed through have opened into cathedrals of staggering height. My boots have worn to pieces, and my memories from before this journey feel as distant as a past life, yet I feel nothing but the drive to keep moving forward. I left my tac-pack ages ago, a twisted amalgamation of sensors and dials naively attempting to understand the incomprehensible. There is no purpose for such tools in this temple, whatever pulls me in cannot be measured or recorded, only experienced. After everything I leave you with this final entry. I hope what’s left of my records can make it back to the surface, but my calling lies deeper still.",
+    imageFirst: true,
+  },
+];
+
+const theme = {
+  "--primary-color": "black",
+  "--accent-color": "#65b53a",
+  "--primary-text-color": "#65b53a",
+  "--secondary-text-color": "white",
+};
+---
+
+<Main title="deeper still — gain audio" theme={theme}>
+  <div class="page-content-container min-w-[var(--content-width)]">
+    <div class="album-page">
+      {/* Cover: full width on mobile, beside the intro on desktop. */}
+      <img class="cover-mobile" src={artUrl(COVER)} alt="deeper still album cover" />
+
+      <div class="row">
+        <img class="section-art" src={artUrl(COVER)} alt="deeper still album cover" />
+        <div class="text">
+          <div class="title">deeper still</div>
+          <span class="date">4 may 2024</span>
+          <MusicLinkBar
+            class="my-8"
+            links={{
+              spotify: "https://open.spotify.com/album/6ZCRMvZuJDAwfEvn8KXqta?si=uJmt1xSGTCa6mOUY7JrmYA",
+              apple: "https://music.apple.com/us/album/deeper-still-ep/1744920440",
+            }}
+          />
+          <p class="prose-dim">
+            In the year 2103 a massive network of subterranean passageways were
+            discovered in the Chilean mountains. Decades of exploration have left
+            humanity with more questions than answers and much of the network
+            remains uncharted. The year is now 2189 and the United Global Front's
+            22nd subterranean expedition ventures deeper still.
+          </p>
+        </div>
+      </div>
+
+      {
+        sections.map((s) => (
+          <div class="row">
+            {s.imageFirst && (
+              <img class="section-art" src={artUrl(s.image)} alt={`${s.heading} cover art`} loading="lazy" />
+            )}
+            <div class="text">
+              <h2><i>{s.heading}</i></h2>
+              <p class="prose-dim">{s.body}</p>
+            </div>
+            {!s.imageFirst && (
+              <img class="section-art" src={artUrl(s.image)} alt={`${s.heading} cover art`} loading="lazy" />
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Main>
+
+<style>
+  .album-page {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .cover-mobile {
+    width: 75vw;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 0.5rem;
+  }
+  .text {
+    margin: 2rem;
+    text-align: center;
+    width: 20rem;
+    max-width: 80vw;
+  }
+  .text h2 {
+    margin-top: 0;
+  }
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .date {
+    color: var(--secondary-text-color);
+    text-align: center;
+  }
+  .prose-dim {
+    color: var(--secondary-text-color);
+  }
+  /* Section art is desktop-only, matching the old `!isMobile &&` guards. */
+  .section-art {
+    display: none;
+  }
+
+  @media (min-width: 64rem) {
+    .cover-mobile {
+      display: none;
+    }
+    .section-art {
+      display: block;
+      width: 30rem;
+    }
+    .text {
+      padding: 0 2rem;
+    }
+  }
+</style>

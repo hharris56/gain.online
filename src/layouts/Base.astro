@@ -9,11 +9,28 @@ import "../styles/globals.css";
 interface Props {
   title?: string;
   description?: string;
+  /**
+   * Per-page CSS custom property overrides, e.g. { "--accent-color": "#5e61ff" }.
+   *
+   * These go on <body>, not <html>: ClientRouter replaces the whole body on
+   * navigation, so the next page's theme wins automatically. The old app set
+   * them on document.documentElement from a useLayoutEffect with no cleanup,
+   * which left colours bleeding onto whatever page you visited next.
+   *
+   * <body> also has to be the target rather than an inner wrapper, because
+   * `.webpage-background` reads --primary-color on <body> itself.
+   */
+  theme?: Record<string, string>;
 }
 const {
   title = "gain online",
   description = "gain portfolio spread",
+  theme,
 } = Astro.props;
+
+const themeStyle = theme
+  ? Object.entries(theme).map(([k, v]) => `${k}:${v}`).join(";")
+  : undefined;
 ---
 
 <!doctype html>
@@ -38,7 +55,7 @@ const {
     <ClientRouter />
   </head>
 
-  <body class="webpage-background font-sans">
+  <body class="webpage-background font-sans" style={themeStyle}>
     {/*
       THE one shared radio stream, for the entire site.
 

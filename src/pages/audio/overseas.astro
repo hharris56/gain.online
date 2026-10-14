@@ -1,0 +1,185 @@
+---
+/**
+ * overseas — album page, departures board, abstract, and influences.
+ *
+ * The board was a 439-line React component that rasterised each character into a
+ * 7x5 bitmap of divs (and keyed every cell with Math.random()). The split-flap
+ * rendering is parked, not ported — the rows are the content, so they render as
+ * monospace text. The bitmap glyph map is in git history if it comes back.
+ */
+import Main from "@/layouts/Main.astro";
+import AlbumPage from "@/features/audio/components/AlbumPage.astro";
+
+const boardRows = [
+  "time    destination       gate   status   ",
+  "05:12   copenhagen        c14    departed ",
+  "04:56   100cc             a02    gate open",
+  "03:56   barsbuttel step   a11    departed ",
+  "02:55   vitamin pushh     b07    on-time  ",
+  "05:20   action            b33    on-time  ",
+  "02:04   march interlude   ---    ---------",
+  "05:33   binary sky        a10    departed ",
+  "05:06   true virtue       c02    gate open",
+  "02:51   chariot           b23    boarding ",
+  "04:57   sunwalker         b19    on-time  ",
+  "08:03   eastern front     c16    on-time  ",
+];
+
+const influences = [
+  {
+    title: "spots: a research piece on modern street skating",
+    author: "place magazine",
+    body: "awesome video by the team over at place mag. i loved the narrators tone and subject material, she ended up being the voice of copenhagen.",
+    embed: "https://www.youtube.com/embed/N9oY7I720vw?si=SvBxsBgBczvjz22Z",
+  },
+  {
+    title: "k2 calling",
+    author: "mike horn",
+    body: "a beautiful piece by mike horn covering difficulties and his experience climbing k2. he is the vocal samples used on binary sky. 'we lived uh, moments very close to death together'",
+    embed: "https://www.youtube.com/embed/mYV0moSe8Co?si=xonNOJZmAwRsCycf",
+  },
+  {
+    title: "aleph",
+    author: "paulo coelho",
+    body: "a fixating novel by my current favorite author, this book follows paulo as he embarks on a train journy across russia. i really loved the idea of this trans-continental voyage and it definitely played a part in setting the story for this album.",
+    image: "/assets/aleph%20cover.jpg",
+  },
+];
+
+const theme = {
+  "--primary-color": "black",
+  "--primary-text-color": "white",
+  "--secondary-text-color": "#f05db0",
+};
+---
+
+<Main title="overseas — gain audio" theme={theme}>
+  <div class="page-content-container min-w-[var(--content-width)]">
+    <AlbumPage
+      title="overseas"
+      date="10 january 2024"
+      cover="/art/albums/overseas/overseas cover.jpg"
+      links={{
+        spotify: "https://open.spotify.com/album/6EHllJmgFCdGQoR9yV3fD4?si=y4WqHILAQeSkq7DA5SWj7g",
+        apple: "https://music.apple.com/us/album/overseas/1788945323",
+      }}
+      description="the pursuit of desire comes at a price... one night overseas can change everything"
+    />
+
+    <div class="board-wrap">
+      <pre class="board">{boardRows.join("\n")}</pre>
+    </div>
+
+    <section class="centered">
+      <div class="narrow">
+        <h2>abstract</h2>
+        <p>
+          inspired by the bleak landscapes and brutalist architecture of central
+          and eastern europe, 'overseas' explores the spiritual and emotional
+          burdens that arise from the pursuit of pleasure, and recount the events
+          of an unknown protaganist during a single night overseas.
+        </p>
+        <p>
+          the desolate soundscapes and droning pads are punctuated by lush
+          arpeggios and driving basslines to create a wave of sound and emotion
+          that rush past, leaving only traces of some featureless longing in their
+          wake.
+        </p>
+        <p>+ gain</p>
+      </div>
+    </section>
+
+    <section class="centered column">
+      <h2>influences + inspiration</h2>
+      {
+        influences.map((i) => (
+          <div class="influence">
+            {i.embed ? (
+              <iframe src={i.embed} title={i.title} loading="lazy" allowfullscreen />
+            ) : (
+              <img src={i.image} alt={i.title} loading="lazy" />
+            )}
+            <div class="influence-text">
+              <h3>{i.title}</h3>
+              <i>{i.author}</i>
+              <p>{i.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+  </div>
+</Main>
+
+<style>
+  .board-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .board {
+    margin: 2rem 0;
+    padding: 1rem;
+    border: 1px solid var(--secondary-text-color);
+    font-family: ui-monospace, monospace;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    white-space: pre;
+    overflow-x: auto;
+    color: var(--secondary-text-color);
+  }
+  .centered {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  .centered.column {
+    flex-direction: column;
+    align-items: center;
+  }
+  .centered h2 {
+    width: 100%;
+    text-align: center;
+  }
+  .narrow {
+    max-width: 50rem;
+  }
+  .influence {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    max-width: 50rem;
+  }
+  .influence iframe {
+    width: 20rem;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+  .influence img {
+    width: 10rem;
+  }
+  .influence-text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .influence-text h3 {
+    margin-bottom: 0.25rem;
+  }
+  .influence-text p {
+    text-align: left;
+  }
+
+  @media (min-width: 64rem) {
+    .influence {
+      flex-direction: row;
+    }
+    .influence iframe,
+    .influence img {
+      margin-right: 2rem;
+    }
+  }
+</style>

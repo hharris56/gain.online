@@ -10,15 +10,17 @@ import MiniPlayer from "../components/radio/MiniPlayer.astro";
 interface Props {
   title?: string;
   description?: string;
+  /** Per-page CSS custom property overrides — see Base.astro. */
+  theme?: Record<string, string>;
 }
-const { title, description } = Astro.props;
+const { title, description, theme } = Astro.props;
 
 // The full radio console already shows controls, so the mini player would be a
 // duplicate there.
 const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} theme={theme}>
   <div class="flex flex-col md:flex-row md:p-8 md:pb-0">
     <Header />
     <div class="flex flex-col px-4 md:pl-8">
