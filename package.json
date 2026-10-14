@@ -1,5 +1,5 @@
 {
-  "name": "nextjsproj",
+  "name": "gain-online",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,45 +7,27 @@
     "prepare": "husky",
     "precommit": "lint-staged",
     "format": "prettier --write .",
-    "dev": "next dev -p 9999",
-    "build": "next build",
-    "start": "next start -p 9999",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check && tsc --noEmit"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "prettier --write",
-      "git add"
+    "*.{ts,tsx,js,jsx,astro}": [
+      "prettier --write"
     ]
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "@tailwindcss/typography": "^0.5.19",
-    "clsx": "^2.1.1",
-    "eslint": "9.39.2",
-    "eslint-config-next": "16.1.4",
-    "mpg123-decoder": "^1.0.3",
-    "next": "16.1.4",
-    "postcss": "^8.5.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "react-feather": "^2.0.10",
-    "tailwind-merge": "^3.4.0",
-    "tailwindcss": "^4.1.18",
-    "typescript": "5.9.3",
-    "underscore": "^1.13.7"
+    "mpg123-decoder": "^1.0.3"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "25.0.10",
-    "@types/react": "19.2.9",
-    "@types/react-dom": "19.2.3",
-    "@types/underscore": "^1.13.0",
     "astro": "^7.3.6",
-    "cross-spawn": "^7.0.6",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "pre-commit": "^1.2.2",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "tailwindcss": "^4.1.18",
+    "typescript": "5.9.3"
   }
 }

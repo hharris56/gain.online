@@ -1,9 +1,0 @@
-.link-bar {
-  width: 100%;
-  min-height: 3rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-
-  margin-bottom: 1rem;
-}
