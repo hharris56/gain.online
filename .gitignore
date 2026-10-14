@@ -32,3 +32,7 @@ yarn-error.log*
 # astro
 /dist/
 /.astro/
+
+# stray build output
+/.next/
+/out/

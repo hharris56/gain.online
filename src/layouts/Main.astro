@@ -5,7 +5,7 @@
 import Base from "./Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import MiniPlayer from "../components/radio/MiniPlayer.astro";
+import MiniPlayer from "../features/radio/components/MiniPlayer.astro";
 
 interface Props {
   title?: string;
@@ -24,17 +24,19 @@ const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
   <div class="flex flex-col md:flex-row md:p-8 md:pb-0">
     <Header />
     <div class="flex flex-col px-4 md:pl-8">
-      <h1 class="hidden text-4xl font-bold my-4 md:flex md:mt-0">gain.online</h1>
+      <h1 class="hidden text-4xl font-bold my-4 md:flex md:mt-0">
+        gain.online
+      </h1>
       <div class="mt-4">
         hey, welcome to my corner of the web. my name is{" "}
         <mark class="bg-(--primary-text-color) text-(--primary-text-color)">
           nicetrylol
         </mark>{" "}
         but <u>online</u> i go by <u>gain</u>. im a 28yo artist, programmer, and
-        avid enjoyer of all things related to music and design. for now this site
-        acts as a personal blog, soon it will return to functioning as an archive
-        of my current and past works. until then you can check out some of my
-        music via the socials below.
+        avid enjoyer of all things related to music and design. for now this
+        site acts as a personal blog, soon it will return to functioning as an
+        archive of my current and past works. until then you can check out some
+        of my music via the socials below.
       </div>
       <div class="flex flex-row gap-4 justify-center mt-4">
         <a href="/blog">[blog]</a>
@@ -44,7 +46,9 @@ const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
 
       {!onRadioPage && <MiniPlayer class="mt-4 p-2 border" />}
 
-      <div><slot /></div>
+      <div>
+        <slot />
+      </div>
       <Footer />
     </div>
   </div>
@@ -53,9 +57,7 @@ const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
 {
   /* The radio elements are only shipped where radio UI actually exists: the
      mini player off /radio, and the full console on it (see radio.astro). */
-  !onRadioPage && (
-    <script>
-      import "@/features/radio/elements/chrome";
-    </script>
-  )
+  !onRadioPage && <script>
+    import "@/features/radio/elements/chrome";
+  </script>
 }
