@@ -25,7 +25,14 @@ const hoverable =
       aria-label="Play"
       aria-pressed="false"
       disabled
-      class="font-mono text-sm whitespace-pre text-(--primary-text-color) transition-colors cursor-pointer hover:text-(--accent-color) disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-(--primary-text-color)"
+      class:list={[
+        // base
+        "font-mono text-sm whitespace-pre text-(--primary-text-color)",
+        // interaction
+        "transition-colors cursor-pointer hover:text-(--accent-color)",
+        // disabled (no stream / offline / not ready)
+        "disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:text-(--primary-text-color)",
+      ]}
     >
       [ PLAY ]
     </button>
@@ -50,7 +57,12 @@ const hoverable =
         aria-valuemin="0"
         aria-valuemax="100"
         aria-valuenow="100"
-        class="cursor-pointer rounded-xs outline-offset-2 focus-visible:outline focus-visible:outline-(--accent-color)"
+        class:list={[
+          // base
+          "cursor-pointer rounded-xs",
+          // keyboard focus ring
+          "outline-offset-2 focus-visible:outline focus-visible:outline-(--accent-color)",
+        ]}
       >
         [
         <span data-fill class="text-(--accent-color)">

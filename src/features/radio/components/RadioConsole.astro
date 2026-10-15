@@ -68,7 +68,14 @@ const dim = "text-(--secondary-text-color)";
         data-container
         aria-hidden="true"
         style={`height:${EQ_HEIGHT}em;line-height:1`}
-        class="relative m-0 overflow-hidden font-mono text-sm whitespace-pre text-(--accent-color) select-none"
+        class:list={[
+          // box
+          "relative m-0 overflow-hidden",
+          // monospace grid
+          "font-mono text-sm whitespace-pre select-none",
+          // colour
+          "text-(--accent-color)",
+        ]}
       ><span data-ruler aria-hidden="true" class={CHAR_RULER_CLASS}>{CHAR_RULER}</span><span
           data-rows></span></pre>
     </gain-ascii-eq>

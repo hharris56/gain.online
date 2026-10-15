@@ -6,6 +6,7 @@ import Base from "./Base.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import MiniPlayer from "../features/radio/components/MiniPlayer.astro";
+import gainLogo from "../../public/logos/gain online black.png";
 
 interface Props {
   title?: string;
@@ -23,7 +24,7 @@ const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
 <Base title={title} description={description} theme={theme}>
   <div class="flex flex-col md:flex-row md:p-8 md:pb-0">
     <Header />
-    <div class="flex flex-col px-4 md:pl-8">
+    <div class="flex flex-col px-4 md:pl-8 bg-red-500">
       <h1 class="hidden text-4xl font-bold my-4 md:flex md:mt-0">
         gain.online
       </h1>
