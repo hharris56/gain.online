@@ -8,7 +8,7 @@ import { catalogue, artUrl } from "@/data/albums";
 ---
 
 <Main title="gain audio">
-  <div class="page-content-container min-w-[var(--content-width)]">
+  <div class="page-content-container">
     <div class="mb-4">
       <h1 class="text-4xl font-bold my-4">gain audio</h1>
       <div class="flex flex-col">
@@ -17,30 +17,36 @@ import { catalogue, artUrl } from "@/data/albums";
       </div>
     </div>
 
-    {
-      catalogue.map((group) => (
-        <section class="mt-8">
-          <h2 class="text-center text-xl lowercase">{group.heading}</h2>
-          <div class="albums">
-            {group.items.map((a) => (
-              <div class="album-item">
-                {a.slug ? (
-                  <a href={`/audio/${a.slug}`}>
-                    <img src={artUrl(a.cover)} alt={`${a.title} cover art`} loading="lazy" />
-                  </a>
-                ) : (
-                  <img src={artUrl(a.cover)} alt={`${a.title} cover art`} loading="lazy" />
-                )}
-                <div class="album-info">
-                  <i>{a.title}</i>
-                  <span class="album-year">{a.year}</span>
-                </div>
+    {catalogue.map((group) => (
+      <section class="mt-8">
+        <h2 class="text-center text-xl lowercase">{group.heading}</h2>
+        <div class="albums">
+          {group.items.map((a) => (
+            <div class="album-item">
+              {a.slug ? (
+                <a href={`/audio/${a.slug}`}>
+                  <img
+                    src={artUrl(a.cover)}
+                    alt={`${a.title} cover art`}
+                    loading="lazy"
+                  />
+                </a>
+              ) : (
+                <img
+                  src={artUrl(a.cover)}
+                  alt={`${a.title} cover art`}
+                  loading="lazy"
+                />
+              )}
+              <div class="album-info">
+                <i>{a.title}</i>
+                <span class="album-year">{a.year}</span>
               </div>
-            ))}
-          </div>
-        </section>
-      ))
-    }
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
   </div>
 </Main>
 

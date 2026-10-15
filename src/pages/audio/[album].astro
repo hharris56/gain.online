@@ -18,7 +18,7 @@ const { album } = Astro.props;
 ---
 
 <Main title={`${album.title} — gain audio`} theme={album.theme}>
-  <div class="page-content-container min-w-[var(--content-width)]">
+  <div class="page-content-container">
     <AlbumPage
       title={album.title}
       date={album.date}

@@ -33,27 +33,14 @@ import { ICONS, PLUS_ICON } from "./feather-icons";
       class="flex flex-row md:flex-col gap-1 overflow-hidden shrink-0"
     >
       {ICONS.map((svg) => (
-        <div class="gain-icon opacity-0" set:html={svg} />
+        <div class="gain-icon" set:html={svg} />
       ))}
     </div>
   </gain-icon-shuffle>
 </div>
 
-<style>
-  /* Each icon pops in, staggered. The delay is set per-element by the custom
-     element after shuffling, via the --i custom property. */
-  .gain-icon {
-    animation: pop-in 0.5s ease-out forwards;
-    animation-delay: calc(var(--i, 0) * 0.1s);
-  }
-</style>
-
 <script>
-  /**
-   * Shuffles the icon rail. The icons are already in the DOM as static HTML, so
-   * this only reorders existing nodes and restarts their pop-in animation —
-   * nothing is created or fetched.
-   */
+  /** Puts the icons in a random order. No animation — they just render. */
   class GainIconShuffle extends HTMLElement {
     connectedCallback() {
       this.querySelector("[data-shuffle]")?.addEventListener("click", () =>
@@ -65,7 +52,6 @@ import { ICONS, PLUS_ICON } from "./feather-icons";
     shuffle() {
       const box = this.querySelector<HTMLElement>("[data-icons]");
       if (!box) return;
-
       const icons = Array.from(box.children) as HTMLElement[];
 
       // Source - https://stackoverflow.com/a/2450976
@@ -77,14 +63,7 @@ import { ICONS, PLUS_ICON } from "./feather-icons";
         [icons[i], icons[r]] = [icons[r], icons[i]];
       }
 
-      // Re-append in the new order, restarting the stagger as we go.
-      icons.forEach((icon, index) => {
-        icon.style.animation = "none";
-        box.appendChild(icon);
-        icon.style.setProperty("--i", String(index));
-        void icon.offsetWidth; // force reflow so the animation re-runs
-        icon.style.animation = "";
-      });
+      for (const icon of icons) box.appendChild(icon);
     }
   }
 

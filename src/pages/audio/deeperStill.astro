@@ -48,49 +48,69 @@ const theme = {
 ---
 
 <Main title="deeper still — gain audio" theme={theme}>
-  <div class="page-content-container min-w-[var(--content-width)]">
+  <div class="page-content-container">
     <div class="album-page">
       {/* Cover: full width on mobile, beside the intro on desktop. */}
-      <img class="cover-mobile" src={artUrl(COVER)} alt="deeper still album cover" />
+      <img
+        class="cover-mobile"
+        src={artUrl(COVER)}
+        alt="deeper still album cover"
+      />
 
       <div class="row">
-        <img class="section-art" src={artUrl(COVER)} alt="deeper still album cover" />
+        <img
+          class="section-art"
+          src={artUrl(COVER)}
+          alt="deeper still album cover"
+        />
         <div class="text">
           <div class="title">deeper still</div>
           <span class="date">4 may 2024</span>
           <MusicLinkBar
             class="my-8"
             links={{
-              spotify: "https://open.spotify.com/album/6ZCRMvZuJDAwfEvn8KXqta?si=uJmt1xSGTCa6mOUY7JrmYA",
-              apple: "https://music.apple.com/us/album/deeper-still-ep/1744920440",
+              spotify:
+                "https://open.spotify.com/album/6ZCRMvZuJDAwfEvn8KXqta?si=uJmt1xSGTCa6mOUY7JrmYA",
+              apple:
+                "https://music.apple.com/us/album/deeper-still-ep/1744920440",
             }}
           />
           <p class="prose-dim">
             In the year 2103 a massive network of subterranean passageways were
-            discovered in the Chilean mountains. Decades of exploration have left
-            humanity with more questions than answers and much of the network
-            remains uncharted. The year is now 2189 and the United Global Front's
-            22nd subterranean expedition ventures deeper still.
+            discovered in the Chilean mountains. Decades of exploration have
+            left humanity with more questions than answers and much of the
+            network remains uncharted. The year is now 2189 and the United
+            Global Front's 22nd subterranean expedition ventures deeper still.
           </p>
         </div>
       </div>
 
-      {
-        sections.map((s) => (
-          <div class="row">
-            {s.imageFirst && (
-              <img class="section-art" src={artUrl(s.image)} alt={`${s.heading} cover art`} loading="lazy" />
-            )}
-            <div class="text">
-              <h2><i>{s.heading}</i></h2>
-              <p class="prose-dim">{s.body}</p>
-            </div>
-            {!s.imageFirst && (
-              <img class="section-art" src={artUrl(s.image)} alt={`${s.heading} cover art`} loading="lazy" />
-            )}
+      {sections.map((s) => (
+        <div class="row">
+          {s.imageFirst && (
+            <img
+              class="section-art"
+              src={artUrl(s.image)}
+              alt={`${s.heading} cover art`}
+              loading="lazy"
+            />
+          )}
+          <div class="text">
+            <h2>
+              <i>{s.heading}</i>
+            </h2>
+            <p class="prose-dim">{s.body}</p>
           </div>
-        ))
-      }
+          {!s.imageFirst && (
+            <img
+              class="section-art"
+              src={artUrl(s.image)}
+              alt={`${s.heading} cover art`}
+              loading="lazy"
+            />
+          )}
+        </div>
+      ))}
     </div>
   </div>
 </Main>

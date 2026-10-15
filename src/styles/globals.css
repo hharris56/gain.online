@@ -25,10 +25,6 @@
   --primary-text-color: black;
   --secondary-text-color: darkgrey;
   --shadow: 0 0 4px 1px lightgray;
-  --content-width: min(
-    calc(100vw - 10rem),
-    100rem
-  ); /* whole view minus width of navbar + padding */
 }
 
 /*
@@ -88,17 +84,6 @@ body {
   }
 }
 
-@keyframes pop-in {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
 @keyframes cycle-fade {
   0% {
     opacity: 0.5;
@@ -153,11 +138,6 @@ body {
   max-width: 100rem;
 }
 
-.webpage-background {
-  background-color: var(--primary-color);
-  color: var(--primary-text-color);
-}
-
 a:link,
 a:visited {
   @apply text-blue-500 underline;
@@ -170,6 +150,5 @@ a:hover {
 .page-content-container {
   display: flex;
   flex-direction: column;
-  min-width: var(--content-width);
   min-height: 83vh;
 }
