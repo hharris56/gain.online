@@ -44,7 +44,7 @@ const onRadioPage = Astro.url.pathname.replace(/\/$/, "") === "/radio";
         <a href="/radio">[radio]</a>
       </div>
 
-      {!onRadioPage && <MiniPlayer class="mt-4 p-2 border" />}
+      {!onRadioPage && <MiniPlayer class="mb-4 p-2 border" />}
 
       <div>
         <slot />
